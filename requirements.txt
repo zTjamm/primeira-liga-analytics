@@ -1,0 +1,10 @@
+polars>=2.0
+pyarrow>=17.0
+numpy>=2.0
+scipy>=1.14
+scikit-learn>=1.5
+lightgbm>=4.5
+requests>=2.32
+fastapi>=0.115
+uvicorn[standard]>=0.32
+pydantic>=2.9

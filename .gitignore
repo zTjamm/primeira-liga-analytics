@@ -1,0 +1,28 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.next/
+out/
+npm-debug.log*
+
+# Данные: сырьё и производные пересобираются пайплайном
+data/raw/
+data/processed/
+data/models/
+web/.next/
+web/public/data/
+
+# Секреты
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

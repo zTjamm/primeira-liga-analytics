@@ -1,0 +1,88 @@
+name: pipeline
+
+# Матчи Primeira Liga играются по пятницам–воскресеньям. Собираем утром,
+# чтобы успевать до начала игрового дня по континентальной Европе.
+on:
+  schedule:
+    # 06:40 UTC — под linux cron это 08:40 по Москве
+    - cron: "40 6 * * *"
+  workflow_dispatch:
+    inputs:
+      skip_backtest:
+        description: "Пропустить полный бэктест (быстрее, но без метрик)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Установить зависимости
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Собрать данные и обновить расписание
+        env:
+          FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
+          FIXTURE_HORIZON_DAYS: "45"
+        run: python -m etl.run
+
+      - name: Калибровка снятия маржи
+        run: python -m models.market_calibration
+
+      - name: Прогнозы на ближайшие матчи
+        env:
+          FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
+        run: python -m models.predict
+
+      - name: Бэктест
+        if: ${{ !inputs.skip_backtest }}
+        run: python -m models.backtest_runner
+
+      - name: Выгрузить артефакты
+        uses: actions/upload-artifact@v4
+        with:
+          name: predictions
+          path: |
+            data/processed/predictions.json
+            data/processed/fixtures.parquet
+            data/processed/standings.parquet
+            data/reports/
+          retention-days: 90
+
+      - name: Опубликовать артефакты в репозиторий
+        # Фронт читает файлы из public/data, поэтому они должны лежать в ветке.
+        # Коммитим только артефакты: сырые CSV туда попадать не должны.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p web/public/data
+          cp data/processed/predictions.json web/public/data/predictions.json
+          cp data/reports/elo_table.json web/public/data/elo_table.json
+          cp data/reports/dc_strength.json web/public/data/dc_strength.json
+          cp data/reports/backtest.json web/public/data/backtest.json
+          cp data/reports/validation.json web/public/data/validation.json
+          cp data/reports/market_calibration.json web/public/data/market_calibration.json
+          git add web/public/data
+          git diff --cached --quiet || git commit -m "chore(data): автообновление прогнозов [skip ci]"
+          git push
+
+      - name: Отчёт в сводке
+        if: always()
+        run: |
+          echo "### Покрытие данных и проверки" >> "$GITHUB_STEP_SUMMARY"
+          cat data/reports/validation.json >> "$GITHUB_STEP_SUMMARY"

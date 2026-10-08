@@ -1,0 +1,257 @@
+{
+  "checks": [
+    {
+      "check": "нет дублей match_id",
+      "ok": true,
+      "detail": "0 дублей"
+    },
+    {
+      "check": "FTR согласован со счётом",
+      "ok": true,
+      "detail": "0 расхождений"
+    },
+    {
+      "check": "нет матчей команды с самой собой",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "тотал в пределах 0..25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "xG не расходится со счётом",
+      "ok": true,
+      "detail": "0 из 62"
+    },
+    {
+      "check": "удары выглядят правдоподобно",
+      "ok": true,
+      "detail": "0 из 2816"
+    },
+    {
+      "check": "оверраунд коэффициентов в 1.0..1.20",
+      "ok": true,
+      "detail": "min=1.047 max=1.089 mean=1.062"
+    }
+  ],
+  "coverage": [
+    {
+      "season": "2000/01",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2001/02",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2002/03",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2003/04",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2004/05",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2005/06",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2006/07",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2007/08",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2008/09",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2009/10",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2010/11",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2011/12",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2012/13",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2013/14",
+      "matches": 240,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2014/15",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2015/16",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2016/17",
+      "matches": 306,
+      "xg": 0,
+      "shots": 0,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2017/18",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2018/19",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 0,
+      "from_api": 0
+    },
+    {
+      "season": "2019/20",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2020/21",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2021/22",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2022/23",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2023/24",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2024/25",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2025/26",
+      "matches": 306,
+      "xg": 0,
+      "shots": 306,
+      "closing": 306,
+      "from_api": 0
+    },
+    {
+      "season": "2026/27",
+      "matches": 62,
+      "xg": 62,
+      "shots": 62,
+      "closing": 62,
+      "from_api": 0
+    }
+  ]
+}
