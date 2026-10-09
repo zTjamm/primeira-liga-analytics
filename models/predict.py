@@ -140,9 +140,9 @@ def main() -> None:
         rows.append(row)
 
         ledger.append({
-            "fd_match_id": f["fd_match_id"],
-            "match_date": str(f["match_date"]),
-            "kickoff_utc": f["kickoff_utc"],
+            "key": str(f["fd_match_id"]),
+            "date": str(f["match_date"]),
+            "kickoff": f["kickoff_utc"],
             "matchday": f["matchday"],
             "home_id": f["home_id"],
             "away_id": f["away_id"],
@@ -152,9 +152,8 @@ def main() -> None:
             "hours_before": round(hours_before, 2),
             "stage": row["stage"],
             "p_home": p["p_home"], "p_draw": p["p_draw"], "p_away": p["p_away"],
-            "over25": p["over25"],
-            "xg_home": p["xg_home"], "xg_away": p["xg_away"],
-            "weather": cond,
+            "extra": {"over25": p["over25"], "xg_home": p["xg_home"],
+                      "xg_away": p["xg_away"], "weather": cond},
         })
     rows.sort(key=lambda r: r["kickoff_utc"])
 
@@ -192,7 +191,7 @@ def main() -> None:
 
 def _finish(matches_df: pl.DataFrame) -> None:
     """Сводит журнал в отчёт с вердиктами по сыгранным матчам."""
-    hist = forecast.save(matches_df)
+    hist = forecast.save(matches_df, "football")
     s = hist["summary"]
     if s.get("total"):
         o = s["overall"]
@@ -204,7 +203,7 @@ def _finish(matches_df: pl.DataFrame) -> None:
     else:
         print("\nЖурнал пуст — сыгранных прогнозов пока нет. "
               "Как только матчи будут сыграны, здесь появятся пометки.")
-    print(f"Отчёт: data/processed/forecast_history.json")
+    print("Отчёт: data/processed/football_journal.json")
 
 
 if __name__ == "__main__":

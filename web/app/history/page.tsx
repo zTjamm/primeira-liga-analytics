@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { getForecastHistory, type ForecastHistory } from "@/lib/data";
+﻿import Link from "next/link";
+import { getJournal, type Journal, type Weather } from "@/lib/data";
 import { kickoffMoscow, longDate, OUTCOME_LABEL } from "@/lib/format";
 import { EmptyState } from "@/components/EmptyState";
 import { ProbBar } from "@/components/ProbBar";
@@ -8,8 +8,24 @@ export const dynamic = "force-dynamic";
 
 const STAGE_ORDER = ["T-72h+", "T-24h", "T-6h", "T-4h"];
 
+/** Время начала матча в миллисекундах. В журнале поле nullable:
+ *  у части записей API не отдал время, и такие строки просто не считаем
+ *  ближайшими, вместо того чтобы ронять рендер на new Date(null). */
+function kickoffMs(p: { kickoff: string | null }): number | null {
+  if (!p.kickoff) return null;
+  const t = new Date(p.kickoff).getTime();
+  return Number.isFinite(t) ? t : null;
+}
+
+/** Погода лежит в extra — она специфична для футбола и для баскетбола
+ *  в общем формате журнала просто отсутствует. */
+function weatherOf(p: { extra: Record<string, unknown> | null }) {
+  const w = p.extra?.weather;
+  return w && typeof w === "object" ? (w as Weather) : null;
+}
+
 export default async function HistoryPage() {
-  const hist = await getForecastHistory();
+  const hist = await getJournal("football");
   if (!hist) {
     return (
       <EmptyState
@@ -20,9 +36,11 @@ export default async function HistoryPage() {
   }
 
   const { resolved, pending, summary } = hist;
-  const next24 = pending.filter(
-    (p) => new Date(p.kickoff_utc).getTime() - Date.now() < 24 * 3600 * 1000,
-  );
+  const now = Date.now();
+  const next24 = pending.filter((p) => {
+    const t = kickoffMs(p);
+    return t !== null && t > now && t - now < 24 * 3600 * 1000;
+  });
 
   return (
     <div className="space-y-6">
@@ -60,16 +78,17 @@ export default async function HistoryPage() {
         ) : (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {next24.map((p) => {
-              const hours = (new Date(p.kickoff_utc).getTime() - Date.now()) / 3600000;
+              const hours = ((kickoffMs(p) ?? now) - now) / 3600000;
               return (
                 <Link
-                  key={p.fd_match_id}
-                  href={`/matches/${p.fd_match_id}`}
+                  key={p.key}
+                  href={`/matches/${p.key}`}
                   className="panel block p-4 transition-colors hover:border-home/50"
                 >
                   <div className="mb-3 flex items-center justify-between text-xs text-muted">
                     <span>
-                      {longDate(p.date)} · {kickoffMoscow(p.kickoff_utc)} МСК
+                      {longDate(p.date)}
+                      {p.kickoff ? ` · ${kickoffMoscow(p.kickoff)} МСК` : ""}
                     </span>
                     <span
                       className={`rounded px-1.5 py-0.5 ${
@@ -98,12 +117,15 @@ export default async function HistoryPage() {
                     </span>
                     <span>срез {p.stage}</span>
                   </div>
-                  {p.weather && (
-                    <p className="mt-1 text-[11px] text-muted">
-                      {p.weather.temp_c}°C, осадки {p.weather.precip_prob}%,
-                      ветер {p.weather.wind_kmh} км/ч · {p.weather.island}
-                    </p>
-                  )}
+                  {(() => {
+                    const w = weatherOf(p);
+                    return w ? (
+                      <p className="mt-1 text-[11px] text-muted">
+                        {w.temp_c}°C, осадки {w.precip_prob}%, ветер {w.wind_kmh} км/ч ·{" "}
+                        {w.island}
+                      </p>
+                    ) : null;
+                  })()}
                 </Link>
               );
             })}
@@ -133,14 +155,14 @@ export default async function HistoryPage() {
                 </thead>
                 <tbody>
                   {resolved.map((r) => (
-                    <tr key={r.fd_match_id} className="border-b border-line/40">
+                    <tr key={r.key} className="border-b border-line/40">
                       <td className="py-2 pl-4 text-xs text-muted whitespace-nowrap">
                         {r.date}
                         <span className="ml-1 opacity-60">{r.stage}</span>
                       </td>
                       <td className="py-2">
                         <Link
-                          href={`/matches/${r.fd_match_id}`}
+                          href={`/matches/${r.key}`}
                           className="link hover:underline"
                         >
                           {r.home_name} — {r.away_name}
@@ -199,7 +221,7 @@ function topOutcome(p: { p_home: number; p_draw: number; p_away: number }): stri
   return ["H", "D", "A"][arr.indexOf(Math.max(...arr))];
 }
 
-function Summary({ summary }: { summary: ForecastHistory["summary"] }) {
+function Summary({ summary }: { summary: Journal["summary"] }) {
   if (!summary.total) return null;
   const o = summary.overall;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
@@ -291,3 +313,4 @@ function Stat({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+

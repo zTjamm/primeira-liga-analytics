@@ -278,9 +278,7 @@ export const getEloTable = cache(() => readJson<EloRow[]>("elo_table.json"));
 export const getDcStrength = cache(() => readJson<DcRow[]>("dc_strength.json"));
 export const getValidation = cache(() => readJson<ValidationFile>("validation.json"));
 export const getCalibration = cache(() => readJson<CalibrationFile>("market_calibration.json"));
-export const getForecastHistory = cache(
-  () => readJson<ForecastHistory>("forecast_history.json"),
-);
+export const getForecastHistory = cache(() => getJournal("football"));
 
 export const getVtbPredictions = cache(
   () => readJson<VtbPredictionsFile>("vtb_predictions.json"),
@@ -288,6 +286,72 @@ export const getVtbPredictions = cache(
 export const getVtbStrength = cache(() => readJson<VtbStrengthRow[]>("vtb_strength.json"));
 export const getVtbBacktest = cache(() => readJson<VtbBacktestFile>("vtb_backtest.json"));
 export const getVtbIngest = cache(() => readJson<VtbIngestFile>("vtb_ingest.json"));
+
+/* --------------------------------------------------------------- журнал */
+
+export interface JournalVersion {
+  stage: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  hours_before: number;
+  generated_at: string;
+}
+
+export interface JournalRecord {
+  key: string;
+  date: string;
+  kickoff: string | null;
+  matchday: number | null;
+  home_id: string;
+  away_id: string;
+  home_name: string;
+  away_name: string;
+  generated_at: string;
+  hours_before: number;
+  stage: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  extra: Record<string, unknown> | null;
+  versions: JournalVersion[];
+}
+
+export interface Journal {
+  sport: string;
+  generated_at: string;
+  resolved: (JournalRecord & {
+    actual: "H" | "D" | "A";
+    score: string;
+    hit: boolean;
+    p_actual: number | null;
+    logloss: number | null;
+    n_versions: number;
+    shift: number;
+    flipped: boolean;
+  })[];
+  pending: JournalRecord[];
+  summary: {
+    total: number;
+    overall: {
+      n: number;
+      accuracy: number;
+      logloss: number | null;
+      avg_p_actual: number;
+    };
+    by_stage: Record<
+      string,
+      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
+    >;
+    multi_stage: number;
+    flipped: number;
+    avg_shift: number | null;
+  };
+}
+
+export const getJournal = cache((sport: "football" | "basketball") =>
+  readJson<Journal>(`${sport}_journal.json`),
+);
 
 export function getPredictionById(
   predictions: PredictionsFile | null,

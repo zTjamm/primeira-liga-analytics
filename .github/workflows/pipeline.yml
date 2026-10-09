@@ -146,9 +146,10 @@ jobs:
           mkdir -p web/public/data
           for f in \
             data/processed/predictions.json \
-            data/processed/forecast_history.json \
+            data/processed/football_journal.json \
             data/processed/vtb_predictions.json \
             data/processed/vtb_strength.json \
+            data/processed/basketball_journal.json \
             data/reports/elo_table.json \
             data/reports/dc_strength.json \
             data/reports/backtest.json \
@@ -158,6 +159,10 @@ jobs:
             data/reports/vtb_backtest.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"
           done
+          # Старый файл журнала больше не используется: единый формат
+          # football_journal.json пришёл на смену forecast_history.json.
+          git rm --cached --quiet web/public/data/forecast_history.json 2>/dev/null || true
+          rm -f web/public/data/forecast_history.json
 
       - name: Опубликовать артефакты в репозиторий
         if: steps.gate.outputs.needs == 'true'
@@ -165,7 +170,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add web/public/data data/forecast_log.jsonl
+          git add web/public/data data/forecast_log_football.jsonl data/forecast_log_basketball.jsonl
           if git diff --cached --quiet; then
             echo "изменений нет"
           else

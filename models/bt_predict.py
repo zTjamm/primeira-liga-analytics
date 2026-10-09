@@ -22,6 +22,7 @@ import numpy as np
 import polars as pl
 
 from etl.config import CURRENT_SEASON, PROCESSED
+from . import forecast
 from .basketball import BasketballModel
 
 WEEKDAYS = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
@@ -80,7 +81,8 @@ def build() -> dict:
         f"{_russian_name(names, r["team"])} {r['overall']:+.1f}" for r in model.strength()[:4]))
 
     now = datetime.now(timezone.utc)
-    rows = []
+    rows: list[dict] = []
+    bt_ledger: list[dict] = []
     for f in fixtures.to_dicts():
         for t in (f["home_id"], f["away_id"]):
             model.attack.setdefault(t, 0.0)
@@ -96,7 +98,7 @@ def build() -> dict:
 
         top = int(np.argmax(probs))
         d = f["match_date"]
-        rows.append({
+        row = {
             "match_id": f["match_id"],
             "date": str(d),
             "weekday": WEEKDAYS[d.weekday()] if hasattr(d, "weekday") else "",
@@ -123,6 +125,27 @@ def build() -> dict:
             "strength_away": round(model.attack.get(f["away_id"], 0)
                                    + model.defence.get(f["away_id"], 0), 2),
             "hours_before": round(hours, 1) if hours is not None else None,
+        }
+        rows.append(row)
+
+        bt_ledger.append({
+            "key": str(f["match_id"]),
+            "date": str(d),
+            "kickoff": kickoff or None,
+            "matchday": f.get("match_number"),
+            "home_id": f["home_id"],
+            "away_id": f["away_id"],
+            "home_name": _russian_name(names, f["home_id"]),
+            "away_name": _russian_name(names, f["away_id"]),
+            "generated_at": now.isoformat(timespec="seconds"),
+            "hours_before": round(hours, 1) if hours is not None else 999.0,
+            "stage": forecast.stage_for(hours if hours is not None else 999.0),
+            "p_home": row["p_home"],
+            "p_draw": row["p_draw"],
+            "p_away": row["p_away"],
+            "extra": {"exp_home_score": row["exp_home_score"],
+                      "exp_away_score": row["exp_away_score"],
+                      "exp_total": row["exp_total"]},
         })
 
     out = PROCESSED / "vtb_predictions.json"
@@ -143,7 +166,20 @@ def build() -> dict:
     (PROCESSED / "vtb_strength.json").write_text(
         json.dumps(strength, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    added = forecast.append(bt_ledger, "basketball")
+    hist = forecast.save(played, "basketball")
+
     print(f"\nПрогнозов: {len(rows)} → {out}")
+    print(f"В журнал добавлено новых записей: {added}")
+    s = hist["summary"]
+    if s.get("total"):
+        o = s["overall"]
+        print(f"Журнал: {s['total']} сыгранных прогнозов, точность {o['accuracy']:.1%}, "
+              f"log-loss {o['logloss']}")
+    else:
+        print("Журнал пока без сыгранных прогнозов — вердикты появятся, когда API "
+              "вернёт результаты прошедших матчей.")
+
     print(f"\n{'дата':<12} {'матч':<40} {'П1':>6} {'П2':>6} {'счёт':>12}")
     print("-" * 82)
     for r in rows[:15]:

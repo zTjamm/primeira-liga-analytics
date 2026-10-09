@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { getVtbPredictions, getVtbStrength, getVtbBacktest, getVtbIngest } from "@/lib/data";
+﻿import Link from "next/link";
+import { getVtbPredictions, getVtbBacktest, getVtbIngest } from "@/lib/data";
 import type { VtbPrediction } from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
-import { signed } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -33,9 +32,8 @@ function Probs({ p, fav }: { p: VtbPrediction; fav: "H" | "D" | "A" }) {
 }
 
 export default async function BasketballPage() {
-  const [preds, strength, backtest, ingest] = await Promise.all([
+  const [preds, backtest, ingest] = await Promise.all([
     getVtbPredictions(),
-    getVtbStrength(),
     getVtbBacktest(),
     getVtbIngest(),
   ]);
@@ -150,60 +148,17 @@ export default async function BasketballPage() {
         </section>
       ))}
 
-      {strength && (
-        <section>
-          <h2 className="mb-3 flex items-center gap-3 text-sm font-medium text-muted">
-            Сила команд
-            <span className="h-px flex-1 bg-line" />
-          </h2>
-          <div className="panel overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-line text-xs text-muted">
-                  <th className="py-2 pl-4 text-left font-normal">#</th>
-                  <th className="py-2 text-left font-normal">команда</th>
-                  <th className="py-2 text-right font-normal">атака</th>
-                  <th className="py-2 text-right font-normal">оборона</th>
-                  <th className="py-2 pr-4 text-right font-normal">сила</th>
-                </tr>
-              </thead>
-              <tbody>
-                {strength.map((r, i) => (
-                  <tr key={r.team} className="border-b border-line/40">
-                    <td className="num py-2 pl-4 text-muted">{i + 1}</td>
-                    <td className="py-2">{r.name}</td>
-                    <td className="num py-2 text-right text-muted">{signed(r.attack, 2)}</td>
-                    <td className="num py-2 text-right text-muted">{signed(r.defence, 2)}</td>
-                    <td className="num py-2 pr-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <div className="h-1.5 w-24 rounded bg-panel-2">
-                          <div
-                            className={`h-full rounded ${r.overall >= 0 ? "bg-good ml-auto" : "bg-bad mr-auto"}`}
-                            style={{ width: `${Math.min(100, (Math.abs(r.overall) / 7) * 100)}%` }}
-                          />
-                        </div>
-                        {signed(r.overall, 2)}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-2 text-xs text-muted">
-            В аддитивной модели больше — лучше и по атаке, и по обороне, поэтому сила это
-            сумма. Разрыв между лучшей и худшей командой —{" "}
-            <span className="num">
-              {(
-                Math.max(...strength.map((r) => r.overall)) -
-                Math.min(...strength.map((r) => r.overall))
-              ).toFixed(1)}
-            </span>{" "}
-            очка при шуме разницы около 20 очков: сигнал есть, но он не настолько
-            велик, чтобы давать вероятности вроде 0.9.
-          </p>
-        </section>
-      )}
+      <p className="text-xs text-muted">
+        Рейтинг силы команд вынесен на отдельную страницу{" "}
+        <Link href="/basketball/teams" className="link underline">
+          «Команды»
+        </Link>
+        , подробный разбор качества прогнозов — на{" "}
+        <Link href="/basketball/accuracy" className="link underline">
+          «Точность»
+        </Link>
+        .
+      </p>
     </div>
   );
 }
