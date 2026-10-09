@@ -6,6 +6,14 @@ export const dynamic = "force-dynamic";
 
 const STAGE_ORDER = ["T-72h+", "T-24h", "T-6h", "T-4h"];
 
+/** Ожидаемый счёт и тотал лежат в extra. Читаем с проверкой типа: в журнале
+ *  общий формат на оба спорта, и часть записей могла быть сделана до того,
+ *  как эти поля туда положили. */
+function extraNum(p: { extra: Record<string, unknown> | null }, key: string): number | null {
+  const v = p.extra?.[key];
+  return typeof v === "number" && Number.isFinite(v) ? v : null;
+}
+
 export default async function BasketballJournalPage() {
   const journal = await getJournal("basketball");
   if (!journal) {
@@ -106,6 +114,27 @@ export default async function BasketballJournalPage() {
                     </span>
                     <span>срез {p.stage}</span>
                   </div>
+                  {/* Ожидаемый счёт и тотал — те же величины, что и на вкладке
+                      «Матчи». Лежат в extra, общем для обоих спортов журнале. */}
+                  {(() => {
+                    const eh = extraNum(p, "exp_home_score");
+                    const ea = extraNum(p, "exp_away_score");
+                    const o = extraNum(p, "over_155");
+                    if (eh === null || ea === null) return null;
+                    return (
+                      <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted">
+                        <span className="num">
+                          счёт {eh.toFixed(0)}:{ea.toFixed(0)}
+                        </span>
+                        {o !== null && (
+                          <span>
+                            ТБ155{" "}
+                            <span className="num">{(o * 100).toFixed(0)}%</span>
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
               );
             })}

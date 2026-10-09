@@ -24,6 +24,18 @@ function weatherOf(p: { extra: Record<string, unknown> | null }) {
   return w && typeof w === "object" ? (w as Weather) : null;
 }
 
+/** Тотал и xG тоже лежат в extra: это футбольные величины, которых в общем
+ *  формате журнала нет, иначе баскетболу пришлось бы тащить поля, которые
+ *  к нему не относятся. Читаем через хелперы с проверкой типа. */
+function extraNum(p: { extra: Record<string, unknown> | null }, key: string): number | null {
+  const v = p.extra?.[key];
+  return typeof v === "number" && Number.isFinite(v) ? v : null;
+}
+
+function over25Of(p: { extra: Record<string, unknown> | null }): number | null {
+  return extraNum(p, "over25");
+}
+
 export default async function HistoryPage() {
   const hist = await getJournal("football");
   if (!hist) {
@@ -117,6 +129,36 @@ export default async function HistoryPage() {
                     </span>
                     <span>срез {p.stage}</span>
                   </div>
+                  {/* Тотал и xG показываем те же, что и на вкладке «Матчи»:
+                      в журнале лежат они в extra, и без них карточка выглядит
+                      беднее, хотя прогноз тот же самый. */}
+                  {(() => {
+                    const o25 = over25Of(p);
+                    const xh = extraNum(p, "xg_home");
+                    const xa = extraNum(p, "xg_away");
+                    const w = weatherOf(p);
+                    if (o25 === null && xh === null) return null;
+                    const over = o25 !== null && o25 >= 0.5;
+                    return (
+                      <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted">
+                        {xh !== null && xa !== null ? (
+                          <span className="num">
+                            xG {xh.toFixed(2)} : {xa.toFixed(2)}
+                          </span>
+                        ) : (
+                          <span />
+                        )}
+                        {o25 !== null && (
+                          <span>
+                            {over ? "ТБ 2.5" : "ТМ 2.5"}{" "}
+                            <span className="num">
+                              {(Math.max(o25, 1 - o25) * 100).toFixed(0)}%
+                            </span>
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })()}
                   {(() => {
                     const w = weatherOf(p);
                     return w ? (
@@ -149,6 +191,7 @@ export default async function HistoryPage() {
                     <th className="py-2 text-left font-normal">матч</th>
                     <th className="py-2 text-right font-normal">счёт</th>
                     <th className="py-2 text-right font-normal">прогноз П1/Х/П2</th>
+                    <th className="py-2 text-right font-normal">тотал 2.5</th>
                     <th className="py-2 text-right font-normal">вердикт</th>
                     <th className="py-2 pr-4 text-right font-normal">изменился</th>
                   </tr>
@@ -172,6 +215,18 @@ export default async function HistoryPage() {
                       <td className="num py-2 text-right text-xs">
                         {(r.p_home * 100).toFixed(0)} / {(r.p_draw * 100).toFixed(0)} /{" "}
                         {(r.p_away * 100).toFixed(0)}
+                      </td>
+                      <td className="num py-2 text-right text-xs text-muted">
+                        {(() => {
+                          const o25 = over25Of(r);
+                          if (o25 === null) return "—";
+                          return (
+                            <>
+                              {o25 >= 0.5 ? "ТБ" : "ТМ"}{" "}
+                              {(Math.max(o25, 1 - o25) * 100).toFixed(0)}%
+                            </>
+                          );
+                        })()}
                       </td>
                       <td className="py-2 text-right">
                         <span

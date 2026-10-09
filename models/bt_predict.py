@@ -145,7 +145,8 @@ def build() -> dict:
             "p_away": row["p_away"],
             "extra": {"exp_home_score": row["exp_home_score"],
                       "exp_away_score": row["exp_away_score"],
-                      "exp_total": row["exp_total"]},
+                      "exp_total": row["exp_total"],
+                      "over_155": row["over_155"]},
         })
 
     out = PROCESSED / "vtb_predictions.json"
