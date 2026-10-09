@@ -86,7 +86,14 @@ def main() -> None:
 
     fixtures_path = PROCESSED / "fixtures.parquet"
     if not fixtures_path.exists():
-        raise SystemExit("Нет fixtures.parquet. Запусти: python -m etl.run")
+        # Нет расписания, но сверять старые прогнозы с результатами всё равно
+        # полезно: CSV обновился, и вердикты по сыгранным матчам посчитаются.
+        # Раньше здесь был выход с ошибкой, из-за чего падал весь пайплайн.
+        print("! Нет fixtures.parquet — новые прогнозы не считаем, "
+              "но сверяем прошлые с результатами")
+        _finish(matches_df)
+        return
+
     fixtures = pl.read_parquet(fixtures_path)
     future = fixtures.filter(pl.col("status") != "FINISHED")
     if future.height == 0:

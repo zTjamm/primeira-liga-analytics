@@ -30,10 +30,14 @@ def run(skip_api: bool = False) -> None:
     matches = normalize.normalize_csv(raw_csv)
     print(f"  нормализовано матчей: {matches.height}")
 
+    # Инициализируем всё, что приходит из API, ДО try. Иначе ветка отказа
+    # оставила бы переменные неопределёнными и пайплайн падал бы уже после
+    # успешно загруженных данных — ровно это случилось на первом запуске в CI.
+    fixtures = standings = teams = fixtures_out = pl.DataFrame()
+    api_ok = False
+
     if not skip_api:
         try:
-            # CSV отстаёт примерно на 2 недели — догружаем результаты из API,
-            # начиная с первого матча, которого ещё нет в CSV.
             csv_max = matches["match_date"].max()
             api_hist = fetch_api.fetch_results_since(csv_max - timedelta(days=3))
             fixtures = fetch_api.fetch_fixtures()
@@ -50,11 +54,15 @@ def run(skip_api: bool = False) -> None:
 
             # На витрину расписания отдаём нормализованные club id + служебные поля API
             fixtures_out = _build_fixture_view(fixtures, CURRENT_SEASON)
+            api_ok = True
         except Exception as exc:  # noqa: BLE001 — не роняем пайплайн из-за API
             print(f"  ! API недоступен ({exc}); продолжаю только на CSV")
-            fixtures = standings = teams = pl.DataFrame()
     else:
-        fixtures = standings = teams = fixtures_out = pl.DataFrame()
+        print("  API пропущен по флагу --skip-api")
+
+    if not api_ok:
+        print("  ! без API не будет расписания будущих матчей: "
+              "проверь FD_ORG_TOKEN в секретах репозитория")
 
     print("→ проверяю качество данных …")
     checks = validate.report(matches)
