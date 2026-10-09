@@ -26,7 +26,13 @@ export function MatchCard({ m }: { m: Prediction }) {
         <div className="min-w-0 flex-1 text-right text-[13px] font-medium leading-tight">
           {m.home_name}
         </div>
-        <div className="num mt-0.5 shrink-0 rounded bg-panel-2 px-2 py-0.5 text-[11px] text-muted">
+        {/* Подпись уточняет, что это аргумент в пользу исхода, а не
+            сравнение с тоталом: рынки разные, и вероятности между собой
+            несравнимы. Подробности — на странице «Точность». */}
+        <div
+          className="num mt-0.5 shrink-0 rounded bg-panel-2 px-2 py-0.5 text-[11px] text-muted"
+          title="Наиболее вероятный исход. С тоталом 2.5 не сравнивается: это разные рынки"
+        >
           {OUTCOME_LABEL[m.prediction]}
         </div>
         <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
@@ -41,7 +47,10 @@ export function MatchCard({ m }: { m: Prediction }) {
           {(m.p_home * 100).toFixed(1)} / {(m.p_draw * 100).toFixed(1)} /{" "}
           {(m.p_away * 100).toFixed(1)}
         </span>
-        <span>
+        <span
+          className="cursor-help"
+          title="Отдельный рынок от исхода. На тотале модель уступает линии букмекера"
+        >
           {over ? "ТБ 2.5" : "ТМ 2.5"}{" "}
           <span className="num">{(Math.max(m.over25, m.under25) * 100).toFixed(0)}%</span>
         </span>

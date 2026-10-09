@@ -125,6 +125,8 @@ jobs:
       - name: Калибровка снятия маржи
         if: steps.gate.outputs.needs == 'true'
         run: python -m models.market_calibration
+    - name: Сравнение рынков с линией
+      run: python -m models.market_totals
 
       - name: Прогнозы и журнал
         if: steps.gate.outputs.needs == 'true'
@@ -155,6 +157,7 @@ jobs:
             data/reports/backtest.json \
             data/reports/validation.json \
             data/reports/market_calibration.json \
+            data/reports/market_totals.json \
             data/reports/vtb_ingest.json \
             data/reports/vtb_backtest.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"

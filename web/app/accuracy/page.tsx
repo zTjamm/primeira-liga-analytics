@@ -1,6 +1,6 @@
 ﻿import Link from "next/link";
-import { getBacktest, getValidation, getCalibration } from "@/lib/data";
-import type { MetricRow } from "@/lib/data";
+import { getBacktest, getValidation, getCalibration, getMarketTotals } from "@/lib/data";
+import type { MarketTotalsFile, MetricRow } from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
 
 export const dynamic = "force-dynamic";
@@ -65,10 +65,11 @@ function MetricsTable({ rows, showSeason = false }: { rows: MetricRow[]; showSea
 }
 
 export default async function AccuracyPage() {
-  const [backtest, validation, calibration] = await Promise.all([
+  const [backtest, validation, calibration, markets] = await Promise.all([
     getBacktest(),
     getValidation(),
     getCalibration(),
+    getMarketTotals(),
   ]);
 
   if (!backtest) {
@@ -123,6 +124,8 @@ export default async function AccuracyPage() {
 
         <MetricsTable rows={backtest.test} />
       </section>
+
+      {markets && <MarketChoice markets={markets} />}
 
       <div className="grid gap-4 md:grid-cols-2">
         <section className="panel p-5">
@@ -325,3 +328,151 @@ function CoverageTable({
   );
 }
 
+/* Раздел отвечает на вопрос, который задают, глядя на карточку матча:
+   «почему показан П1, а не тотал, у которого вероятность выше?».
+
+   Ответ измерен, а не основан на мнении, и он состоит из двух частей.
+   Первая — вероятности разных рынков несравнимы: тотал 2.5 и исход матча
+   это разные события с разными шкалами, они пересекаются, но не совпадают.
+   Вторая — тотал хуже исхода по качеству прогноза: там модель уступает
+   линии заметно сильнее, чем на исходе.
+
+   Показывать вместо исхода тот рынок, где вероятность выше, значило бы
+   советовать худшее из того, что мы считаем.
+*/
+function MarketChoice({ markets }: { markets: MarketTotalsFile }) {
+  const tot = markets.markets.total_25;
+  const ov = markets.overlap;
+  const w = markets.strategy.winner_1x2_model;
+  const wm = markets.strategy.winner_1x2_market;
+  const t = markets.strategy.total_25_model;
+  const tm = markets.strategy.total_25_market;
+
+  return (
+    <section className="panel p-5">
+      <h2 className="text-sm font-semibold">
+        Почему на карточке показан исход, а не «тот рынок, где вероятнее»
+      </h2>
+
+      <div className="mt-3 space-y-3 text-sm text-muted">
+        <p>
+          На карточке матча стоят два рынка: исход (П1/Х/П2) и тотал 2.5.
+          Кажется логичным показать тот, где наша вероятность выше. Не
+          показываем, и вот почему.
+        </p>
+
+        <p>
+          <strong className="font-medium text-text">
+            Вероятности разных рынков несравнимы.
+          </strong>{" "}
+          Тотал 2.5 — ставка на число голов, исход — на то, кто победит.
+          Из {ov.over_25} матчей с тоталом больше 2.5 в {ov.both} одновременно
+          случилась победа хозяев, но в остальных {ov.over_25 - ov.both} — нет.
+          События пересекаются, шкалы разные, поэтому «0.62 на тотал против 0.58
+          на исход» не значит «тотал надёжнее». Это сравнение несравнимого.
+        </p>
+
+        <p>
+          <strong className="font-medium text-text">
+            Тотал — худшее место для такой рекомендации.
+          </strong>{" "}
+          На тотале модель уступает закрывающей линии заметно сильнее, чем на
+          исходе:
+        </p>
+      </div>
+
+      <div className="mt-3 overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs text-muted">
+              <th className="py-2 text-left font-normal">рынок</th>
+              <th className="py-2 text-right font-normal">log-loss: модель</th>
+              <th className="py-2 text-right font-normal">log-loss: линия</th>
+              <th className="py-2 text-right font-normal">точность: модель</th>
+              <th className="py-2 pr-4 text-right font-normal">точность: линия</th>
+            </tr>
+          </thead>
+          <tbody className="num">
+            <tr className="border-b border-line/40">
+              <td className="py-2 font-sans">тотал больше 2.5</td>
+              <td className="py-2 text-right">{tot.logloss_model.toFixed(5)}</td>
+              <td className="py-2 text-right text-good">
+                {tot.logloss_line.toFixed(5)}
+              </td>
+              <td className="py-2 text-right">{(tot.accuracy_model * 100).toFixed(1)}%</td>
+              <td className="py-2 pr-4 text-right text-good">
+                {(tot.accuracy_line * 100).toFixed(1)}%
+              </td>
+            </tr>
+            <tr className="border-b border-line/40">
+              <td className="py-2 font-sans">победа хозяев</td>
+              <td className="py-2 text-right text-good">
+                {markets.markets.outcome_home.logloss_model.toFixed(5)}
+              </td>
+              <td className="py-2 text-right">
+                {markets.markets.outcome_home.logloss_line.toFixed(5)}
+              </td>
+              <td className="py-2 text-right text-good">
+                {(markets.markets.outcome_home.accuracy_model * 100).toFixed(1)}%
+              </td>
+              <td className="py-2 pr-4 text-right">
+                {(markets.markets.outcome_home.accuracy_line * 100).toFixed(1)}%
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-2 text-xs text-muted">
+        Ниже = лучше. Зелёным отмечен лучший результат в паре.
+      </p>
+
+      <div className="mt-4 space-y-3 text-sm text-muted">
+        <p>
+          <strong className="font-medium text-text">
+            И сама идея «бери то, что вероятнее» не работает.
+          </strong>{" "}
+          Посчитана с настоящими коэффициентами букмекера на {w.bets} матчах,
+          по единице на ставку:
+        </p>
+      </div>
+
+      <div className="mt-3 overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs text-muted">
+              <th className="py-2 text-left font-normal">рынок</th>
+              <th className="py-2 text-right font-normal">угадано</th>
+              <th className="py-2 text-right font-normal">ср. коэффициент</th>
+              <th className="py-2 pr-4 text-right font-normal">ROI по нашей модели</th>
+            </tr>
+          </thead>
+          <tbody className="num">
+            <tr className="border-b border-line/40">
+              <td className="py-2 font-sans">исход матча</td>
+              <td className="py-2 text-right">{(w.hit_rate * 100).toFixed(1)}%</td>
+              <td className="py-2 text-right">{w.avg_odds.toFixed(2)}</td>
+              <td className={`py-2 pr-4 text-right ${w.roi < 0 ? "text-bad" : ""}`}>
+                {(w.roi * 100).toFixed(2)}%
+              </td>
+            </tr>
+            <tr className="border-b border-line/40">
+              <td className="py-2 font-sans">тотал 2.5</td>
+              <td className="py-2 text-right">{(t.hit_rate * 100).toFixed(1)}%</td>
+              <td className="py-2 text-right">{t.avg_odds.toFixed(2)}</td>
+              <td className={`py-2 pr-4 text-right ${t.roi < 0 ? "text-bad" : ""}`}>
+                {(t.roi * 100).toFixed(2)}%
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p className="mt-2 text-xs text-muted">
+        Для сравнения, та же стратегия, но выбор по линии букмекера вместо
+        нашей модели: исход {(wm.roi * 100).toFixed(2)}%, тотал{" "}
+        {(tm.roi * 100).toFixed(2)}%. Наша модель проигрывает рынку на обоих
+        рынках, поэтому ставить по её подсказке — убыточно.
+      </p>
+    </section>
+  );
+}

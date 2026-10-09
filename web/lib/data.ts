@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Загрузка артефактов пайплайна.
  *
  * Файлы в public/data кладёт GitHub Actions. При локальной разработке их может
@@ -278,6 +278,49 @@ export const getEloTable = cache(() => readJson<EloRow[]>("elo_table.json"));
 export const getDcStrength = cache(() => readJson<DcRow[]>("dc_strength.json"));
 export const getValidation = cache(() => readJson<ValidationFile>("validation.json"));
 export const getCalibration = cache(() => readJson<CalibrationFile>("market_calibration.json"));
+
+export interface MarketSideScore {
+  n: number;
+  freq: number;
+  logloss_model: number;
+  logloss_line: number;
+  brier_model: number;
+  brier_line: number;
+  accuracy_model: number;
+  accuracy_line: number;
+  calib_model: number;
+  calib_line: number;
+}
+
+export interface MarketStrategy {
+  bets: number;
+  wins: number;
+  hit_rate: number;
+  avg_odds: number;
+  roi: number;
+  total_units: number;
+}
+
+/** Сравнение рынков с закрывающей линией. Отвечает на вопрос «стоит ли
+ *  показывать тот рынок, где у нас выше вероятность»: не стоит, и вот
+ *  измеренное обоснование. */
+export interface MarketTotalsFile {
+  test_seasons: string[];
+  markets: {
+    outcome_home: MarketSideScore;
+    outcome_away: MarketSideScore;
+    total_25: MarketSideScore;
+  };
+  strategy: {
+    winner_1x2_model: MarketStrategy;
+    winner_1x2_market: MarketStrategy;
+    total_25_model: MarketStrategy;
+    total_25_market: MarketStrategy;
+  };
+  overlap: { home_wins: number; over_25: number; both: number; note: string };
+}
+
+export const getMarketTotals = cache(() => readJson<MarketTotalsFile>("market_totals.json"));
 export const getForecastHistory = cache(() => getJournal("football"));
 
 export const getVtbPredictions = cache(
