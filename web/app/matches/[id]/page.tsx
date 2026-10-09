@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPredictions, getPredictionById, teamName } from "@/lib/data";
+import { getPredictions, getPredictionById, getJournal, teamName } from "@/lib/data";
 import { kickoffMoscow, longDate, OUTCOME_FULL, signed } from "@/lib/format";
 import { ProbBar, ProbRow } from "@/components/ProbBar";
 
@@ -27,8 +27,122 @@ export default async function MatchPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const predictions = await getPredictions();
+  const [predictions, journal] = await Promise.all([
+    getPredictions(),
+    getJournal("football"),
+  ]);
   const m = getPredictionById(predictions, id);
+
+  /*
+   * predictions.json содержит только ПРЕДСТОЯЩИЕ матчи: как только матч
+   * сыгран, он оттуда исчезает. Но журнал помнит и прогноз, и результат,
+   * и на него ссылается таблица сыгранных матчей. Поэтому ищем в обоих
+   * источниках — иначе ссылка из журнала вела бы в 404 ровно у тех
+   * матчей, ради которых журнал и нужен.
+   */
+  const played = !m
+    ? (journal?.resolved ?? [])
+        .filter((r) => r.key === id)
+        .sort((a, b) => (b.generated_at > a.generated_at ? 1 : -1))[0]
+    : undefined;
+
+  if (!m && !played) notFound();
+
+  // Сыгранный матч: из predictions.json он уже исчез, поэтому показываем
+  // то, что сохранилось в журнале — прогноз и факт рядом.
+  if (played) {
+    const fav = played.p_home > played.p_away ? "H" : "A";
+    return (
+      <div className="space-y-5">
+        <Link href="/history" className="link text-sm">
+          ← журнал прогнозов
+        </Link>
+
+        <section className="panel p-5">
+          <div className="mb-1 text-xs text-muted">
+            {longDate(played.date)}
+            {played.kickoff ? ` · ${kickoffMoscow(played.kickoff)} МСК` : ""}
+            {played.matchday ? ` · тур ${played.matchday}` : ""}
+            {` · срез ${played.stage}`}
+          </div>
+          <h1 className="text-lg font-semibold">
+            {played.home_name} — {played.away_name}
+          </h1>
+
+          <div className="mt-4 space-y-2">
+            <ProbBar
+              home={played.p_home}
+              draw={played.p_draw}
+              away={played.p_away}
+              height={10}
+            />
+            <ProbRow
+              home={played.p_home}
+              draw={played.p_draw}
+              away={played.p_away}
+            />
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-muted">Прогноз был:</span>
+            <span className="rounded bg-panel-2 px-2 py-0.5 font-medium">
+              {OUTCOME_FULL[fav]}
+            </span>
+            <span
+              className={`rounded px-2 py-0.5 font-medium ${
+                played.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+              }`}
+            >
+              {played.hit ? "угадано" : "мимо"}
+            </span>
+          </div>
+
+          <div className="mt-3 space-y-1 text-sm text-muted">
+            <p>
+              Фактический счёт:{" "}
+              <span className="num text-text">{played.score}</span>
+              {played.actual ? ` — ${OUTCOME_FULL[played.actual].toLowerCase()}` : ""}
+            </p>
+            {played.p_actual !== null && (
+              <p>
+                Вероятность, выданная на фактический исход:{" "}
+                <span className="num text-text">
+                  {(played.p_actual * 100).toFixed(1)}%
+                </span>
+                {played.logloss !== null && (
+                  <>
+                    {" · "}вклад в log-loss:{" "}
+                    <span className="num text-text">{played.logloss.toFixed(4)}</span>
+                  </>
+                )}
+              </p>
+            )}
+            {played.n_versions > 1 && (
+              <p>
+                Срезов: <span className="num">{played.n_versions}</span>, сдвиг между
+                первым и последним:{" "}
+                <span className="num">{played.shift.toFixed(3)}</span>
+                {played.flipped ? " — мнение изменилось" : " — мнение не изменилось"}
+              </p>
+            )}
+          </div>
+        </section>
+
+        <p className="text-xs text-muted">
+          Матч уже сыгран, поэтому он ушёл из списка предстоящих. Подробный разбор
+          качества модели — на странице{" "}
+          <Link href="/accuracy" className="link underline">
+            «Точность»
+          </Link>
+          .
+        </p>
+      </div>
+    );
+  }
+
+  // Дальше — только предстоящий матч. Явная проверка нужна для типов: после
+  // раннего возврата по played компилятор не сужает m, потому что условие
+  // выше было составным (!m && !played).
   if (!m) notFound();
 
   const over = m.over25 >= 0.5;
