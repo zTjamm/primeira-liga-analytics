@@ -1,7 +1,7 @@
 {
   "league": "Единая лига ВТБ",
   "season": "2026/27",
-  "generated_at": "2026-10-09T18:59:01+00:00",
+  "generated_at": "2026-10-09T19:04:19+00:00",
   "history_matches": 509,
   "model": "лига: 80.5 очков на команду, дома +1.79, σ_разница=19.03, σ_тотал=16.75, сошёлся=True",
   "draws_possible": false,
@@ -12,7 +12,7 @@
       "weekday": "пт",
       "day_month": "10 окт",
       "kickoff_msk": "2026-10-10 13:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-015",
       "home_id": "2747",
       "away_id": "688",
@@ -30,7 +30,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": -1.57,
-      "hours_before": 18.0
+      "hours_before": 17.9
     },
     {
       "match_id": "1081847",
@@ -38,7 +38,7 @@
       "weekday": "пт",
       "day_month": "10 окт",
       "kickoff_msk": "2026-10-10 15:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-016",
       "home_id": "1390",
       "away_id": "3059",
@@ -56,7 +56,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": 0.2,
-      "hours_before": 20.0
+      "hours_before": 19.9
     },
     {
       "match_id": "1081849",
@@ -64,7 +64,7 @@
       "weekday": "сб",
       "day_month": "11 окт",
       "kickoff_msk": "2026-10-11 15:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-018",
       "home_id": "2994",
       "away_id": "682",
@@ -82,7 +82,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": -2.68,
-      "hours_before": 44.0
+      "hours_before": 43.9
     },
     {
       "match_id": "1081848",
@@ -90,7 +90,7 @@
       "weekday": "сб",
       "day_month": "11 окт",
       "kickoff_msk": "2026-10-11 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-017",
       "home_id": "15",
       "away_id": "2650",
@@ -108,7 +108,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": 2.71,
-      "hours_before": 46.0
+      "hours_before": 45.9
     },
     {
       "match_id": "1081850",
@@ -116,7 +116,7 @@
       "weekday": "пн",
       "day_month": "13 окт",
       "kickoff_msk": "2026-10-13 19:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-019",
       "home_id": "2747",
       "away_id": "3059",
@@ -134,7 +134,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": 0.2,
-      "hours_before": 96.0
+      "hours_before": 95.9
     },
     {
       "match_id": "1081853",
@@ -142,7 +142,7 @@
       "weekday": "вт",
       "day_month": "14 окт",
       "kickoff_msk": "2026-10-14 19:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-022",
       "home_id": "697",
       "away_id": "1390",
@@ -160,7 +160,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": 0.49,
-      "hours_before": 120.0
+      "hours_before": 119.9
     },
     {
       "match_id": "1081854",
@@ -168,7 +168,7 @@
       "weekday": "вт",
       "day_month": "14 окт",
       "kickoff_msk": "2026-10-14 15:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-023",
       "home_id": "688",
       "away_id": "2792",
@@ -186,7 +186,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": -6.66,
-      "hours_before": 116.5
+      "hours_before": 116.4
     },
     {
       "match_id": "1081852",
@@ -194,7 +194,7 @@
       "weekday": "вт",
       "day_month": "14 окт",
       "kickoff_msk": "2026-10-14 12:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-021",
       "home_id": "23358",
       "away_id": "15",
@@ -212,7 +212,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 6.13,
-      "hours_before": 113.5
+      "hours_before": 113.4
     },
     {
       "match_id": "1081851",
@@ -220,7 +220,7 @@
       "weekday": "вт",
       "day_month": "14 окт",
       "kickoff_msk": "2026-10-14 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-020",
       "home_id": "2650",
       "away_id": "682",
@@ -238,7 +238,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": -2.68,
-      "hours_before": 121.0
+      "hours_before": 120.9
     },
     {
       "match_id": "1081856",
@@ -246,17 +246,17 @@
       "weekday": "пт",
       "day_month": "17 окт",
       "kickoff_msk": "2026-10-17 14:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-025",
       "home_id": "3059",
       "away_id": "23358",
       "home_name": "ПАРМА",
       "away_name": "Динамо",
-      "p_home": 0.5352,
-      "p_draw": 0.02155,
+      "p_home": 0.5353,
+      "p_draw": 0.02154,
       "p_away": 0.4432,
       "prediction": "H",
-      "confidence": 0.5352,
+      "confidence": 0.5353,
       "exp_home_score": 81.7,
       "exp_away_score": 79.3,
       "exp_total": 160.9,
@@ -264,7 +264,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": -0.17,
-      "hours_before": 187.0
+      "hours_before": 186.9
     },
     {
       "match_id": "1081855",
@@ -272,13 +272,13 @@
       "weekday": "пт",
       "day_month": "17 окт",
       "kickoff_msk": "2026-10-17 12:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-024",
       "home_id": "688",
       "away_id": "15",
       "home_name": "Енисей",
       "away_name": "ЦСКА",
-      "p_home": 0.4579,
+      "p_home": 0.458,
       "p_draw": 0.02162,
       "p_away": 0.5204,
       "prediction": "A",
@@ -290,7 +290,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 6.13,
-      "hours_before": 185.0
+      "hours_before": 184.9
     },
     {
       "match_id": "1081857",
@@ -298,7 +298,7 @@
       "weekday": "пт",
       "day_month": "17 окт",
       "kickoff_msk": "2026-10-17 16:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-026",
       "home_id": "2792",
       "away_id": "1390",
@@ -316,7 +316,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": 0.49,
-      "hours_before": 189.0
+      "hours_before": 188.9
     },
     {
       "match_id": "1081859",
@@ -324,7 +324,7 @@
       "weekday": "сб",
       "day_month": "18 окт",
       "kickoff_msk": "2026-10-18 14:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-028",
       "home_id": "2650",
       "away_id": "2994",
@@ -342,7 +342,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": 4.1,
-      "hours_before": 211.0
+      "hours_before": 210.9
     },
     {
       "match_id": "1081858",
@@ -350,17 +350,17 @@
       "weekday": "сб",
       "day_month": "18 окт",
       "kickoff_msk": "2026-10-18 16:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-027",
       "home_id": "682",
       "away_id": "2747",
       "home_name": "Автодор",
       "away_name": "МБА-МАИ",
-      "p_home": 0.5028,
+      "p_home": 0.5029,
       "p_draw": 0.02167,
       "p_away": 0.4755,
       "prediction": "H",
-      "confidence": 0.5028,
+      "confidence": 0.5029,
       "exp_home_score": 80.8,
       "exp_away_score": 80.1,
       "exp_total": 160.9,
@@ -368,7 +368,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": -1.19,
-      "hours_before": 213.0
+      "hours_before": 212.9
     },
     {
       "match_id": "1081860",
@@ -376,7 +376,7 @@
       "weekday": "вт",
       "day_month": "21 окт",
       "kickoff_msk": "2026-10-21 18:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-029",
       "home_id": "2792",
       "away_id": "2994",
@@ -394,7 +394,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": 4.1,
-      "hours_before": 287.0
+      "hours_before": 286.9
     },
     {
       "match_id": "1081861",
@@ -402,7 +402,7 @@
       "weekday": "вт",
       "day_month": "21 окт",
       "kickoff_msk": "2026-10-21 17:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-030",
       "home_id": "1390",
       "away_id": "23358",
@@ -420,7 +420,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": -0.17,
-      "hours_before": 286.5
+      "hours_before": 286.4
     },
     {
       "match_id": "1081862",
@@ -428,7 +428,7 @@
       "weekday": "ср",
       "day_month": "22 окт",
       "kickoff_msk": "2026-10-22 19:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-031",
       "home_id": "697",
       "away_id": "2747",
@@ -446,7 +446,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": -1.19,
-      "hours_before": 312.0
+      "hours_before": 311.9
     },
     {
       "match_id": "1081863",
@@ -454,7 +454,7 @@
       "weekday": "чт",
       "day_month": "23 окт",
       "kickoff_msk": "2026-10-23 19:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-032",
       "home_id": "15",
       "away_id": "682",
@@ -472,7 +472,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": -2.68,
-      "hours_before": 336.5
+      "hours_before": 336.4
     },
     {
       "match_id": "1081864",
@@ -480,13 +480,13 @@
       "weekday": "сб",
       "day_month": "25 окт",
       "kickoff_msk": "2026-10-25 16:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-033",
       "home_id": "2792",
       "away_id": "2650",
       "home_name": "Самара",
       "away_name": "Локомотив-Кубань",
-      "p_home": 0.4295,
+      "p_home": 0.4296,
       "p_draw": 0.02145,
       "p_away": 0.549,
       "prediction": "A",
@@ -498,7 +498,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": 2.71,
-      "hours_before": 381.0
+      "hours_before": 380.9
     },
     {
       "match_id": "1081865",
@@ -506,7 +506,7 @@
       "weekday": "вс",
       "day_month": "26 окт",
       "kickoff_msk": "2026-10-26 19:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-034",
       "home_id": "2994",
       "away_id": "688",
@@ -524,7 +524,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": -1.57,
-      "hours_before": 408.5
+      "hours_before": 408.4
     },
     {
       "match_id": "1081867",
@@ -532,7 +532,7 @@
       "weekday": "пн",
       "day_month": "27 окт",
       "kickoff_msk": "2026-10-27 19:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-036",
       "home_id": "15",
       "away_id": "3059",
@@ -540,7 +540,7 @@
       "away_name": "ПАРМА",
       "p_home": 0.5905,
       "p_draw": 0.02102,
-      "p_away": 0.3885,
+      "p_away": 0.3884,
       "prediction": "H",
       "confidence": 0.5905,
       "exp_home_score": 83.1,
@@ -550,7 +550,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": 0.2,
-      "hours_before": 432.5
+      "hours_before": 432.4
     },
     {
       "match_id": "1081866",
@@ -558,7 +558,7 @@
       "weekday": "пн",
       "day_month": "27 окт",
       "kickoff_msk": "2026-10-27 12:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-035",
       "home_id": "23358",
       "away_id": "682",
@@ -576,7 +576,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": -2.68,
-      "hours_before": 425.5
+      "hours_before": 425.4
     },
     {
       "match_id": "1081868",
@@ -584,7 +584,7 @@
       "weekday": "чт",
       "day_month": "30 окт",
       "kickoff_msk": "2026-10-30 12:30",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-037",
       "home_id": "23358",
       "away_id": "2994",
@@ -602,7 +602,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 4.1,
-      "hours_before": 497.5
+      "hours_before": 497.4
     },
     {
       "match_id": "1081870",
@@ -610,7 +610,7 @@
       "weekday": "пт",
       "day_month": "31 окт",
       "kickoff_msk": "2026-10-31 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-039",
       "home_id": "688",
       "away_id": "2747",
@@ -618,7 +618,7 @@
       "away_name": "МБА-МАИ",
       "p_home": 0.5192,
       "p_draw": 0.02162,
-      "p_away": 0.4592,
+      "p_away": 0.4591,
       "prediction": "H",
       "confidence": 0.5192,
       "exp_home_score": 81.2,
@@ -628,7 +628,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": -1.19,
-      "hours_before": 529.0
+      "hours_before": 528.9
     },
     {
       "match_id": "1081869",
@@ -636,17 +636,17 @@
       "weekday": "сб",
       "day_month": "1 ноя",
       "kickoff_msk": "2026-11-01 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-038",
       "home_id": "2650",
       "away_id": "697",
       "home_name": "Локомотив-Кубань",
       "away_name": "УНИКС",
-      "p_home": 0.5055,
-      "p_draw": 0.02167,
+      "p_home": 0.5056,
+      "p_draw": 0.02166,
       "p_away": 0.4728,
       "prediction": "H",
-      "confidence": 0.5055,
+      "confidence": 0.5056,
       "exp_home_score": 80.9,
       "exp_away_score": 80.0,
       "exp_total": 160.9,
@@ -654,7 +654,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": 4.85,
-      "hours_before": 533.0
+      "hours_before": 532.9
     },
     {
       "match_id": "1081871",
@@ -662,15 +662,15 @@
       "weekday": "вс",
       "day_month": "2 ноя",
       "kickoff_msk": "2026-11-02 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-040",
       "home_id": "3059",
       "away_id": "2792",
       "home_name": "ПАРМА",
       "away_name": "Самара",
       "p_home": 0.5899,
-      "p_draw": 0.02103,
-      "p_away": 0.3891,
+      "p_draw": 0.02102,
+      "p_away": 0.389,
       "prediction": "H",
       "confidence": 0.5899,
       "exp_home_score": 83.1,
@@ -680,7 +680,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": -6.66,
-      "hours_before": 579.0
+      "hours_before": 578.9
     },
     {
       "match_id": "1081872",
@@ -688,7 +688,7 @@
       "weekday": "ср",
       "day_month": "5 ноя",
       "kickoff_msk": "2026-11-05 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-041",
       "home_id": "682",
       "away_id": "697",
@@ -706,7 +706,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": 4.85,
-      "hours_before": 652.0
+      "hours_before": 651.9
     },
     {
       "match_id": "1081874",
@@ -714,17 +714,17 @@
       "weekday": "чт",
       "day_month": "6 ноя",
       "kickoff_msk": "2026-11-06 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-043",
       "home_id": "1390",
       "away_id": "2747",
       "home_name": "Уралмаш",
       "away_name": "МБА-МАИ",
-      "p_home": 0.5307,
+      "p_home": 0.5308,
       "p_draw": 0.02157,
       "p_away": 0.4477,
       "prediction": "H",
-      "confidence": 0.5307,
+      "confidence": 0.5308,
       "exp_home_score": 81.5,
       "exp_away_score": 79.4,
       "exp_total": 160.9,
@@ -732,7 +732,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": -1.19,
-      "hours_before": 675.0
+      "hours_before": 674.9
     },
     {
       "match_id": "1081875",
@@ -740,7 +740,7 @@
       "weekday": "чт",
       "day_month": "6 ноя",
       "kickoff_msk": "2026-11-06 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-044",
       "home_id": "688",
       "away_id": "23358",
@@ -758,7 +758,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": -0.17,
-      "hours_before": 673.0
+      "hours_before": 672.9
     },
     {
       "match_id": "1081873",
@@ -766,7 +766,7 @@
       "weekday": "пт",
       "day_month": "7 ноя",
       "kickoff_msk": "2026-11-07 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-042",
       "home_id": "2650",
       "away_id": "3059",
@@ -784,7 +784,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": 0.2,
-      "hours_before": 677.0
+      "hours_before": 676.9
     },
     {
       "match_id": "1081876",
@@ -792,7 +792,7 @@
       "weekday": "сб",
       "day_month": "8 ноя",
       "kickoff_msk": "2026-11-08 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-045",
       "home_id": "15",
       "away_id": "2994",
@@ -810,7 +810,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": 4.1,
-      "hours_before": 701.0
+      "hours_before": 700.9
     },
     {
       "match_id": "1081877",
@@ -818,7 +818,7 @@
       "weekday": "пн",
       "day_month": "10 ноя",
       "kickoff_msk": "2026-11-10 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-046",
       "home_id": "2747",
       "away_id": "682",
@@ -826,7 +826,7 @@
       "away_name": "Автодор",
       "p_home": 0.5317,
       "p_draw": 0.02157,
-      "p_away": 0.4468,
+      "p_away": 0.4467,
       "prediction": "H",
       "confidence": 0.5317,
       "exp_home_score": 81.6,
@@ -836,7 +836,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": -2.68,
-      "hours_before": 749.0
+      "hours_before": 748.9
     },
     {
       "match_id": "1081880",
@@ -844,7 +844,7 @@
       "weekday": "пн",
       "day_month": "10 ноя",
       "kickoff_msk": "2026-11-10 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-049",
       "home_id": "3059",
       "away_id": "697",
@@ -862,7 +862,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": 4.85,
-      "hours_before": 771.0
+      "hours_before": 770.9
     },
     {
       "match_id": "1081878",
@@ -870,17 +870,17 @@
       "weekday": "вт",
       "day_month": "11 ноя",
       "kickoff_msk": "2026-11-11 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-047",
       "home_id": "15",
       "away_id": "23358",
       "home_name": "ЦСКА",
       "away_name": "Динамо",
-      "p_home": 0.5895,
+      "p_home": 0.5896,
       "p_draw": 0.02103,
       "p_away": 0.3894,
       "prediction": "H",
-      "confidence": 0.5895,
+      "confidence": 0.5896,
       "exp_home_score": 83.1,
       "exp_away_score": 77.9,
       "exp_total": 160.9,
@@ -888,7 +888,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": -0.17,
-      "hours_before": 773.0
+      "hours_before": 772.9
     },
     {
       "match_id": "1081879",
@@ -896,7 +896,7 @@
       "weekday": "вт",
       "day_month": "11 ноя",
       "kickoff_msk": "2026-11-11 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-048",
       "home_id": "2994",
       "away_id": "2792",
@@ -914,7 +914,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": -6.66,
-      "hours_before": 773.0
+      "hours_before": 772.9
     },
     {
       "match_id": "1081883",
@@ -922,7 +922,7 @@
       "weekday": "чт",
       "day_month": "13 ноя",
       "kickoff_msk": "2026-11-13 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-052",
       "home_id": "2792",
       "away_id": "15",
@@ -930,9 +930,9 @@
       "away_name": "ЦСКА",
       "p_home": 0.3987,
       "p_draw": 0.02115,
-      "p_away": 0.5802,
+      "p_away": 0.5801,
       "prediction": "A",
-      "confidence": 0.5802,
+      "confidence": 0.5801,
       "exp_home_score": 78.1,
       "exp_away_score": 82.8,
       "exp_total": 160.9,
@@ -940,7 +940,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": 6.13,
-      "hours_before": 844.0
+      "hours_before": 843.9
     },
     {
       "match_id": "1081881",
@@ -948,14 +948,14 @@
       "weekday": "чт",
       "day_month": "13 ноя",
       "kickoff_msk": "2026-11-13 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-050",
       "home_id": "688",
       "away_id": "1390",
       "home_name": "Енисей",
       "away_name": "Уралмаш",
       "p_home": 0.5057,
-      "p_draw": 0.02167,
+      "p_draw": 0.02166,
       "p_away": 0.4726,
       "prediction": "H",
       "confidence": 0.5057,
@@ -966,7 +966,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 0.49,
-      "hours_before": 841.0
+      "hours_before": 840.9
     },
     {
       "match_id": "1081882",
@@ -974,17 +974,17 @@
       "weekday": "пт",
       "day_month": "14 ноя",
       "kickoff_msk": "2026-11-14 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-051",
       "home_id": "2747",
       "away_id": "23358",
       "home_name": "МБА-МАИ",
       "away_name": "Динамо",
-      "p_home": 0.5094,
+      "p_home": 0.5095,
       "p_draw": 0.02166,
       "p_away": 0.4689,
       "prediction": "H",
-      "confidence": 0.5094,
+      "confidence": 0.5095,
       "exp_home_score": 81.0,
       "exp_away_score": 79.9,
       "exp_total": 160.9,
@@ -992,7 +992,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": -0.17,
-      "hours_before": 845.0
+      "hours_before": 844.9
     },
     {
       "match_id": "1081884",
@@ -1000,7 +1000,7 @@
       "weekday": "пт",
       "day_month": "14 ноя",
       "kickoff_msk": "2026-11-14 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-053",
       "home_id": "3059",
       "away_id": "2994",
@@ -1008,7 +1008,7 @@
       "away_name": "Зенит",
       "p_home": 0.4926,
       "p_draw": 0.02168,
-      "p_away": 0.4858,
+      "p_away": 0.4857,
       "prediction": "H",
       "confidence": 0.4926,
       "exp_home_score": 80.6,
@@ -1018,7 +1018,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": 4.1,
-      "hours_before": 867.0
+      "hours_before": 866.9
     },
     {
       "match_id": "1081885",
@@ -1026,17 +1026,17 @@
       "weekday": "пн",
       "day_month": "17 ноя",
       "kickoff_msk": "2026-11-17 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-054",
       "home_id": "1390",
       "away_id": "2650",
       "home_name": "Уралмаш",
       "away_name": "Локомотив-Кубань",
-      "p_home": 0.501,
+      "p_home": 0.5011,
       "p_draw": 0.02167,
       "p_away": 0.4773,
       "prediction": "H",
-      "confidence": 0.501,
+      "confidence": 0.5011,
       "exp_home_score": 80.8,
       "exp_away_score": 80.2,
       "exp_total": 160.9,
@@ -1044,7 +1044,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": 2.71,
-      "hours_before": 939.0
+      "hours_before": 938.9
     },
     {
       "match_id": "1081886",
@@ -1052,17 +1052,17 @@
       "weekday": "вт",
       "day_month": "18 ноя",
       "kickoff_msk": "2026-11-18 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-055",
       "home_id": "2747",
       "away_id": "2792",
       "home_name": "МБА-МАИ",
       "away_name": "Самара",
-      "p_home": 0.5646,
+      "p_home": 0.5647,
       "p_draw": 0.02131,
       "p_away": 0.414,
       "prediction": "H",
-      "confidence": 0.5646,
+      "confidence": 0.5647,
       "exp_home_score": 82.4,
       "exp_away_score": 78.5,
       "exp_total": 160.9,
@@ -1070,7 +1070,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": -6.66,
-      "hours_before": 941.0
+      "hours_before": 940.9
     },
     {
       "match_id": "1081887",
@@ -1078,7 +1078,7 @@
       "weekday": "вт",
       "day_month": "18 ноя",
       "kickoff_msk": "2026-11-18 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-056",
       "home_id": "697",
       "away_id": "688",
@@ -1096,7 +1096,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": -1.57,
-      "hours_before": 941.0
+      "hours_before": 940.9
     },
     {
       "match_id": "1081890",
@@ -1104,7 +1104,7 @@
       "weekday": "чт",
       "day_month": "20 ноя",
       "kickoff_msk": "2026-11-20 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-059",
       "home_id": "682",
       "away_id": "3059",
@@ -1122,7 +1122,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": 0.2,
-      "hours_before": 1012.0
+      "hours_before": 1011.9
     },
     {
       "match_id": "1081888",
@@ -1130,7 +1130,7 @@
       "weekday": "чт",
       "day_month": "20 ноя",
       "kickoff_msk": "2026-11-20 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-057",
       "home_id": "23358",
       "away_id": "2650",
@@ -1138,7 +1138,7 @@
       "away_name": "Локомотив-Кубань",
       "p_home": 0.4996,
       "p_draw": 0.02168,
-      "p_away": 0.4788,
+      "p_away": 0.4787,
       "prediction": "H",
       "confidence": 0.4996,
       "exp_home_score": 80.7,
@@ -1148,7 +1148,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 2.71,
-      "hours_before": 1006.0
+      "hours_before": 1005.9
     },
     {
       "match_id": "1081889",
@@ -1156,13 +1156,13 @@
       "weekday": "пт",
       "day_month": "21 ноя",
       "kickoff_msk": "2026-11-21 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-058",
       "home_id": "2747",
       "away_id": "2994",
       "home_name": "МБА-МАИ",
       "away_name": "Зенит",
-      "p_home": 0.4667,
+      "p_home": 0.4668,
       "p_draw": 0.02165,
       "p_away": 0.5116,
       "prediction": "A",
@@ -1174,7 +1174,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": 4.1,
-      "hours_before": 1013.0
+      "hours_before": 1012.9
     },
     {
       "match_id": "1081892",
@@ -1182,7 +1182,7 @@
       "weekday": "пт",
       "day_month": "21 ноя",
       "kickoff_msk": "2026-11-21 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-061",
       "home_id": "1390",
       "away_id": "688",
@@ -1200,7 +1200,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": -1.57,
-      "hours_before": 1035.0
+      "hours_before": 1034.9
     },
     {
       "match_id": "1081891",
@@ -1208,7 +1208,7 @@
       "weekday": "сб",
       "day_month": "22 ноя",
       "kickoff_msk": "2026-11-22 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-060",
       "home_id": "15",
       "away_id": "697",
@@ -1226,7 +1226,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": 4.85,
-      "hours_before": 1037.0
+      "hours_before": 1036.9
     },
     {
       "match_id": "1081893",
@@ -1234,14 +1234,14 @@
       "weekday": "пн",
       "day_month": "1 дек",
       "kickoff_msk": "2026-12-01 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-062",
       "home_id": "3059",
       "away_id": "688",
       "home_name": "ПАРМА",
       "away_name": "Енисей",
       "p_home": 0.5522,
-      "p_draw": 0.02143,
+      "p_draw": 0.02142,
       "p_away": 0.4264,
       "prediction": "H",
       "confidence": 0.5522,
@@ -1252,7 +1252,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": -1.57,
-      "hours_before": 1275.0
+      "hours_before": 1274.9
     },
     {
       "match_id": "1081894",
@@ -1260,13 +1260,13 @@
       "weekday": "ср",
       "day_month": "3 дек",
       "kickoff_msk": "2026-12-03 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-063",
       "home_id": "1390",
       "away_id": "15",
       "home_name": "Уралмаш",
       "away_name": "ЦСКА",
-      "p_home": 0.4694,
+      "p_home": 0.4695,
       "p_draw": 0.02166,
       "p_away": 0.5089,
       "prediction": "A",
@@ -1278,7 +1278,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": 6.13,
-      "hours_before": 1323.0
+      "hours_before": 1322.9
     },
     {
       "match_id": "1081896",
@@ -1286,13 +1286,13 @@
       "weekday": "чт",
       "day_month": "4 дек",
       "kickoff_msk": "2026-12-04 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-065",
       "home_id": "682",
       "away_id": "2994",
       "home_name": "Автодор",
       "away_name": "Зенит",
-      "p_home": 0.458,
+      "p_home": 0.4581,
       "p_draw": 0.02162,
       "p_away": 0.5203,
       "prediction": "A",
@@ -1304,7 +1304,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": 4.1,
-      "hours_before": 1348.0
+      "hours_before": 1347.9
     },
     {
       "match_id": "1081895",
@@ -1312,7 +1312,7 @@
       "weekday": "чт",
       "day_month": "4 дек",
       "kickoff_msk": "2026-12-04 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-064",
       "home_id": "23358",
       "away_id": "2792",
@@ -1330,7 +1330,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": -6.66,
-      "hours_before": 1342.0
+      "hours_before": 1341.9
     },
     {
       "match_id": "1081897",
@@ -1338,17 +1338,17 @@
       "weekday": "сб",
       "day_month": "6 дек",
       "kickoff_msk": "2026-12-06 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-066",
       "home_id": "697",
       "away_id": "2650",
       "home_name": "УНИКС",
       "away_name": "Локомотив-Кубань",
-      "p_home": 0.5469,
+      "p_home": 0.547,
       "p_draw": 0.02147,
       "p_away": 0.4316,
       "prediction": "H",
-      "confidence": 0.5469,
+      "confidence": 0.547,
       "exp_home_score": 82.0,
       "exp_away_score": 79.0,
       "exp_total": 160.9,
@@ -1356,7 +1356,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": 2.71,
-      "hours_before": 1373.0
+      "hours_before": 1372.9
     },
     {
       "match_id": "1081899",
@@ -1364,7 +1364,7 @@
       "weekday": "пн",
       "day_month": "8 дек",
       "kickoff_msk": "2026-12-08 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-068",
       "home_id": "2792",
       "away_id": "682",
@@ -1382,7 +1382,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": -2.68,
-      "hours_before": 1444.0
+      "hours_before": 1443.9
     },
     {
       "match_id": "1081900",
@@ -1390,7 +1390,7 @@
       "weekday": "пн",
       "day_month": "8 дек",
       "kickoff_msk": "2026-12-08 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-069",
       "home_id": "688",
       "away_id": "2650",
@@ -1408,7 +1408,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 2.71,
-      "hours_before": 1441.0
+      "hours_before": 1440.9
     },
     {
       "match_id": "1081898",
@@ -1416,7 +1416,7 @@
       "weekday": "пн",
       "day_month": "8 дек",
       "kickoff_msk": "2026-12-08 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-067",
       "home_id": "23358",
       "away_id": "2747",
@@ -1434,7 +1434,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": -1.19,
-      "hours_before": 1438.0
+      "hours_before": 1437.9
     },
     {
       "match_id": "1081903",
@@ -1442,7 +1442,7 @@
       "weekday": "пт",
       "day_month": "12 дек",
       "kickoff_msk": "2026-12-12 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-072",
       "home_id": "2792",
       "away_id": "688",
@@ -1460,7 +1460,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": -1.57,
-      "hours_before": 1540.0
+      "hours_before": 1539.9
     },
     {
       "match_id": "1081901",
@@ -1468,15 +1468,15 @@
       "weekday": "сб",
       "day_month": "13 дек",
       "kickoff_msk": "2026-12-13 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-070",
       "home_id": "697",
       "away_id": "682",
       "home_name": "УНИКС",
       "away_name": "Автодор",
       "p_home": 0.5958,
-      "p_draw": 0.02095,
-      "p_away": 0.3833,
+      "p_draw": 0.02094,
+      "p_away": 0.3832,
       "prediction": "H",
       "confidence": 0.5958,
       "exp_home_score": 83.2,
@@ -1486,7 +1486,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": -2.68,
-      "hours_before": 1541.0
+      "hours_before": 1540.9
     },
     {
       "match_id": "1081902",
@@ -1494,17 +1494,17 @@
       "weekday": "сб",
       "day_month": "13 дек",
       "kickoff_msk": "2026-12-13 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-071",
       "home_id": "2650",
       "away_id": "1390",
       "home_name": "Локомотив-Кубань",
       "away_name": "Уралмаш",
-      "p_home": 0.5441,
+      "p_home": 0.5442,
       "p_draw": 0.02149,
       "p_away": 0.4344,
       "prediction": "H",
-      "confidence": 0.5441,
+      "confidence": 0.5442,
       "exp_home_score": 81.9,
       "exp_away_score": 79.0,
       "exp_total": 160.9,
@@ -1512,7 +1512,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": 0.49,
-      "hours_before": 1541.0
+      "hours_before": 1540.9
     },
     {
       "match_id": "1081905",
@@ -1520,7 +1520,7 @@
       "weekday": "пн",
       "day_month": "15 дек",
       "kickoff_msk": "2026-12-15 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-074",
       "home_id": "682",
       "away_id": "688",
@@ -1538,7 +1538,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": -1.57,
-      "hours_before": 1612.0
+      "hours_before": 1611.9
     },
     {
       "match_id": "1081904",
@@ -1546,17 +1546,17 @@
       "weekday": "вт",
       "day_month": "16 дек",
       "kickoff_msk": "2026-12-16 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-073",
       "home_id": "697",
       "away_id": "2792",
       "home_name": "УНИКС",
       "away_name": "Самара",
-      "p_home": 0.6275,
+      "p_home": 0.6276,
       "p_draw": 0.02044,
       "p_away": 0.352,
       "prediction": "H",
-      "confidence": 0.6275,
+      "confidence": 0.6276,
       "exp_home_score": 84.1,
       "exp_away_score": 76.8,
       "exp_total": 160.9,
@@ -1564,7 +1564,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": -6.66,
-      "hours_before": 1613.0
+      "hours_before": 1612.9
     },
     {
       "match_id": "1081906",
@@ -1572,7 +1572,7 @@
       "weekday": "вт",
       "day_month": "16 дек",
       "kickoff_msk": "2026-12-16 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-075",
       "home_id": "2747",
       "away_id": "1390",
@@ -1580,7 +1580,7 @@
       "away_name": "Уралмаш",
       "p_home": 0.4981,
       "p_draw": 0.02168,
-      "p_away": 0.4803,
+      "p_away": 0.4802,
       "prediction": "H",
       "confidence": 0.4981,
       "exp_home_score": 80.7,
@@ -1590,7 +1590,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": 0.49,
-      "hours_before": 1613.0
+      "hours_before": 1612.9
     },
     {
       "match_id": "1081907",
@@ -1598,7 +1598,7 @@
       "weekday": "ср",
       "day_month": "17 дек",
       "kickoff_msk": "2026-12-17 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-076",
       "home_id": "2994",
       "away_id": "2650",
@@ -1616,7 +1616,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": 2.71,
-      "hours_before": 1637.0
+      "hours_before": 1636.9
     },
     {
       "match_id": "1081908",
@@ -1624,7 +1624,7 @@
       "weekday": "чт",
       "day_month": "18 дек",
       "kickoff_msk": "2026-12-18 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-077",
       "home_id": "3059",
       "away_id": "15",
@@ -1642,7 +1642,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": 6.13,
-      "hours_before": 1683.0
+      "hours_before": 1682.9
     },
     {
       "match_id": "1081910",
@@ -1650,13 +1650,13 @@
       "weekday": "пт",
       "day_month": "19 дек",
       "kickoff_msk": "2026-12-19 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-079",
       "home_id": "682",
       "away_id": "2650",
       "home_name": "Автодор",
       "away_name": "Локомотив-Кубань",
-      "p_home": 0.4731,
+      "p_home": 0.4732,
       "p_draw": 0.02167,
       "p_away": 0.5052,
       "prediction": "A",
@@ -1668,7 +1668,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": 2.71,
-      "hours_before": 1708.0
+      "hours_before": 1707.9
     },
     {
       "match_id": "1081909",
@@ -1676,14 +1676,14 @@
       "weekday": "пт",
       "day_month": "19 дек",
       "kickoff_msk": "2026-12-19 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-078",
       "home_id": "1390",
       "away_id": "697",
       "home_name": "Уралмаш",
       "away_name": "УНИКС",
-      "p_home": 0.4785,
-      "p_draw": 0.02168,
+      "p_home": 0.4786,
+      "p_draw": 0.02167,
       "p_away": 0.4998,
       "prediction": "A",
       "confidence": 0.4998,
@@ -1694,7 +1694,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": 4.85,
-      "hours_before": 1707.0
+      "hours_before": 1706.9
     },
     {
       "match_id": "1081911",
@@ -1702,7 +1702,7 @@
       "weekday": "пн",
       "day_month": "22 дек",
       "kickoff_msk": "2026-12-22 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-080",
       "home_id": "2994",
       "away_id": "23358",
@@ -1710,7 +1710,7 @@
       "away_name": "Динамо",
       "p_home": 0.5671,
       "p_draw": 0.02129,
-      "p_away": 0.4117,
+      "p_away": 0.4116,
       "prediction": "H",
       "confidence": 0.5671,
       "exp_home_score": 82.5,
@@ -1720,7 +1720,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": -0.17,
-      "hours_before": 1757.0
+      "hours_before": 1756.9
     },
     {
       "match_id": "1081912",
@@ -1728,15 +1728,15 @@
       "weekday": "пн",
       "day_month": "22 дек",
       "kickoff_msk": "2026-12-22 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-081",
       "home_id": "15",
       "away_id": "2792",
       "home_name": "ЦСКА",
       "away_name": "Самара",
       "p_home": 0.6423,
-      "p_draw": 0.02016,
-      "p_away": 0.3376,
+      "p_draw": 0.02015,
+      "p_away": 0.3375,
       "prediction": "H",
       "confidence": 0.6423,
       "exp_home_score": 84.5,
@@ -1746,7 +1746,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": -6.66,
-      "hours_before": 1757.0
+      "hours_before": 1756.9
     },
     {
       "match_id": "1081913",
@@ -1754,7 +1754,7 @@
       "weekday": "ср",
       "day_month": "24 дек",
       "kickoff_msk": "2026-12-24 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-082",
       "home_id": "3059",
       "away_id": "2747",
@@ -1772,7 +1772,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": -1.19,
-      "hours_before": 1827.0
+      "hours_before": 1826.9
     },
     {
       "match_id": "1081914",
@@ -1780,7 +1780,7 @@
       "weekday": "чт",
       "day_month": "25 дек",
       "kickoff_msk": "2026-12-25 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-083",
       "home_id": "23358",
       "away_id": "688",
@@ -1798,7 +1798,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": -1.57,
-      "hours_before": 1846.0
+      "hours_before": 1845.9
     },
     {
       "match_id": "1081915",
@@ -1806,17 +1806,17 @@
       "weekday": "сб",
       "day_month": "27 дек",
       "kickoff_msk": "2026-12-27 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-084",
       "home_id": "697",
       "away_id": "15",
       "home_name": "УНИКС",
       "away_name": "ЦСКА",
-      "p_home": 0.5154,
+      "p_home": 0.5155,
       "p_draw": 0.02164,
       "p_away": 0.4629,
       "prediction": "H",
-      "confidence": 0.5154,
+      "confidence": 0.5155,
       "exp_home_score": 81.1,
       "exp_away_score": 79.8,
       "exp_total": 160.9,
@@ -1824,7 +1824,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.85,
       "strength_away": 6.13,
-      "hours_before": 1877.0
+      "hours_before": 1876.9
     },
     {
       "match_id": "1081917",
@@ -1832,7 +1832,7 @@
       "weekday": "сб",
       "day_month": "3 янв",
       "kickoff_msk": "2027-01-03 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-086",
       "home_id": "1390",
       "away_id": "2994",
@@ -1850,7 +1850,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": 4.1,
-      "hours_before": 2067.0
+      "hours_before": 2066.9
     },
     {
       "match_id": "1081918",
@@ -1858,13 +1858,13 @@
       "weekday": "сб",
       "day_month": "3 янв",
       "kickoff_msk": "2027-01-03 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-087",
       "home_id": "23358",
       "away_id": "697",
       "home_name": "Динамо",
       "away_name": "УНИКС",
-      "p_home": 0.477,
+      "p_home": 0.4771,
       "p_draw": 0.02167,
       "p_away": 0.5013,
       "prediction": "A",
@@ -1876,7 +1876,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 4.85,
-      "hours_before": 2062.0
+      "hours_before": 2061.9
     },
     {
       "match_id": "1081916",
@@ -1884,7 +1884,7 @@
       "weekday": "вс",
       "day_month": "4 янв",
       "kickoff_msk": "2027-01-04 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-085",
       "home_id": "15",
       "away_id": "2747",
@@ -1902,7 +1902,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": -1.19,
-      "hours_before": 2069.0
+      "hours_before": 2068.9
     },
     {
       "match_id": "1081919",
@@ -1910,7 +1910,7 @@
       "weekday": "вс",
       "day_month": "4 янв",
       "kickoff_msk": "2027-01-04 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-088",
       "home_id": "3059",
       "away_id": "682",
@@ -1928,7 +1928,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": -2.68,
-      "hours_before": 2091.0
+      "hours_before": 2090.9
     },
     {
       "match_id": "1081920",
@@ -1936,7 +1936,7 @@
       "weekday": "пн",
       "day_month": "5 янв",
       "kickoff_msk": "2027-01-05 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-089",
       "home_id": "2650",
       "away_id": "2792",
@@ -1954,7 +1954,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": -6.66,
-      "hours_before": 2093.0
+      "hours_before": 2092.9
     },
     {
       "match_id": "1081921",
@@ -1962,7 +1962,7 @@
       "weekday": "ср",
       "day_month": "7 янв",
       "kickoff_msk": "2027-01-07 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-090",
       "home_id": "1390",
       "away_id": "682",
@@ -1980,7 +1980,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": -2.68,
-      "hours_before": 2163.0
+      "hours_before": 2162.9
     },
     {
       "match_id": "1081922",
@@ -1988,7 +1988,7 @@
       "weekday": "чт",
       "day_month": "8 янв",
       "kickoff_msk": "2027-01-08 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-091",
       "home_id": "688",
       "away_id": "2994",
@@ -1996,9 +1996,9 @@
       "away_name": "Зенит",
       "p_home": 0.4744,
       "p_draw": 0.02167,
-      "p_away": 0.504,
+      "p_away": 0.5039,
       "prediction": "A",
-      "confidence": 0.504,
+      "confidence": 0.5039,
       "exp_home_score": 80.1,
       "exp_away_score": 80.8,
       "exp_total": 160.9,
@@ -2006,7 +2006,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 4.1,
-      "hours_before": 2185.0
+      "hours_before": 2184.9
     },
     {
       "match_id": "1081923",
@@ -2014,7 +2014,7 @@
       "weekday": "чт",
       "day_month": "8 янв",
       "kickoff_msk": "2027-01-08 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-092",
       "home_id": "23358",
       "away_id": "3059",
@@ -2032,7 +2032,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 0.2,
-      "hours_before": 2182.0
+      "hours_before": 2181.9
     },
     {
       "match_id": "1081924",
@@ -2040,7 +2040,7 @@
       "weekday": "пт",
       "day_month": "9 янв",
       "kickoff_msk": "2027-01-09 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-093",
       "home_id": "2650",
       "away_id": "15",
@@ -2058,7 +2058,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": 6.13,
-      "hours_before": 2189.0
+      "hours_before": 2188.9
     },
     {
       "match_id": "1081925",
@@ -2066,17 +2066,17 @@
       "weekday": "сб",
       "day_month": "10 янв",
       "kickoff_msk": "2027-01-10 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-094",
       "home_id": "2747",
       "away_id": "697",
       "home_name": "МБА-МАИ",
       "away_name": "УНИКС",
       "p_home": 0.4594,
-      "p_draw": 0.02163,
-      "p_away": 0.519,
+      "p_draw": 0.02162,
+      "p_away": 0.5189,
       "prediction": "A",
-      "confidence": 0.519,
+      "confidence": 0.5189,
       "exp_home_score": 79.7,
       "exp_away_score": 81.2,
       "exp_total": 160.9,
@@ -2084,7 +2084,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": 4.85,
-      "hours_before": 2213.0
+      "hours_before": 2212.9
     },
     {
       "match_id": "1081926",
@@ -2092,7 +2092,7 @@
       "weekday": "пн",
       "day_month": "12 янв",
       "kickoff_msk": "2027-01-12 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-095",
       "home_id": "688",
       "away_id": "3059",
@@ -2110,7 +2110,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 0.2,
-      "hours_before": 2281.0
+      "hours_before": 2280.9
     },
     {
       "match_id": "1081927",
@@ -2118,13 +2118,13 @@
       "weekday": "вт",
       "day_month": "13 янв",
       "kickoff_msk": "2027-01-13 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-096",
       "home_id": "2792",
       "away_id": "2747",
       "home_name": "Самара",
       "away_name": "МБА-МАИ",
-      "p_home": 0.4589,
+      "p_home": 0.459,
       "p_draw": 0.02162,
       "p_away": 0.5194,
       "prediction": "A",
@@ -2136,7 +2136,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": -1.19,
-      "hours_before": 2308.0
+      "hours_before": 2307.9
     },
     {
       "match_id": "1081929",
@@ -2144,7 +2144,7 @@
       "weekday": "чт",
       "day_month": "15 янв",
       "kickoff_msk": "2027-01-15 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-098",
       "home_id": "682",
       "away_id": "15",
@@ -2152,9 +2152,9 @@
       "away_name": "ЦСКА",
       "p_home": 0.4417,
       "p_draw": 0.02154,
-      "p_away": 0.5368,
+      "p_away": 0.5367,
       "prediction": "A",
-      "confidence": 0.5368,
+      "confidence": 0.5367,
       "exp_home_score": 79.2,
       "exp_away_score": 81.7,
       "exp_total": 160.9,
@@ -2162,7 +2162,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": 6.13,
-      "hours_before": 2356.0
+      "hours_before": 2355.9
     },
     {
       "match_id": "1081928",
@@ -2170,7 +2170,7 @@
       "weekday": "пт",
       "day_month": "16 янв",
       "kickoff_msk": "2027-01-16 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-097",
       "home_id": "2994",
       "away_id": "697",
@@ -2188,7 +2188,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": 4.85,
-      "hours_before": 2357.0
+      "hours_before": 2356.9
     },
     {
       "match_id": "1081931",
@@ -2196,14 +2196,14 @@
       "weekday": "пт",
       "day_month": "16 янв",
       "kickoff_msk": "2027-01-16 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-100",
       "home_id": "3059",
       "away_id": "1390",
       "home_name": "ПАРМА",
       "away_name": "Уралмаш",
       "p_home": 0.5239,
-      "p_draw": 0.02161,
+      "p_draw": 0.0216,
       "p_away": 0.4545,
       "prediction": "H",
       "confidence": 0.5239,
@@ -2214,7 +2214,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": 0.49,
-      "hours_before": 2379.0
+      "hours_before": 2378.9
     },
     {
       "match_id": "1081930",
@@ -2222,7 +2222,7 @@
       "weekday": "сб",
       "day_month": "17 янв",
       "kickoff_msk": "2027-01-17 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-099",
       "home_id": "2650",
       "away_id": "23358",
@@ -2240,7 +2240,7 @@
       "sigma_margin": 19.03,
       "strength_home": 2.71,
       "strength_away": -0.17,
-      "hours_before": 2381.0
+      "hours_before": 2380.9
     },
     {
       "match_id": "1081932",
@@ -2248,7 +2248,7 @@
       "weekday": "пн",
       "day_month": "19 янв",
       "kickoff_msk": "2027-01-19 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-101",
       "home_id": "2994",
       "away_id": "2747",
@@ -2266,7 +2266,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": -1.19,
-      "hours_before": 2429.0
+      "hours_before": 2428.9
     },
     {
       "match_id": "1081933",
@@ -2274,7 +2274,7 @@
       "weekday": "вт",
       "day_month": "20 янв",
       "kickoff_msk": "2027-01-20 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-102",
       "home_id": "15",
       "away_id": "688",
@@ -2292,7 +2292,7 @@
       "sigma_margin": 19.03,
       "strength_home": 6.13,
       "strength_away": -1.57,
-      "hours_before": 2453.0
+      "hours_before": 2452.9
     },
     {
       "match_id": "1081934",
@@ -2300,7 +2300,7 @@
       "weekday": "вт",
       "day_month": "20 янв",
       "kickoff_msk": "2027-01-20 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-103",
       "home_id": "3059",
       "away_id": "2650",
@@ -2318,7 +2318,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.2,
       "strength_away": 2.71,
-      "hours_before": 2475.0
+      "hours_before": 2474.9
     },
     {
       "match_id": "1081935",
@@ -2326,7 +2326,7 @@
       "weekday": "ср",
       "day_month": "21 янв",
       "kickoff_msk": "2027-01-21 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-104",
       "home_id": "682",
       "away_id": "23358",
@@ -2344,7 +2344,7 @@
       "sigma_margin": 19.03,
       "strength_home": -2.68,
       "strength_away": -0.17,
-      "hours_before": 2500.0
+      "hours_before": 2499.9
     },
     {
       "match_id": "1081936",
@@ -2352,17 +2352,17 @@
       "weekday": "чт",
       "day_month": "22 янв",
       "kickoff_msk": "2027-01-22 22:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-105",
       "home_id": "1390",
       "away_id": "2792",
       "home_name": "Уралмаш",
       "away_name": "Самара",
-      "p_home": 0.5834,
+      "p_home": 0.5835,
       "p_draw": 0.02111,
-      "p_away": 0.3955,
+      "p_away": 0.3954,
       "prediction": "H",
-      "confidence": 0.5834,
+      "confidence": 0.5835,
       "exp_home_score": 82.9,
       "exp_away_score": 78.0,
       "exp_total": 160.9,
@@ -2370,7 +2370,7 @@
       "sigma_margin": 19.03,
       "strength_home": 0.49,
       "strength_away": -6.66,
-      "hours_before": 2523.0
+      "hours_before": 2522.9
     },
     {
       "match_id": "1081939",
@@ -2378,7 +2378,7 @@
       "weekday": "пт",
       "day_month": "23 янв",
       "kickoff_msk": "2027-01-23 20:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-108",
       "home_id": "688",
       "away_id": "697",
@@ -2396,7 +2396,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.57,
       "strength_away": 4.85,
-      "hours_before": 2545.0
+      "hours_before": 2544.9
     },
     {
       "match_id": "1081937",
@@ -2404,7 +2404,7 @@
       "weekday": "сб",
       "day_month": "24 янв",
       "kickoff_msk": "2027-01-24 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-106",
       "home_id": "2747",
       "away_id": "2650",
@@ -2412,9 +2412,9 @@
       "away_name": "Локомотив-Кубань",
       "p_home": 0.4819,
       "p_draw": 0.02168,
-      "p_away": 0.4965,
+      "p_away": 0.4964,
       "prediction": "A",
-      "confidence": 0.4965,
+      "confidence": 0.4964,
       "exp_home_score": 80.3,
       "exp_away_score": 80.7,
       "exp_total": 160.9,
@@ -2422,7 +2422,7 @@
       "sigma_margin": 19.03,
       "strength_home": -1.19,
       "strength_away": 2.71,
-      "hours_before": 2549.0
+      "hours_before": 2548.9
     },
     {
       "match_id": "1081938",
@@ -2430,7 +2430,7 @@
       "weekday": "сб",
       "day_month": "24 янв",
       "kickoff_msk": "2027-01-24 00:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-107",
       "home_id": "2994",
       "away_id": "15",
@@ -2448,7 +2448,7 @@
       "sigma_margin": 19.03,
       "strength_home": 4.1,
       "strength_away": 6.13,
-      "hours_before": 2549.0
+      "hours_before": 2548.9
     },
     {
       "match_id": "1081941",
@@ -2456,7 +2456,7 @@
       "weekday": "пн",
       "day_month": "26 янв",
       "kickoff_msk": "2027-01-26 23:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-110",
       "home_id": "2792",
       "away_id": "3059",
@@ -2464,9 +2464,9 @@
       "away_name": "ПАРМА",
       "p_home": 0.4578,
       "p_draw": 0.02162,
-      "p_away": 0.5206,
+      "p_away": 0.5205,
       "prediction": "A",
-      "confidence": 0.5206,
+      "confidence": 0.5205,
       "exp_home_score": 79.7,
       "exp_away_score": 81.3,
       "exp_total": 160.9,
@@ -2474,7 +2474,7 @@
       "sigma_margin": 19.03,
       "strength_home": -6.66,
       "strength_away": 0.2,
-      "hours_before": 2620.0
+      "hours_before": 2619.9
     },
     {
       "match_id": "1081940",
@@ -2482,7 +2482,7 @@
       "weekday": "пн",
       "day_month": "26 янв",
       "kickoff_msk": "2027-01-26 17:00",
-      "phase_name": "{\"ru\": \"Регулярный чемпионат. Первый этап\", \"en\": \"Regular championship. First stage\"}",
+      "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-109",
       "home_id": "23358",
       "away_id": "1390",
@@ -2500,7 +2500,7 @@
       "sigma_margin": 19.03,
       "strength_home": -0.17,
       "strength_away": 0.49,
-      "hours_before": 2614.0
+      "hours_before": 2613.9
     }
   ]
 }

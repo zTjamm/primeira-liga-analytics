@@ -79,9 +79,18 @@ SESSION.headers.update({
 
 
 def _name(node) -> str:
-    """teamName приходит объектом {ru, en}. Берём русский — он канонический."""
+    """Локализованные строки приходят объектом {ru, en, ...}. Берём русский.
+
+    Это касается не только названий команд: сюда же попадает phaseName,
+    где без разбора в интерфейс уезжал сырой JSON вида
+    {"ru": "Регулярный чемпионат", "en": "Regular championship"}.
+    """
     if isinstance(node, dict):
-        return node.get("ru") or node.get("en") or ""
+        for key in ("ru", "name", "default", "title", "en"):
+            value = node.get(key)
+            if isinstance(value, str) and value:
+                return value
+        return ""
     return str(node or "")
 
 
@@ -109,8 +118,7 @@ def fetch_season(season_id: str, season: str) -> pl.DataFrame:
             "season_id": season_id,
             "season": season,
             "match_type": mtype,
-            "phase_name": m.get("phaseName") if isinstance(m.get("phaseName"), str)
-                          else json.dumps(m.get("phaseName"), ensure_ascii=False),
+            "phase_name": _name(m.get("phaseName")) or None,
             "status": m.get("matchStatus"),
             "match_date": (m.get("matchTimeMSK") or "")[:10] or None,
             "kickoff_msk": (m.get("matchTimeMSK") or "") or None,
