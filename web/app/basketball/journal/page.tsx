@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getJournal, type Journal } from "@/lib/data";
+import { longDate } from "@/lib/format";
 import { EmptyState } from "@/components/EmptyState";
 
 export const dynamic = "force-dynamic";
@@ -79,7 +80,7 @@ export default async function BasketballJournalPage() {
                 <div key={p.key} className="panel p-4">
                   <div className="mb-2 flex items-center justify-between text-xs text-muted">
                     <span>
-                      {p.date}
+                      {longDate(p.date)}
                       {p.matchday ? ` · № ${p.matchday}` : ""}
                     </span>
                     {hours !== null && hours > 0 && (
@@ -165,7 +166,7 @@ export default async function BasketballJournalPage() {
                 {resolved.map((r) => (
                   <tr key={r.key} className="border-b border-line/40">
                     <td className="num py-2 pl-4 text-xs text-muted whitespace-nowrap">
-                      {r.date}
+                      {longDate(r.date)}
                       <span className="ml-1 opacity-60">{r.stage}</span>
                     </td>
                     <td className="py-2">
