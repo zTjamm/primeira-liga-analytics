@@ -32,6 +32,11 @@ concurrency:
 env:
   WINDOW_HOURS: "6"
 
+permissions:
+  # Бот коммитит обновлённые артефакты прямо в ветку — без этого права
+  # публикация падает на git push.
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest

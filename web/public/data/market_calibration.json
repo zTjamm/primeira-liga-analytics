@@ -1,0 +1,47 @@
+{
+  "n_matches": 2204,
+  "actual_freq": {
+    "H": 0.426,
+    "D": 0.2509,
+    "A": 0.323
+  },
+  "methods": {
+    "proportional": {
+      "logloss": 0.92306,
+      "brier": 0.545,
+      "accuracy": 0.5567,
+      "mean_probs": {
+        "H": 0.4252,
+        "D": 0.2506,
+        "A": 0.3242
+      },
+      "calibration_gap": 0.00228,
+      "mean_overround": 1.06188
+    },
+    "power": {
+      "logloss": 0.92044,
+      "brier": 0.54382,
+      "accuracy": 0.5567,
+      "mean_probs": {
+        "H": 0.4319,
+        "D": 0.2435,
+        "A": 0.3246
+      },
+      "calibration_gap": 0.01478,
+      "mean_overround": 1.06188
+    },
+    "shin": {
+      "logloss": 0.94041,
+      "brier": 0.55556,
+      "accuracy": 0.5567,
+      "mean_probs": {
+        "H": 0.4025,
+        "D": 0.2749,
+        "A": 0.3225
+      },
+      "calibration_gap": 0.04803,
+      "mean_overround": 1.06188
+    }
+  },
+  "chosen": "power"
+}
