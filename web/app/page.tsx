@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { getPredictions, getBacktest } from "@/lib/data";
 import { longDate } from "@/lib/format";
 import { MatchCard } from "@/components/MatchCard";
@@ -14,6 +14,7 @@ export default async function Home() {
       <EmptyState
         title="Прогнозы ещё не собраны"
         hint="Артефакты появляются после прогона пайплайна: он скачивает историю матчей, строит модель и считает прогнозы на ближайшие туры."
+        command="python -m etl.run"
       />
     );
   }
@@ -76,3 +77,4 @@ export default async function Home() {
     </div>
   );
 }
+

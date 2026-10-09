@@ -1,4 +1,4 @@
-import { getEloTable, getDcStrength, getPredictions, teamName } from "@/lib/data";
+﻿import { getEloTable, getDcStrength, getPredictions, teamName } from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
 import { signed } from "@/lib/format";
 
@@ -16,6 +16,7 @@ export default async function TeamsPage() {
       <EmptyState
         title="Рейтинги ещё не посчитаны"
         hint="Elo и Dixon-Coles обучаются в пайплайне на всей доступной истории, включая клубы прошлых сезонов."
+        command="python -m models.predict"
       />
     );
   }
@@ -124,3 +125,4 @@ function StrengthBar({ value }: { value: number }) {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { getBacktest, getValidation, getCalibration } from "@/lib/data";
 import type { MetricRow } from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
@@ -76,6 +76,7 @@ export default async function AccuracyPage() {
       <EmptyState
         title="Метрики ещё не посчитаны"
         hint="Бэктест считает логистику, Brier и точность на отложенных сезонах и сравнивает модель с закрывающей линией букмекеров."
+        command="python -m models.backtest_runner"
       />
     );
   }
@@ -323,3 +324,4 @@ function CoverageTable({
     </div>
   );
 }
+

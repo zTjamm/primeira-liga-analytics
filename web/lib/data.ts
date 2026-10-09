@@ -76,6 +76,81 @@ export interface EloRow {
   rating: number;
 }
 
+/** Условия погоды на момент матча (подмножество — не всё используется в вёрстке). */
+export interface Weather {
+  temp_c: number | null;
+  humidity: number | null;
+  precip_mm: number | null;
+  precip_prob: number | null;
+  wind_kmh: number | null;
+  gusts_kmh: number | null;
+  cloud_pct: number | null;
+  stadium: string;
+  island: string;
+}
+
+export interface ForecastVersion {
+  stage: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  hours_before: number;
+  generated_at: string;
+}
+
+export interface ForecastRecord {
+  fd_match_id: number;
+  date: string;
+  kickoff_utc: string;
+  matchday: number | null;
+  home_id: string;
+  away_id: string;
+  home_name: string;
+  away_name: string;
+  generated_at: string;
+  hours_before: number;
+  stage: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  over25: number | null;
+  xg_home: number | null;
+  xg_away: number | null;
+  weather: Weather | null;
+  versions: ForecastVersion[];
+}
+
+export interface ForecastHistory {
+  generated_at: string;
+  resolved: (ForecastRecord & {
+    actual: "H" | "D" | "A";
+    score: string;
+    hit: boolean;
+    p_actual: number | null;
+    logloss: number | null;
+    n_versions: number;
+    shift: number;
+    flipped: boolean;
+  })[];
+  pending: ForecastRecord[];
+  summary: {
+    total: number;
+    overall: {
+      n: number;
+      accuracy: number;
+      logloss: number | null;
+      avg_p_actual: number;
+    };
+    by_stage: Record<
+      string,
+      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
+    >;
+    multi_stage: number;
+    flipped: number;
+    avg_shift: number | null;
+  };
+}
+
 export interface DcRow {
   team: string;
   attack: number;
@@ -127,6 +202,9 @@ export const getEloTable = cache(() => readJson<EloRow[]>("elo_table.json"));
 export const getDcStrength = cache(() => readJson<DcRow[]>("dc_strength.json"));
 export const getValidation = cache(() => readJson<ValidationFile>("validation.json"));
 export const getCalibration = cache(() => readJson<CalibrationFile>("market_calibration.json"));
+export const getForecastHistory = cache(
+  () => readJson<ForecastHistory>("forecast_history.json"),
+);
 
 export function getPredictionById(
   predictions: PredictionsFile | null,

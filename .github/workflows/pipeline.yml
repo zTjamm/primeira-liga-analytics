@@ -1,13 +1,25 @@
 name: pipeline
 
-# Матчи Primeira Liga играются по пятницам–воскресеньям. Собираем утром,
-# чтобы успевать до начала игрового дня по континентальной Европе.
+# Матчи Primeira Liga играются по пятницам–воскресеньям.
+#
+# Запускаемся каждый час, а не раз в сутки: цель — иметь свежий срез
+# прогноза на разных расстояниях до начала матча. Но пересчитывать всё
+# подряд смысла нет, поэтому первый шаг — дешёвая проверка через curl+jq
+# на пустом раннере: есть ли матч, стартующий в ближайшие 6 часов.
+# Если нет — работа заканчивается, потратив ~10 секунд вместо полутора минут.
+#
+# Оговорка про точность: cron в GitHub Actions запускается с задержкой
+# 5–30 минут, поэтому срез «за 4 часа» фактически получится T-4ч ±30–60 мин.
+# Если нужна точность, нужен постоянно работающий сервер.
 on:
   schedule:
-    # 06:40 UTC — под linux cron это 08:40 по Москве
-    - cron: "40 6 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
+      force:
+        description: "Обновить, даже если матчей в окне нет"
+        type: boolean
+        default: false
       skip_backtest:
         description: "Пропустить полный бэктест (быстрее, но без метрик)"
         type: boolean
@@ -17,74 +29,122 @@ concurrency:
   group: pipeline
   cancel-in-progress: false
 
+env:
+  WINDOW_HOURS: "6"
+
 jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
     steps:
+      - name: Проверить, есть ли матч в окне
+        id: gate
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "needs=true" >> "$GITHUB_OUTPUT"
+            echo "принудительный запуск"
+            exit 0
+          fi
+          now=$(date -u +%s)
+          horizon=$(( now + ${WINDOW_HOURS} * 3600 ))
+          # только планируемые матчи: сыгранные нам не нужны
+          body=$(curl -sS --max-time 30 \
+            "http://api.football-data.org/v4/competitions/PPL/matches?dateFrom=$(date -u +%Y-%m-%d)&dateTo=$(date -u -d '+7 days' +%Y-%m-%d)" \
+            -H "X-Auth-Token: ${{ secrets.FD_ORG_TOKEN }}") || { echo "needs=true" >> "$GITHUB_OUTPUT"; echo "не удалось получить расписание, обновляем на всякий случай"; exit 0; }
+          soon=$(printf '%s' "$body" | jq -r --argjson lo "$now" --argjson hi "$horizon" '
+            [ .matches[]
+              | select(.status == "TIMED" or .status == "SCHEDULED")
+              | (.utcDate | fromdateiso8601) as $t
+              | select($t >= $lo and $t <= $hi)
+              | "\(.utcDate) \(.homeTeam.name) — \(.awayTeam.name)" ] | .[]' || true)
+          if [ -n "$soon" ]; then
+            echo "needs=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Ближайшие матчи в окне обновления"
+              echo '```'
+              printf '%s\n' "$soon"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            printf 'обновляем: матчей в окне — %s\n' "$(printf '%s\n' "$soon" | wc -l)"
+          else
+            echo "needs=false" >> "$GITHUB_OUTPUT"
+            echo "в окне ${WINDOW_HOURS}ч матчей нет, прогнозы не трогаем"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.needs == 'true'
+        with:
+          # журнал прогнозов нужен, чтобы история не обнулялась
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.needs == 'true'
         with:
           python-version: "3.13"
           cache: pip
 
       - name: Установить зависимости
+        if: steps.gate.outputs.needs == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Собрать данные и обновить расписание
+        if: steps.gate.outputs.needs == 'true'
         env:
           FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
           FIXTURE_HORIZON_DAYS: "45"
         run: python -m etl.run
 
       - name: Калибровка снятия маржи
+        if: steps.gate.outputs.needs == 'true'
         run: python -m models.market_calibration
 
-      - name: Прогнозы на ближайшие матчи
+      - name: Прогнозы и журнал
+        if: steps.gate.outputs.needs == 'true'
         env:
           FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
         run: python -m models.predict
 
       - name: Бэктест
-        if: ${{ !inputs.skip_backtest }}
+        # Метрики на сезонных данных не меняются чаще раза в сутки,
+        # а прогон занимает около минуты.
+        if: steps.gate.outputs.needs == 'true' && !inputs.skip_backtest && github.run_number % 24 == 0
         run: python -m models.backtest_runner
 
-      - name: Выгрузить артефакты
-        uses: actions/upload-artifact@v4
-        with:
-          name: predictions
-          path: |
-            data/processed/predictions.json
-            data/processed/fixtures.parquet
-            data/processed/standings.parquet
-            data/reports/
-          retention-days: 90
+      - name: Опубликовать артефакты
+        if: steps.gate.outputs.needs == 'true'
+        run: |
+          mkdir -p web/public/data
+          cp data/processed/predictions.json web/public/data/predictions.json
+          cp data/processed/forecast_history.json web/public/data/forecast_history.json
+          cp data/reports/elo_table.json web/public/data/elo_table.json
+          cp data/reports/dc_strength.json web/public/data/dc_strength.json
+          for f in backtest validation market_calibration; do
+            [ -f "data/reports/$f.json" ] && cp "data/reports/$f.json" web/public/data/ || true
+          done
 
       - name: Опубликовать артефакты в репозиторий
-        # Фронт читает файлы из public/data, поэтому они должны лежать в ветке.
-        # Коммитим только артефакты: сырые CSV туда попадать не должны.
+        if: steps.gate.outputs.needs == 'true'
+        # Журнал прогнозов коммитим всегда: без него история обнуляется.
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          mkdir -p web/public/data
-          cp data/processed/predictions.json web/public/data/predictions.json
-          cp data/reports/elo_table.json web/public/data/elo_table.json
-          cp data/reports/dc_strength.json web/public/data/dc_strength.json
-          cp data/reports/backtest.json web/public/data/backtest.json
-          cp data/reports/validation.json web/public/data/validation.json
-          cp data/reports/market_calibration.json web/public/data/market_calibration.json
-          git add web/public/data
-          git diff --cached --quiet || git commit -m "chore(data): автообновление прогнозов [skip ci]"
-          git push
+          git add web/public/data data/forecast_log.jsonl
+          if git diff --cached --quiet; then
+            echo "изменений нет"
+          else
+            git commit -m "chore(data): автообновление прогнозов [skip ci]"
+            git push
+          fi
 
       - name: Отчёт в сводке
-        if: always()
+        if: always() && steps.gate.outputs.needs == 'true'
         run: |
-          echo "### Покрытие данных и проверки" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Проверки данных" >> "$GITHUB_STEP_SUMMARY"
           cat data/reports/validation.json >> "$GITHUB_STEP_SUMMARY"
 
   web-build:

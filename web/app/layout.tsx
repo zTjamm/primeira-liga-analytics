@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 const NAV = [
   { href: "/", label: "Матчи" },
+  { href: "/history", label: "Журнал" },
   { href: "/teams", label: "Команды" },
   { href: "/accuracy", label: "Точность" },
   { href: "/methodology", label: "Методика" },
