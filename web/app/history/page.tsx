@@ -114,8 +114,14 @@ export default async function HistoryPage() {
                     <div className="min-w-0 flex-1 text-right text-[13px] font-medium leading-tight">
                       {p.home_name}
                     </div>
-                    <div className="num shrink-0 rounded bg-panel-2 px-2 py-0.5 text-[11px] text-muted">
-                      {OUTCOME_LABEL[p.stage.startsWith("T") ? topOutcome(p) : "—"]}
+                    <div className="num shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-center text-[11px] leading-tight text-muted">
+                      <div>{OUTCOME_LABEL[topOutcome(p)]}</div>
+                      <div className="opacity-70">
+                        {(
+                          Math.max(p.p_home, p.p_draw, p.p_away) * 100
+                        ).toFixed(0)}
+                        %
+                      </div>
                     </div>
                     <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
                       {p.away_name}

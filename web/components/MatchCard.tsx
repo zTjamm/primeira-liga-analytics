@@ -29,11 +29,15 @@ export function MatchCard({ m }: { m: Prediction }) {
         {/* Подпись уточняет, что это аргумент в пользу исхода, а не
             сравнение с тоталом: рынки разные, и вероятности между собой
             несравнимы. Подробности — на странице «Точность». */}
+        {/* Процент стоит рядом с исходом, а не только в строке вероятностей
+            ниже: там три числа подряд, и чтобы узнать уверенность выбора,
+            надо в уме сопоставлять. Здесь ответ самодостаточен. */}
         <div
-          className="num mt-0.5 shrink-0 rounded bg-panel-2 px-2 py-0.5 text-[11px] text-muted"
-          title="Наиболее вероятный исход. С тоталом 2.5 не сравнивается: это разные рынки"
+          className="num mt-0.5 shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-center text-[11px] leading-tight text-muted"
+          title="Наиболее вероятный исход и его вероятность. С тоталом 2.5 не сравнивается: это разные рынки"
         >
-          {OUTCOME_LABEL[m.prediction]}
+          <div>{OUTCOME_LABEL[m.prediction]}</div>
+          <div className="opacity-70">{(m.confidence * 100).toFixed(0)}%</div>
         </div>
         <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
           {m.away_name}
