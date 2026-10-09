@@ -53,11 +53,11 @@ export default async function Home() {
             <p className="mt-1 text-xs text-muted">
               Вердикт выдан у{" "}
               <span className="num text-text">{withVerdict.length}</span> из{" "}
-              <span className="num">{upcoming.length}</span>. Остальные
-              пропуски почти равны и
-              обучение недостаточно, и
-              из-за них можно превратить
-              шумом. Обчиство —{" "}
+              <span className="num">{upcoming.length}</span>. У остальных
+              вероятности почти равны или
+              данных не хватает: в обоих
+              случая выбор определяется
+              шумом. Обоснование —{" "}
               <Link href="/accuracy#sel" className="link underline">
                 здесь
               </Link>
