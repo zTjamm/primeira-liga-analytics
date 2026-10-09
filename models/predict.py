@@ -39,7 +39,7 @@ def fit_models(matches: list[dict], verbose: bool = True) -> tuple[EloModel, Dix
         print(f"Elo: обучен на {len(matches)} матчах, {len(teams)} команд")
         print(f"DC: rho={dc.rho:+.4f}, gamma={dc.home_adv:+.3f}, сошёлся={dc._converged}")
         top = dc.strength()[:5]
-        print("     сильнейшие по (атака − оборона): "
+        print("     сильнейшие по (атака + оборона): "
               + ", ".join(f"{t['team']} {t['overall']:+.2f}" for t in top))
     return elo, dc
 

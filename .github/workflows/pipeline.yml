@@ -86,3 +86,25 @@ jobs:
         run: |
           echo "### Покрытие данных и проверки" >> "$GITHUB_STEP_SUMMARY"
           cat data/reports/validation.json >> "$GITHUB_STEP_SUMMARY"
+
+  web-build:
+    # Сборка фронта проверяется отдельно от пайплайна данных: падать должны
+    # оба, но по разным причинам.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Установить зависимости фронта
+        working-directory: web
+        run: npm ci
+      - name: Проверка типов
+        working-directory: web
+        run: npm run typecheck
+      - name: Сборка
+        working-directory: web
+        run: npm run build

@@ -127,13 +127,20 @@ class DixonColesModel:
         return probs_from_scores(self.score_matrix(home, away))
 
     def strength(self) -> list[dict]:
-        """Рейтинг-листа: атака минус оборона (оборона со знаком «лучше — меньше»)."""
+        """Рейтинг-листа.
+
+        ВАЖНО про знаки. В формуле lambda = exp(attack - defence) параметр
+        defence вычитается, поэтому его смысл обратный привычному:
+        больше defence = ЛУЧШЕ оборона (соперник забивает меньше).
+        Значит и атака, и оборона «больше — лучше», и составная сила
+        складывается как attack + defence, а не как разность.
+        """
         rows = [
             {
                 "team": t,
                 "attack": round(self.attack[t], 3),
                 "defence": round(self.defence[t], 3),
-                "overall": round(self.attack[t] - self.defence[t], 3),
+                "overall": round(self.attack[t] + self.defence[t], 3),
             }
             for t in self.teams
         ]
