@@ -73,6 +73,17 @@ jobs:
             echo "в окне ${WINDOW_HOURS}ч матчей нет, прогнозы не трогаем"
           fi
 
+          # Бэктест нужен раз в сутки, а не каждый час. Модуль в выражениях
+          # GitHub Actions не поддерживается, поэтому решаем здесь, в bash.
+          hour=$(date -u +%-H)
+          if [ $(( hour % 6 )) -eq 0 ]; then
+            echo "backtest=true" >> "$GITHUB_OUTPUT"
+            echo "бэктест: да (час $hour)"
+          else
+            echo "backtest=false" >> "$GITHUB_OUTPUT"
+            echo "бэктест: нет (час $hour)"
+          fi
+
       - uses: actions/checkout@v4
         if: steps.gate.outputs.needs == 'true'
         with:
@@ -111,7 +122,7 @@ jobs:
       - name: Бэктест
         # Метрики на сезонных данных не меняются чаще раза в сутки,
         # а прогон занимает около минуты.
-        if: steps.gate.outputs.needs == 'true' && !inputs.skip_backtest && github.run_number % 24 == 0
+        if: steps.gate.outputs.needs == 'true' && steps.gate.outputs.backtest == 'true' && !inputs.skip_backtest
         run: python -m models.backtest_runner
 
       - name: Опубликовать артефакты
