@@ -39,6 +39,11 @@ export interface Prediction {
   elo_home: number;
   elo_away: number;
   elo_diff: number;
+  /** Выдан ли вердикт. При false вероятности остаются, но выбор исхода
+   *  показывать нельзя: он не лучше монетки. */
+  verdict_given: boolean;
+  verdict_reason: string;
+  team_games: number;
   attack_home: number;
   defence_home: number;
   attack_away: number;
@@ -321,6 +326,25 @@ export interface MarketTotalsFile {
 }
 
 export const getMarketTotals = cache(() => readJson<MarketTotalsFile>("market_totals.json"));
+
+export interface SelectiveRow {
+  n: number;
+  coverage: number;
+  accuracy: number;
+  accuracy_always_home: number;
+  edge: number;
+}
+
+export interface SelectiveFile {
+  val_season: string;
+  test_seasons: string[];
+  chosen_threshold: number;
+  validation: Record<string, SelectiveRow>;
+  test: Record<string, SelectiveRow>;
+  thin_sample_matches: number;
+}
+
+export const getSelective = cache(() => readJson<SelectiveFile>("selective.json"));
 export const getForecastHistory = cache(() => getJournal("football"));
 
 export const getVtbPredictions = cache(

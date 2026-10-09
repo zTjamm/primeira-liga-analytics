@@ -1,6 +1,12 @@
 ﻿import Link from "next/link";
-import { getBacktest, getValidation, getCalibration, getMarketTotals } from "@/lib/data";
-import type { MarketTotalsFile, MetricRow } from "@/lib/data";
+import {
+  getBacktest,
+  getValidation,
+  getCalibration,
+  getMarketTotals,
+  getSelective,
+} from "@/lib/data";
+import type { MarketTotalsFile, MetricRow, SelectiveFile } from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
 
 export const dynamic = "force-dynamic";
@@ -65,11 +71,12 @@ function MetricsTable({ rows, showSeason = false }: { rows: MetricRow[]; showSea
 }
 
 export default async function AccuracyPage() {
-  const [backtest, validation, calibration, markets] = await Promise.all([
+  const [backtest, validation, calibration, markets, selective] = await Promise.all([
     getBacktest(),
     getValidation(),
     getCalibration(),
     getMarketTotals(),
+    getSelective(),
   ]);
 
   if (!backtest) {
@@ -126,6 +133,7 @@ export default async function AccuracyPage() {
       </section>
 
       {markets && <MarketChoice markets={markets} />}
+      {selective && <SelectiveCoverage selective={selective} />}
 
       <div className="grid gap-4 md:grid-cols-2">
         <section className="panel p-5">
@@ -473,6 +481,122 @@ function MarketChoice({ markets }: { markets: MarketTotalsFile }) {
         {(tm.roi * 100).toFixed(2)}%. Наша модель проигрывает рынку на обоих
         рынках, поэтому ставить по её подсказке — убыточно.
       </p>
+    </section>
+  );
+}
+
+/* Разбор отбора матчей: почему вердикт выдаётся не всем и что это даёт.
+
+   Здесь важно не спрятать неудобное. Отбор всегда повышает точность на
+   оставшемся подмножестве — так устроена любая фильтрация. Поэтому рядом
+   с точностью модели показано:
+     - покрытие, то есть какая доля матчей вообще получила вердикт;
+     - точность примитива «всегда на хозяев» на ТОМ ЖЕ подмножестве.
+
+   Значит цифра только тогда имеет смысл, когда модель на своих же
+   уверенных матчах переигрывает тупую ставку. Иначе отбор не оправдан.
+*/
+function SelectiveCoverage({ selective }: { selective: SelectiveFile }) {
+  const th = selective.chosen_threshold.toFixed(2);
+  const chosen = selective.test[th];
+  const rows = Object.entries(selective.test)
+    .map(([k, v]) => ({ k, v }))
+    .filter((r) => r.v && r.v.n > 0);
+
+  return (
+    <section className="panel p-5" id="sel">
+      <h2 className="text-sm font-semibold">
+        Отбор матчей: почему вердикт выдан не всем
+      </h2>
+
+      <div className="mt-3 space-y-3 text-sm text-muted">
+        <p>
+          Когда ни один исход не превышает{" "}
+          <span className="num text-text">{th}</span>, это не сильный прогноз,
+          а бросок монеты с тремя гранями. В таких матчах исход не
+          показывается: вместо него прочерк и сама вероятность. Значения не
+          скрываются — скрывается только выбор.
+        </p>
+        <p>
+          Порог выбран на валидационном сезоне{" "}
+          <span className="text-text">{selective.val_season}</span>, а проверен на{" "}
+          <span className="text-text">{selective.test_seasons.join(", ")}</span>.
+          Это существенно: порог, подобранный по точности на тех же
+          данных, по которым потом отчитываются, был бы переобучением под
+          результат.
+        </p>
+        {chosen && (
+          <p>
+            При пороге {th} вердикт выдаётся для{" "}
+            <span className="num text-text">{chosen.n}</span> матчей — это{" "}
+            <span className="num text-text">{(chosen.coverage * 100).toFixed(0)}%</span>{" "}
+            всех. Точность на них{" "}
+            <span className="num text-text">{(chosen.accuracy * 100).toFixed(1)}%</span>.
+          </p>
+        )}
+      </div>
+
+      <div className="mt-4 overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs text-muted">
+              <th className="py-2 text-left font-normal">порог</th>
+              <th className="py-2 text-right font-normal">вердиктов</th>
+              <th className="py-2 text-right font-normal">покрытие</th>
+              <th className="py-2 text-right font-normal">точность модели</th>
+              <th className="py-2 pr-4 text-right font-normal">«всегда на хозяев»</th>
+            </tr>
+          </thead>
+          <tbody className="num">
+            {rows.map(({ k, v }) => {
+              const mark = Math.abs(Number(k) - Number(th)) < 1e-9;
+              return (
+                <tr
+                  key={k}
+                  className={`border-b border-line/40 ${mark ? "text-text" : ""}`}
+                >
+                  <td className="py-2 font-sans">
+                    {k}
+                    {mark && <span className="ml-1 text-[10px] text-home">выбран</span>}
+                  </td>
+                  <td className="py-2 text-right">{v.n}</td>
+                  <td className="py-2 text-right">{(v.coverage * 100).toFixed(0)}%</td>
+                  <td className="py-2 text-right">{(v.accuracy * 100).toFixed(1)}%</td>
+                  <td className="py-2 pr-4 text-right text-muted">
+                    {(v.accuracy_always_home * 100).toFixed(1)}%
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-3 space-y-2 text-sm text-muted">
+        <p>
+          <strong className="font-medium text-text">Прочтите таблицу так.</strong>{" "}
+          Точность растёт с каждым повышением порога, и сама по себе это
+          ничего не значит: так работает любая фильтрация. Значим последний
+          столбец — насколько модель переигрывает на своих же уверенных
+          матчах правило «всегда ставить на хозяев». Разница положительна на
+          всех порогах, то есть отбор оправдан, но не бесконечен.
+        </p>
+        <p className="rounded border border-line bg-panel-2 p-3 text-xs">
+          Чего отбор <strong className="font-medium text-text">не</strong> делает:{" "}
+          он не улучшает прогноз. Log-loss остаётся прежним, потому что
+          вероятности не меняются — меняется только решение, показывать их
+          или нет. Отбор уменьшает риск принять шум за сигнал, но не
+          исправляет качество модели.
+        </p>
+        <p className="text-xs">
+          Отдельно отсекаются матчи с командой, у которой меньше 10 матчей в
+          обучающей выборке: её параметры выведены из данных, которых у нас
+          нет. Таких матчей в тесте{" "}
+          <span className="num text-text">{selective.thin_sample_matches}</span>, и
+          точность на них не отличается от общей — но вердикт по ним всё равно
+          не выдаётся, потому что это совпадение, а не право доверять.
+        </p>
+      </div>
     </section>
   );
 }

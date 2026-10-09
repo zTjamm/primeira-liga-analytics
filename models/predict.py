@@ -10,13 +10,13 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import numpy as np
 import polars as pl
 
 from etl.config import CURRENT_SEASON, PROCESSED, REPORTS
-from . import forecast, weather
+from . import forecast, verdict, weather
 from .dixon_coles import DixonColesModel
 from .elo import EloModel
 from .poisson import over_prob
@@ -114,6 +114,17 @@ def main() -> None:
     except Exception as exc:  # noqa: BLE001
         print(f"Погода недоступна ({type(exc).__name__}) — прогнозы считаем без неё")
 
+    # Сколько матчей каждая команда сыграла в обучающей выборке DC: нужно,
+    # чтобы отличать уверенный прогноз от вывода по почти незнакомому клубу.
+    window_start = max(m["match_date"] for m in matches) - timedelta(
+        days=int(365.25 * DC_WINDOW_YEARS))
+    games_in_window: dict[str, int] = {}
+    for m in matches:
+        if m["match_date"] < window_start:
+            continue
+        for side in (m["home_id"], m["away_id"]):
+            games_in_window[side] = games_in_window.get(side, 0) + 1
+
     now = datetime.now(timezone.utc)
     rows = []
     ledger = []
@@ -123,8 +134,17 @@ def main() -> None:
         hours_before = (kickoff - now).total_seconds() / 3600.0
         cond = weather.conditions_at(wx, f["home_id"], f["kickoff_utc"])
 
+        # Отказ от вердикта там, где исходы почти равны. Вероятности при
+        # этом остаются в данных: не показывается решение, а не расчёт.
+        team_games = min(games_in_window.get(f["home_id"], 0),
+                         games_in_window.get(f["away_id"], 0))
+        verdict_given, no_reason = verdict.verdict(p["confidence"], team_games)
+
         row = {
             "fd_match_id": f["fd_match_id"],
+            "verdict_given": verdict_given,
+            "verdict_reason": no_reason,
+            "team_games": team_games,
             "date": str(f["match_date"]),
             "kickoff_utc": f["kickoff_utc"],
             "matchday": f["matchday"],
@@ -153,7 +173,12 @@ def main() -> None:
             "stage": row["stage"],
             "p_home": p["p_home"], "p_draw": p["p_draw"], "p_away": p["p_away"],
             "extra": {"over25": p["over25"], "xg_home": p["xg_home"],
-                      "xg_away": p["xg_away"], "weather": cond},
+                      "xg_away": p["xg_away"], "weather": cond,
+                      # Отметка в журнале нужна, чтобы честно считать точность
+                      # именно по выданным вердиктам: вердикт выдаётся не всем,
+                      # и точность без этой метки была бы вводить в заблуждение.
+                      "verdict_given": verdict_given,
+                      "verdict_reason": no_reason},
         })
     rows.sort(key=lambda r: r["kickoff_utc"])
 

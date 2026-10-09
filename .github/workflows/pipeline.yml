@@ -129,6 +129,8 @@ jobs:
       run: python -m models.market_totals
     - name: Диагностика ошибок
       run: python -m models.error_diagnostics
+    - name: Отбор матчей для вердикта
+      run: python -m models.selective
 
       - name: Прогнозы и журнал
         if: steps.gate.outputs.needs == 'true'
@@ -161,6 +163,7 @@ jobs:
             data/reports/market_calibration.json \
             data/reports/market_totals.json \
             data/reports/error_diagnostics.json \
+            data/reports/selective.json \
             data/reports/vtb_ingest.json \
             data/reports/vtb_backtest.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"

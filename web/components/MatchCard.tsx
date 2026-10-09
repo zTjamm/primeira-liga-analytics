@@ -29,14 +29,21 @@ export function MatchCard({ m }: { m: Prediction }) {
         {/* Подпись уточняет, что это аргумент в пользу исхода, а не
             сравнение с тоталом: рынки разные, и вероятности между собой
             несравнимы. Подробности — на странице «Точность». */}
-        {/* Процент стоит рядом с исходом, а не только в строке вероятностей
-            ниже: там три числа подряд, и чтобы узнать уверенность выбора,
-            надо в уме сопоставлять. Здесь ответ самодостаточен. */}
+        {/* Вердикт и его уверенность. Если модель не выдала вердикт,
+            вместо исхода показывается прочерк с той же вероятностью:
+            вероятности не скрываются — скрывается только выбор, который
+            при такой уверенности не отличается от монетки. */}
         <div
           className="num mt-0.5 shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-center text-[11px] leading-tight text-muted"
-          title="Наиболее вероятный исход и его вероятность. С тоталом 2.5 не сравнивается: это разные рынки"
+          title={
+            m.verdict_given
+              ? "Наиболее вероятный исход и его вероятность. С тоталом 2.5 не сравнивается: это разные рынки"
+              : `Вердикт не выдан. ${m.verdict_reason}`
+          }
         >
-          <div>{OUTCOME_LABEL[m.prediction]}</div>
+          <div className={m.verdict_given ? "" : "opacity-50"}>
+            {m.verdict_given ? OUTCOME_LABEL[m.prediction] : "—"}
+          </div>
           <div className="opacity-70">{(m.confidence * 100).toFixed(0)}%</div>
         </div>
         <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
@@ -59,6 +66,23 @@ export function MatchCard({ m }: { m: Prediction }) {
           <span className="num">{(Math.max(m.over25, m.under25) * 100).toFixed(0)}%</span>
         </span>
       </div>
+
+      {/* Причину отказа показываем текстом, а не только подсказкой: молчащий
+          прочерк выглядит как недоделка, а по делу это осознанное решение. */}
+      {!m.verdict_given && (
+        <p className="mt-2 border-t border-line/60 pt-2 text-[11px] leading-snug text-muted">
+          <span className="text-text">Вердикт не выдан.</span> {reasonShort(m)}
+        </p>
+      )}
     </Link>
   );
+}
+
+/** Причина отказа в одну строку: полная версия живёт в подсказке бейджа,
+ *  а на карточке нужна читаемая формулировка. */
+function reasonShort(m: Prediction): string {
+  if (m.team_games > 0 && m.team_games < 10) {
+    return `У одной из команд всего ${m.team_games} матчей в обучении — параметры условны.`;
+  }
+  return `Вероятности почти равны (${(m.confidence * 100).toFixed(0)}%), исход определяется шумом.`;
 }

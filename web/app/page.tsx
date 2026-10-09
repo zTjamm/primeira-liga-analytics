@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { getPredictions, getBacktest } from "@/lib/data";
 import { longDate } from "@/lib/format";
 import { MatchCard } from "@/components/MatchCard";
@@ -20,6 +20,11 @@ export default async function Home() {
   }
 
   const upcoming = predictions.upcoming;
+  // Разбивка нужна не для красоты, а для честности: если показать точность
+  // по всем матчам, она окажется ниже, чем на выданных вердиктах, и разница
+  // будет выглядеть недобросовестно. Пользователь должен видеть и то, и то.
+  const withVerdict = upcoming.filter((m) => m.verdict_given);
+  const withoutVerdict = upcoming.filter((m) => !m.verdict_given);
 
   // Группируем по дате — так календарь читается лучше, чем плоский список
   const byDate = new Map<string, typeof upcoming>();
@@ -44,6 +49,21 @@ export default async function Home() {
             сезон {predictions.generated_for_season} · обучено на{" "}
             <span className="num">{predictions.history_matches}</span> матчах
           </p>
+          {withoutVerdict.length > 0 && (
+            <p className="mt-1 text-xs text-muted">
+              Вердикт выдан у{" "}
+              <span className="num text-text">{withVerdict.length}</span> из{" "}
+              <span className="num">{upcoming.length}</span>. Остальные
+              пропуски почти равны и
+              обучение недостаточно, и
+              из-за них можно превратить
+              шумом. Обчиство —{" "}
+              <Link href="/accuracy#sel" className="link underline">
+                здесь
+              </Link>
+              .
+            </p>
+          )}
         </div>
 
         {market && ours && (
