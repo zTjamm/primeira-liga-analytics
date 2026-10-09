@@ -1,0 +1,85 @@
+{
+  "test_seasons": [
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "markets": {
+    "outcome_home": {
+      "n": 918,
+      "freq": 0.4259,
+      "logloss_model": 0.90873,
+      "logloss_line": 1.01625,
+      "brier_model": 0.19628,
+      "brier_line": 0.18772,
+      "accuracy_model": 0.6874,
+      "accuracy_line": 0.7048,
+      "calib_model": 0.0291,
+      "calib_line": 0.0076
+    },
+    "outcome_away": {
+      "n": 918,
+      "freq": 0.3159,
+      "logloss_model": 1.3626,
+      "logloss_line": 1.37317,
+      "brier_model": 0.17135,
+      "brier_line": 0.16437,
+      "accuracy_model": 0.7712,
+      "accuracy_line": 0.756,
+      "calib_model": -0.0008,
+      "calib_line": 0.0125
+    },
+    "total_25": {
+      "n": 918,
+      "freq": 0.5272,
+      "logloss_model": 0.78639,
+      "logloss_line": 0.71605,
+      "brier_model": 0.245,
+      "brier_line": 0.23518,
+      "accuracy_model": 0.5741,
+      "accuracy_line": 0.6155,
+      "calib_model": -0.0577,
+      "calib_line": -0.0301
+    }
+  },
+  "strategy": {
+    "winner_1x2_model": {
+      "bets": 914,
+      "wins": 504,
+      "hit_rate": 0.5514,
+      "avg_odds": 1.934,
+      "roi": -0.0416,
+      "total_units": -37.98
+    },
+    "total_25_model": {
+      "bets": 918,
+      "wins": 527,
+      "hit_rate": 0.5741,
+      "avg_odds": 1.71,
+      "roi": -0.0419,
+      "total_units": -38.45
+    },
+    "winner_1x2_market": {
+      "bets": 916,
+      "wins": 523,
+      "hit_rate": 0.571,
+      "avg_odds": 1.864,
+      "roi": -0.0149,
+      "total_units": -13.67
+    },
+    "total_25_market": {
+      "bets": 918,
+      "wins": 568,
+      "hit_rate": 0.6187,
+      "avg_odds": 1.646,
+      "roi": 0.0118,
+      "total_units": 10.83
+    }
+  },
+  "overlap": {
+    "home_wins": 391,
+    "over_25": 484,
+    "both": 237,
+    "note": "Домашние победы и тоталы больше 2.5 — разные события, они пересекаются, но не совпадают. Поэтому вероятности из разных рынков нельзя ставить рядом и выбирать по величине."
+  }
+}
