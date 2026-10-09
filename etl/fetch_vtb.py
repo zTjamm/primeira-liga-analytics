@@ -121,6 +121,8 @@ def fetch_season(season_id: str, season: str) -> pl.DataFrame:
             "home_score": _score(m, home=True),
             "away_score": _score(m, home=False),
             "periods": m.get("periods"),
+            "match_number": m.get("matchNumber"),
+            "competition": m.get("competition") if isinstance(m.get("competition"), str) else None,
             "extra_period": bool(m.get("extraPeriodsUsed")),
             "attendance": m.get("attendance"),
             "venue": m.get("venue") if isinstance(m.get("venue"), str) else None,

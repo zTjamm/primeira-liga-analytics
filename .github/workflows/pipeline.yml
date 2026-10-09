@@ -114,6 +114,14 @@ jobs:
           FIXTURE_HORIZON_DAYS: "45"
         run: python -m etl.run
 
+      - name: Собрать Единую лигу ВТБ
+        # API лиги не требует токена, поэтому шаг работает даже если
+        # секрет football-data.org по какой-то причине недоступен.
+        if: steps.gate.outputs.needs == 'true'
+        run: |
+          python -m etl.fetch_vtb
+          python -m models.bt_predict
+
       - name: Калибровка снятия маржи
         if: steps.gate.outputs.needs == 'true'
         run: python -m models.market_calibration
@@ -124,22 +132,31 @@ jobs:
           FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
         run: python -m models.predict
 
-      - name: Бэктест
+      - name: Бэктесты
         # Метрики на сезонных данных не меняются чаще раза в сутки,
         # а прогон занимает около минуты.
         if: steps.gate.outputs.needs == 'true' && steps.gate.outputs.backtest == 'true' && !inputs.skip_backtest
-        run: python -m models.backtest_runner
+        run: |
+          python -m models.backtest_runner
+          python -m models.bt_backtest
 
       - name: Опубликовать артефакты
         if: steps.gate.outputs.needs == 'true'
         run: |
           mkdir -p web/public/data
-          cp data/processed/predictions.json web/public/data/predictions.json
-          cp data/processed/forecast_history.json web/public/data/forecast_history.json
-          cp data/reports/elo_table.json web/public/data/elo_table.json
-          cp data/reports/dc_strength.json web/public/data/dc_strength.json
-          for f in backtest validation market_calibration; do
-            [ -f "data/reports/$f.json" ] && cp "data/reports/$f.json" web/public/data/ || true
+          for f in \
+            data/processed/predictions.json \
+            data/processed/forecast_history.json \
+            data/processed/vtb_predictions.json \
+            data/processed/vtb_strength.json \
+            data/reports/elo_table.json \
+            data/reports/dc_strength.json \
+            data/reports/backtest.json \
+            data/reports/validation.json \
+            data/reports/market_calibration.json \
+            data/reports/vtb_ingest.json \
+            data/reports/vtb_backtest.json ; do
+            [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"
           done
 
       - name: Опубликовать артефакты в репозиторий

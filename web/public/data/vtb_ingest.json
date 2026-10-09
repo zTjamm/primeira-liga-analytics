@@ -1,0 +1,34 @@
+{
+  "source": "https://api.vtb-league.com/v2/leagues/vtb/seasons/<id>/matches",
+  "seasons_available": [
+    "2024/25",
+    "2025/26",
+    "2026/27"
+  ],
+  "match_types_used": [
+    "REGULAR"
+  ],
+  "include_playoffs": false,
+  "total_rows": 711,
+  "trainable": 509,
+  "by_season": {
+    "2024/25": 267,
+    "2025/26": 220,
+    "2026/27": 22
+  },
+  "dropped_allstars": 2,
+  "dropped_playoffs": 99,
+  "dropped_not_played": 202,
+  "upcoming_current": 96,
+  "teams_in_registry": 15,
+  "teams_thin_history": 2,
+  "date_range": [
+    "2024-09-21",
+    "2026-10-07"
+  ],
+  "avg_points_per_team": 80.46,
+  "avg_total_points": 160.93,
+  "home_win_share": 0.5383,
+  "overtime_share": 0.0314,
+  "attendance_median": 2158
+}

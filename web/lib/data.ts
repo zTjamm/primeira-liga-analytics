@@ -76,6 +76,82 @@ export interface EloRow {
   rating: number;
 }
 
+/* ------------------------------------------------------------------ ВТБ */
+
+export interface VtbPrediction {
+  match_id: string;
+  date: string;
+  weekday: string;
+  day_month: string;
+  kickoff_msk: string | null;
+  phase_name: string | null;
+  match_number: number | null;
+  home_id: string;
+  away_id: string;
+  home_name: string;
+  away_name: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  prediction: "H" | "D" | "A";
+  confidence: number;
+  exp_home_score: number;
+  exp_away_score: number;
+  exp_total: number;
+  over_155: number;
+  sigma_margin: number;
+  strength_home: number;
+  strength_away: number;
+  hours_before: number | null;
+}
+
+export interface VtbPredictionsFile {
+  league: string;
+  season: string;
+  generated_at: string;
+  history_matches: number;
+  model: string;
+  draws_possible: boolean;
+  upcoming: VtbPrediction[];
+}
+
+export interface VtbStrengthRow {
+  team: string;
+  name: string;
+  attack: number;
+  defence: number;
+  overall: number;
+}
+
+export interface VtbBacktestFile {
+  n_matches_total: number;
+  n_predictions: number;
+  seasons: string[];
+  overall: MetricRow[];
+  per_season: MetricRow[];
+  home_win_share_data: number;
+  draw_share_data: number;
+}
+
+export interface VtbIngestFile {
+  seasons_available: string[];
+  total_rows: number;
+  trainable: number;
+  by_season: Record<string, number>;
+  dropped_allstars: number;
+  dropped_playoffs: number;
+  dropped_not_played: number;
+  upcoming_current: number;
+  teams_in_registry: number;
+  teams_thin_history: number;
+  date_range: [string, string];
+  avg_points_per_team: number;
+  avg_total_points: number;
+  home_win_share: number;
+  overtime_share: number;
+  attendance_median: number;
+}
+
 /** Условия погоды на момент матча (подмножество — не всё используется в вёрстке). */
 export interface Weather {
   temp_c: number | null;
@@ -205,6 +281,13 @@ export const getCalibration = cache(() => readJson<CalibrationFile>("market_cali
 export const getForecastHistory = cache(
   () => readJson<ForecastHistory>("forecast_history.json"),
 );
+
+export const getVtbPredictions = cache(
+  () => readJson<VtbPredictionsFile>("vtb_predictions.json"),
+);
+export const getVtbStrength = cache(() => readJson<VtbStrengthRow[]>("vtb_strength.json"));
+export const getVtbBacktest = cache(() => readJson<VtbBacktestFile>("vtb_backtest.json"));
+export const getVtbIngest = cache(() => readJson<VtbIngestFile>("vtb_ingest.json"));
 
 export function getPredictionById(
   predictions: PredictionsFile | null,
