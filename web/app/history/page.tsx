@@ -219,8 +219,8 @@ export default async function HistoryPage() {
                       </td>
                       <td className="num py-2 text-right">{r.score}</td>
                       <td className="num py-2 text-right text-xs">
-                        {(r.p_home * 100).toFixed(0)} / {(r.p_draw * 100).toFixed(0)} /{" "}
-                        {(r.p_away * 100).toFixed(0)}
+                        {(r.p_home * 100).toFixed(0)}% / {(r.p_draw * 100).toFixed(0)}% /{" "}
+                        {(r.p_away * 100).toFixed(0)}%
                       </td>
                       <td className="num py-2 text-right text-xs text-muted">
                         {(() => {

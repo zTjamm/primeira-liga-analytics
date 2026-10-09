@@ -88,6 +88,12 @@ export default async function MatchPage({
             <span className="rounded bg-panel-2 px-2 py-0.5 font-medium">
               {OUTCOME_FULL[fav]}
             </span>
+            <span className="num text-muted">
+              {(
+                Math.max(played.p_home, played.p_away) * 100
+              ).toFixed(1)}
+              %
+            </span>
             <span
               className={`rounded px-2 py-0.5 font-medium ${
                 played.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"

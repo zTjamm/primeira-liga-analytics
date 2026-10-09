@@ -124,8 +124,11 @@ export default async function BasketballPage() {
                   <div className="min-w-0 flex-1 text-right text-[13px] font-medium leading-tight">
                     {m.home_name}
                   </div>
-                  <div className="num shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-[11px] text-muted">
-                    {m.prediction === "H" ? "П1" : "П2"}
+                  <div className="num shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-center text-[11px] leading-tight text-muted">
+                    <div>{m.prediction === "H" ? "П1" : "П2"}</div>
+                    <div className="opacity-70">
+                      {(m.confidence * 100).toFixed(0)}%
+                    </div>
                   </div>
                   <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
                     {m.away_name}
