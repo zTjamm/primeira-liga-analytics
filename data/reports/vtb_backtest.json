@@ -1,0 +1,51 @@
+{
+  "n_matches_total": 509,
+  "n_predictions": 388,
+  "seasons": [
+    "2024/25",
+    "2025/26",
+    "2026/27"
+  ],
+  "overall": [
+    {
+      "model": "модель (двумерное нормальное)",
+      "n": 388,
+      "logloss": 0.68444,
+      "brier": 0.47164,
+      "accuracy": 0.62887,
+      "roi": null,
+      "n_bets": 0
+    },
+    {
+      "model": "naive (средние доли: 0.54/0.00/0.46)",
+      "n": 388,
+      "logloss": 0.68976,
+      "brier": 0.49662,
+      "accuracy": 0.54124,
+      "roi": null,
+      "n_bets": 0
+    }
+  ],
+  "per_season": [
+    {
+      "model": "2024/25",
+      "n": 146,
+      "logloss": 0.68273,
+      "brier": 0.47002,
+      "accuracy": 0.66438,
+      "roi": null,
+      "n_bets": 0
+    },
+    {
+      "model": "2025/26",
+      "n": 220,
+      "logloss": 0.68614,
+      "brier": 0.4733,
+      "accuracy": 0.58636,
+      "roi": null,
+      "n_bets": 0
+    }
+  ],
+  "home_win_share_data": 0.5383,
+  "draw_share_data": 0.0
+}
