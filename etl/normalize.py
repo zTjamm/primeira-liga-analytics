@@ -45,6 +45,17 @@ MATCH_SCHEMA = {
     "odds_open": pl.List(pl.Float64),      # [H, D, A] средние открывающие
     "odds_close": pl.List(pl.Float64),     # [H, D, A] средние закрывающие
     "ou25_close": pl.List(pl.Float64),     # [Over2.5, Under2.5] закрывающие
+    # Betfair Exchange — биржевой рынок с минимальной
+    # маржой (около 0.6% против у среднего по
+    # конторам, от 6.8%). Именно он точнее сравнения,
+    # поэтому и сравниваться с ним не симещный.
+    "bfx_close": pl.List(pl.Float64),      # [H, D, A] биржа закрывающая
+    "bfx_over25": pl.List(pl.Float64),     # [Over2.5, Under2.5] биржа
+    # Азиатский хэндикап: AHCh — сама линия, AvgCAHH и AvgCAHA —
+    # цены по обеим сторонам. Единственный рынок,
+    # который лежит в данных без дела.
+    "ah_line": pl.Float64,                 # линия хэндикапа, отрицательно
+    "ah_odds": pl.List(pl.Float64),        # [хозяев, гости] цены
     "has_closing": pl.Boolean,
     "source": pl.String,
 }
@@ -54,6 +65,37 @@ ID_TO_NAME = {tid: meta["name"] for tid, meta in T.TEAMS.items()}
 ID_TO_FD_ID = {tid: meta["fd"] for tid, meta in T.TEAMS.items() if meta["fd"] is not None}
 
 NULL_LIST = pl.lit(None, dtype=pl.List(pl.Float64))
+
+
+
+# Колонки коэффициентов, которых нет в части сезонов: Betfair Exchange
+# появился не сразу, азиатский хэндикап — тоже. Раньше на это опирались
+# только колонки, которые есть во всех файлах, и потому проблемы не было.
+# Теперь недостающие создаются заполненными null ДО попытки их прочитать:
+# иначе нормализация падает с ColumnNotFoundError на первом старом сезоне.
+OPTIONAL_ODDS_COLS: list[str] = [
+    "BFECH", "BFECD", "BFECA", "BFEC>2.5", "BFEC<2.5",
+    "AHCh", "AvgCAHH", "AvgCAHA",
+]
+
+
+def ensure_odds_columns(df: pl.DataFrame) -> pl.DataFrame:
+    for c in OPTIONAL_ODDS_COLS:
+        if c not in df.columns:
+            df = df.with_columns(pl.lit(None, dtype=pl.Float64).alias(c))
+    return df
+
+def _clean_ah_line(col: pl.Expr) -> pl.Expr:
+    """Линия азиатского хэндикапа приходит строкой и часто мусорной.
+
+    В файлах встречаются "", "-", "0", значения вроде "AHh" из заголовка
+    неудачных загрузок и пропуски. Оставляем только числа в разумном
+    диапазоне: футбольный хэндикап не бывает вне ±10 голов.
+    """
+    parsed = (
+        pl.col("AHCh") if False else col
+    ).cast(pl.String).str.strip_chars().cast(pl.Float64, strict=False)
+    return pl.when(parsed.is_between(-10.0, 10.0)).then(parsed).otherwise(None)
 
 
 def _odds_expr(cols: list[str], lo: float = 1.0, hi: float = 1000.0) -> pl.Expr:
@@ -101,6 +143,7 @@ def normalize_csv(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("away_id").replace_strict(ID_TO_NAME, default=None).alias("away_name"),
     )
 
+    df = ensure_odds_columns(df)
     df = df.filter(pl.col("fthg").is_not_null() & pl.col("ftag").is_not_null())
     df = df.filter(pl.col("fthg").is_between(0, 15) & pl.col("ftag").is_between(0, 15))
 
@@ -108,6 +151,10 @@ def normalize_csv(df: pl.DataFrame) -> pl.DataFrame:
         _odds_expr(["AvgH", "AvgD", "AvgA"]).alias("odds_open"),
         _odds_expr(["AvgCH", "AvgCD", "AvgCA"]).alias("odds_close"),
         _odds_expr(["AvgC>2.5", "AvgC<2.5"]).alias("ou25_close"),
+        _odds_expr(["BFECH", "BFECD", "BFECA"]).alias("bfx_close"),
+        _odds_expr(["BFEC>2.5", "BFEC<2.5"]).alias("bfx_over25"),
+        _odds_expr(["AvgCAHH", "AvgCAHA"]).alias("ah_odds"),
+        _clean_ah_line(pl.col("AHCh")).alias("ah_line"),
     )
 
     df = df.with_columns(
@@ -171,6 +218,7 @@ def normalize_api(df: pl.DataFrame, season: str) -> pl.DataFrame:
         "corners_home", "corners_away", "fouls_home", "fouls_away",
         "yellow_home", "yellow_away", "red_home", "red_away",
         "hthg", "htag", "htr", "odds_open", "odds_close", "ou25_close",
+        "bfx_close", "bfx_over25", "ah_line", "ah_odds",
     ]
     df = df.with_columns([pl.lit(None, dtype=MATCH_SCHEMA[c]).alias(c) for c in stats])
     df = df.with_columns(pl.lit(False).alias("has_closing"))

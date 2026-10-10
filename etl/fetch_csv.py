@@ -36,6 +36,11 @@ WANTED = [
     "AvgC>2.5", "AvgC<2.5", "B365C>2.5", "B365C<2.5",
     # азиатский гандикап
     "AHCh", "AvgCAHH", "AvgCAHA",
+    # Бетфайр Exchange. Самый острый рынок: маржа
+    # около 0.6% против при среднем по конторам. Без этих
+    # колонок список WANTED режет всё оставшиеся или в
+    # normalize, и так выборка получилась пустыми, а не null.
+    "BFECH", "BFECD", "BFECA", "BFEC>2.5", "BFEC<2.5",
 ]
 
 INT_COLS = [
@@ -49,6 +54,9 @@ FLOAT_COLS = [
     "PSCH", "PSCD", "PSCA", "MaxCH", "MaxCD", "MaxCA",
     "AvgC>2.5", "AvgC<2.5", "B365C>2.5", "B365C<2.5",
     "AHCh", "AvgCAHH", "AvgCAHA",
+    # Без этих колонок коэффициенты остаются
+    # строками, и is_between на строке вообще возвращает false.
+    "BFECH", "BFECD", "BFECA", "BFEC>2.5", "BFEC<2.5",
 ]
 
 

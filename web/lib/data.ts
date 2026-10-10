@@ -345,6 +345,33 @@ export interface SelectiveFile {
 }
 
 export const getSelective = cache(() => readJson<SelectiveFile>("selective.json"));
+
+export interface BenchmarkLine {
+  n: number;
+  logloss: number;
+  accuracy: number;
+  margin?: number;
+}
+
+export interface BenchmarkFile {
+  test_seasons: string[];
+  n: number;
+  lines: { model: BenchmarkLine; avg?: BenchmarkLine; bfx?: BenchmarkLine };
+  common?: {
+    n: number;
+    gap_avg: number;
+    gap_bfx: number;
+  };
+  asian_handicap?: {
+    n: number;
+    logloss: number;
+    margin: number;
+    accuracy: number;
+    lines: number[];
+  };
+}
+
+export const getBenchmark = cache(() => readJson<BenchmarkFile>("market_benchmark.json"));
 export const getForecastHistory = cache(() => getJournal("football"));
 
 export const getVtbPredictions = cache(

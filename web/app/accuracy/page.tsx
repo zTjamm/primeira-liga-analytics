@@ -5,8 +5,14 @@ import {
   getCalibration,
   getMarketTotals,
   getSelective,
+  getBenchmark,
 } from "@/lib/data";
-import type { MarketTotalsFile, MetricRow, SelectiveFile } from "@/lib/data";
+import type {
+  BenchmarkFile,
+  MarketTotalsFile,
+  MetricRow,
+  SelectiveFile,
+} from "@/lib/data";
 import { EmptyState } from "@/components/EmptyState";
 
 export const dynamic = "force-dynamic";
@@ -71,12 +77,14 @@ function MetricsTable({ rows, showSeason = false }: { rows: MetricRow[]; showSea
 }
 
 export default async function AccuracyPage() {
-  const [backtest, validation, calibration, markets, selective] = await Promise.all([
+  const [backtest, validation, calibration, markets, selective, benchmark] =
+    await Promise.all([
     getBacktest(),
     getValidation(),
     getCalibration(),
     getMarketTotals(),
     getSelective(),
+    getBenchmark(),
   ]);
 
   if (!backtest) {
@@ -133,6 +141,7 @@ export default async function AccuracyPage() {
       </section>
 
       {markets && <MarketChoice markets={markets} />}
+      {benchmark && <Benchmark benchmark={benchmark} />}
       {selective && <SelectiveCoverage selective={selective} />}
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -597,6 +606,131 @@ function SelectiveCoverage({ selective }: { selective: SelectiveFile }) {
           не выдаётся, потому что это совпадение, а не право доверять.
         </p>
       </div>
+    </section>
+  );
+}
+
+/* С кем мы себя сравниваем.
+
+   Долгое время единственным «рынком» было среднее по конторам, а оно
+   содержит маржу каждой из них. Сравниваться с ним — сравниваться с
+   завышенным для себя эталоном. Betfair Exchange — биржа с маржой около
+   0.6% против 6.7% у среднего — в исходных файлах лежала всегда, но в
+   конвейер не попадала: колонок не было в списке WANTED.
+
+   Раздел показывает обе линии и честно говорит, что мера была завышена.
+*/
+function Benchmark({ benchmark }: { benchmark: BenchmarkFile }) {
+  const c = benchmark.common;
+  const ah = benchmark.asian_handicap;
+  return (
+    <section className="panel p-5">
+      <h2 className="text-sm font-semibold">С кем мы себя сравниваем на самом деле</h2>
+
+      <div className="mt-3 space-y-3 text-sm text-muted">
+        <p>
+          Долгое время единственным эталоном было среднее по конторам, но в
+          него заложена маржа каждой из них. Ближе к справедливой цене
+          биржа: там маржа меньше в десять раз.
+        </p>
+      </div>
+
+      <div className="mt-3 overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs text-muted">
+              <th className="py-2 text-left font-normal">линия</th>
+              <th className="py-2 text-right font-normal">матчей</th>
+              <th className="py-2 text-right font-normal">log-loss</th>
+              <th className="py-2 text-right font-normal">маржа</th>
+              <th className="py-2 pr-4 text-right font-normal">точность</th>
+            </tr>
+          </thead>
+          <tbody className="num">
+            <tr className="border-b border-line/40">
+              <td className="py-2 font-sans">наша модель</td>
+              <td className="py-2 text-right">{benchmark.lines.model.n}</td>
+              <td className="py-2 text-right">{benchmark.lines.model.logloss.toFixed(5)}</td>
+              <td className="text-right text-muted">—</td>
+              <td className="py-2 pr-4 text-right">
+                {(benchmark.lines.model.accuracy * 100).toFixed(1)}%
+              </td>
+            </tr>
+            {benchmark.lines.avg && (
+              <tr className="border-b border-line/40 text-muted">
+                <td className="py-2 font-sans">среднее по конторам</td>
+                <td className="py-2 text-right">{benchmark.lines.avg.n}</td>
+                <td className="py-2 text-right">{benchmark.lines.avg.logloss.toFixed(5)}</td>
+                <td className="py-2 text-right">
+                  {(benchmark.lines.avg.margin! * 100).toFixed(2)}%
+                </td>
+                <td className="py-2 pr-4 text-right">
+                  {(benchmark.lines.avg.accuracy * 100).toFixed(1)}%
+                </td>
+              </tr>
+            )}
+            {benchmark.lines.bfx && (
+              <tr className="border-b border-line/40">
+                <td className="py-2 font-sans">
+                  Betfair Exchange
+                  <span className="ml-1 text-[10px] text-home">острее</span>
+                </td>
+                <td className="py-2 text-right">{benchmark.lines.bfx.n}</td>
+                <td className="py-2 pr-4 text-right">
+                  <span className="text-good">{benchmark.lines.bfx.logloss.toFixed(5)}</span>
+                  <div className="text-[11px] text-muted">
+                    маржа {(benchmark.lines.bfx.margin! * 100).toFixed(2)}% · точность{" "}
+                    {(benchmark.lines.bfx.accuracy * 100).toFixed(1)}%
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {c && (
+        <div className="mt-3 space-y-2 text-sm text-muted">
+          <p>
+            У линий разное покрытие, а метрики на разных выборках сравнивать
+            нельзя. На одних и тех же <span className="num text-text">{c.n}</span>{" "}
+            матчах разрыв с моделью такой:
+          </p>
+          <p className="num">
+            против среднего по конторам{" "}
+            <span className="text-text">+{c.gap_avg.toFixed(5)}</span>
+            {" · "}против биржи{" "}
+            <span className="text-bad">+{c.gap_bfx.toFixed(5)}</span>
+          </p>
+          <p className="rounded border border-line bg-panel-2 p-3 text-xs">
+            То есть прежняя мера была завышена на{" "}
+            <span className="num text-text">{(c.gap_bfx - c.gap_avg).toFixed(5)}</span>{" "}
+            log-loss. Это немного, но не ноль: мы сравнивали себя с конторами,
+            а не с тем, кто зарабатывает меньше всех.
+          </p>
+        </div>
+      )}
+
+      {ah && (
+        <div className="mt-4 space-y-2 text-sm text-muted">
+          <h3 className="text-sm font-semibold text-text">
+            Азиатский хэндикап — рынок, который лежал в данных нетронутым
+          </h3>
+          <p className="num">
+            {ah.n} матчей, {ah.lines.length} различных линий (от{" "}
+            {ah.lines[0].toFixed(1)} до {ah.lines[ah.lines.length - 1].toFixed(1)}).
+            log-loss <span className="text-text">{ah.logloss.toFixed(5)}</span>, маржа{" "}
+            {(ah.margin * 100).toFixed(2)}%, точность{" "}
+            {(ah.accuracy * 100).toFixed(1)}%.
+          </p>
+          <p className="text-xs">
+            Это ставка на разницу мячей относительно линии, а не на исход
+            матча, поэтому её log-loss нельзя ставить рядом с 1X2. Сравнивать
+            можно только внутри рынка: насколько наша оценка того, какая
+            сторона закроет линию, отличается от биржевой.
+          </p>
+        </div>
+      )}
     </section>
   );
 }

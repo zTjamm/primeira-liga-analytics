@@ -247,11 +247,11 @@
     },
     {
       "season": "2026/27",
-      "matches": 63,
+      "matches": 64,
       "xg": 62,
       "shots": 62,
       "closing": 62,
-      "from_api": 1
+      "from_api": 2
     }
   ]
 }
