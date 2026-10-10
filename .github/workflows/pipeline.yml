@@ -170,6 +170,7 @@ jobs:
             data/reports/selective.json \
             data/reports/params_check.json \
             data/reports/market_benchmark.json \
+            data/forecast_log_football.jsonl \
             data/reports/vtb_ingest.json \
             data/reports/vtb_backtest.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"

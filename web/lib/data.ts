@@ -41,6 +41,13 @@ export interface Prediction {
   elo_diff: number;
   /** Выдан ли вердикт. При false вероятности остаются, но выбор исхода
    *  показывать нельзя: он не лучше монетки. */
+  ah_fair_line: number;
+  ah_cover_home: number;
+  ah_cover_away: number;
+  ah_push: number;
+  ah_home_2plus: number;
+  ah_home_exactly_1: number;
+  ah_away_2plus: number;
   verdict_given: boolean;
   verdict_reason: string;
   team_games: number;
@@ -364,10 +371,16 @@ export interface BenchmarkFile {
   };
   asian_handicap?: {
     n: number;
-    logloss: number;
     margin: number;
-    accuracy: number;
     lines: number[];
+    whole_line: number;
+  };
+  asian_quarter?: {
+    n: number;
+    logloss_model: number;
+    logloss_line: number;
+    accuracy_model: number;
+    accuracy_line: number;
   };
 }
 

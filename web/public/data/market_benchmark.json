@@ -29,11 +29,16 @@
     "gap_avg": 0.02841,
     "gap_bfx": 0.03007
   },
+  "asian_quarter": {
+    "n": 681,
+    "logloss_model": 0.70678,
+    "logloss_line": 0.69423,
+    "accuracy_model": 0.514,
+    "accuracy_line": 0.4934
+  },
   "asian_handicap": {
     "n": 918,
-    "logloss": 0.69057,
     "margin": 0.0546,
-    "accuracy": 0.5305,
     "lines": [
       -3.0,
       -2.75,
@@ -57,6 +62,7 @@
       1.75,
       2.0,
       2.25
-    ]
+    ],
+    "whole_line": 237
   }
 }

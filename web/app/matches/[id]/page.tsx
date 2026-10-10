@@ -191,6 +191,40 @@ export default async function MatchPage({
             {m.xg_home.toFixed(2)} : {m.xg_away.toFixed(2)}
           </span>
         </p>
+
+        {/* Азиатский хэндикап. Связанная линия — та, при которой
+            оба стороны поровены. У нас есть линия букмекера для
+            предстоящих матчей нет: коэффициенты лиь ходят
+            только в исторических файлах. */}
+        <div className="mt-4 rounded border border-line bg-panel-2 p-3">
+          <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+            <span className="text-xs text-muted">
+              Азиатский хэндикап · справедливая линия
+            </span>
+            <span className="num text-sm font-medium">
+              {m.ah_fair_line > 0 ? `+${m.ah_fair_line.toFixed(1)}` : m.ah_fair_line.toFixed(1)}
+            </span>
+          </div>
+          <div className="bar-track" style={{ height: 6 }}>
+            <div className="bar-seg bg-home" style={{ width: `${m.ah_cover_home * 100}%` }} />
+            <div className="bar-seg bg-panel" style={{ width: `${m.ah_push * 100}%` }} />
+            <div className="bar-seg bg-away" style={{ width: `${m.ah_cover_away * 100}%` }} />
+          </div>
+          <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted">
+            <span className="num">хозяев {(m.ah_cover_home * 100).toFixed(1)}%</span>
+            <span className="num">
+              {m.ah_push > 0.005 && `возврат ${(m.ah_push * 100).toFixed(1)}%`}
+            </span>
+            <span className="num">гостей {(m.ah_cover_away * 100).toFixed(1)}%</span>
+          </div>
+          <p className="mt-2 text-[11px] text-muted">
+            Выигрывают в два и более{" "}
+            <span className="num text-text">{(m.ah_home_2plus * 100).toFixed(1)}%</span>, ровно в один{" "}
+            <span className="num text-text">{(m.ah_home_exactly_1 * 100).toFixed(1)}%</span>, гости в два и более{" "}
+            <span className="num text-text">{(m.ah_away_2plus * 100).toFixed(1)}%</span>.
+            {" "}Минус однак от одного разрера обычности.
+          </p>
+        </div>
       </section>
 
       <div className="grid gap-4 md:grid-cols-2">

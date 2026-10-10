@@ -623,6 +623,7 @@ function SelectiveCoverage({ selective }: { selective: SelectiveFile }) {
 function Benchmark({ benchmark }: { benchmark: BenchmarkFile }) {
   const c = benchmark.common;
   const ah = benchmark.asian_handicap;
+  const aq = benchmark.asian_quarter;
   return (
     <section className="panel p-5">
       <h2 className="text-sm font-semibold">С кем мы себя сравниваем на самом деле</h2>
@@ -714,21 +715,67 @@ function Benchmark({ benchmark }: { benchmark: BenchmarkFile }) {
       {ah && (
         <div className="mt-4 space-y-2 text-sm text-muted">
           <h3 className="text-sm font-semibold text-text">
-            Азиатский хэндикап — рынок, который лежал в данных нетронутым
+            Азиатский хэндикап: сравнение с линией
           </h3>
           <p className="num">
             {ah.n} матчей, {ah.lines.length} различных линий (от{" "}
-            {ah.lines[0].toFixed(1)} до {ah.lines[ah.lines.length - 1].toFixed(1)}).
-            log-loss <span className="text-text">{ah.logloss.toFixed(5)}</span>, маржа{" "}
-            {(ah.margin * 100).toFixed(2)}%, точность{" "}
-            {(ah.accuracy * 100).toFixed(1)}%.
+            {ah.lines[0].toFixed(1)} до {ah.lines[ah.lines.length - 1].toFixed(1)}),
+            маржа {(ah.margin * 100).toFixed(2)}%.
           </p>
           <p className="text-xs">
-            Это ставка на разницу мячей относительно линии, а не на исход
-            матча, поэтому её log-loss нельзя ставить рядом с 1X2. Сравнивать
-            можно только внутри рынка: насколько наша оценка того, какая
-            сторона закроет линию, отличается от биржевой.
+            Ставка на разницу мячей относительно линии, а не на исход. Сравнение
+            с линией возможно только на{" "}
+            <span className="text-text">дробных линиях</span>, где возврат не
+            бывает и снятие маржи по двум ценам корректно. На целых исходов три —
+            выиграл, возврат, проиграл, — и часть маржи съедает возврат, который
+            снятие маржи не учитывает, поэтому такую выборку сравнивать нельзя.
           </p>
+          {aq && (
+            <>
+              <p className="pt-1 text-xs">
+                На дробных линиях (<span className="num text-text">{aq.n}</span>{" "}
+                матчей):
+              </p>
+              <div className="mt-2 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line text-xs text-muted">
+                      <th className="py-2 text-left font-normal">метрика</th>
+                      <th className="py-2 text-right font-normal">модель</th>
+                      <th className="py-2 pr-4 text-right font-normal">линия</th>
+                    </tr>
+                  </thead>
+                  <tbody className="num">
+                    <tr className="border-b border-line/40">
+                      <td className="py-2 font-sans">log-loss</td>
+                      <td className="py-2 text-right text-bad">
+                        {aq.logloss_model.toFixed(5)}
+                      </td>
+                      <td className="py-2 pr-4 text-right text-good">
+                        {aq.logloss_line.toFixed(5)}
+                      </td>
+                    </tr>
+                    <tr className="border-b border-line/40">
+                      <td className="py-2 font-sans">точность</td>
+                      <td className="py-2 text-right text-good">
+                        {(aq.accuracy_model * 100).toFixed(1)}%
+                      </td>
+                      <td className="py-2 pr-4 text-right">
+                        {(aq.accuracy_line * 100).toFixed(1)}%
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-xs">
+                Расхождение двух метрик здесь содержательно. По точности модель
+                выигрывает — она чаще угадывает сторону. По log-loss проигрывает:
+                её вероятности хуже откалиброваны, то есть она слишком уверенно
+                заявляет исходы, в которых на самом деле ничего не решается.
+                Здесь важнее log-loss: он штрафует именно за такую уверенность.
+              </p>
+            </>
+          )}
         </div>
       )}
     </section>

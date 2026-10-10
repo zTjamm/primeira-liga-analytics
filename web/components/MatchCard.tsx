@@ -67,6 +67,22 @@ export function MatchCard({ m }: { m: Prediction }) {
         </span>
       </div>
 
+      {/* Азиатский хэндикап: справедливая линия, то есть которую поставил бы
+          букмекер без своей информации. Минус означает, что хозяева столько
+          сильнее, что фору отдают. */}
+      <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted">
+        <span className="cursor-help" title="Разница мячей, не исхода: возврат возможен только на целых линиях">
+          фора{" "}
+          <span className="num text-text">
+            {m.ah_fair_line > 0 ? `+${m.ah_fair_line.toFixed(1)}` : m.ah_fair_line.toFixed(1)}
+          </span>
+        </span>
+        <span className="num">
+          в 2+ хоз.{(m.ah_home_2plus * 100).toFixed(0)}% · гост.{" "}
+          {(m.ah_away_2plus * 100).toFixed(0)}%
+        </span>
+      </div>
+
       {/* Причину отказа показываем текстом, а не только подсказкой: молчащий
           прочерк выглядит как недоделка, а по делу это осознанное решение. */}
       {!m.verdict_given && (

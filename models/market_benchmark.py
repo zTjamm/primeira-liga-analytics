@@ -27,6 +27,7 @@ import numpy as np
 import polars as pl
 
 from etl.config import PROCESSED, REPORTS
+from models.asian import cover_probs, has_push
 from models.dixon_coles import DixonColesModel
 from models.market import devig, devig_two_way
 
@@ -104,15 +105,18 @@ def collect() -> list[dict]:
         ahh, aha = _at(mt.get("ah_odds"), 0), _at(mt.get("ah_odds"), 1)
         if line is not None and ahh and aha:
             q = devig_two_way([ahh, aha])
-            if q is not None:
-                # Знак линии соответствует колонкам AvgCAHH/AvgCAHA: при
-                # положительной линии фаворит — гости, поэтому стороны
-                # меняются местами.
-                home_covers = mt["fthg"] - mt["ftag"] > line
-                rec["ah"] = {"q": [float(q[0]), float(q[1])],
-                             "y": 1 if home_covers else 0,
-                             "line": float(line),
-                             "margin": float(1 / ahh + 1 / aha - 1.0)}
+            matrix = model.score_matrix(h, a)
+            our = cover_probs(matrix, float(line))
+            # Знак линии: она прибавляется к голам хозяев, поэтому при
+            # положительной линии фору получают хозяева.
+            home_covers = (mt["fthg"] - mt["ftag"]) + float(line) > 0
+            rec["ah"] = {"q": [float(q[0]), float(q[1])],
+                         "p_home": float(our["win"]),
+                         "push": float(our["push"]),
+                         "y": 1 if home_covers else 0,
+                         "line": float(line),
+                         "whole_push": has_push(float(line)),
+                         "margin": float(1 / ahh + 1 / aha - 1.0)}
         rows.append(rec)
     return rows
 
@@ -191,19 +195,43 @@ def main() -> int:
     print("АЗИАТСКИЙ ХЭНДИКАП (двусторонний рынок на разницу мячей)")
     print("=" * 74)
     if ah:
-        ll = float(-np.mean([np.log(r["ah"]["q"][r["ah"]["y"]]) for r in ah]))
-        acc = float(np.mean([int(np.argmax(r["ah"]["q"]) == r["ah"]["y"]) for r in ah]))
         mk = float(np.mean([r["ah"]["margin"] for r in ah]))
         lines = sorted({r["ah"]["line"] for r in ah})
-        print(f"  матчей с линией: {len(ah)}")
-        print(f"  log-loss {ll:.5f}   маржа {100*mk:.2f}%   точность {100*acc:.1f}%")
-        print(f"  используемые линии: {', '.join('%+.1f' % x for x in lines)}")
-        out["asian_handicap"] = {"n": len(ah), "logloss": round(ll, 5),
-                                 "margin": round(mk, 4), "accuracy": round(acc, 4),
-                                 "lines": lines}
+        print(f"  матчей с линией: {len(ah)}   маржа {100*mk:.2f}%")
+        print(f"  различных линий: {len(lines)} (от {lines[0]:+.1f} до {lines[-1]:+.1f})")
+
+        # Сравнение с линией возможно ТОЛЬКО на дробных линиях. На целых
+        # исходов три (выиграл / возврат / проиграл), и снятие маржи по
+        # двум ценам даёт неверную вероятность: часть маржи съедает
+        # возврат, который снятие маржи не учитывает.
+        quarter = [r for r in ah if not r["ah"]["whole_push"]]
+        whole = [r for r in ah if r["ah"]["whole_push"]]
         print()
-        print("  Отдельный рынок, не сравнимый с 1X2: это ставка на разницу")
-        print("  мячей относительно линии, а не на исход матча.")
+        if quarter:
+            qll_m = float(-np.mean([np.log(r["ah"]["p_home"]) if r["ah"]["y"]
+                                    else np.log(1 - r["ah"]["p_home"]) for r in quarter]))
+            qll_l = float(-np.mean([np.log(r["ah"]["q"][r["ah"]["y"]]) for r in quarter]))
+            qacc_m = float(np.mean([int((r["ah"]["p_home"] > 0.5) == (r["ah"]["y"] == 1))
+                                   for r in quarter]))
+            qacc_l = float(np.mean([int((r["ah"]["q"][0] > 0.5) == (r["ah"]["y"] == 1))
+                                   for r in quarter]))
+            print(f"  ДРОБНЫЕ ЛИНИИ (возврата нет, сравнение корректно): {len(quarter)}")
+            print(f"    log-loss  модель {qll_m:.5f}   линия {qll_l:.5f}"
+                  f"   ->  {'МОДЕЛЬ ЛУЧШЕ' if qll_m < qll_l else 'ЛИНИЯ ЛУЧШЕ'} "
+                  f"на {abs(qll_l - qll_m):.5f}")
+            print(f"    точность  модель {100*qacc_m:.1f}%      линия {100*qacc_l:.1f}%")
+            out["asian_quarter"] = {"n": len(quarter), "logloss_model": round(qll_m, 5),
+                                    "logloss_line": round(qll_l, 5),
+                                    "accuracy_model": round(qacc_m, 4),
+                                    "accuracy_line": round(qacc_l, 4)}
+        if whole:
+            print(f"  ЦЕЛЫЕ ЛИНИИ: {len(whole)} — сравнивать нельзя, "
+                  f"у них есть возврат")
+        print()
+        print("  Это отдельный рынок: ставка на разницу мячей относительно")
+        print("  линии, а не на исход. Его log-loss нельзя ставить рядом с 1X2.")
+        out["asian_handicap"] = {"n": len(ah), "margin": round(mk, 4),
+                                 "lines": lines, "whole_line": len(whole)}
     else:
         print("  нет данных")
 

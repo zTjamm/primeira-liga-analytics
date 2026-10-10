@@ -16,7 +16,7 @@ import numpy as np
 import polars as pl
 
 from etl.config import CURRENT_SEASON, PROCESSED, REPORTS
-from . import forecast, verdict, weather
+from . import asian, forecast, verdict, weather
 from .dixon_coles import DixonColesModel
 from .elo import EloModel
 from .poisson import over_prob
@@ -66,6 +66,14 @@ def predict_match(elo: EloModel, dc: DixonColesModel, home: str, away: str) -> d
     over, under = over_prob(matrix, 2.5)
     lam_h, lam_a = dc.lambdas(home, away)
 
+    # Азиатский хэндикап. Линии букмекера на предстоящие матчи у нас нет
+    # (коэффициенты живут только в исторических файлах), поэтому показываем
+    # СВОЮ справедливую линию — ту, которую поставил бы букмекер, не имея
+    # своей информации. Она отвечает на вопрос, где проходит равенство.
+    ah = asian.summarize(matrix)
+    fair = ah["fair_line"]
+    ah_cover = asian.cover_probs(matrix, fair)
+
     top = int(np.argmax(probs))
     return {
         "p_home": round(float(probs[0]), 4),
@@ -81,6 +89,15 @@ def predict_match(elo: EloModel, dc: DixonColesModel, home: str, away: str) -> d
         "under25": round(float(under), 4),
         "xg_home": round(float(lam_h), 3),
         "xg_away": round(float(lam_a), 3),
+        # Азиатский хэндикап: справедливая линия и вероятности исходов
+        # именно на ней.
+        "ah_fair_line": fair,
+        "ah_cover_home": round(float(ah_cover["win"]), 4),
+        "ah_cover_away": round(float(ah_cover["lose"]), 4),
+        "ah_push": round(float(ah_cover["push"]), 4),
+        "ah_home_2plus": round(float(ah["home_2plus"]), 4),
+        "ah_home_exactly_1": round(float(ah["home_exactly_1"]), 4),
+        "ah_away_2plus": round(float(ah["away_2plus"]), 4),
         "elo_home": round(elo.ratings.get(home, 1500.0), 1),
         "elo_away": round(elo.ratings.get(away, 1500.0), 1),
         "elo_diff": round(elo.ratings.get(home, 1500.0) - elo.ratings.get(away, 1500.0), 1),
@@ -185,6 +202,9 @@ def main() -> None:
             "p_home": p["p_home"], "p_draw": p["p_draw"], "p_away": p["p_away"],
             "extra": {"over25": p["over25"], "xg_home": p["xg_home"],
                       "xg_away": p["xg_away"], "weather": cond,
+                      "ah_fair_line": p["ah_fair_line"],
+                      "ah_cover_home": p["ah_cover_home"],
+                      "ah_cover_away": p["ah_cover_away"],
                       # Отметка в журнале нужна, чтобы честно считать точность
                       # именно по выданным вердиктам: вердикт выдаётся не всем,
                       # и точность без этой метки была бы вводить в заблуждение.
