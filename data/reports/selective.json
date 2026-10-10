@@ -8,104 +8,104 @@
   "chosen_threshold": 0.55,
   "validation": {
     "0.4": {
-      "n": 271,
-      "coverage": 0.8856,
-      "accuracy": 0.6421,
-      "accuracy_always_home": 0.5018,
-      "edge": 0.1402
+      "n": 263,
+      "coverage": 0.8595,
+      "accuracy": 0.6426,
+      "accuracy_always_home": 0.5057,
+      "edge": 0.1369
     },
     "0.45": {
-      "n": 211,
-      "coverage": 0.6895,
-      "accuracy": 0.7014,
-      "accuracy_always_home": 0.5355,
-      "edge": 0.1659
+      "n": 203,
+      "coverage": 0.6634,
+      "accuracy": 0.7143,
+      "accuracy_always_home": 0.5172,
+      "edge": 0.197
     },
     "0.5": {
-      "n": 156,
-      "coverage": 0.5098,
-      "accuracy": 0.7436,
-      "accuracy_always_home": 0.5449,
-      "edge": 0.1987
+      "n": 145,
+      "coverage": 0.4739,
+      "accuracy": 0.7724,
+      "accuracy_always_home": 0.5241,
+      "edge": 0.2483
     },
     "0.55": {
-      "n": 112,
-      "coverage": 0.366,
-      "accuracy": 0.7857,
-      "accuracy_always_home": 0.5804,
-      "edge": 0.2054
+      "n": 119,
+      "coverage": 0.3889,
+      "accuracy": 0.7983,
+      "accuracy_always_home": 0.5462,
+      "edge": 0.2521
     },
     "0.6": {
-      "n": 84,
-      "coverage": 0.2745,
-      "accuracy": 0.8333,
-      "accuracy_always_home": 0.6667,
-      "edge": 0.1667
+      "n": 91,
+      "coverage": 0.2974,
+      "accuracy": 0.8571,
+      "accuracy_always_home": 0.6264,
+      "edge": 0.2308
     },
     "0.65": {
-      "n": 56,
-      "coverage": 0.183,
-      "accuracy": 0.9286,
-      "accuracy_always_home": 0.8036,
-      "edge": 0.125
+      "n": 70,
+      "coverage": 0.2288,
+      "accuracy": 0.8714,
+      "accuracy_always_home": 0.7143,
+      "edge": 0.1571
     },
     "0.7": {
-      "n": 45,
-      "coverage": 0.1471,
-      "accuracy": 0.9778,
-      "accuracy_always_home": 0.8444,
-      "edge": 0.1333
+      "n": 54,
+      "coverage": 0.1765,
+      "accuracy": 0.9259,
+      "accuracy_always_home": 0.7963,
+      "edge": 0.1296
     }
   },
   "test": {
     "0.4": {
-      "n": 815,
-      "coverage": 0.8878,
-      "accuracy": 0.5755,
-      "accuracy_always_home": 0.4405,
-      "edge": 0.135
+      "n": 788,
+      "coverage": 0.8584,
+      "accuracy": 0.5812,
+      "accuracy_always_home": 0.4391,
+      "edge": 0.1421
     },
     "0.45": {
-      "n": 650,
-      "coverage": 0.7081,
-      "accuracy": 0.6262,
-      "accuracy_always_home": 0.4692,
-      "edge": 0.1569
+      "n": 638,
+      "coverage": 0.695,
+      "accuracy": 0.6285,
+      "accuracy_always_home": 0.4545,
+      "edge": 0.174
     },
     "0.5": {
-      "n": 500,
-      "coverage": 0.5447,
-      "accuracy": 0.668,
-      "accuracy_always_home": 0.496,
-      "edge": 0.172
+      "n": 498,
+      "coverage": 0.5425,
+      "accuracy": 0.6847,
+      "accuracy_always_home": 0.4759,
+      "edge": 0.2088
     },
     "0.55": {
-      "n": 359,
-      "coverage": 0.3911,
-      "accuracy": 0.7019,
-      "accuracy_always_home": 0.5404,
-      "edge": 0.1616
+      "n": 386,
+      "coverage": 0.4205,
+      "accuracy": 0.7254,
+      "accuracy_always_home": 0.5181,
+      "edge": 0.2073
     },
     "0.6": {
-      "n": 284,
-      "coverage": 0.3094,
-      "accuracy": 0.7359,
-      "accuracy_always_home": 0.581,
-      "edge": 0.1549
+      "n": 293,
+      "coverage": 0.3192,
+      "accuracy": 0.7372,
+      "accuracy_always_home": 0.5563,
+      "edge": 0.1809
     },
     "0.65": {
-      "n": 194,
-      "coverage": 0.2113,
-      "accuracy": 0.7887,
-      "accuracy_always_home": 0.6649,
-      "edge": 0.1237
+      "n": 218,
+      "coverage": 0.2375,
+      "accuracy": 0.8119,
+      "accuracy_always_home": 0.6239,
+      "edge": 0.1881
     },
     "0.7": {
-      "n": 133,
-      "coverage": 0.1449,
-      "accuracy": 0.8346,
-      "accuracy_always_home": 0.7669,
-      "edge": 0.0677
+      "n": 166,
+      "coverage": 0.1808,
+      "accuracy": 0.8193,
+      "accuracy_always_home": 0.6807,
+      "edge": 0.1386
     }
   },
   "thin_sample_matches": 48

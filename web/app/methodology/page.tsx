@@ -96,6 +96,17 @@ export default async function MethodologyPage() {
           по сыгранным матчам, поэтому подстраивается под лигу. Между сезонами
           рейтинг не обнуляется, а подтягивается к среднему.
         </p>
+        <p className="rounded border border-line bg-panel-2 p-3 text-xs">
+          <span className="font-medium text-text">Elo не входит в
+          вероятности.</span> Изначально в
+          модели было смешивание с Elo
+          пополам, вес подбирался на валидации
+          и выбрал чистый Dixon-Coles без него. На
+          тесте: смесь 50/50 давала 0.94775, чистый
+          модели 0.93881 — разница 0.00894. Рейтинг Elo
+          продолжает работать: он даёт рейтинг
+          силы на странице «Команды».
+        </p>
         <p>
           <span className="font-medium text-text">Dixon-Coles.</span> Пуассоновская
           модель голов: <span className="num">lambda = exp(атака − оборона)</span>,
