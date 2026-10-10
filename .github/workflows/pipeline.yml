@@ -135,6 +135,8 @@ jobs:
         run: python -m models.params_check
       - name: Честный эталон для сравнения
         run: python -m models.market_benchmark
+      - name: Диагностика по командам
+        run: python -m models.team_diagnostics
 
       - name: Прогнозы и журнал
         if: steps.gate.outputs.needs == 'true'
@@ -170,6 +172,7 @@ jobs:
             data/reports/selective.json \
             data/reports/params_check.json \
             data/reports/market_benchmark.json \
+            data/reports/team_diagnostics.json \
             data/forecast_log_football.jsonl \
             data/reports/vtb_ingest.json \
             data/reports/vtb_backtest.json ; do

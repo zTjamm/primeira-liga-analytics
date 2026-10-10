@@ -1,0 +1,224 @@
+{
+  "test_seasons": [
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "min_games": 60,
+  "teams": [
+    {
+      "team": "Sporting Clube de Portugal",
+      "n": 102,
+      "logloss_model": 0.635,
+      "logloss_line": 0.5766,
+      "gap": 0.0584,
+      "hit_rate": 0.7843,
+      "thin": false
+    },
+    {
+      "team": "Portimonense",
+      "n": 34,
+      "logloss_model": 0.9198,
+      "logloss_line": 0.8629,
+      "gap": 0.057,
+      "hit_rate": 0.5882,
+      "thin": true
+    },
+    {
+      "team": "FC Alverca",
+      "n": 34,
+      "logloss_model": 0.8988,
+      "logloss_line": 0.8425,
+      "gap": 0.0564,
+      "hit_rate": 0.5294,
+      "thin": true
+    },
+    {
+      "team": "SC Farense",
+      "n": 68,
+      "logloss_model": 1.0096,
+      "logloss_line": 0.9539,
+      "gap": 0.0557,
+      "hit_rate": 0.4118,
+      "thin": false
+    },
+    {
+      "team": "Chaves",
+      "n": 34,
+      "logloss_model": 0.9189,
+      "logloss_line": 0.8678,
+      "gap": 0.0511,
+      "hit_rate": 0.5588,
+      "thin": true
+    },
+    {
+      "team": "FC Vizela",
+      "n": 34,
+      "logloss_model": 0.987,
+      "logloss_line": 0.9387,
+      "gap": 0.0484,
+      "hit_rate": 0.4706,
+      "thin": true
+    },
+    {
+      "team": "FC Porto",
+      "n": 102,
+      "logloss_model": 0.772,
+      "logloss_line": 0.7249,
+      "gap": 0.0472,
+      "hit_rate": 0.7353,
+      "thin": false
+    },
+    {
+      "team": "CD Nacional",
+      "n": 68,
+      "logloss_model": 0.9538,
+      "logloss_line": 0.9087,
+      "gap": 0.0451,
+      "hit_rate": 0.5735,
+      "thin": false
+    },
+    {
+      "team": "Gil Vicente FC",
+      "n": 102,
+      "logloss_model": 1.0226,
+      "logloss_line": 0.9842,
+      "gap": 0.0384,
+      "hit_rate": 0.4706,
+      "thin": false
+    },
+    {
+      "team": "FC Famalicão",
+      "n": 102,
+      "logloss_model": 1.0323,
+      "logloss_line": 0.9972,
+      "gap": 0.0351,
+      "hit_rate": 0.5,
+      "thin": false
+    },
+    {
+      "team": "CD Santa Clara",
+      "n": 68,
+      "logloss_model": 1.0194,
+      "logloss_line": 0.9868,
+      "gap": 0.0325,
+      "hit_rate": 0.5588,
+      "thin": false
+    },
+    {
+      "team": "Sporting Clube de Braga",
+      "n": 102,
+      "logloss_model": 0.9353,
+      "logloss_line": 0.906,
+      "gap": 0.0294,
+      "hit_rate": 0.6078,
+      "thin": false
+    },
+    {
+      "team": "Vitória SC",
+      "n": 102,
+      "logloss_model": 0.9759,
+      "logloss_line": 0.9473,
+      "gap": 0.0286,
+      "hit_rate": 0.549,
+      "thin": false
+    },
+    {
+      "team": "Rio Ave FC",
+      "n": 102,
+      "logloss_model": 1.0296,
+      "logloss_line": 1.0056,
+      "gap": 0.024,
+      "hit_rate": 0.451,
+      "thin": false
+    },
+    {
+      "team": "Moreirense FC",
+      "n": 102,
+      "logloss_model": 0.9541,
+      "logloss_line": 0.9315,
+      "gap": 0.0226,
+      "hit_rate": 0.5294,
+      "thin": false
+    },
+    {
+      "team": "Casa Pia AC",
+      "n": 102,
+      "logloss_model": 1.0705,
+      "logloss_line": 1.0501,
+      "gap": 0.0204,
+      "hit_rate": 0.4314,
+      "thin": false
+    },
+    {
+      "team": "FC Arouca",
+      "n": 102,
+      "logloss_model": 0.9677,
+      "logloss_line": 0.9475,
+      "gap": 0.0201,
+      "hit_rate": 0.5196,
+      "thin": false
+    },
+    {
+      "team": "Boavista",
+      "n": 68,
+      "logloss_model": 0.9461,
+      "logloss_line": 0.9272,
+      "gap": 0.0188,
+      "hit_rate": 0.5,
+      "thin": false
+    },
+    {
+      "team": "CF Estrela da Amadora",
+      "n": 102,
+      "logloss_model": 0.9519,
+      "logloss_line": 0.9345,
+      "gap": 0.0174,
+      "hit_rate": 0.5294,
+      "thin": false
+    },
+    {
+      "team": "Sport Lisboa e Benfica",
+      "n": 102,
+      "logloss_model": 0.7154,
+      "logloss_line": 0.7005,
+      "gap": 0.0149,
+      "hit_rate": 0.7255,
+      "thin": false
+    },
+    {
+      "team": "GD Estoril Praia",
+      "n": 102,
+      "logloss_model": 0.974,
+      "logloss_line": 0.9603,
+      "gap": 0.0136,
+      "hit_rate": 0.549,
+      "thin": false
+    },
+    {
+      "team": "AVS",
+      "n": 68,
+      "logloss_model": 0.9921,
+      "logloss_line": 0.9935,
+      "gap": -0.0014,
+      "hit_rate": 0.5147,
+      "thin": false
+    },
+    {
+      "team": "CD Tondela",
+      "n": 34,
+      "logloss_model": 1.0203,
+      "logloss_line": 1.0224,
+      "gap": -0.0021,
+      "hit_rate": 0.5294,
+      "thin": true
+    }
+  ],
+  "spread": {
+    "solid": 18,
+    "min": -0.0014,
+    "max": 0.0584,
+    "median": 0.0263,
+    "worse_than_line": 17
+  }
+}
