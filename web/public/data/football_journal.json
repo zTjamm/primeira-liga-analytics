@@ -1,6 +1,6 @@
 {
   "sport": "football",
-  "generated_at": "2026-10-10T12:17:37+00:00",
+  "generated_at": "2026-10-10T12:28:58+00:00",
   "resolved": [
     {
       "key": "567326",
@@ -95,8 +95,8 @@
       "away_id": "porto",
       "home_name": "CS Marítimo",
       "away_name": "FC Porto",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 4.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 4.52,
       "stage": "T-6h",
       "p_home": 0.1248,
       "p_draw": 0.1958,
@@ -136,8 +136,8 @@
           "p_home": 0.1248,
           "p_draw": 0.1958,
           "p_away": 0.6794,
-          "hours_before": 4.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 4.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -150,8 +150,8 @@
       "away_id": "santa_clara",
       "home_name": "Casa Pia AC",
       "away_name": "CD Santa Clara",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 7.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 7.02,
       "stage": "T-6h",
       "p_home": 0.2178,
       "p_draw": 0.2849,
@@ -191,8 +191,8 @@
           "p_home": 0.2178,
           "p_draw": 0.2849,
           "p_away": 0.4973,
-          "hours_before": 7.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 7.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -205,8 +205,8 @@
       "away_id": "estoril",
       "home_name": "Académico de Viseu FC",
       "away_name": "GD Estoril Praia",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 7.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 7.02,
       "stage": "T-6h",
       "p_home": 0.5403,
       "p_draw": 0.2398,
@@ -246,8 +246,8 @@
           "p_home": 0.5403,
           "p_draw": 0.2398,
           "p_away": 0.2198,
-          "hours_before": 7.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 7.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -260,8 +260,8 @@
       "away_id": "nacional",
       "home_name": "Rio Ave FC",
       "away_name": "CD Nacional",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 26.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 26.02,
       "stage": "T-24h",
       "p_home": 0.3791,
       "p_draw": 0.2677,
@@ -293,8 +293,8 @@
           "p_home": 0.3791,
           "p_draw": 0.2677,
           "p_away": 0.3533,
-          "hours_before": 26.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 26.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -307,8 +307,8 @@
       "away_id": "guimaraes",
       "home_name": "Sport Lisboa e Benfica",
       "away_name": "Vitória SC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 28.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 28.52,
       "stage": "T-24h",
       "p_home": 0.7781,
       "p_draw": 0.1415,
@@ -340,8 +340,8 @@
           "p_home": 0.7781,
           "p_draw": 0.1415,
           "p_away": 0.0804,
-          "hours_before": 28.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 28.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -354,8 +354,8 @@
       "away_id": "estrela",
       "home_name": "FC Arouca",
       "away_name": "CF Estrela da Amadora",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 31.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 31.02,
       "stage": "T-24h",
       "p_home": 0.5331,
       "p_draw": 0.2181,
@@ -387,8 +387,8 @@
           "p_home": 0.5331,
           "p_draw": 0.2181,
           "p_away": 0.2488,
-          "hours_before": 31.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 31.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -401,8 +401,8 @@
       "away_id": "alverca",
       "home_name": "FC Famalicão",
       "away_name": "FC Alverca",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 54.96,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 54.77,
       "stage": "T-24h",
       "p_home": 0.5372,
       "p_draw": 0.2632,
@@ -434,8 +434,8 @@
           "p_home": 0.5372,
           "p_draw": 0.2632,
           "p_away": 0.1996,
-          "hours_before": 54.96,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 54.77,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -448,8 +448,8 @@
       "away_id": "gil_vicente",
       "home_name": "Sporting Clube de Braga",
       "away_name": "Gil Vicente FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 222.96,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 222.77,
       "stage": "T-72h+",
       "p_home": 0.5176,
       "p_draw": 0.2602,
@@ -471,8 +471,8 @@
           "p_home": 0.5176,
           "p_draw": 0.2602,
           "p_away": 0.2222,
-          "hours_before": 222.96,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 222.77,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -485,8 +485,8 @@
       "away_id": "maritimo",
       "home_name": "Vitória SC",
       "away_name": "CS Marítimo",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 319.46,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 319.27,
       "stage": "T-72h+",
       "p_home": 0.4444,
       "p_draw": 0.2661,
@@ -508,8 +508,8 @@
           "p_home": 0.4444,
           "p_draw": 0.2661,
           "p_away": 0.2895,
-          "hours_before": 319.46,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 319.27,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -522,8 +522,8 @@
       "away_id": "casa_pia",
       "home_name": "CF Estrela da Amadora",
       "away_name": "Casa Pia AC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 338.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 338.02,
       "stage": "T-72h+",
       "p_home": 0.5531,
       "p_draw": 0.2312,
@@ -545,8 +545,8 @@
           "p_home": 0.5531,
           "p_draw": 0.2312,
           "p_away": 0.2157,
-          "hours_before": 338.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 338.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -559,8 +559,8 @@
       "away_id": "arouca",
       "home_name": "FC Alverca",
       "away_name": "FC Arouca",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 340.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 340.52,
       "stage": "T-72h+",
       "p_home": 0.3631,
       "p_draw": 0.2553,
@@ -582,8 +582,8 @@
           "p_home": 0.3631,
           "p_draw": 0.2553,
           "p_away": 0.3816,
-          "hours_before": 340.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 340.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -596,8 +596,8 @@
       "away_id": "porto",
       "home_name": "Gil Vicente FC",
       "away_name": "FC Porto",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 343.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 343.02,
       "stage": "T-72h+",
       "p_home": 0.176,
       "p_draw": 0.2587,
@@ -619,8 +619,8 @@
           "p_home": 0.176,
           "p_draw": 0.2587,
           "p_away": 0.5653,
-          "hours_before": 343.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 343.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -633,8 +633,8 @@
       "away_id": "moreirense",
       "home_name": "GD Estoril Praia",
       "away_name": "Moreirense FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 363.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 363.02,
       "stage": "T-72h+",
       "p_home": 0.4616,
       "p_draw": 0.2548,
@@ -656,8 +656,8 @@
           "p_home": 0.4616,
           "p_draw": 0.2548,
           "p_away": 0.2836,
-          "hours_before": 363.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 363.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -670,8 +670,8 @@
       "away_id": "famalicao",
       "home_name": "Rio Ave FC",
       "away_name": "FC Famalicão",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 365.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 365.52,
       "stage": "T-72h+",
       "p_home": 0.2186,
       "p_draw": 0.2657,
@@ -693,8 +693,8 @@
           "p_home": 0.2186,
           "p_draw": 0.2657,
           "p_away": 0.5156,
-          "hours_before": 365.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 365.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -707,8 +707,8 @@
       "away_id": "braga",
       "home_name": "CD Nacional",
       "away_name": "Sporting Clube de Braga",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 365.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 365.52,
       "stage": "T-72h+",
       "p_home": 0.2272,
       "p_draw": 0.2436,
@@ -730,8 +730,8 @@
           "p_home": 0.2272,
           "p_draw": 0.2436,
           "p_away": 0.5292,
-          "hours_before": 365.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 365.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -744,8 +744,8 @@
       "away_id": "academico",
       "home_name": "Sporting Clube de Portugal",
       "away_name": "Académico de Viseu FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 368.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 368.02,
       "stage": "T-72h+",
       "p_home": 0.6908,
       "p_draw": 0.1776,
@@ -767,8 +767,8 @@
           "p_home": 0.6908,
           "p_draw": 0.1776,
           "p_away": 0.1317,
-          "hours_before": 368.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 368.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -781,8 +781,8 @@
       "away_id": "benfica",
       "home_name": "CD Santa Clara",
       "away_name": "Sport Lisboa e Benfica",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 390.46,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 390.27,
       "stage": "T-72h+",
       "p_home": 0.2026,
       "p_draw": 0.2373,
@@ -804,8 +804,8 @@
           "p_home": 0.2026,
           "p_draw": 0.2373,
           "p_away": 0.5601,
-          "hours_before": 390.46,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 390.27,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -818,8 +818,8 @@
       "away_id": "sp Lisbon",
       "home_name": "Casa Pia AC",
       "away_name": "Sporting Clube de Portugal",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 487.96,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 487.77,
       "stage": "T-72h+",
       "p_home": 0.0747,
       "p_draw": 0.1329,
@@ -841,8 +841,8 @@
           "p_home": 0.0747,
           "p_draw": 0.1329,
           "p_away": 0.7925,
-          "hours_before": 487.96,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 487.77,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -855,8 +855,8 @@
       "away_id": "estrela",
       "home_name": "Moreirense FC",
       "away_name": "CF Estrela da Amadora",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 507.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 507.02,
       "stage": "T-72h+",
       "p_home": 0.4056,
       "p_draw": 0.2494,
@@ -878,8 +878,8 @@
           "p_home": 0.4056,
           "p_draw": 0.2494,
           "p_away": 0.3449,
-          "hours_before": 507.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 507.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -892,8 +892,8 @@
       "away_id": "estoril",
       "home_name": "FC Porto",
       "away_name": "GD Estoril Praia",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 512.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 512.02,
       "stage": "T-72h+",
       "p_home": 0.7696,
       "p_draw": 0.1516,
@@ -915,8 +915,8 @@
           "p_home": 0.7696,
           "p_draw": 0.1516,
           "p_away": 0.0787,
-          "hours_before": 512.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 512.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -929,8 +929,8 @@
       "away_id": "nacional",
       "home_name": "FC Arouca",
       "away_name": "CD Nacional",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 531.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 531.02,
       "stage": "T-72h+",
       "p_home": 0.5484,
       "p_draw": 0.231,
@@ -952,8 +952,8 @@
           "p_home": 0.5484,
           "p_draw": 0.231,
           "p_away": 0.2205,
-          "hours_before": 531.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 531.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -966,8 +966,8 @@
       "away_id": "santa_clara",
       "home_name": "CS Marítimo",
       "away_name": "CD Santa Clara",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 533.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 533.52,
       "stage": "T-72h+",
       "p_home": 0.3036,
       "p_draw": 0.2832,
@@ -989,8 +989,8 @@
           "p_home": 0.3036,
           "p_draw": 0.2832,
           "p_away": 0.4132,
-          "hours_before": 533.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 533.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1003,8 +1003,8 @@
       "away_id": "rio_ave",
       "home_name": "Académico de Viseu FC",
       "away_name": "Rio Ave FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 533.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 533.52,
       "stage": "T-72h+",
       "p_home": 0.6189,
       "p_draw": 0.2197,
@@ -1026,8 +1026,8 @@
           "p_home": 0.6189,
           "p_draw": 0.2197,
           "p_away": 0.1614,
-          "hours_before": 533.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 533.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1040,8 +1040,8 @@
       "away_id": "famalicao",
       "home_name": "Sporting Clube de Braga",
       "away_name": "FC Famalicão",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 536.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 536.02,
       "stage": "T-72h+",
       "p_home": 0.442,
       "p_draw": 0.2789,
@@ -1063,8 +1063,8 @@
           "p_home": 0.442,
           "p_draw": 0.2789,
           "p_away": 0.2791,
-          "hours_before": 536.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 536.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1077,8 +1077,8 @@
       "away_id": "alverca",
       "home_name": "Sport Lisboa e Benfica",
       "away_name": "FC Alverca",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 559.96,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 559.77,
       "stage": "T-72h+",
       "p_home": 0.7972,
       "p_draw": 0.1287,
@@ -1100,8 +1100,8 @@
           "p_home": 0.7972,
           "p_draw": 0.1287,
           "p_away": 0.0741,
-          "hours_before": 559.96,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 559.77,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1114,8 +1114,8 @@
       "away_id": "guimaraes",
       "home_name": "Gil Vicente FC",
       "away_name": "Vitória SC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 559.96,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 559.77,
       "stage": "T-72h+",
       "p_home": 0.4528,
       "p_draw": 0.2904,
@@ -1137,8 +1137,8 @@
           "p_home": 0.4528,
           "p_draw": 0.2904,
           "p_away": 0.2568,
-          "hours_before": 559.96,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 559.77,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1151,8 +1151,8 @@
       "away_id": "arouca",
       "home_name": "FC Famalicão",
       "away_name": "FC Arouca",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 656.46,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 656.27,
       "stage": "T-72h+",
       "p_home": 0.4904,
       "p_draw": 0.2605,
@@ -1174,8 +1174,8 @@
           "p_home": 0.4904,
           "p_draw": 0.2605,
           "p_away": 0.2491,
-          "hours_before": 656.46,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 656.27,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1188,8 +1188,8 @@
       "away_id": "academico",
       "home_name": "CD Nacional",
       "away_name": "Académico de Viseu FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 675.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 675.02,
       "stage": "T-72h+",
       "p_home": 0.2782,
       "p_draw": 0.2673,
@@ -1211,8 +1211,8 @@
           "p_home": 0.2782,
           "p_draw": 0.2673,
           "p_away": 0.4545,
-          "hours_before": 675.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 675.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1225,8 +1225,8 @@
       "away_id": "casa_pia",
       "home_name": "FC Alverca",
       "away_name": "Casa Pia AC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 677.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 677.52,
       "stage": "T-72h+",
       "p_home": 0.5362,
       "p_draw": 0.254,
@@ -1248,8 +1248,8 @@
           "p_home": 0.5362,
           "p_draw": 0.254,
           "p_away": 0.2098,
-          "hours_before": 677.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 677.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1262,8 +1262,8 @@
       "away_id": "moreirense",
       "home_name": "Sporting Clube de Portugal",
       "away_name": "Moreirense FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 680.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 680.02,
       "stage": "T-72h+",
       "p_home": 0.823,
       "p_draw": 0.1146,
@@ -1285,8 +1285,8 @@
           "p_home": 0.823,
           "p_draw": 0.1146,
           "p_away": 0.0623,
-          "hours_before": 680.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 680.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1299,8 +1299,8 @@
       "away_id": "maritimo",
       "home_name": "GD Estoril Praia",
       "away_name": "CS Marítimo",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 699.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 699.02,
       "stage": "T-72h+",
       "p_home": 0.4496,
       "p_draw": 0.2473,
@@ -1322,8 +1322,8 @@
           "p_home": 0.4496,
           "p_draw": 0.2473,
           "p_away": 0.3032,
-          "hours_before": 699.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 699.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1336,8 +1336,8 @@
       "away_id": "gil_vicente",
       "home_name": "CD Santa Clara",
       "away_name": "Gil Vicente FC",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 699.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 699.02,
       "stage": "T-72h+",
       "p_home": 0.4203,
       "p_draw": 0.3106,
@@ -1359,8 +1359,8 @@
           "p_home": 0.4203,
           "p_draw": 0.3106,
           "p_away": 0.2691,
-          "hours_before": 699.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 699.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1373,8 +1373,8 @@
       "away_id": "porto",
       "home_name": "Vitória SC",
       "away_name": "FC Porto",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 701.71,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 701.52,
       "stage": "T-72h+",
       "p_home": 0.1421,
       "p_draw": 0.2288,
@@ -1396,8 +1396,8 @@
           "p_home": 0.1421,
           "p_draw": 0.2288,
           "p_away": 0.629,
-          "hours_before": 701.71,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 701.52,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1410,8 +1410,8 @@
       "away_id": "braga",
       "home_name": "Rio Ave FC",
       "away_name": "Sporting Clube de Braga",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 704.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 704.02,
       "stage": "T-72h+",
       "p_home": 0.194,
       "p_draw": 0.2266,
@@ -1433,8 +1433,8 @@
           "p_home": 0.194,
           "p_draw": 0.2266,
           "p_away": 0.5794,
-          "hours_before": 704.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 704.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     },
@@ -1447,8 +1447,8 @@
       "away_id": "benfica",
       "home_name": "CF Estrela da Amadora",
       "away_name": "Sport Lisboa e Benfica",
-      "generated_at": "2026-10-10T12:17:37+00:00",
-      "hours_before": 704.21,
+      "generated_at": "2026-10-10T12:28:58+00:00",
+      "hours_before": 704.02,
       "stage": "T-72h+",
       "p_home": 0.1179,
       "p_draw": 0.1508,
@@ -1470,8 +1470,8 @@
           "p_home": 0.1179,
           "p_draw": 0.1508,
           "p_away": 0.7313,
-          "hours_before": 704.21,
-          "generated_at": "2026-10-10T12:17:37+00:00"
+          "hours_before": 704.02,
+          "generated_at": "2026-10-10T12:28:58+00:00"
         }
       ]
     }
