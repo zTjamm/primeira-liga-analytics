@@ -13,19 +13,19 @@
   },
   {
     "team": "santa_clara",
-    "rating": 1533.9
+    "rating": 1542.6
   },
   {
     "team": "braga",
     "rating": 1524.4
   },
   {
-    "team": "famalicao",
-    "rating": 1518.4
+    "team": "academico",
+    "rating": 1522.0
   },
   {
-    "team": "academico",
-    "rating": 1515.8
+    "team": "famalicao",
+    "rating": 1518.4
   },
   {
     "team": "arouca",
@@ -160,15 +160,15 @@
     "rating": 1441.4
   },
   {
-    "team": "estoril",
-    "rating": 1437.2
-  },
-  {
     "team": "nacional",
     "rating": 1433.5
   },
   {
+    "team": "estoril",
+    "rating": 1431.0
+  },
+  {
     "team": "casa_pia",
-    "rating": 1430.5
+    "rating": 1421.7
   }
 ]
