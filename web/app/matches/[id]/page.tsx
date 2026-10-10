@@ -222,7 +222,9 @@ export default async function MatchPage({
             <span className="num text-text">{(m.ah_home_2plus * 100).toFixed(1)}%</span>, ровно в один{" "}
             <span className="num text-text">{(m.ah_home_exactly_1 * 100).toFixed(1)}%</span>, гости в два и более{" "}
             <span className="num text-text">{(m.ah_away_2plus * 100).toFixed(1)}%</span>.
-            {" "}Минус однак от одного разрера обычности.
+            {" "}
+            Минус означает, что хозяева столько сильнее: фору отдают они.
+            Плюс — фору получают.
           </p>
         </div>
       </section>
@@ -231,10 +233,13 @@ export default async function MatchPage({
         <section className="panel p-5">
           <h2 className="mb-3 text-sm font-semibold">Из чего сложился прогноз</h2>
           <p className="mb-3 text-xs text-muted">
-            Итоговая вероятность — среднее двух независимых моделей. Обе
-            обучены walk-forward: только на матчах, сыгранных раньше.
+            Прогноз даёт Dixon-Coles — пуассоновская модель голов, обученная
+            walk-forward, то есть только на матчах, сыгранных раньше. Elo
+            показан рядом для сравнения, но в вероятность не входит: при
+            смешивании с ним хуже получалось на 0.00894 log-loss, поэтому его
+            вес обнулён.
           </p>
-          <Row label="Elo: П1 / X / П2">
+          <Row label="Elo (справочно): П1 / X / П2">
             <span>
               {(m.p_home_elo * 100).toFixed(1)} / {(m.p_draw_elo * 100).toFixed(1)} /{" "}
               {((1 - m.p_home_elo - m.p_draw_elo) * 100).toFixed(1)}
