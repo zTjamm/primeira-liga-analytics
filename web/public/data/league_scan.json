@@ -1,0 +1,126 @@
+{
+  "leagues": {
+    "P1": {
+      "n": 918,
+      "logloss": 0.92971,
+      "accuracy": 0.5566,
+      "logloss_naive": 1.07714,
+      "logloss_market": 0.90877,
+      "n_market": 918,
+      "name": "Португалия",
+      "code": "P1",
+      "history": 1224
+    },
+    "E0": {
+      "n": 1140,
+      "logloss": 0.98276,
+      "accuracy": 0.5281,
+      "logloss_naive": 1.07225,
+      "logloss_market": 0.95941,
+      "n_market": 1140,
+      "name": "Англия",
+      "code": "E0",
+      "history": 1520
+    },
+    "SP1": {
+      "n": 1140,
+      "logloss": 0.96479,
+      "accuracy": 0.5325,
+      "logloss_naive": 1.06495,
+      "logloss_market": 0.95145,
+      "n_market": 1140,
+      "name": "Испания",
+      "code": "SP1",
+      "history": 1520
+    },
+    "D1": {
+      "n": 918,
+      "logloss": 0.9918,
+      "accuracy": 0.5196,
+      "logloss_naive": 1.07767,
+      "logloss_market": 0.96074,
+      "n_market": 918,
+      "name": "Германия",
+      "code": "D1",
+      "history": 1224
+    },
+    "I1": {
+      "n": 1140,
+      "logloss": 0.97929,
+      "accuracy": 0.5237,
+      "logloss_naive": 1.08714,
+      "logloss_market": 0.96482,
+      "n_market": 1140,
+      "name": "Италия",
+      "code": "I1",
+      "history": 1520
+    },
+    "F1": {
+      "n": 918,
+      "logloss": 0.99217,
+      "accuracy": 0.537,
+      "logloss_naive": 1.06758,
+      "logloss_market": 0.98123,
+      "n_market": 918,
+      "name": "Франция",
+      "code": "F1",
+      "history": 1298
+    },
+    "N1": {
+      "n": 918,
+      "logloss": 0.94623,
+      "accuracy": 0.5534,
+      "logloss_naive": 1.07039,
+      "logloss_market": 0.93778,
+      "n_market": 918,
+      "name": "Нидерланды",
+      "code": "N1",
+      "history": 1224
+    }
+  },
+  "test_seasons": [
+    "2324",
+    "2425",
+    "2526"
+  ],
+  "cross": {
+    "E0": {
+      "logloss": 0.93756,
+      "delta": 0.00785,
+      "extra_matches": 1520
+    },
+    "SP1": {
+      "logloss": 0.93735,
+      "delta": 0.00764,
+      "extra_matches": 1520
+    },
+    "D1": {
+      "logloss": 0.93625,
+      "delta": 0.00654,
+      "extra_matches": 1224
+    },
+    "I1": {
+      "logloss": 0.93451,
+      "delta": 0.0048,
+      "extra_matches": 1520
+    },
+    "F1": {
+      "logloss": 0.93485,
+      "delta": 0.00514,
+      "extra_matches": 1298
+    },
+    "N1": {
+      "logloss": 0.93676,
+      "delta": 0.00705,
+      "extra_matches": 1224
+    }
+  },
+  "portugal_baseline": {
+    "n": 918,
+    "logloss": 0.92971,
+    "accuracy": 0.5566,
+    "logloss_naive": 1.07714,
+    "logloss_market": 0.90877,
+    "n_market": 918
+  }
+}
