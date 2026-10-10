@@ -208,9 +208,9 @@ jobs:
         # Отчёт раз в сутки: отчёты описывают качество модели на истории и заа сутки не меняются.
         # Замерка этого шага — 5 секунд, а весь самый шаг свише 5.6 минуты.
         run: python -m models.feature_study
-    - name: Сканирование лиг
-      if: steps.gate.outputs.backtest == 'true'
-      run: python -m models.league_scan
+      - name: Сканирование лиг
+        if: steps.gate.outputs.backtest == 'true'
+        run: python -m models.league_scan
 
       - name: Прогнозы и журнал
         if: steps.gate.outputs.needs == 'true'
