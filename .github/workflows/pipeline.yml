@@ -73,9 +73,25 @@ jobs:
           # незабранным: если новых матчей в окне нет, пайплайн просто
           # пропускал прогон, и результат в журнал не попадал.
           since=$(date -u -d "@$(( now - ${FINISHED_HOURS} * 3600 ))" +%Y-%m-%d)
-          body=$(curl -sS --max-time 30 \
+          # Проверяем КОД ОТВЕТА, а не только успех curl. На HTTP-ошибке
+          # curl завершается с нулём и кладёт в stdout тело ответа — то
+          # есть не JSON. jq на нём падает, списки выходят пустыми, и
+          # проверка заключала, что матчей нет, хотя не знала ничего.
+          # Так пропускались прогоны с реальными матчами в окне.
+          http_code=$(curl -sS -o /tmp/fd.json -w '%{http_code}' --max-time 30 \
             "http://api.football-data.org/v4/competitions/PPL/matches?dateFrom=$since&dateTo=$(date -u -d '+7 days' +%Y-%m-%d)" \
-            -H "X-Auth-Token: ${{ secrets.FD_ORG_TOKEN }}") || { echo "needs=true" >> "$GITHUB_OUTPUT"; echo "не удалось получить расписание, обновляем на всякий случай"; exit 0; }
+            -H "X-Auth-Token: ${{ secrets.FD_ORG_TOKEN }}" || echo 000)
+          if [ "$http_code" != "200" ]; then
+            echo "needs=true" >> "$GITHUB_OUTPUT"
+            echo "расписание недоступно (HTTP $http_code), обновляем на всякий случай"
+            exit 0
+          fi
+          if ! jq -e '.matches' /tmp/fd.json >/dev/null 2>&1; then
+            echo "needs=true" >> "$GITHUB_OUTPUT"
+            echo "ответ расписания не похож на JSON, обновляем на всякий случай"
+            exit 0
+          fi
+          body=$(cat /tmp/fd.json)
           soon=$(printf '%s' "$body" | jq -r --argjson lo "$now" --argjson hi "$horizon" '
             [ .matches[]
               | select(.status == "TIMED" or .status == "SCHEDULED")
