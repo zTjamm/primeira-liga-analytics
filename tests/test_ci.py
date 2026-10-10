@@ -70,6 +70,26 @@ def main() -> int:
     jobs = doc.get("jobs") or {}
     ok &= _check("есть хотя бы один job", bool(jobs))
 
+    # 5. Ключи верхнего уровня: GitHub Actions отвергает файл при любом
+    #    неизвестном ключе, а YAML — нет. Именно так в env заехала
+    #    FINISHED_HOURS без отступа: файл разбирался, прогоны падали за
+    #    0 секунд, и причина была неочевидна.
+    allowed = {"name", "on", True, "env", "defaults", "concurrency",
+               "permissions", "jobs", "run-name"}
+    unknown = [k for k in doc if k not in allowed]
+    ok &= _check("нет лишних ключей верхнего уровня", not unknown,
+                 "лишние: " + ", ".join(map(str, unknown[:4])))
+
+    # 6. Переменные окружения должны быть именно в env, а не на верхнем
+    #    уровне: иначе ${ПЕРЕМЕННАЯ} в скриптах подставится пустотой и
+    #    арифметика в gate молча даст неверный результат.
+    if isinstance(doc.get("env"), dict):
+        ok &= _check("в env есть WINDOW_HOURS и FINISHED_HOURS",
+                     {"WINDOW_HOURS", "FINISHED_HOURS"} <= set(doc["env"]),
+                     "в env: " + ", ".join(sorted(doc["env"])))
+    else:
+        ok &= _check("блок env разбирается как объект", False)
+
     if not jobs:
         return 1
 
