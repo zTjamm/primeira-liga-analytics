@@ -13,7 +13,13 @@ name: pipeline
 # Если нужна точность, нужен постоянно работающий сервер.
 on:
   schedule:
-    - cron: "17 * * * *"
+    # Раз в 20 минут вместо раза в час. Пайплайн сам себя пропускает,
+    # если впереди нет матчей и за последние часы ничего не завершилось,
+    # поэтому большинство запусков обходятся проверкой за полминуты.
+    # Часовое расписание означало задержку до 1ч47м между последним гудком
+    # и появлением вердикта в журнале: CI считал раз в час, и сервер
+    # забирал изменения ещё через час.
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
     inputs:
       force:
@@ -31,6 +37,10 @@ concurrency:
 
 env:
   WINDOW_HOURS: "6"
+# Сколько часов назад матч ещё считается «только что завершившимся».
+# Два с половиной часа с запасом перекрывают длительность матча: если
+# прогон пропущен, следующий всё равно увидит результат.
+FINISHED_HOURS: "3"
 
 permissions:
   # Бот коммитит обновлённые артефакты прямо в ветку — без этого права
@@ -54,9 +64,13 @@ jobs:
           fi
           now=$(date -u +%s)
           horizon=$(( now + ${WINDOW_HOURS} * 3600 ))
-          # только планируемые матчи: сыгранные нам не нужны
+          # Смотрим в обе стороны. Раньше проверялись только предстоящие
+          # матчи, из-за чего завершённый матч мог неделю лежать
+          # незабранным: если новых матчей в окне нет, пайплайн просто
+          # пропускал прогон, и результат в журнал не попадал.
+          since=$(date -u -d "@$(( now - ${FINISHED_HOURS} * 3600 ))" +%Y-%m-%d)
           body=$(curl -sS --max-time 30 \
-            "http://api.football-data.org/v4/competitions/PPL/matches?dateFrom=$(date -u +%Y-%m-%d)&dateTo=$(date -u -d '+7 days' +%Y-%m-%d)" \
+            "http://api.football-data.org/v4/competitions/PPL/matches?dateFrom=$since&dateTo=$(date -u -d '+7 days' +%Y-%m-%d)" \
             -H "X-Auth-Token: ${{ secrets.FD_ORG_TOKEN }}") || { echo "needs=true" >> "$GITHUB_OUTPUT"; echo "не удалось получить расписание, обновляем на всякий случай"; exit 0; }
           soon=$(printf '%s' "$body" | jq -r --argjson lo "$now" --argjson hi "$horizon" '
             [ .matches[]
@@ -64,18 +78,32 @@ jobs:
               | (.utcDate | fromdateiso8601) as $t
               | select($t >= $lo and $t <= $hi)
               | "\(.utcDate) \(.homeTeam.name) — \(.awayTeam.name)" ] | .[]' || true)
-          if [ -n "$soon" ]; then
+          played=$(printf '%s' "$body" | jq -r --argjson lo "$(( now - ${FINISHED_HOURS} * 3600 ))" --argjson hi "$now" '
+            [ .matches[]
+              | select(.status == "FINISHED")
+              | (.utcDate | fromdateiso8601) as $t
+              | select($t >= $lo and $t <= $hi)
+              | "\(.utcDate) \(.homeTeam.name) — \(.awayTeam.name)" ] | .[]' || true)
+          if [ -n "$soon" ] || [ -n "$played" ]; then
             echo "needs=true" >> "$GITHUB_OUTPUT"
             {
               echo "### Ближайшие матчи в окне обновления"
               echo '```'
               printf '%s\n' "$soon"
               echo '```'
+              if [ -n "$played" ]; then
+                echo "### Только что завершившиеся (ждём результат)"
+                echo '```'
+                printf '%s\n' "$played"
+                echo '```'
+              fi
             } >> "$GITHUB_STEP_SUMMARY"
-            printf 'обновляем: матчей в окне — %s\n' "$(printf '%s\n' "$soon" | wc -l)"
+            printf 'обновляем: впереди %s, только что сыграно %s\n' \
+              "$(printf '%s\n' "$soon" | grep -c . || true)" \
+              "$(printf '%s\n' "$played" | grep -c . || true)"
           else
             echo "needs=false" >> "$GITHUB_OUTPUT"
-            echo "в окне ${WINDOW_HOURS}ч матчей нет, прогнозы не трогаем"
+            echo "в окне ${WINDOW_HOURS}ч матчей нет и за последние ${FINISHED_HOURS}ч ничего не завершилось"
           fi
 
           # Бэктест нужен раз в сутки, а не каждый час. Модуль в выражениях
