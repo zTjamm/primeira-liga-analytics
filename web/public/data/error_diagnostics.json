@@ -90,7 +90,7 @@
       },
       {
         "w_market": 0.5,
-        "val_logloss": 0.86957
+        "val_logloss": 0.86958
       },
       {
         "w_market": 0.6,
@@ -122,7 +122,7 @@
     "plain": 0.93881,
     "temperature_T": 0.7046,
     "temperature": 0.95135,
-    "dirichlet": 0.96825,
+    "dirichlet": 0.97943,
     "market": 0.90877
   }
 }
