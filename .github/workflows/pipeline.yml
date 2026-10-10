@@ -125,16 +125,16 @@ jobs:
       - name: Калибровка снятия маржи
         if: steps.gate.outputs.needs == 'true'
         run: python -m models.market_calibration
-    - name: Сравнение рынков с линией
-      run: python -m models.market_totals
-    - name: Диагностика ошибок
-      run: python -m models.error_diagnostics
-    - name: Отбор матчей для вердикта
-      run: python -m models.selective
-    - name: Проверка неочевидных параметров
-      run: python -m models.params_check
-    - name: Честный эталон для сравнения
-      run: python -m models.market_benchmark
+      - name: Сравнение рынков с линией
+        run: python -m models.market_totals
+      - name: Диагностика ошибок
+        run: python -m models.error_diagnostics
+      - name: Отбор матчей для вердикта
+        run: python -m models.selective
+      - name: Проверка неочевидных параметров
+        run: python -m models.params_check
+      - name: Честный эталон для сравнения
+        run: python -m models.market_benchmark
 
       - name: Прогнозы и журнал
         if: steps.gate.outputs.needs == 'true'
