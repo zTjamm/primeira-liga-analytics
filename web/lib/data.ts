@@ -381,6 +381,14 @@ export interface BenchmarkFile {
     logloss_line: number;
     accuracy_model: number;
     accuracy_line: number;
+    /** Матчи, где модель и линия разошлись. Их соотношение
+     *  проверяется тестом МакНемара: без этого разница в точности
+     *  выглядит значимой, хотя может быть шумом. */
+    discordant: number;
+    only_model: number;
+    only_line: number;
+    p_value: number;
+    accuracy_edge_significant: boolean;
   };
 }
 
@@ -495,3 +503,79 @@ const TEAM_NAMES: Record<string, string> = {
 export function teamName(id: string): string {
   return TEAM_NAMES[id] ?? id;
 }
+
+
+/* Изучение статистики матча: корреляция признака с исходом против
+   корреляции с остатком прогноза. */
+export interface FeatureStudyFile {
+  test_seasons: string[];
+  n: number;
+  history: number;
+  stats: {
+    stat: string;
+    n: number;
+    r_raw: number;
+    r_residual: number;
+    verdict: string;
+  }[];
+  offsides_available: boolean;
+  note: string;
+}
+
+export const getFeatureStudy = cache(() => readJson<FeatureStudyFile>("feature_study.json"));
+
+/* Диагностика по командам. */
+export interface TeamDiagFile {
+  test_seasons: string[];
+  min_games: number;
+  teams: {
+    team: string;
+    n: number;
+    logloss_model: number;
+    logloss_line: number;
+    gap: number;
+    hit_rate: number;
+    thin: boolean;
+  }[];
+  spread: {
+    solid: number;
+    min: number;
+    max: number;
+    median: number;
+    worse_than_line: number;
+  };
+}
+
+export const getTeamDiag = cache(() => readJson<TeamDiagFile>("team_diagnostics.json"));
+
+/* Проверка параметров: вес смеси и период затухания. */
+export interface ParamsCheckFile {
+  val_seasons: string[];
+  test_seasons: string[];
+  weight_grid: { w_dc: number; val: number; test: number }[];
+  half_life_grid: { half_life: number; val: number; test: number }[];
+}
+
+export const getParamsCheck = cache(() => readJson<ParamsCheckFile>("params_check.json"));
+
+/* Диагностика ошибок: калибровка, смещение, перекалибровка, сжатие к рынку. */
+export interface ErrorDiagFile {
+  val_season: string;
+  test_seasons: string[];
+  bias: Record<string, { model: number; actual: number; gap: number }>;
+  market_anchor: {
+    best_w_market: number;
+    test_model: number;
+    test_market: number;
+    test_blend: number;
+  };
+  recalibration: {
+    plain: number;
+    temperature_T: number;
+    temperature: number;
+    dirichlet: number;
+    market: number;
+  };
+}
+
+export const getErrorDiag = cache(() => readJson<ErrorDiagFile>("error_diagnostics.json"));

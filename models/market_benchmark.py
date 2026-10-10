@@ -215,15 +215,39 @@ def main() -> int:
                                    for r in quarter]))
             qacc_l = float(np.mean([int((r["ah"]["q"][0] > 0.5) == (r["ah"]["y"] == 1))
                                    for r in quarter]))
+            # Раз точность выглядит как победа, её надо проверить на
+            # значимость. Первая версия отчёта заявила, что модель
+            # обгоняет линию, потому что 51.4% больше 49.3%; на деле
+            # разница в 17 матчах из 299 расхождений — шум.
+            only_m = sum(1 for r in quarter
+                         if (r["ah"]["p_home"] > 0.5) == (r["ah"]["y"] == 1)
+                         and (r["ah"]["q"][0] > 0.5) != (r["ah"]["y"] == 1))
+            only_l = sum(1 for r in quarter
+                         if (r["ah"]["q"][0] > 0.5) == (r["ah"]["y"] == 1)
+                         and (r["ah"]["p_home"] > 0.5) != (r["ah"]["y"] == 1))
+            d = only_m + only_l
+            if d:
+                k = min(only_m, only_l)
+                from math import comb
+                p_two = 2 * sum(comb(d, i) for i in range(k + 1)) / (2 ** d)
+            else:
+                p_two = 1.0
             print(f"  ДРОБНЫЕ ЛИНИИ (возврата нет, сравнение корректно): {len(quarter)}")
             print(f"    log-loss  модель {qll_m:.5f}   линия {qll_l:.5f}"
                   f"   ->  {'МОДЕЛЬ ЛУЧШЕ' if qll_m < qll_l else 'ЛИНИЯ ЛУЧШЕ'} "
                   f"на {abs(qll_l - qll_m):.5f}")
             print(f"    точность  модель {100*qacc_m:.1f}%      линия {100*qacc_l:.1f}%")
+            print(f"    тест МакНемара: расхождений {d} "
+                  f"(модель {only_m}, линия {only_l}), p={p_two:.4f} -> "
+                  f"{'разница значима' if p_two < 0.05 else 'РАЗНИЦА НЕ ЗНАЧИМА'}")
             out["asian_quarter"] = {"n": len(quarter), "logloss_model": round(qll_m, 5),
                                     "logloss_line": round(qll_l, 5),
                                     "accuracy_model": round(qacc_m, 4),
-                                    "accuracy_line": round(qacc_l, 4)}
+                                    "accuracy_line": round(qacc_l, 4),
+                                    "discordant": d, "only_model": only_m,
+                                    "only_line": only_l,
+                                    "p_value": round(p_two, 4),
+                                    "accuracy_edge_significant": bool(p_two < 0.05)}
         if whole:
             print(f"  ЦЕЛЫЕ ЛИНИИ: {len(whole)} — сравнивать нельзя, "
                   f"у них есть возврат")

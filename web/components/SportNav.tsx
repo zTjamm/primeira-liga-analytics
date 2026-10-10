@@ -32,6 +32,7 @@ export const SPORTS: SportPages[] = [
       { href: "/teams", label: "Команды" },
       { href: "/accuracy", label: "Точность" },
       { href: "/methodology", label: "Методика" },
+      { href: "/experiments", label: "Эксперименты" },
     ],
   },
   {

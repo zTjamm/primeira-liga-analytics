@@ -34,7 +34,12 @@
     "logloss_model": 0.70678,
     "logloss_line": 0.69423,
     "accuracy_model": 0.514,
-    "accuracy_line": 0.4934
+    "accuracy_line": 0.4934,
+    "discordant": 302,
+    "only_model": 158,
+    "only_line": 144,
+    "p_value": 0.4545,
+    "accuracy_edge_significant": false
   },
   "asian_handicap": {
     "n": 918,
