@@ -150,6 +150,60 @@ def check_sports_isolated() -> bool:
     return ok
 
 
+def check_vtb_schema() -> bool:
+    """Реальная схема официального API ВТБ, а не футбольная.
+
+    Тест check_sports_isolated писал баскетбол теми же колонками ftr/
+    fthg/ftag, что и футбол, поэтому проходил. Но API ВТБ отдаёт
+    is_played и счёт по очкам — колонки ftr там нет. Индекс результатов
+    требовал ftr, из-за чего баскетбольный журнал оставался пустым
+    годами: страница писала «сыгранных прогнозов пока нет», хотя
+    результаты в API были. Тест ниже повторяет настоящие колонки,
+    чтобы этот пробел не вернулся.
+    """
+    print("\nСхема результатов ВТБ (is_played + счёт, без ftr):")
+    d = date(2026, 4, 1)
+    vtb = pl.DataFrame([
+        {"match_date": d, "home_id": "csk", "away_id": "zenit",
+         "home_score": 95, "away_score": 82, "is_played": True, "status": "COMPLETE"},
+        {"match_date": d, "home_id": "parma", "away_id": "mba",
+         "home_score": 78, "away_score": 81, "is_played": True, "status": "COMPLETE"},
+        {"match_date": d, "home_id": "lok", "away_id": "nnov",
+         "home_score": None, "away_score": None, "is_played": False, "status": "SCHEDULED"},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        forecast.append([
+            _rec("b1", d, "T-24h", [0.70, 0.02, 0.28], 24.0, home="csk", away="zenit"),
+            _rec("b2", d, "T-24h", [0.55, 0.02, 0.45], 24.0, home="parma", away="mba"),
+            _rec("b3", d, "T-24h", [0.50, 0.02, 0.50], 24.0, home="lok", away="nnov"),
+        ], "basketball")
+
+        hist = forecast.build_history(vtb, "basketball")
+
+        ok = _check("сыгранные матчи резолвятся без колонки ftr",
+                    len(hist["resolved"]), 2)
+        ok &= _check("несыгранный остаётся в pending", len(hist["pending"]), 1)
+        by_key = {r["key"]: r for r in hist["resolved"]}
+        ok &= _check("счёт собран из очков", by_key["b1"]["score"], "95-82")
+        ok &= _check("победа хозяев распознана", by_key["b1"]["actual"], "H")
+        ok &= _check("победа гостей распознана", by_key["b2"]["actual"], "A")
+        ok &= _check("исход угадан", by_key["b1"]["hit"], True)
+        ok &= _check("гости были названы и ошиблись", by_key["b2"]["hit"], False)
+        ok &= _check("названный исход сохранён", by_key["b1"]["picked"], "H")
+
+        tie = pl.DataFrame([
+            {"match_date": d, "home_id": "a", "away_id": "b",
+             "home_score": 80, "away_score": 80, "is_played": True},
+        ])
+        forecast.append([_rec("b4", d, "T-24h", [0.10, 0.80, 0.10], 24.0,
+                              home="a", away="b")], "basketball")
+        h2 = forecast.build_history(tie, "basketball")
+        ok &= _check("равный счёт — это ничья", h2["resolved"][0]["actual"], "D")
+        ok &= _check("ничью угадали", h2["resolved"][0]["hit"], True)
+    return ok
+
+
 def check_no_overlap() -> bool:
     """Прогнозы должны относиться к матчам будущим, а не к уже сыгранным:
     иначе в resolved попадёт мусор."""
@@ -202,6 +256,7 @@ def main() -> int:
         check_stage(),
         check_resolution(),
         check_sports_isolated(),
+        check_vtb_schema(),
         check_no_overlap(),
         check_empty(),
         check_ledger_roundtrip(),

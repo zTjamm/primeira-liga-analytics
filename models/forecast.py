@@ -99,13 +99,45 @@ def _date_key(d) -> str:
     return d.isoformat() if hasattr(d, "isoformat") else str(d)
 
 
+def _normalize_result(m: dict) -> dict | None:
+    """Приводит сыгранный матч к общему виду (ftr/fthg/ftag) или None.
+
+    Футбол и баскетбол отдают результат по-разному: у футбола из
+    football-data.co.uk есть готовые колонки ftr/fthg/ftag, а официальный
+    API ВТБ отдаёт только is_played и счёт по очкам. Раньше индекс
+    результатов требовал именно ftr, из-за чего в баскетбольном журнале
+    НИ ОДИН матч не резолвился — страница годами показывала «сыгранных
+    прогнозов пока нет», хотя API возвращало результаты штатно.
+
+    Ничья в баскетболе = равный счёт. Модель это учитывает: у неё три
+    исхода, ничья около 0.5% (models/basketball.py, predict_1x2).
+    """
+    if "ftr" in m:
+        return m if m["ftr"] is not None else None
+
+    hs, as_ = m.get("home_score"), m.get("away_score")
+    if m.get("is_played") is not True or hs is None or as_ is None:
+        return None
+    return {
+        **m,
+        "ftr": "H" if hs > as_ else ("A" if as_ > hs else "D"),
+        "fthg": hs,
+        "ftag": as_,
+    }
+
+
 def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
     """Индекс результатов по (дата, домашний, гостевой)."""
-    if matches.height == 0 or "ftr" not in matches.columns:
+    if matches.height == 0:
+        return {}
+    if "ftr" not in matches.columns and "is_played" not in matches.columns:
         return {}
     idx = {}
-    for m in matches.filter(pl.col("ftr").is_not_null()).to_dicts():
-        idx[(_date_key(m["match_date"]), m["home_id"], m["away_id"])] = m
+    for m in matches.to_dicts():
+        r = _normalize_result(m)
+        if r is None:
+            continue
+        idx[(_date_key(m["match_date"]), m["home_id"], m["away_id"])] = r
     return idx
 
 
