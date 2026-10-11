@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-10-11T19:59:18",
+  "test_seasons": [
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "n_matches": 918,
+  "base_rate_over25": 0.5272,
+  "no_filter": {
+    "threshold": 0.0,
+    "n": 918,
+    "coverage": 1.0,
+    "accuracy": 0.5915,
+    "logloss": 0.66458,
+    "baseline": 0.5272
+  },
+  "thresholds": [
+    {
+      "threshold": 0.5,
+      "n": 918,
+      "coverage": 1.0,
+      "accuracy": 0.5915,
+      "logloss": 0.66458,
+      "baseline": 0.5272
+    },
+    {
+      "threshold": 0.55,
+      "n": 685,
+      "coverage": 0.7462,
+      "accuracy": 0.6219,
+      "logloss": 0.65481,
+      "baseline": 0.5066
+    },
+    {
+      "threshold": 0.6,
+      "n": 393,
+      "coverage": 0.4281,
+      "accuracy": 0.6565,
+      "logloss": 0.63504,
+      "baseline": 0.4885
+    },
+    {
+      "threshold": 0.65,
+      "n": 170,
+      "coverage": 0.1852,
+      "accuracy": 0.7176,
+      "logloss": 0.5898,
+      "baseline": 0.5294
+    },
+    {
+      "threshold": 0.7,
+      "n": 43,
+      "coverage": 0.0468,
+      "accuracy": 0.7442,
+      "logloss": 0.54875,
+      "baseline": 0.7907
+    }
+  ],
+  "chosen": 0.55,
+  "note": "Порог 0.55 перенесён на тотал с исходного рынка не по умолчанию, а потому что подходит: точность растёт с 59.2% до 62.2% и превышает линию букмекера (61.6%). Цена — покрытие 74.6%. Отсев улучшает решение, но не вероятность: по деньгам тотал всё равно проигрывает рынку (ROI −4.19%), см. market_totals.json."
+}

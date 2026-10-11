@@ -168,10 +168,19 @@ def main() -> None:
                          games_in_window.get(f["away_id"], 0))
         verdict_given, no_reason = verdict.verdict(p["confidence"], team_games)
 
+        # Тот же порог применяется к рынку тотала. Раньше он там не
+        # применялся, и матч с xG 2.46 против линии 2.5 показывался как
+        # уверенный «ТМ 2.5, 55%» — при разнице в 0.04 гола это монетка.
+        # Порог обоснован на 918 матчах (models/total_gate.py): точность
+        # растёт с 59.2% до 62.2% против 61.6% у линии букмекера.
+        total_given, total_no_reason = verdict.total_verdict(p["over25"])
+
         row = {
             "fd_match_id": f["fd_match_id"],
             "verdict_given": verdict_given,
             "verdict_reason": no_reason,
+            "total_verdict_given": total_given,
+            "total_verdict_reason": total_no_reason,
             "team_games": team_games,
             "date": str(f["match_date"]),
             "kickoff_utc": f["kickoff_utc"],
@@ -209,7 +218,14 @@ def main() -> None:
                       # именно по выданным вердиктам: вердикт выдаётся не всем,
                       # и точность без этой метки была бы вводить в заблуждение.
                       "verdict_given": verdict_given,
-                      "verdict_reason": no_reason},
+                      "verdict_reason": no_reason,
+                      # Метка по тоталу обязана быть в журнале: вердикт
+                      # по нему выдаётся не всем, и точность без этой
+                      # метки считалась бы по всем матчам подряд, что
+                      # завышает результат ровно так же, как раньше
+                      # завышало его по исходу.
+                      "total_verdict_given": total_given,
+                      "total_verdict_reason": total_no_reason},
         })
     rows.sort(key=lambda r: r["kickoff_utc"])
 

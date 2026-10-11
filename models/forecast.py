@@ -224,6 +224,7 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         # over25, поэтому в баскетболе вердикт по тоталу был всегда
         # пустым, хотя вероятность в журнале лежала.
         total_hit = total_p = total_label = total_line = None
+        total_given = total_reason = None
         extra = latest.get("extra") or {}
         key, line = (("over25", 2.5) if sport == "football"
                      else ("over_155", 155.0))
@@ -240,6 +241,14 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             total_hit = pred_over == (res["fthg"] + res["ftag"] > line)
             total_p = max(o, 1.0 - o)
 
+            # Учитываем, выдавался ли вердикт по тоталу. Если модель
+            # воздержалась (тотал около линии), вердикт в таблице не
+            # показывается — и точность должна считаться только по
+            # выданным, иначе она завысится так же, как завышала по
+            # исходу до введения отсева.
+            total_given = extra.get("total_verdict_given")
+            total_reason = extra.get("total_verdict_reason")
+
         first = versions[0]
         shift = round(sum(abs(a - b) for a, b in
                           zip([first["p_home"], first["p_draw"], first["p_away"]], probs)), 4)
@@ -254,6 +263,8 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "total_hit": total_hit,
             "total_label": total_label,
             "total_line": total_line,
+            "total_given": total_given,
+            "total_no_reason": total_reason,
             "total_p": round(total_p, 4) if total_p is not None else None,
             "p_actual": round(p_actual, 4) if p_actual is not None else None,
             "logloss": round(-math.log(max(p_actual, 1e-12)), 4) if p_actual is not None else None,
@@ -305,11 +316,23 @@ def summary(resolved: list[dict]) -> dict:
     # сумма: ошибиться хотя бы на одном рынке означает потерять всё сразу,
     # и точность падает с 55.4% до 30.9%. Два независимых числа полезнее
     # одного составного.
+    # Точность по тоталу — только по матчам, где вердикт ВЫДАВАЛСЯ.
+    #
+    # Отсев по тоталу появился тем же порогом 0.55, что и по исходу
+    # (models/verdict.py, обоснование в models/total_gate.py). Если бы мы
+    # считали точность по всем матчам, отсев был бы незаметен: невыданные
+    # вердикты попали бы в знаменатель и занизили бы результат, а вердикт
+    # на экране всё равно не показывается. Считаем по тем, что показаны, и
+    # отдельно отдаём число отсева, чтобы его нельзя было спрятать.
     with_total = [r for r in resolved if r.get("total_hit") is not None]
-    lines = {r.get("total_line") for r in with_total if r.get("total_line") is not None}
+    given = [r for r in with_total if r.get("total_given") is not False]
+    lines = {r.get("total_line") for r in given if r.get("total_line") is not None}
     total_agg = {
-        "n": len(with_total),
-        "hits": sum(1 for r in with_total if r["total_hit"]),
+        "n": len(given),
+        "hits": sum(1 for r in given if r["total_hit"]),
+        # Сколько матчей было отсеяно: показываем рядом с точностью,
+        # иначе 100% на двух матчах выглядит как открытие.
+        "withheld": len(with_total) - len(given),
         # Линия попадает в отчёт, а не зашивается названием ключа: у
         # футбола это 2.5 гола, у баскетбола 155 очков, и сводка не
         # должна врать про баскетбол, называя его «тотал 2.5».

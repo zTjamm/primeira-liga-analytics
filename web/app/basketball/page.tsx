@@ -141,7 +141,14 @@ export default async function BasketballPage() {
                   <span className="num">
                     счёт {m.exp_home_score.toFixed(0)}:{m.exp_away_score.toFixed(0)}
                   </span>
-                  <span className="num">
+                  {/* Вероятность по нашей модели, а не рыночная линия:
+                      коэффициентов у ВТБ нет, и 155 выбрана нами как
+                      середина распределения. Поэтому и подаётся как
+                      вероятность, а не как вердикт. */}
+                  <span
+                    className="num cursor-help"
+                    title="Вероятность тотала больше 155 очков по нашей модели. Не рекомендация: линия выбрана нами, а не взята с рынка — коэффициентов у ВТБ нет"
+                  >
                     ТБ155 {(m.over_155 * 100).toFixed(0)}%
                   </span>
                 </div>

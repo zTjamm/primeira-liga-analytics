@@ -58,11 +58,20 @@ export function MatchCard({ m }: { m: Prediction }) {
           {(m.p_home * 100).toFixed(1)} / {(m.p_draw * 100).toFixed(1)} /{" "}
           {(m.p_away * 100).toFixed(1)}
         </span>
+        {/* Тот же порог 0.55, что и для исхода: когда тотал около линии,
+            модель воздерживается и показывает прочерк. Вероятность при
+            этом остаётся видна — скрывается решение, а не расчёт. */}
         <span
           className="cursor-help"
-          title="Отдельный рынок от исхода. На тотале модель уступает линии букмекера"
+          title={
+            m.total_verdict_given
+              ? "Отдельный рынок от исхода, с тем же порогом 0.55. На тотале модель уступает линии букмекера по деньгам (ROI −4.19%)"
+              : `Вердикт по тоталу не выдан. ${m.total_verdict_reason}`
+          }
         >
-          {over ? "ТБ 2.5" : "ТМ 2.5"}{" "}
+          <span className={m.total_verdict_given ? "" : "opacity-50"}>
+            {m.total_verdict_given ? (over ? "ТБ 2.5" : "ТМ 2.5") : "—"}
+          </span>{" "}
           <span className="num">{(Math.max(m.over25, m.under25) * 100).toFixed(0)}%</span>
         </span>
       </div>

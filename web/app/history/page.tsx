@@ -256,17 +256,35 @@ export default async function HistoryPage() {
                         </div>
                         {r.total_hit !== null && r.total_label && (
                           <div className="mt-0.5 whitespace-nowrap">
-                            <span
-                              className={`rounded px-1.5 py-0.5 text-[11px] ${
-                                r.total_hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
-                              }`}
-                            >
-                              {r.total_hit ? "угадано" : "мимо"}{" "}
-                              {r.total_label}
-                            </span>{" "}
-                            <span className="num text-[11px] text-muted">
-                              {((r.total_p ?? 0) * 100).toFixed(0)}%
-                            </span>
+                            {r.total_given === false ? (
+                              /* Отсев: модель не выдала вердикт по тоталу,
+                                 потому что он был около линии. Показываем
+                                 «нет вердикта» с причиной, а не угадан/мимо —
+                                 иначе строка выглядела бы как оценка,
+                                 которой модель не давала. */
+                              <span
+                                className="rounded bg-line/20 px-1.5 py-0.5 text-[11px] text-muted"
+                                title={r.total_no_reason ?? undefined}
+                              >
+                                тотал без вердикта
+                              </span>
+                            ) : (
+                              <>
+                                <span
+                                  className={`rounded px-1.5 py-0.5 text-[11px] ${
+                                    r.total_hit
+                                      ? "bg-good/15 text-good"
+                                      : "bg-bad/15 text-bad"
+                                  }`}
+                                >
+                                  {r.total_hit ? "угадано" : "мимо"}{" "}
+                                  {r.total_label}
+                                </span>{" "}
+                                <span className="num text-[11px] text-muted">
+                                  {((r.total_p ?? 0) * 100).toFixed(0)}%
+                                </span>
+                              </>
+                            )}
                           </div>
                         )}
                       </td>
@@ -349,6 +367,29 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
           попадания обоих сразу, остаётся{" "}
           <span className="num text-bad">30.9%</span>. Составная метрика всегда
           хуже лучшей из составляющих, поэтому здесь их не объединяют.
+        </p>
+      )}
+
+      {t25 && t25.n > 0 && (
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          Тотал считается только по матчам, где вердикт выдавался: тот же
+          порог 0.55, что и для исхода, отсекает случаи «тотал около линии».
+          На 918 отложенных матчах отсев поднимает точность по тоталу с{" "}
+          <span className="num text-text">59.2%</span> до{" "}
+          <span className="num text-text">62.2%</span> — это выше линии
+          букмекера (<span className="num text-text">61.6%</span>), — но цена
+          в покрытии: вердикт получают <span className="num text-text">74.6%</span>{" "}
+          матчей вместо всех.{" "}
+          {t25.withheld > 0 && (
+            <>
+              В этом журнале отсеяно{" "}
+              <span className="num text-text">{t25.withheld}</span> — они видны
+              в таблице как «тотал без вердикта».
+            </>
+          )}{" "}
+          По деньгам тотал всё равно проигрывает рынку: ROI −4.19%. Порог
+          этого не чинит, поэтому вердикт по тоталу — оценка, а не
+          рекомендация ставить.
         </p>
       )}
 

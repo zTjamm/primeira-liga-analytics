@@ -262,6 +262,67 @@ def check_total_lines() -> bool:
     return ok
 
 
+def check_total_gate() -> bool:
+    """Отсев по тоталу должен попадать и в таблицу, и в точность.
+
+    Порог 0.55 применяется к тоталу так же, как к исходу: при тотале
+    около линии вердикт не выдаётся. Если забыть про метку, точность
+    посчитается по всем матчам и покажет себя лучше, чем отсев даёт на
+    самом деле — то есть отсев станет незаметным, а результат
+    завышенным. Ровно та ошибка, что была с исходом до введения метки.
+    """
+    print("\nОтсев по тоталу:")
+    from models.verdict import total_verdict
+
+    ok = _check("ТБ 0.45 (уверенность 0.55) — ровно на пороге",
+                total_verdict(0.45)[0], True)
+    ok &= _check("ТБ 0.46 (уверенность 0.54) — ниже порога",
+                 total_verdict(0.46)[0], False)
+    ok &= _check("ТБ 0.50 — монетка", total_verdict(0.50)[0], False)
+    ok &= _check("ТБ 0.60 — уверенно", total_verdict(0.60)[0], True)
+    ok &= _check("ТБ 0.40 — это ТМ, уверенно",
+                 total_verdict(0.40)[0], True)
+    _, why = total_verdict(0.50)
+    ok &= _check("причина отказа названа", "ниже порога" in why, True)
+
+    d = date(2026, 5, 1)
+    # Первый матч: тотал уверенный (ТБ) — попадёт в вердикт.
+    # Второй: тотал около линии — отсеется, и в вердикте не показывается.
+    matches = pl.DataFrame([
+        {"match_date": d, "home_id": "t1", "away_id": "t2",
+         "ftr": "H", "fthg": 3, "ftag": 1},
+        {"match_date": d, "home_id": "t3", "away_id": "t4",
+         "ftr": "H", "fthg": 1, "ftag": 1},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        forecast.append([
+            _rec("g1", d, "T-24h", [0.5, 0.25, 0.25], 24.0,
+                 home="t1", away="t2",
+                 extra={"over25": 0.72, "total_verdict_given": True}),
+            _rec("g2", d, "T-24h", [0.45, 0.3, 0.25], 24.0,
+                 home="t3", away="t4",
+                 extra={"over25": 0.51, "total_verdict_given": False,
+                        "total_verdict_reason": "тотал около линии"}),
+        ], "football")
+
+        h = forecast.build_history(matches, "football")
+        by = {r["key"]: r for r in h["resolved"]}
+        s = h["summary"]["total_market"]
+
+        ok &= _check("оба матча попали в resolved", len(h["resolved"]), 2)
+        ok &= _check("уверенный тотал отмечен как выданный",
+                     by["g1"]["total_given"], True)
+        ok &= _check("матч у линии отмечен как отсеянный",
+                     by["g2"]["total_given"], False)
+        ok &= _check("точность считается только по выданным", s["n"], 1)
+        ok &= _check("отсеянных показано рядом", s["withheld"], 1)
+        ok &= _check("выданный тотал угадан", s["hits"], 1)
+        ok &= _check("точность по тоталу 100% на одном матче",
+                     s["accuracy"], 1.0)
+    return ok
+
+
 def check_no_overlap() -> bool:
     """Прогнозы должны относиться к матчам будущим, а не к уже сыгранным:
     иначе в resolved попадёт мусор."""
@@ -316,6 +377,7 @@ def main() -> int:
         check_sports_isolated(),
         check_vtb_schema(),
         check_total_lines(),
+        check_total_gate(),
         check_no_overlap(),
         check_empty(),
         check_ledger_roundtrip(),

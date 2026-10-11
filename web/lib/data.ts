@@ -50,6 +50,11 @@ export interface Prediction {
   ah_away_2plus: number;
   verdict_given: boolean;
   verdict_reason: string;
+  /** Тот же порог 0.55, но для рынка тотала. Раньше применялся только
+   *  к исходу, и «ТМ 2.5 при xG 2.46 против линии 2.5» показывалось
+   *  как уверенные 55%. Обоснование: models/total_gate.py, 918 матчей. */
+  total_verdict_given: boolean;
+  total_verdict_reason: string;
   team_games: number;
   attack_home: number;
   defence_home: number;
@@ -235,8 +240,12 @@ export interface ForecastHistory {
      *  Имя без линии, потому что она разная у видов спорта, а само
      *  число приходит в поле line. */
     total_market?: {
+      /** Матчей с ВЫДАННЫМ вердиктом по тоталу — по ним и точность. */
       n: number;
       hits: number;
+      /** Отсеяно порогом: показывается рядом с точностью, чтобы 100%
+       *  на двух матчах не выглядели как открытие. */
+      withheld: number;
       accuracy: number | null;
       line: number | null;
     };
@@ -463,6 +472,12 @@ export interface Journal {
      *  зашивать её в тип означало бы врать про один из видов спорта. */
     total_label: string | null;
     total_line: number | null;
+    /** Выдавался ли вердикт по тоталу. false означает, что модель
+     *  воздержалась: тотал был около линии. Такой матч в вердикте не
+     *  показывается и в точность по тоталу не входит — иначе отсев
+     *  был бы незаметен, а результат завышен. */
+    total_given: boolean | null;
+    total_no_reason: string | null;
     total_p: number | null;
     p_actual: number | null;
     logloss: number | null;
@@ -485,8 +500,12 @@ export interface Journal {
      *  Имя без линии, потому что она разная у видов спорта, а само
      *  число приходит в поле line. */
     total_market?: {
+      /** Матчей с ВЫДАННЫМ вердиктом по тоталу — по ним и точность. */
       n: number;
       hits: number;
+      /** Отсеяно порогом: показывается рядом с точностью, чтобы 100%
+       *  на двух матчах не выглядели как открытие. */
+      withheld: number;
       accuracy: number | null;
       line: number | null;
     };
