@@ -95,17 +95,45 @@ def _name(node) -> str:
 
 
 def fetch_season(season_id: str, season: str) -> pl.DataFrame:
+    """Отдаёт матчи сезона.
+
+    Кэш на диске тут был источником тихой порчи: ветка `if local.exists()`
+    проверяла только наличие файла и больше в сеть не ходила. Сырой JSON
+    сканивался один раз и оставался неизменным навсегда, поэтому API
+    возвращал новые результаты, а мы показывали старые. Из-за этого матч
+    «Зенит — Автодор» (11 октября, 91:71) не появился на сайте, хотя
+    лига давно его завершила, при этом цикл исправно отрабатывал и
+    ошибок не выдавал.
+
+    Теперь исторические сезоны кэшируются навсегда (они не меняются), а
+    текущий всегда перечитывается из сети. Если сеть недоступна — берём
+    кэш, но говорим об этом вслух, чтобы тихое устаревание не повторилось.
+    """
     url = f"{API_BASE}/leagues/{LEAGUE}/seasons/{season_id}/matches?limit=500"
     local = RAW / f"vtb_{season_id}.json"
+    is_current = season == CURRENT_SEASON
 
-    if local.exists():
+    payload = None
+    if is_current:
+        try:
+            r = SESSION.get(url, timeout=60)
+            r.raise_for_status()
+            payload = r.json()
+            local.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+            time.sleep(0.5)
+        except Exception as e:
+            # Отвечать на «нет сети» устаревшими данными молча нельзя:
+            # страница покажет их как свежие. Явно помечаем в отчёте.
+            print(f"  ВНИМАНИЕ: сезон {season} не обновлён с API ({e})")
+            if not local.exists():
+                raise
+            print(f"  ВНИМАНИЕ: показан кэш от "
+                  f"{datetime.fromtimestamp(local.stat().st_mtime):%Y-%m-%d %H:%M}")
+
+    if payload is None:
+        if not local.exists():
+            raise SystemExit(f"нет кэша сезона {season} и API недоступен")
         payload = json.loads(local.read_text(encoding="utf-8"))
-    else:
-        r = SESSION.get(url, timeout=60)
-        r.raise_for_status()
-        payload = r.json()
-        local.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-        time.sleep(0.5)
 
     if payload.get("meta", {}).get("code") != 200:
         raise RuntimeError(f"сезон {season}: API вернул {payload.get('meta')}")
