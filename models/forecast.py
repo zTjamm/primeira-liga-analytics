@@ -213,13 +213,32 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         # означает потерять всё сразу, и точность падает с 55.4% до 30.9%
         # (замерено на 918 матчах). Поэтому это вторая параллельная
         # строка, а не дополнение к первой.
-        o25 = (latest.get("extra") or {}).get("over25")
-        total_hit = total_p = total_label = None
-        if o25 is not None:
-            pred_over = float(o25) >= 0.5
-            total_label = "ТБ 2.5" if pred_over else "ТМ 2.5"
-            total_hit = pred_over == (res["fthg"] + res["ftag"] > 2.5)
-            total_p = max(float(o25), 1.0 - float(o25))
+        # Вердикт по тоталу — отдельным рынком. Складывать его с исходом
+        # через «и» нельзя: ошибиться хотя бы на одном рынке означает
+        # потерять всё сразу, и точность падает с 55.4% до 30.9%
+        # (замерено на 918 матчах). Поэтому это вторая параллельная
+        # строка, а не дополнение к первой.
+        #
+        # Линия и ключ разные: у футбола это 2.5 гола (over25), у
+        # баскетбола 155 очков (over_155). Раньше код искал только
+        # over25, поэтому в баскетболе вердикт по тоталу был всегда
+        # пустым, хотя вероятность в журнале лежала.
+        total_hit = total_p = total_label = total_line = None
+        extra = latest.get("extra") or {}
+        key, line = (("over25", 2.5) if sport == "football"
+                     else ("over_155", 155.0))
+        o = extra.get(key)
+        if o is not None:
+            o = float(o)
+            pred_over = o >= 0.5
+            fmt = "ТБ {:.1f}" if line < 10 else "ТБ {:.0f}"
+            total_label = (fmt if pred_over else fmt.replace("ТБ", "ТМ")).format(line)
+            total_line = line
+            # Порог целый у баскетбола, и модель считает «больше 155»
+            # с непрерывной поправкой 155.5 (predict_total_2h), то есть
+            # фактически ТБ 155 = тотал от 156. Строгое «>» это и значит.
+            total_hit = pred_over == (res["fthg"] + res["ftag"] > line)
+            total_p = max(o, 1.0 - o)
 
         first = versions[0]
         shift = round(sum(abs(a - b) for a, b in
@@ -234,6 +253,7 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "picked_p": round(picked_p, 4),
             "total_hit": total_hit,
             "total_label": total_label,
+            "total_line": total_line,
             "total_p": round(total_p, 4) if total_p is not None else None,
             "p_actual": round(p_actual, 4) if p_actual is not None else None,
             "logloss": round(-math.log(max(p_actual, 1e-12)), 4) if p_actual is not None else None,
@@ -286,9 +306,14 @@ def summary(resolved: list[dict]) -> dict:
     # и точность падает с 55.4% до 30.9%. Два независимых числа полезнее
     # одного составного.
     with_total = [r for r in resolved if r.get("total_hit") is not None]
+    lines = {r.get("total_line") for r in with_total if r.get("total_line") is not None}
     total_agg = {
         "n": len(with_total),
         "hits": sum(1 for r in with_total if r["total_hit"]),
+        # Линия попадает в отчёт, а не зашивается названием ключа: у
+        # футбола это 2.5 гола, у баскетбола 155 очков, и сводка не
+        # должна врать про баскетбол, называя его «тотал 2.5».
+        "line": sorted(lines)[0] if len(lines) == 1 else None,
     }
     total_agg["accuracy"] = (
         round(total_agg["hits"] / total_agg["n"], 4) if total_agg["n"] else None
@@ -297,7 +322,7 @@ def summary(resolved: list[dict]) -> dict:
     return {
         "total": len(resolved),
         "overall": agg(resolved),
-        "total_25": total_agg,
+        "total_market": total_agg,
         "by_stage": by_stage,
         "multi_stage": len(multi),
         "flipped": sum(1 for r in multi if r.get("flipped")),

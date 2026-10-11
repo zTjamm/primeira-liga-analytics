@@ -166,7 +166,12 @@ export default async function BasketballJournalPage() {
                   <th className="py-2 text-left font-normal">матч</th>
                   <th className="py-2 text-right font-normal">счёт</th>
                   <th className="py-2 text-right font-normal">прогноз П1/П2</th>
-                  <th className="py-2 text-right font-normal">вердикт</th>
+                  <th className="py-2 text-right font-normal">
+                    вердикт
+                    <span className="block text-[10px] font-normal opacity-70">
+                      исход / тотал
+                    </span>
+                  </th>
                   <th className="py-2 pr-4 text-right font-normal">изменился</th>
                 </tr>
               </thead>
@@ -190,18 +195,39 @@ export default async function BasketballJournalPage() {
                         и рядом со словом «мимо» она читалась как «мы были
                         уверены, но ошиблись». Что именно мы назвали —
                         видно теперь в самой строке. */}
-                    <td className="py-2 whitespace-nowrap text-right">
-                      <span
-                        className={`rounded px-1.5 py-0.5 text-[11px] ${
-                          r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
-                        }`}
-                      >
-                        {r.hit ? "угадано" : "мимо"}{" "}
-                        {r.picked === "H" ? "П1" : "П2"}
-                      </span>{" "}
-                      <span className="num text-[11px] text-muted">
-                        {((r.picked_p ?? 0) * 100).toFixed(0)}%
-                      </span>
+                    {/* Две строки, как в футболе. Тотал — отдельный
+                        рынок, а не дополнение: складывать их через «и»
+                        нельзя, ошибиться хотя бы на одном значит
+                        потерять всё сразу. */}
+                    <td className="py-2 text-right align-top">
+                      <div className="whitespace-nowrap">
+                        <span
+                          className={`rounded px-1.5 py-0.5 text-[11px] ${
+                            r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+                          }`}
+                        >
+                          {r.hit ? "угадано" : "мимо"}{" "}
+                          {r.picked === "H" ? "П1" : "П2"}
+                        </span>{" "}
+                        <span className="num text-[11px] text-muted">
+                          {((r.picked_p ?? 0) * 100).toFixed(0)}%
+                        </span>
+                      </div>
+                      {r.total_hit !== null && r.total_label && (
+                        <div className="mt-0.5 whitespace-nowrap">
+                          <span
+                            className={`rounded px-1.5 py-0.5 text-[11px] ${
+                              r.total_hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+                            }`}
+                          >
+                            {r.total_hit ? "угадано" : "мимо"}{" "}
+                            {r.total_label}
+                          </span>{" "}
+                          <span className="num text-[11px] text-muted">
+                            {((r.total_p ?? 0) * 100).toFixed(0)}%
+                          </span>
+                        </div>
+                      )}
                     </td>
                     <td className="num py-2 pr-4 text-right text-xs text-muted">
                       {r.n_versions > 1 ? (
@@ -232,6 +258,8 @@ export default async function BasketballJournalPage() {
 
 function Summary({ summary }: { summary: Journal["summary"] }) {
   const o = summary.overall;
+  const tm = summary.total_market;
+  const tLine = tm?.line != null ? String(tm.line) : null;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
   return (
     <section className="panel p-5">
@@ -240,7 +268,13 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
         <p className="text-xs text-muted">матчей: {summary.total}</p>
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="точность" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        <Stat label="точность: исход" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        {tm && (
+          <Stat
+            label={tLine ? `точность: тотал ${tLine}` : "точность: тотал"}
+            value={tm.accuracy !== null ? `${(tm.accuracy * 100).toFixed(1)}%` : "—"}
+          />
+        )}
         <Stat label="log-loss" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
         <Stat
           /* Калибровка, а не уверенность: средняя вероятность, которую

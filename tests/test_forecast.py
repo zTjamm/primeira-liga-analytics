@@ -45,7 +45,7 @@ def check_stage() -> bool:
 
 
 def _rec(key, d: date, stage: str, p: list[float], hours: float,
-         home: str = "porto", away: str = "benfica") -> dict:
+         home: str = "porto", away: str = "benfica", extra: dict | None = None) -> dict:
     return {
         "key": str(key), "date": str(d),
         "kickoff": f"{d}T19:00:00Z", "matchday": 8,
@@ -53,7 +53,7 @@ def _rec(key, d: date, stage: str, p: list[float], hours: float,
         "home_name": home, "away_name": away,
         "generated_at": f"{d}T{int(hours)}:00:00Z", "hours_before": hours,
         "stage": stage, "p_home": p[0], "p_draw": p[1], "p_away": p[2],
-        "extra": None,
+        "extra": extra,
     }
 
 
@@ -204,6 +204,64 @@ def check_vtb_schema() -> bool:
     return ok
 
 
+def check_total_lines() -> bool:
+    """Линия тотала разная у футбола и баскетбола.
+
+    Код искал ключ over25 у обоих видов спорта, но баскетбол пишет
+    over_155 (модель.predict_total_2h). Из-за этого вердикт по тоталу в
+    баскетболе был всегда пустым, хотя вероятность в журнале лежала —
+    пользователь его просто не видел. Плюс важна граница: модель считает
+    «больше 155» с поправкой 155.5, то есть ТБ 155 = тотал от 156.
+    """
+    print("\nТотал: линия 2.5 у футбола и 155 у баскетбола:")
+    d = date(2026, 4, 1)
+    fb = pl.DataFrame([
+        {"match_date": d, "home_id": "f1", "away_id": "f2",
+         "ftr": "H", "fthg": 2, "ftag": 1},   # тотал 3 -> ТБ 2.5
+    ])
+    bt = pl.DataFrame([
+        {"match_date": d, "home_id": "b1", "away_id": "b2",
+         "home_score": 80, "away_score": 76, "is_played": True},  # 156 -> ТБ 155
+        {"match_date": d, "home_id": "b3", "away_id": "b4",
+         "home_score": 78, "away_score": 77, "is_played": True},  # 155 -> ТМ 155
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+
+        forecast.append([_rec("f1", d, "T-24h", [0.5, 0.25, 0.25], 24.0,
+                              home="f1", away="f2",
+                              extra={"over25": 0.62})], "football")
+        forecast.append([_rec("b1", d, "T-24h", [0.55, 0.01, 0.44], 24.0,
+                              home="b1", away="b2",
+                              extra={"over_155": 0.62})], "basketball")
+        forecast.append([_rec("b3", d, "T-24h", [0.45, 0.01, 0.54], 24.0,
+                              home="b3", away="b4",
+                              extra={"over_155": 0.40})], "basketball")
+
+        f = forecast.build_history(fb, "football")["resolved"][0]
+        ok = _check("футбол: назван ТБ 2.5", f["total_label"], "ТБ 2.5")
+        ok &= _check("футбол: тотал 3 больше 2.5 — угадан", f["total_hit"], True)
+        ok &= _check("футбол: линия 2.5", f["total_line"], 2.5)
+        ok &= _check("футбол: уверенность 62%", f["total_p"], 0.62)
+
+        h = forecast.build_history(bt, "basketball")
+        by = {r["key"]: r for r in h["resolved"]}
+
+        ok &= _check("баскетбол: тотал вообще посчитан", by["b1"]["total_hit"], True)
+        ok &= _check("баскетбол: назван ТБ 155", by["b1"]["total_label"], "ТБ 155")
+        ok &= _check("баскетбол: 156 очков = ТБ 155, угадан", by["b1"]["total_hit"], True)
+        ok &= _check("баскетбол: назван ТМ 155", by["b3"]["total_label"], "ТМ 155")
+        ok &= _check("баскетбол: ровно 155 = ТМ, угадан", by["b3"]["total_hit"], True)
+        ok &= _check("баскетбол: линия 155, а не 2.5", by["b1"]["total_line"], 155.0)
+
+        s = h["summary"]["total_market"]
+        ok &= _check("баскетбол: сводка по тоталу посчитана", s["n"], 2)
+        ok &= _check("баскетбол: оба угаданы", s["hits"], 2)
+        ok &= _check("баскетбол: линия в сводке 155", s["line"], 155.0)
+        ok &= _check("баскетбол: точность по тоталу 100%", s["accuracy"], 1.0)
+    return ok
+
+
 def check_no_overlap() -> bool:
     """Прогнозы должны относиться к матчам будущим, а не к уже сыгранным:
     иначе в resolved попадёт мусор."""
@@ -257,6 +315,7 @@ def main() -> int:
         check_resolution(),
         check_sports_isolated(),
         check_vtb_schema(),
+        check_total_lines(),
         check_no_overlap(),
         check_empty(),
         check_ledger_roundtrip(),

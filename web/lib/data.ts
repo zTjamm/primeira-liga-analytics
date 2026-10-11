@@ -231,8 +231,15 @@ export interface ForecastHistory {
     };
     /** Точность по тоталу на тех же матчах. Отдельное число, а не
      *  дополнение к исходу: складывать рынки через «и» нельзя, это
-     *  пересечение — ошибиться хотя бы на одном значит потерять всё. */
-    total_25?: { n: number; hits: number; accuracy: number | null };
+     *  пересечение — ошибиться хотя бы на одном значит потерять всё.
+     *  Имя без линии, потому что она разная у видов спорта, а само
+     *  число приходит в поле line. */
+    total_market?: {
+      n: number;
+      hits: number;
+      accuracy: number | null;
+      line: number | null;
+    };
     by_stage: Record<
       string,
       { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
@@ -451,7 +458,11 @@ export interface Journal {
     picked: "H" | "D" | "A";
     picked_p: number;
     total_hit: boolean | null;
-    total_label: "ТБ 2.5" | "ТМ 2.5" | null;
+    /** Подпись рынка тотала приходит с сервера, а не собирается здесь:
+     *  линия разная (2.5 гола у футбола, 155 очков у баскетбола), и
+     *  зашивать её в тип означало бы врать про один из видов спорта. */
+    total_label: string | null;
+    total_line: number | null;
     total_p: number | null;
     p_actual: number | null;
     logloss: number | null;
@@ -470,8 +481,15 @@ export interface Journal {
     };
     /** Точность по тоталу на тех же матчах. Отдельное число, а не
      *  дополнение к исходу: складывать рынки через «и» нельзя, это
-     *  пересечение — ошибиться хотя бы на одном значит потерять всё. */
-    total_25?: { n: number; hits: number; accuracy: number | null };
+     *  пересечение — ошибиться хотя бы на одном значит потерять всё.
+     *  Имя без линии, потому что она разная у видов спорта, а само
+     *  число приходит в поле line. */
+    total_market?: {
+      n: number;
+      hits: number;
+      accuracy: number | null;
+      line: number | null;
+    };
     by_stage: Record<
       string,
       { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }

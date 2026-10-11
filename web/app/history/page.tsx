@@ -307,7 +307,8 @@ function topOutcome(p: { p_home: number; p_draw: number; p_away: number }): stri
 function Summary({ summary }: { summary: Journal["summary"] }) {
   if (!summary.total) return null;
   const o = summary.overall;
-  const t25 = summary.total_25;
+  const t25 = summary.total_market;
+  const tLine = t25?.line != null ? (t25.line < 10 ? t25.line.toFixed(1) : String(t25.line)) : null;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
   const best = stages.length
     ? stages.reduce((a, b) =>
@@ -327,7 +328,7 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
         <Stat label="точность: исход" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
         {t25 && (
           <Stat
-            label="точность: тотал 2.5"
+            label={tLine ? `точность: тотал ${tLine}` : "точность: тотал"}
             value={t25.accuracy !== null ? `${(t25.accuracy * 100).toFixed(1)}%` : "—"}
           />
         )}
