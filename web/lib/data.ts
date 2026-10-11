@@ -229,6 +229,10 @@ export interface ForecastHistory {
       logloss: number | null;
       avg_p_actual: number;
     };
+    /** Точность по тоталу на тех же матчах. Отдельное число, а не
+     *  дополнение к исходу: складывать рынки через «и» нельзя, это
+     *  пересечение — ошибиться хотя бы на одном значит потерять всё. */
+    total_25?: { n: number; hits: number; accuracy: number | null };
     by_stage: Record<
       string,
       { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
@@ -439,6 +443,16 @@ export interface Journal {
     actual: "H" | "D" | "A";
     score: string;
     hit: boolean;
+    /** Какой исход мы НАЗВАЛИ и с какой вероятностью.
+     *  Отдельно от p_actual: тот — вероятность на фактический исход,
+     *  и при промахе это вероятность того, что произошло вопреки
+     *  прогнозу. Раньше в ячейке стояли только hit и p_actual,
+     *  из-за чего было не видно, что именно угадано. */
+    picked: "H" | "D" | "A";
+    picked_p: number;
+    total_hit: boolean | null;
+    total_label: "ТБ 2.5" | "ТМ 2.5" | null;
+    total_p: number | null;
     p_actual: number | null;
     logloss: number | null;
     n_versions: number;
@@ -454,6 +468,10 @@ export interface Journal {
       logloss: number | null;
       avg_p_actual: number;
     };
+    /** Точность по тоталу на тех же матчах. Отдельное число, а не
+     *  дополнение к исходу: складывать рынки через «и» нельзя, это
+     *  пересечение — ошибиться хотя бы на одном значит потерять всё. */
+    total_25?: { n: number; hits: number; accuracy: number | null };
     by_stage: Record<
       string,
       { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }

@@ -166,6 +166,29 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         hit = ai is not None and max(range(3), key=lambda i: probs[i]) == ai
         p_actual = probs[ai] if ai is not None else None
 
+        # Какой исход мы назвали и с какой вероятностью. Раньше в журнал
+        # попадали только hit и p_actual, где p_actual — вероятность на
+        # ФАКТИЧЕСКИЙ исход. При промахе это вероятность того, что
+        # произошло вопреки прогнозу, и рядом со словом «мимо» она
+        # читалась как «мы были уверены». Поэтому храним и названный
+        # исход, и его вероятность — отдельно от фактического.
+        top_i = max(range(3), key=lambda i: probs[i])
+        picked = ["H", "D", "A"][top_i]
+        picked_p = probs[top_i]
+
+        # Вердикт по тоталу 2.5 — отдельным рынком. Складывать его с
+        # исходом через «и» нельзя: ошибиться хотя бы на одном рынке
+        # означает потерять всё сразу, и точность падает с 55.4% до 30.9%
+        # (замерено на 918 матчах). Поэтому это вторая параллельная
+        # строка, а не дополнение к первой.
+        o25 = (latest.get("extra") or {}).get("over25")
+        total_hit = total_p = total_label = None
+        if o25 is not None:
+            pred_over = float(o25) >= 0.5
+            total_label = "ТБ 2.5" if pred_over else "ТМ 2.5"
+            total_hit = pred_over == (res["fthg"] + res["ftag"] > 2.5)
+            total_p = max(float(o25), 1.0 - float(o25))
+
         first = versions[0]
         shift = round(sum(abs(a - b) for a, b in
                           zip([first["p_home"], first["p_draw"], first["p_away"]], probs)), 4)
@@ -175,6 +198,11 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "actual": res["ftr"],
             "score": f"{res['fthg']}-{res['ftag']}",
             "hit": hit,
+            "picked": picked,
+            "picked_p": round(picked_p, 4),
+            "total_hit": total_hit,
+            "total_label": total_label,
+            "total_p": round(total_p, 4) if total_p is not None else None,
             "p_actual": round(p_actual, 4) if p_actual is not None else None,
             "logloss": round(-math.log(max(p_actual, 1e-12)), 4) if p_actual is not None else None,
             "n_versions": len(versions),
@@ -220,9 +248,24 @@ def summary(resolved: list[dict]) -> dict:
             by_stage[stage] = agg(rows)
 
     multi = [r for r in resolved if r["n_versions"] > 1]
+    # Точность по тоталу считаем отдельно и по тем же матчам, что и по
+    # исходу. Складывать их через «и» нельзя — это пересечение, а не
+    # сумма: ошибиться хотя бы на одном рынке означает потерять всё сразу,
+    # и точность падает с 55.4% до 30.9%. Два независимых числа полезнее
+    # одного составного.
+    with_total = [r for r in resolved if r.get("total_hit") is not None]
+    total_agg = {
+        "n": len(with_total),
+        "hits": sum(1 for r in with_total if r["total_hit"]),
+    }
+    total_agg["accuracy"] = (
+        round(total_agg["hits"] / total_agg["n"], 4) if total_agg["n"] else None
+    )
+
     return {
         "total": len(resolved),
         "overall": agg(resolved),
+        "total_25": total_agg,
         "by_stage": by_stage,
         "multi_stage": len(multi),
         "flipped": sum(1 for r in multi if r.get("flipped")),

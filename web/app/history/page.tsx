@@ -197,8 +197,12 @@ export default async function HistoryPage() {
                     <th className="py-2 text-left font-normal">матч</th>
                     <th className="py-2 text-right font-normal">счёт</th>
                     <th className="py-2 text-right font-normal">прогноз П1/Х/П2</th>
-                    <th className="py-2 text-right font-normal">тотал 2.5</th>
-                    <th className="py-2 text-right font-normal">вердикт</th>
+                    <th className="py-2 text-right font-normal">
+                      вердикт
+                      <span className="block text-[10px] font-normal opacity-70">
+                        исход / тотал
+                      </span>
+                    </th>
                     <th className="py-2 pr-4 text-right font-normal">изменился</th>
                   </tr>
                 </thead>
@@ -222,30 +226,48 @@ export default async function HistoryPage() {
                         {(r.p_home * 100).toFixed(0)}% / {(r.p_draw * 100).toFixed(0)}% /{" "}
                         {(r.p_away * 100).toFixed(0)}%
                       </td>
-                      <td className="num py-2 text-right text-xs text-muted">
-                        {(() => {
-                          const o25 = over25Of(r);
-                          if (o25 === null) return "—";
-                          return (
-                            <>
-                              {o25 >= 0.5 ? "ТБ" : "ТМ"}{" "}
-                              {(Math.max(o25, 1 - o25) * 100).toFixed(0)}%
-                            </>
-                          );
-                        })()}
-                      </td>
-                      <td className="py-2 text-right">
-                        <span
-                          className={`rounded px-1.5 py-0.5 text-[11px] ${
-                            r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
-                          }`}
-                        >
-                          {r.hit ? "угадано" : "мимо"}
-                        </span>
-                        {r.p_actual !== null && (
-                          <span className="num ml-1.5 text-[11px] text-muted">
-                            {(r.p_actual * 100).toFixed(0)}%
+                      {/* Столбец «тотал 2.5» убран: вердикт по тоталу
+                          теперь показан строкой в колонке рядом, вместе
+                          с фактом угадал / не угадал. Дублировать одно и
+                          то же в двух колонках незачем. */}
+                      {/* Две строки вместо одной. Раньше было «угадано 68%»,
+                          где 68% — вероятность на ФАКТИЧЕСКИЙ исход, и
+                          при промахе она читалась как «мы были уверены,
+                          но ошиблись». Теперь видно и что мы назвали,
+                          и с какой вероятностью, и отдельно — тотал.
+
+                          Рынки НЕ складываются через «и»: ошибиться
+                          хотя бы на одном значит потерять всё сразу,
+                          и точность падает с 55.4% до 30.9%. Поэтому
+                          это две параллельные оценки, а не одна. */}
+                      <td className="py-2 text-right align-top">
+                        <div className="whitespace-nowrap">
+                          <span
+                            className={`rounded px-1.5 py-0.5 text-[11px] ${
+                              r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+                            }`}
+                          >
+                            {r.hit ? "угадано" : "мимо"}{" "}
+                            {OUTCOME_LABEL[r.picked ?? r.actual]}
+                          </span>{" "}
+                          <span className="num text-[11px] text-muted">
+                            {((r.picked_p ?? 0) * 100).toFixed(0)}%
                           </span>
+                        </div>
+                        {r.total_hit !== null && r.total_label && (
+                          <div className="mt-0.5 whitespace-nowrap">
+                            <span
+                              className={`rounded px-1.5 py-0.5 text-[11px] ${
+                                r.total_hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+                              }`}
+                            >
+                              {r.total_hit ? "угадано" : "мимо"}{" "}
+                              {r.total_label}
+                            </span>{" "}
+                            <span className="num text-[11px] text-muted">
+                              {((r.total_p ?? 0) * 100).toFixed(0)}%
+                            </span>
+                          </div>
                         )}
                       </td>
                       <td className="num py-2 pr-4 text-right text-xs text-muted">
@@ -285,6 +307,7 @@ function topOutcome(p: { p_home: number; p_draw: number; p_away: number }): stri
 function Summary({ summary }: { summary: Journal["summary"] }) {
   if (!summary.total) return null;
   const o = summary.overall;
+  const t25 = summary.total_25;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
   const best = stages.length
     ? stages.reduce((a, b) =>
@@ -301,17 +324,32 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="точность" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        <Stat label="точность: исход" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        {t25 && (
+          <Stat
+            label="точность: тотал 2.5"
+            value={t25.accuracy !== null ? `${(t25.accuracy * 100).toFixed(1)}%` : "—"}
+          />
+        )}
         <Stat label="log-loss" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
-        <Stat
-          label="средняя вероятность на факт"
-          value={o.avg_p_actual !== undefined ? `${(o.avg_p_actual * 100).toFixed(1)}%` : "—"}
-        />
         <Stat
           label="мнение менялось"
           value={`${summary.flipped} / ${summary.multi_stage}`}
         />
       </div>
+
+      {t25 && t25.accuracy !== null && (
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          Два рынка — две отдельные оценки, и складывать их через «и» нельзя:
+          ошибиться хотя бы на одном означает потерять всё сразу. На 918
+          отложенных матчах точность по исходу{" "}
+          <span className="num text-text">55.4%</span>, по тоталу —{" "}
+          <span className="num text-text">57.4%</span>, а если требовать
+          попадания обоих сразу, остаётся{" "}
+          <span className="num text-bad">30.9%</span>. Составная метрика всегда
+          хуже лучшей из составляющих, поэтому здесь их не объединяют.
+        </p>
+      )}
 
       {stages.length > 1 && (
         <div className="mt-4">
