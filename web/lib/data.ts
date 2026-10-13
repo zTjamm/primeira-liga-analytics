@@ -466,6 +466,8 @@ export interface Journal {
      *  из-за чего было не видно, что именно угадано. */
     picked: "H" | "D" | "A";
     picked_p: number;
+    verdict_given: boolean;
+    verdict_reason: string;
     total_hit: boolean | null;
     /** Подпись рынка тотала приходит с сервера, а не собирается здесь:
      *  линия разная (2.5 гола у футбола, 155 очков у баскетбола), и

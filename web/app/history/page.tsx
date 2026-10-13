@@ -240,19 +240,34 @@ export default async function HistoryPage() {
                           хотя бы на одном значит потерять всё сразу,
                           и точность падает с 55.4% до 30.9%. Поэтому
                           это две параллельные оценки, а не одна. */}
-                      <td className="py-2 text-right align-top">
+                    <td className="py-2 text-right align-top">
                         <div className="whitespace-nowrap">
-                          <span
-                            className={`rounded px-1.5 py-0.5 text-[11px] ${
-                              r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
-                            }`}
-                          >
-                            {r.hit ? "угадано" : "мимо"}{" "}
-                            {OUTCOME_LABEL[r.picked ?? r.actual]}
-                          </span>{" "}
-                          <span className="num text-[11px] text-muted">
-                            {((r.picked_p ?? 0) * 100).toFixed(0)}%
-                          </span>
+                          {r.verdict_given === false ? (
+                            /* Тот же отсев, что для тотала: модель не выдала
+                               вердикт по исходу, потому что он был ниже
+                               порога. Показываем «без вердикта», а не
+                               угадано/мимо. */
+                            <span
+                              className="rounded bg-line/20 px-1.5 py-0.5 text-[11px] text-muted"
+                              title={r.verdict_reason ?? undefined}
+                            >
+                              без вердикта
+                            </span>
+                          ) : (
+                            <>
+                              <span
+                                className={`rounded px-1.5 py-0.5 text-[11px] ${
+                                  r.hit ? "bg-good/15 text-good" : "bg-bad/15 text-bad"
+                                }`}
+                              >
+                                {r.hit ? "угадано" : "мимо"}{" "}
+                                {OUTCOME_LABEL[r.picked ?? r.actual]}
+                              </span>{" "}
+                              <span className="num text-[11px] text-muted">
+                                {((r.picked_p ?? 0) * 100).toFixed(0)}%
+                              </span>
+                            </>
+                          )}
                         </div>
                         {r.total_hit !== null && r.total_label && (
                           <div className="mt-0.5 whitespace-nowrap">

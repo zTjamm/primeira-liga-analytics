@@ -260,6 +260,8 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "hit": hit,
             "picked": picked,
             "picked_p": round(picked_p, 4),
+            "verdict_given": extra.get("verdict_given"),
+            "verdict_reason": extra.get("verdict_reason"),
             "total_hit": total_hit,
             "total_label": total_label,
             "total_line": total_line,
