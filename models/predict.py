@@ -267,8 +267,17 @@ def _finish(matches_df: pl.DataFrame) -> None:
     s = hist["summary"]
     if s.get("total"):
         o = s["overall"]
+        om = s.get("outcome_market") or {}
         print(f"\nЖурнал: {s['total']} сыгранных прогнозов, точность {o['accuracy']:.1%}, "
               f"log-loss {o['logloss']}")
+        # Точность по выданным вердиктам печатаем рядом с общей: смесь
+        # отсева и попаданий в одной цифре читается как результат, а это
+        # две разные величины. И отсев показываем явно.
+        if om.get("n") is not None and om.get("n") != s["total"]:
+            acc = f"{om['accuracy']:.1%}" if om.get("accuracy") is not None else "—"
+            print(f"  по выданным вердиктам: {acc} ({om['n']} из {s['total']}), "
+                  f"отсеяно порогом: {om.get('withheld', 0)}"
+                  + (f", записей без флага: {om['no_flag']}" if om.get("no_flag") else ""))
         if s["multi_stage"]:
             print(f"  с несколькими этапами: {s['multi_stage']}, "
                   f"мнение изменилось: {s['flipped']}")

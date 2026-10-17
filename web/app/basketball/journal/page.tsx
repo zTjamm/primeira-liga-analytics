@@ -274,6 +274,7 @@ export default async function BasketballJournalPage() {
 
 function Summary({ summary }: { summary: Journal["summary"] }) {
   const o = summary.overall;
+  const om = summary.outcome_market;
   const tm = summary.total_market;
   const tLine = tm?.line != null ? String(tm.line) : null;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
@@ -284,14 +285,21 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
         <p className="text-xs text-muted">матчей: {summary.total}</p>
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="точность: исход" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        <Stat
+          label={
+            om
+              ? `точность: исход${om.n !== summary.total ? ` (по ${om.n} из ${summary.total})` : ""}`
+              : "точность: исход"
+          }
+          value={om?.accuracy != null ? `${(om.accuracy * 100).toFixed(1)}%` : "—"}
+        />
         {tm && (
           <Stat
             label={tLine ? `точность: тотал ${tLine}` : "точность: тотал"}
             value={tm.accuracy !== null ? `${(tm.accuracy * 100).toFixed(1)}%` : "—"}
           />
         )}
-        <Stat label="log-loss" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
+        <Stat label="log-loss (все матчи)" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
         <Stat
           /* Калибровка, а не уверенность: средняя вероятность, которую
              модель выдавала на ТОТ исход, который случился. Низкое число
@@ -303,6 +311,14 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
         />
         <Stat label="мнение менялось" value={`${summary.flipped} / ${summary.multi_stage}`} />
       </div>
+      {summary.total < 30 && (
+        <p className="mt-3 rounded bg-panel-2 p-2.5 text-xs leading-relaxed text-muted">
+          Матчей мало ({summary.total}), и все проценты выше — шум. На выборке
+          такого размера разброс огромен: и 5 попаданий из 7, и 2 из 7
+          статистически совместимы со случайностью. Выводы о качестве модели —
+          только на сотнях матчей, а не на этих цифрах.
+        </p>
+      )}
       {stages.length > 1 && (
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-sm">

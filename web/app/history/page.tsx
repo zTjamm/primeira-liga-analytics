@@ -340,6 +340,7 @@ function topOutcome(p: { p_home: number; p_draw: number; p_away: number }): stri
 function Summary({ summary }: { summary: Journal["summary"] }) {
   if (!summary.total) return null;
   const o = summary.overall;
+  const om = summary.outcome_market;
   const t25 = summary.total_market;
   const tLine = t25?.line != null ? (t25.line < 10 ? t25.line.toFixed(1) : String(t25.line)) : null;
   const stages = STAGE_ORDER.filter((s) => summary.by_stage[s]);
@@ -354,23 +355,52 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
     <section className="panel p-5">
       <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-sm font-semibold">Итоги по журналу</h2>
-        <p className="text-xs text-muted">матчей: {summary.total}</p>
+        <p className="text-xs text-muted">сыграно прогнозов: {summary.total}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="точность: исход" value={`${((o.accuracy ?? 0) * 100).toFixed(1)}%`} />
+        <Stat
+          label={
+            om
+              ? `точность: исход${om.n !== summary.total ? ` (по ${om.n} из ${summary.total})` : ""}`
+              : "точность: исход"
+          }
+          value={om?.accuracy != null ? `${(om.accuracy * 100).toFixed(1)}%` : "—"}
+        />
         {t25 && (
           <Stat
             label={tLine ? `точность: тотал ${tLine}` : "точность: тотал"}
             value={t25.accuracy !== null ? `${(t25.accuracy * 100).toFixed(1)}%` : "—"}
           />
         )}
-        <Stat label="log-loss" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
+        <Stat label="log-loss (все матчи)" value={o.logloss !== null ? o.logloss.toFixed(4) : "—"} />
         <Stat
           label="мнение менялось"
           value={`${summary.flipped} / ${summary.multi_stage}`}
         />
       </div>
+
+      {summary.total < 30 && (
+        <p className="mt-3 rounded bg-panel-2 p-2.5 text-xs leading-relaxed text-muted">
+          Матчей мало ({summary.total}), и все проценты выше — шум. На выборке
+          такого размера разброс огромен: 4 попадания из 9 статистически
+          совместимы и с результатом заметно выше случайного, и с заметно
+          ниже. Выводы о качестве модели можно делать только на сотнях матчей
+          (см. отложенные проверки на методике), а не на этих цифрах.
+        </p>
+      )}
+
+      {om && (om.no_flag > 0 || (t25?.no_flag ?? 0) > 0) && (
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          Часть записей сделана раньше, чем в журнале появились пометки
+          «вердикт выдан / отсеян»: по{" "}
+          <span className="num text-text">{om.no_flag}</span> матчам исхода и{" "}
+          <span className="num text-text">{t25?.no_flag ?? 0}</span> тотала отсев
+          тогда не применялся, и они посчитаны как «вердикт выдан». Это не
+          ошибка подсчёта, а граница истории журнала — она будет съедена
+          ростом выборки, а не исправлена задним числом.
+        </p>
+      )}
 
       {t25 && t25.accuracy !== null && (
         <p className="mt-3 text-xs leading-relaxed text-muted">

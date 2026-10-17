@@ -329,6 +329,24 @@ def summary(resolved: list[dict]) -> dict:
     # вердикты попали бы в знаменатель и занизили бы результат, а вердикт
     # на экране всё равно не показывается. Считаем по тем, что показаны, и
     # отдельно отдаём число отсева, чтобы его нельзя было спрятать.
+    # По исходу — та же логика «только по выданным», что и по тоталу.
+    # Раньше сводка делила hit'ы на все матчи, включая те, где модель
+    # отказалась выдавать вердикт: в таблице такая строка показана как
+    # «без вердикта», а в проценте она участвовала — цифра выходила
+    # непонятной смесью отсева и попаданий.
+    out_given = [r for r in resolved if r.get("verdict_given") is not False]
+    out_hits = sum(1 for r in out_given if r["hit"])
+    outcome_agg = {
+        "n": len(out_given),
+        "hits": out_hits,
+        "withheld": len(resolved) - len(out_given),
+        "accuracy": round(out_hits / len(out_given), 4) if out_given else None,
+        # Сколько записей сделано до появления отсева (флаг вердикта
+        # в extra отсутствует). Не прятать: без этого числа «0 отсеяных»
+        # читается как «порог сработал везде», хотя флага тогда ещё не было.
+        "no_flag": sum(1 for r in resolved if r.get("verdict_given") is None),
+    }
+
     with_total = [r for r in resolved if r.get("total_hit") is not None]
     given = [r for r in with_total if r.get("total_given") is not False]
     lines = {r.get("total_line") for r in given if r.get("total_line") is not None}
@@ -338,6 +356,11 @@ def summary(resolved: list[dict]) -> dict:
         # Сколько матчей было отсеяно: показываем рядом с точностью,
         # иначе 100% на двух матчах выглядит как открытие.
         "withheld": len(with_total) - len(given),
+        # Записи без флага: сделаны до появления порога по тоталу
+        # (977d30a, 11 октября). Они считаются как «вердикт выдан» —
+        # тогда его и показывали бы, — но число отдельно выводится,
+        # чтобы честно сказать: отсев в этих матчах не применялся.
+        "no_flag": sum(1 for r in with_total if r.get("total_given") is None),
         # Линия попадает в отчёт, а не зашивается названием ключа: у
         # футбола это 2.5 гола, у баскетбола 155 очков, и сводка не
         # должна врать про баскетбол, называя его «тотал 2.5».
@@ -350,6 +373,11 @@ def summary(resolved: list[dict]) -> dict:
     return {
         "total": len(resolved),
         "overall": agg(resolved),
+        # Точность по исходу — только по выданным вердиктам, как и по
+        # тоталу. Старое поле overall оставлено (по всем матчам): на нём
+        # построены тесты и лог-loss, и менять смысл старого числа на
+        # месте — верный способ заставить всю страницу врать молча.
+        "outcome_market": outcome_agg,
         "total_market": total_agg,
         "by_stage": by_stage,
         "multi_stage": len(multi),

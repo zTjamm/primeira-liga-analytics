@@ -323,6 +323,67 @@ def check_total_gate() -> bool:
     return ok
 
 
+def check_outcome_gate() -> bool:
+    """Сводка по исходу должна считать только ВЫДАННЫЕ вердикты.
+
+    Ровно та же ловушка, что была с тоталом: если делить hit'ы на все
+    матчи, отсев становится незаметным — в таблице строка «без вердикта»,
+    а в процente она участвует. Проверяем на трёх матчах: два с вердиктом
+    (один угадан, один мимо) и один отсеянный, который модель угадала
+    бы, но вердикта не выдавала.
+    """
+    print("\nОтсев по исходу в сводке:")
+    d = date(2026, 4, 1)
+    matches = pl.DataFrame([
+        {"match_date": d, "home_id": "a1", "away_id": "a2", "ftr": "H", "fthg": 2, "ftag": 0},
+        {"match_date": d, "home_id": "b1", "away_id": "b2", "ftr": "H", "fthg": 1, "ftag": 0},
+        {"match_date": d, "home_id": "c1", "away_id": "c2", "ftr": "H", "fthg": 1, "ftag": 0},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        forecast.append([
+            # Уверенный П1, фактически П1 — угадан
+            _rec("v1", d, "T-24h", [0.70, 0.18, 0.12], 24.0, home="a1", away="a2",
+                 extra={"verdict_given": True}),
+            # П2 назван, но случилось П1 — мимо
+            _rec("v2", d, "T-24h", [0.30, 0.22, 0.48], 24.0, home="b1", away="b2",
+                 extra={"verdict_given": True}),
+            # Отсев (вероятность ниже порога), но исход совпал бы с argmax
+            _rec("v3", d, "T-24h", [0.42, 0.33, 0.25], 24.0, home="c1", away="c2",
+                 extra={"verdict_given": False,
+                        "verdict_reason": "вероятность ниже 0.55"}),
+        ], "football")
+
+        h = forecast.build_history(matches, "football")
+        s = h["summary"]
+        om = s["outcome_market"]
+
+        ok = _check("в resolved все три", len(h["resolved"]), 3)
+        ok &= _check("по всем считается 2/3 (старое поле overall)",
+                     s["overall"]["accuracy"], round(2 / 3, 4))
+        ok &= _check("по выданным только 2 матча", om["n"], 2)
+        ok &= _check("из них угадан ровно один", om["hits"], 1)
+        ok &= _check("точность по выданным 50%", om["accuracy"], 0.5)
+        ok &= _check("отсеяно порогом 1", om["withheld"], 1)
+        ok &= _check("записей без флага нет", om["no_flag"], 0)
+        ok &= _check("флаг в самом resolved сохранён",
+                     {r["key"]: r["verdict_given"] for r in h["resolved"]}["v3"], False)
+
+        # Запись без флага вердикта (сделана до появления отсева) должна
+        # считаться как «вердикт выдан», но попадать в no_flag.
+        forecast.append([
+            _rec("v4", d, "T-4h", [0.51, 0.27, 0.22], 3.0, home="d1", away="d2"),
+        ], "football")
+        matches2 = pl.concat([matches, pl.DataFrame([
+            {"match_date": d, "home_id": "d1", "away_id": "d2", "ftr": "H",
+             "fthg": 1, "ftag": 0},
+        ])])
+        s2 = forecast.build_history(matches2, "football")["summary"]
+        ok &= _check("запись без флага посчитана как выданная", s2["outcome_market"]["n"], 3)
+        ok &= _check("и показана в no_flag", s2["outcome_market"]["no_flag"], 1)
+    return ok
+
+
 def check_no_overlap() -> bool:
     """Прогнозы должны относиться к матчам будущим, а не к уже сыгранным:
     иначе в resolved попадёт мусор."""
@@ -378,6 +439,7 @@ def main() -> int:
         check_vtb_schema(),
         check_total_lines(),
         check_total_gate(),
+        check_outcome_gate(),
         check_no_overlap(),
         check_empty(),
         check_ledger_roundtrip(),
