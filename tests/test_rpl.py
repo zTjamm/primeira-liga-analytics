@@ -144,6 +144,78 @@ def test_forecast_file() -> list[bool]:
     return ok
 
 
+def test_journal() -> list[bool]:
+    """Журнал РФПЛ: леджер на месте, резолв работает, отсев помечен."""
+    import polars as pl
+    from etl.config import ROOT
+    from models import forecast
+
+    print("Журнал РФПЛ:")
+    ok = []
+
+    # Леджер существует и читается
+    ledger = forecast.load("rpl")
+    ok.append(_check_bool("леджер непуст", len(ledger) > 0, "нет записей"))
+    if ledger:
+        r0 = ledger[0]
+        needed = {"key", "date", "stage", "p_home", "p_draw", "p_away", "extra"}
+        ok.append(_check_bool("запись содержит все поля", needed <= set(r0),
+                              f"нет: {sorted(needed - set(r0))}"))
+        ok.append(_check_bool("extra помечает вердикт",
+                              "verdict_given" in (r0.get("extra") or {}),
+                              "нет verdict_given"))
+        ok.append(_check_bool("extra помечает тотал",
+                              "total_verdict_given" in (r0.get("extra") or {}),
+                              "нет total_verdict_given"))
+
+    # Файл журнала для сайта
+    path = ROOT / "web" / "public" / "data" / "rpl_journal.json"
+    ok.append(_check_bool("rpl_journal.json существует", path.exists(), str(path)))
+    if path.exists():
+        data = json.loads(path.read_text(encoding="utf-8"))
+        ok.append(_check("sport = rpl", data.get("sport"), "rpl"))
+        # Все записи в pending — прогнозы сделаны на будущие матчи
+        ok.append(_check("после старта сыгранных прогнозов нет",
+                         len(data["resolved"]), 0))
+        ok.append(_check_bool("pending заполнен", len(data["pending"]) > 0, "пусто"))
+
+    # Ключ тотала в общем модуле: для rpl — over25, а не баскетбольный over_155
+    # Проверяем на искусственном resolved: если бы ключ был неверным,
+    # total_hit остался бы None даже при наличии extra.over25.
+    rows = [{
+        "key": "t1", "date": "2026-10-18", "kickoff": None, "matchday": None,
+        "home_id": "Zenit", "away_id": "Akhmat Grozny",
+        "home_name": "Zenit", "away_name": "Akhmat Grozny",
+        "generated_at": "2026-10-17T00:00:00+00:00", "hours_before": 20.0,
+        "stage": "T-24h", "p_home": 0.74, "p_draw": 0.19, "p_away": 0.07,
+        "extra": {"over25": 0.47, "verdict_given": True,
+                  "total_verdict_given": True},
+    }]
+    # build_history читает леджер с диска, поэтому кладём тестовую запись
+    # в отдельный путь и подменяем функцию чтения.
+    original_load = forecast.load
+    forecast.load = lambda sport: rows if sport == "rpl" else original_load(sport)
+    try:
+        results = pl.DataFrame({
+            "match_date": [date(2026, 10, 18)],
+            "home_id": ["Zenit"], "away_id": ["Akhmat Grozny"],
+            "ftr": ["H"], "fthg": [2], "ftag": [0],
+        })
+        hist = forecast.build_history(results, sport="rpl")
+    finally:
+        forecast.load = original_load
+    res = hist["resolved"]
+    ok.append(_check("исход зарезолвился", len(res), 1))
+    if res:
+        r = res[0]
+        ok.append(_check("hit посчитан", r["hit"], True))
+        ok.append(_check("тотал посчитан по over25 (не over_155)",
+                         r["total_hit"], True))  # over=0.47 -> ТМ 2.5, счёт 2:0 — ТМ угадан
+        ok.append(_check("вердикт по тоталу сохранён", r["total_given"], True))
+        ok.append(_check("line = 2.5", r["total_line"], 2.5))
+    return ok
+
+
 def test_isolation() -> list[bool]:
     """Ни один файл РФПЛ не должен перезаписывать артефакты других видов."""
     from etl.config import ROOT
@@ -172,6 +244,7 @@ def main() -> int:
     results += test_parse()
     results += test_club_mapping()
     results += test_forecast_file()
+    results += test_journal()
     results += test_isolation()
     print("-" * 46)
     if all(results):

@@ -151,9 +151,13 @@ def parse(csv_text: str) -> pl.DataFrame:
 
 
 def fetch_fixtures() -> pl.DataFrame:
-    """Загружает расписание из официального API РФПЛ.
+    """Загружает расписание и результаты из официального API РФПЛ.
 
-    Возвращает незакрытые матчи (без счёта) — сыгранные уже есть в CSV.
+    Возвращает ВСЕ матчи турнира — и сыгранные, и будущие. Сыгранные
+    нужны журналу: CSV с результатами обновляется с задержкой в недели
+    (в августе файл обрывался на 02.08, а лига играла дальше), и полагаться
+    на него для резолва прогнозов нельзя. API отдаёт счёт сразу.
+
     Дата в API приходит в виде "2026-10-18UTC14:00:00": формат нестандартный,
     UTC написан без разделителя, поэтому парсим вручную, а не strftime.
     """
@@ -188,9 +192,6 @@ def fetch_fixtures() -> pl.DataFrame:
     for st in stages:
         stage_name = stage_names.get(int(st.get("stage", 0)), str(st.get("stage", "")))
         for m in st.get("matches", []):
-            # Матч уже сыгран — пропускаем, его результат в CSV
-            if m.get("goalH") is not None and m.get("goalA") is not None:
-                continue
             raw = m.get("date") or ""
             # "2026-10-18UTC14:00:00"
             if "UTC" not in raw:
@@ -198,6 +199,10 @@ def fetch_fixtures() -> pl.DataFrame:
             day_s, time_s = raw.split("UTC", 1)
             y, mo, da = (int(x) for x in day_s.split("-"))
             hh, mm = (int(x) for x in time_s.split(":")[:2])
+            # Счёт null до окончания матча — так будущий матч отличается
+            # от сыгранного, и журнал не примет непоставленную игру за факт.
+            gh, ga = m.get("goalH"), m.get("goalA")
+            played = gh is not None and ga is not None
             rows.append({
                 "match_id": f"rpl_{m['id']}",
                 "api_id": int(m["id"]),
@@ -205,6 +210,9 @@ def fetch_fixtures() -> pl.DataFrame:
                 "kickoff_utc": dt(y, mo, da, hh, mm).isoformat() + "Z",
                 "home_name": CLUB_ID_TO_NAME[int(m["clubH"])],
                 "away_name": CLUB_ID_TO_NAME[int(m["clubA"])],
+                "fthg": int(gh) if played else None,
+                "ftag": int(ga) if played else None,
+                "ftr": ("H" if gh > ga else "A" if ga > gh else "D") if played else None,
                 "stage_id": int(st.get("stage", 0)),
                 "matchday": stage_name,
                 "city": m.get("city") or "",
@@ -215,6 +223,7 @@ def fetch_fixtures() -> pl.DataFrame:
         "match_id": pl.String, "api_id": pl.Int64,
         "match_date": pl.Date, "kickoff_utc": pl.String,
         "home_name": pl.String, "away_name": pl.String,
+        "fthg": pl.Int32, "ftag": pl.Int32, "ftr": pl.String,
         "stage_id": pl.Int64, "matchday": pl.String,
         "city": pl.String, "stadium": pl.String,
     })
@@ -258,16 +267,18 @@ def main() -> int:
     save(df, PROCESSED / "rpl_matches.parquet")
     print(f"  Сохранено: {PROCESSED / 'rpl_matches.parquet'}")
 
-    # Расписание из официального API
+    # Расписание и результаты из официального API
     print("Загрузка расписания РФПЛ из premierliga.ru...")
     try:
         fx = fetch_fixtures()
         fx.write_parquet(PROCESSED / "rpl_fixtures.parquet")
-        nxt = fx.head(1)
-        if nxt.height:
-            r = nxt.row(0, named=True)
-            print(f"  Предстоящих матчей: {fx.height}, ближайший: {r['match_date']} "
-                  f"{r['home_name']} — {r['away_name']}")
+        upcoming = fx.filter(pl.col("fthg").is_null())
+        played = fx.filter(pl.col("fthg").is_not_null())
+        nxt = upcoming.head(1)
+        when = f"{nxt.row(0, named=True)['match_date']}" if nxt.height else "—"
+        print(f"  Всего матчей турнира: {fx.height} "
+              f"(сыграно {played.height}, предстоит {upcoming.height}), "
+              f"ближайший: {when}")
     except Exception as e:
         # Расписание — отдельный шаг: его сбой не должен убивать загрузку
         # результатов, но и не должен пройти молча.

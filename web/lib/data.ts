@@ -584,7 +584,7 @@ export interface Journal {
   };
 }
 
-export const getJournal = cache((sport: "football" | "basketball") =>
+export const getJournal = cache((sport: "football" | "basketball" | "rpl") =>
   readJson<Journal>(`${sport}_journal.json`),
 );
 

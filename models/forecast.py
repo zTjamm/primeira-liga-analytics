@@ -226,7 +226,10 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         total_hit = total_p = total_label = total_line = None
         total_given = total_reason = None
         extra = latest.get("extra") or {}
-        key, line = (("over25", 2.5) if sport == "football"
+        # Ключ и линия зависят от вида спорта. Раньше здесь была двойка
+        # «football → over25, иначе over_155», из-за чего у третьего вида
+        # (РФПЛ, тотал 2.5) вердикт по тоталу был бы всегда пустым.
+        key, line = (("over25", 2.5) if sport in ("football", "rpl")
                      else ("over_155", 155.0))
         o = extra.get(key)
         if o is not None:

@@ -171,9 +171,14 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
     с объяснением. Порог здесь НЕ подбирался на РФПЛ (валидации по этой
     лиге пока нет), поэтому он помечен в файле как перенесённый, а не
     собственный — честнее скрывать это, чем выдавать за откалиброванный.
-    """
-    from datetime import datetime, timedelta, timezone
 
+    Помимо файла прогнозов дописывает записи в общий журнал (леджер
+    sport="rpl") и пересобирает рпl_journal.json. Леджер обязателен:
+    прогноз, который каждый раз перезаписывается, нельзя потом проверить.
+    """
+    from datetime import datetime, timezone
+
+    from . import forecast
     from .verdict import VERDICT_THRESHOLD, total_verdict, verdict
 
     fixtures_path = PROCESSED / "rpl_fixtures.parquet"
@@ -182,11 +187,15 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
               "Запусти: python -m etl.fetch_rpl")
         return
     fx = pl.read_parquet(fixtures_path)
+    # В parquet теперь лежат и сыгранные матчи (для резолва журнала),
+    # а прогноз строим только на незакрытые.
+    upcoming = fx.filter(pl.col("fthg").is_null())
 
     now = datetime.now(timezone.utc)
     rows = []
+    ledger: list[dict] = []
     skipped = 0
-    for r in fx.to_dicts():
+    for r in upcoming.to_dicts():
         home, away = r["home_name"], r["away_name"]
         # Команда вне обучающей выборки — прогноза для неё не существует
         if home not in dc.teams or away not in dc.teams:
@@ -209,17 +218,11 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
                              threshold=VERDICT_THRESHOLD)
         t_ok, t_reason = total_verdict(p["over25"], threshold=VERDICT_THRESHOLD)
 
-        # Часы до матча и стадия обновления — как в общем журнале
+        # Часы до матча и стадия — через общую функцию журнала, чтобы
+        # границы этапов не разъезжались с португальским разделом.
         kickoff = datetime.fromisoformat(r["kickoff_utc"].replace("Z", "+00:00"))
         hours_before = (kickoff - now).total_seconds() / 3600.0
-        if hours_before > 72:
-            stage = "T-72h+"
-        elif hours_before > 24:
-            stage = "T-24h"
-        elif hours_before > 6:
-            stage = "T-6h"
-        else:
-            stage = "T-4h"
+        stage = forecast.stage_for(hours_before)
 
         rows.append({
             "match_id": r["match_id"],
@@ -245,6 +248,34 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
             "threshold": VERDICT_THRESHOLD,
         })
 
+        # Запись в леджер — тот же формат, что у остальных видов спорта:
+        # один ключ на матч, этапы перезаписываются свежей версией.
+        ledger.append({
+            "key": r["match_id"],
+            "date": str(md),
+            "kickoff": r["kickoff_utc"],
+            "matchday": r["matchday"],
+            "home_id": home,
+            "away_id": away,
+            "home_name": home,
+            "away_name": away,
+            "generated_at": now.isoformat(timespec="seconds"),
+            "hours_before": round(hours_before, 2),
+            "stage": stage,
+            "p_home": p["p_home"], "p_draw": p["p_draw"], "p_away": p["p_away"],
+            "extra": {
+                "over25": p["over25"],
+                "xg_home": p["xg_home"], "xg_away": p["xg_away"],
+                "team_games": team_games_min,
+                # Метки вердиктов обязательны: точность считается только
+                # по выданным, иначе отсев был бы незаметен.
+                "verdict_given": ok,
+                "verdict_reason": reason,
+                "total_verdict_given": t_ok,
+                "total_verdict_reason": t_reason,
+            },
+        })
+
     rows.sort(key=lambda x: x["kickoff_utc"])
     out = {
         "sport": "rpl",
@@ -265,6 +296,26 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
     given = sum(1 for x in rows if x["verdict_given"])
     print(f"  Прогнозов: {len(rows)} (с вердиктом {given}), пропущено неизвестных команд: {skipped}")
     print(f"  Файл: {out_path}")
+
+    # Журнал: леджер + резолв по результатам API. Результаты берутся из
+    # того же API, что и расписание, а не из CSV — CSV отстаёт на недели.
+    added = forecast.append(ledger, sport="rpl")
+    print(f"  В леджер добавлено новых записей: {added} (этапов всего: {len(ledger)})")
+
+    results_df = fx.select([
+        pl.col("match_date"),
+        pl.col("home_name").alias("home_id"),
+        pl.col("away_name").alias("away_id"),
+        "ftr", "fthg", "ftag",
+    ])
+    hist = forecast.build_history(results_df, sport="rpl")
+    journal_path = ROOT / "web" / "public" / "data" / "rpl_journal.json"
+    journal_path.write_text(
+        json.dumps(hist, ensure_ascii=False, indent=2), encoding="utf-8",
+    )
+    s = hist["summary"]
+    print(f"  Журнал: {journal_path} "
+          f"(сыграно прогнозов: {s['total']}, в ожидании: {len(hist['pending'])})")
 
     # Рейтинг команд тоже кладём в витрину — страница «Команды» читает оттуда
     teams_path = ROOT / "web" / "public" / "data" / "rpl_teams.json"

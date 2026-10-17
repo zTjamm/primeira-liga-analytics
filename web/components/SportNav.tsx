@@ -55,6 +55,7 @@ export const SPORTS: SportPages[] = [
     base: "/rpl",
     pages: [
       { href: "/rpl", label: "Матчи" },
+      { href: "/rpl/journal", label: "Журнал" },
       { href: "/rpl/teams", label: "Команды" },
       { href: "/rpl/methodology", label: "Методика" },
     ],
