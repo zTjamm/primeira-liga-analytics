@@ -170,6 +170,15 @@ jobs:
           python -m etl.fetch_vtb
           python -m models.bt_predict
 
+      - name: Собрать РФПЛ
+        # Изолированный пайплайн: свои данные (football-data.co.uk +
+        # официальный API premierliga.ru), своя модель, свой файл
+        # прогнозов. Токен не нужен.
+        if: steps.gate.outputs.needs == 'true'
+        run: |
+          python -m etl.fetch_rpl
+          python -m models.rpl_predict
+
       - name: Калибровка снятия маржи
         if: steps.gate.outputs.needs == 'true'
         run: python -m models.market_calibration

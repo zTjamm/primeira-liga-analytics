@@ -24,6 +24,10 @@ export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
 
 # Файлы, которые считаем локально. Их нельзя брать с сервера GitHub:
 # там они старше на то, как давно отработал последний прогон Actions.
+#
+# rpl_predictions.json и rpl_teams.json здесь НЕТ намеренно: они пишутся
+# models.rpl_predict сразу в web/public/data, копировать файл на самого
+# себя не на чем.
 LOCAL=(
   data/processed/predictions.json
   data/processed/football_journal.json
@@ -96,9 +100,13 @@ mkdir -p "$REPO/web/public/data"
   run_step "etl.run" $PY -m etl.run || exit 1
   run_step "etl.fetch_vtb" $PY -m etl.fetch_vtb || exit 1
 
+  echo "-- РФПЛ (изолированный пайплайн)"
+  run_step "etl.fetch_rpl" $PY -m etl.fetch_rpl || exit 1
+
   echo "-- прогнозы"
   run_step "models.predict" $PY -m models.predict || exit 1
   run_step "models.bt_predict" $PY -m models.bt_predict || exit 1
+  run_step "models.rpl_predict" $PY -m models.rpl_predict || exit 1
 
   echo "-- публикация"
   for f in "${LOCAL[@]}"; do

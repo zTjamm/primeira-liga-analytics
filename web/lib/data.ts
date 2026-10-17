@@ -305,6 +305,69 @@ async function readJson<T>(file: string): Promise<T | null> {
 }
 
 export const getPredictions = cache(() => readJson<PredictionsFile>("predictions.json"));
+
+/** --- РФПЛ: отдельный вид спорта со своим файлом прогнозов --- */
+
+export interface RplPrediction {
+  match_id: string;
+  date: string;
+  kickoff_utc: string;
+  matchday: string;
+  home_name: string;
+  away_name: string;
+  stadium: string;
+  city: string;
+  hours_before: number;
+  stage: string;
+  p_home: number;
+  p_draw: number;
+  p_away: number;
+  over25: number;
+  under25: number;
+  xg_home: number;
+  xg_away: number;
+  prediction: Outcome;
+  confidence: number;
+  verdict_given: boolean;
+  verdict_reason: string;
+  team_games: number;
+  total_line: number;
+  total_picked: "over" | "under";
+  total_given: boolean;
+  total_reason: string;
+  threshold: number;
+}
+
+export interface RplPredictionsFile {
+  sport: string;
+  league: string;
+  generated_at: string;
+  n_matches_history: number;
+  threshold: number;
+  /** Честная оговорка: порог не подбирался на РФПЛ, а перенесён.
+   *  Скрывать это значило бы выдавать чужую валидацию за свою. */
+  threshold_source: string;
+  model: string;
+  upcoming: RplPrediction[];
+}
+
+export const getRplPredictions = cache(() =>
+  readJson<RplPredictionsFile>("rpl_predictions.json"),
+);
+
+export interface RplTeamRow {
+  team: string;
+  attack: number;
+  defence: number;
+  overall: number;
+}
+
+export interface RplTeamsFile {
+  n_matches: number;
+  teams: RplTeamRow[];
+}
+
+export const getRplTeams = cache(() => readJson<RplTeamsFile>("rpl_teams.json"));
 export const getBacktest = cache(() => readJson<BacktestFile>("backtest.json"));
 export const getEloTable = cache(() => readJson<EloRow[]>("elo_table.json"));
 export const getDcStrength = cache(() => readJson<DcRow[]>("dc_strength.json"));

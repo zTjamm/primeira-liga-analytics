@@ -48,10 +48,23 @@ export const SPORTS: SportPages[] = [
       { href: "/basketball/methodology", label: "Методика" },
     ],
   },
+  {
+    id: "rpl",
+    label: "Российская Премьер-Лига",
+    short: "РФПЛ",
+    base: "/rpl",
+    pages: [
+      { href: "/rpl", label: "Матчи" },
+      { href: "/rpl/teams", label: "Команды" },
+      { href: "/rpl/methodology", label: "Методика" },
+    ],
+  },
 ];
 
 function sportFor(path: string): SportPages {
-  return path.startsWith("/basketball") ? SPORTS[1] : SPORTS[0];
+  if (path.startsWith("/basketball")) return SPORTS[1];
+  if (path.startsWith("/rpl")) return SPORTS[2];
+  return SPORTS[0];
 }
 
 export function SportNav() {
