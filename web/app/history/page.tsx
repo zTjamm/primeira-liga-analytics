@@ -8,6 +8,16 @@ export const dynamic = "force-dynamic";
 
 const STAGE_ORDER = ["T-72h+", "T-24h", "T-6h", "T-4h"];
 
+/** Склонение существительного при числе: «1 матч», «2 матча», «9 матчей».
+ *  Без этого фраза «по 1 матчам» выглядит как автогенератор. */
+function plural(n: number, one: string, few: string, many: string): string {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+}
+
 /** Время начала матча в миллисекундах. В журнале поле nullable:
  *  у части записей API не отдал время, и такие строки просто не считаем
  *  ближайшими, вместо того чтобы ронять рендер на new Date(null). */
@@ -394,8 +404,10 @@ function Summary({ summary }: { summary: Journal["summary"] }) {
         <p className="mt-3 text-xs leading-relaxed text-muted">
           Часть записей сделана раньше, чем в журнале появились пометки
           «вердикт выдан / отсеян»: по{" "}
-          <span className="num text-text">{om.no_flag}</span> матчам исхода и{" "}
-          <span className="num text-text">{t25?.no_flag ?? 0}</span> тотала отсев
+          <span className="num text-text">{om.no_flag}</span>{" "}
+          {plural(om.no_flag, "матчу", "матчам", "матчам")} исхода и{" "}
+          <span className="num text-text">{t25?.no_flag ?? 0}</span>{" "}
+          {plural(t25?.no_flag ?? 0, "матчу", "матчам", "матчам")} тотала отсев
           тогда не применялся, и они посчитаны как «вердикт выдан». Это не
           ошибка подсчёта, а граница истории журнала — она будет съедена
           ростом выборки, а не исправлена задним числом.
