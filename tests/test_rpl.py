@@ -239,10 +239,64 @@ def test_isolation() -> list[bool]:
     return ok
 
 
+def test_api_merge() -> list[bool]:
+    """CSV обновляется с огромной задержкой, поэтому модели дозагружаются
+    результаты из API. Проверяем, что слияние не дублирует и не портит
+    порядок — от порядка зависит смена сезона в Elo."""
+    from datetime import date as date_cls
+
+    import polars as pl
+
+    from models.rpl_predict import _merge_api_results
+
+    print("Слияние результатов CSV + API:")
+    ok = []
+    fx = pl.DataFrame(
+        {
+            "match_date": [date_cls(2026, 8, 2), date_cls(2026, 10, 18)],
+            "home_name": ["Orenburg", "Spartak Moscow"],
+            "away_name": ["Zenit", "Rubin Kazan"],
+            "fthg": [0, 4],
+            "ftag": [3, 0],
+            "ftr": ["A", "H"],
+        },
+        schema_overrides={"match_date": pl.Date},
+    )
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as td:
+        fx_path = Path(td) / "rpl_fixtures.parquet"
+        fx.write_parquet(fx_path)
+
+        # В CSV уже лежит первый матч (2 августа) — он не должен повториться
+        out = [{
+            "season": "2026/27",
+            "match_date": date_cls(2026, 8, 2),
+            "home_id": "Orenburg", "away_id": "Zenit",
+            "home_name": "Orenburg", "away_name": "Zenit",
+            "fthg": 0, "ftag": 3, "ftr": "A",
+            "odds_h": 8.0, "odds_d": 4.75, "odds_a": 1.27,
+        }]
+        added = _merge_api_results(out, date_cls, fx_path=fx_path)
+        ok.append(_check("дубликат из CSV не добавлен", added, 1))
+        ok.append(_check("всего строк 2", len(out), 2))
+        new = [m for m in out if m["home_name"] == "Spartak Moscow"][0]
+        ok.append(_check("сезон посчитан как в ETL", new["season"], "2026/27"))
+        ok.append(_check("ftr перенесён", new["ftr"], "H"))
+        ok.append(_check("коэффициентов у API нет", new["odds_h"], None))
+
+        # Второй проход — ничего не добавится
+        again = _merge_api_results(out, date_cls, fx_path=fx_path)
+        ok.append(_check("повторный проход ничего не добавил", again, 0))
+
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_parse()
     results += test_club_mapping()
+    results += test_api_merge()
     results += test_forecast_file()
     results += test_journal()
     results += test_isolation()

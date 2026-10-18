@@ -28,7 +28,19 @@ TRAIN_WINDOW_YEARS = 6
 
 
 def load_matches() -> list[dict]:
-    """Загружает матчи РФПЛ из parquet."""
+    """Загружает матчи РФПЛ из parquet.
+
+    Источник результатов — два, и это принципиально:
+    CSV (football-data.co.uk) даёт историю с 2000 года и коэффициенты,
+    но обновляется с огромной задержкой — файл сезона 2026/27 обрывался
+    на 02.08, пока лига уже доигрывала 11-й тур. Официальный API РФПЛ
+    отдаёт счёт сразу, но без истории и без коэффициентов.
+    По одному CSV модель не видела шести туров текущего сезона — и
+    «не замечала» форму, которую и так видно невооружённым взглядом
+    (Спартак дома против Рубина). Поэтому дозагружаем из API всё, чего
+    нет в CSV: дедуплицируем по (дата, хозяева, гости), CSV при
+    совпадении остаётся приоритетным — у него есть коэффициенты.
+    """
     from datetime import date as date_cls
 
     path = PROCESSED / "rpl_matches.parquet"
@@ -70,7 +82,70 @@ def load_matches() -> list[dict]:
             "odds_d": float(r["odds_d"]) if r.get("odds_d") else None,
             "odds_a": float(r["odds_a"]) if r.get("odds_a") else None,
         })
+
+    n_csv = len(out)
+    n_api = _merge_api_results(out, date_cls)
+    if n_api:
+        print(f"  Результаты из API РФПЛ дозагружены: +{n_api} (CSV дал {n_csv})")
+    # Elo в fit_models идёт по порядку и следит за сменой сезона, поэтому
+    # после слияния двух источников сортировка обязательна.
+    out.sort(key=lambda m: m["match_date"])
     return out
+
+
+def _merge_api_results(
+    out: list[dict], date_cls, fx_path: Path | None = None
+) -> int:
+    """Дополняет список сыгранными матчами из rpl_fixtures.parquet.
+
+    Возвращает число добавленных. CSV сюда уже положен — при совпадении
+    ключа (дата, хозяева, гости) строка API не нужна.
+    fx_path нужен тестам; по умолчанию — рабочий файл.
+    """
+    if fx_path is None:
+        fx_path = PROCESSED / "rpl_fixtures.parquet"
+    if not fx_path.exists():
+        return 0
+    fx = pl.read_parquet(fx_path).filter(pl.col("fthg").is_not_null())
+    if fx.is_empty():
+        return 0
+
+    have = {(m["match_date"], m["home_name"], m["away_name"]) for m in out}
+    added = 0
+    for r in fx.to_dicts():
+        if r.get("ftr") not in ("H", "D", "A"):
+            continue
+        md = r["match_date"]
+        if isinstance(md, str):
+            try:
+                md = date_cls.fromisoformat(md)
+            except ValueError:
+                continue
+        # Сезон считаем той же формулой, что и в ETL (РФПЛ: июль-май)
+        if md.month >= 7:
+            season = f"{md.year}/{str(md.year + 1)[2:]}"
+        else:
+            season = f"{md.year - 1}/{str(md.year)[2:]}"
+        key = (md, r["home_name"], r["away_name"])
+        if key in have:
+            continue
+        have.add(key)
+        out.append({
+            "season": season,
+            "match_date": md,
+            "home_id": r["home_name"],
+            "away_id": r["away_name"],
+            "home_name": r["home_name"],
+            "away_name": r["away_name"],
+            "fthg": int(r["fthg"]),
+            "ftag": int(r["ftag"]),
+            "ftr": r["ftr"],
+            "odds_h": None,
+            "odds_d": None,
+            "odds_a": None,
+        })
+        added += 1
+    return added
 
 
 def fit_models(matches: list[dict], verbose: bool = True) -> tuple[EloModel, DixonColesModel]:
