@@ -63,10 +63,19 @@ function RplCard({ m }: { m: RplPrediction }) {
               : `Вердикт по тоталу не выдан. ${m.total_reason}`
           }
         >
+          {/* Подпись линии стоит всегда, даже при отсеве. Прочерк «—»
+              читался как «тотала нет» (на карточке Зенит — Ахмат так и
+              вышло): расчёт есть, процент есть, спрятано лишь решение.
+              Поэтому показываем ТБ/ТМ и метку «без вердикта». */}
           <span className={m.total_given ? "" : "opacity-50"}>
-            {m.total_given ? (over ? "ТБ 2.5" : "ТМ 2.5") : "—"}
+            {over ? "ТБ 2.5" : "ТМ 2.5"}
           </span>{" "}
           <span className="num">{(totalConf * 100).toFixed(0)}%</span>
+          {!m.total_given && (
+            <span className="ml-1.5 rounded bg-line/20 px-1 py-0.5 text-[10px] text-muted">
+              без вердикта
+            </span>
+          )}
         </span>
       </div>
 
@@ -76,6 +85,15 @@ function RplCard({ m }: { m: RplPrediction }) {
           {m.team_games > 0 && m.team_games < 10
             ? `У одной из команд всего ${m.team_games} матчей в обучении — параметры условны.`
             : `Вероятности почти равны (${(m.confidence * 100).toFixed(0)}%), исход определяется шумом.`}
+        </p>
+      )}
+      {/* Причина отсева по тоталу — текстом, а не только тултипом:
+          на телефоне подсказок нет, и строка «— 53%» выглядела бы
+          как отсутствующий рынок. */}
+      {!m.total_given && (
+        <p className={`${m.verdict_given ? "mt-2 border-t border-line/60 pt-2 " : "mt-1 "}text-[11px] leading-snug text-muted`}>
+          <span className="text-text">Тотал 2.5 без вердикта.</span>{" "}
+          {m.total_reason}
         </p>
       )}
     </div>

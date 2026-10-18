@@ -59,8 +59,12 @@ export function MatchCard({ m }: { m: Prediction }) {
           {(m.p_away * 100).toFixed(1)}
         </span>
         {/* Тот же порог 0.55, что и для исхода: когда тотал около линии,
-            модель воздерживается и показывает прочерк. Вероятность при
-            этом остаётся видна — скрывается решение, а не расчёт. */}
+            модель воздерживается. Раньше подпись заменялась прочерком «—»,
+            и карточка выглядела так, будто тотала вовсе нет: расчёт-то
+            есть (процент рядом), спрятано решение. Теперь показываем и
+            линию, и метку «без вердикта» — видно, что посчитано и что
+            вывод из этого не делается. Причина — в подсказке и текстом
+            внизу карточки: на телефоне тултипов нет. */}
         <span
           className="cursor-help"
           title={
@@ -70,9 +74,14 @@ export function MatchCard({ m }: { m: Prediction }) {
           }
         >
           <span className={m.total_verdict_given ? "" : "opacity-50"}>
-            {m.total_verdict_given ? (over ? "ТБ 2.5" : "ТМ 2.5") : "—"}
+            {over ? "ТБ 2.5" : "ТМ 2.5"}
           </span>{" "}
           <span className="num">{(Math.max(m.over25, m.under25) * 100).toFixed(0)}%</span>
+          {!m.total_verdict_given && (
+            <span className="ml-1.5 rounded bg-line/20 px-1 py-0.5 text-[10px] text-muted">
+              без вердикта
+            </span>
+          )}
         </span>
       </div>
 
@@ -93,10 +102,18 @@ export function MatchCard({ m }: { m: Prediction }) {
       </div>
 
       {/* Причину отказа показываем текстом, а не только подсказкой: молчащий
-          прочерк выглядит как недоделка, а по делу это осознанное решение. */}
+          прочерк выглядит как недоделка, а по делу это осознанное решение.
+          Отдельный блок для тотала нужен, когда исход выдан, а тотал
+          отсеян: в исходном варианте карточка молчала и про тотал тоже. */}
       {!m.verdict_given && (
         <p className="mt-2 border-t border-line/60 pt-2 text-[11px] leading-snug text-muted">
           <span className="text-text">Вердикт не выдан.</span> {reasonShort(m)}
+        </p>
+      )}
+      {!m.total_verdict_given && (
+        <p className={`${m.verdict_given ? "mt-2 border-t border-line/60 pt-2 " : "mt-1 "}text-[11px] leading-snug text-muted`}>
+          <span className="text-text">Тотал 2.5 без вердикта.</span>{" "}
+          {m.total_verdict_reason}
         </p>
       )}
     </Link>

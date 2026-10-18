@@ -185,8 +185,18 @@ export default async function MatchPage({
           Тотал: {over ? "больше 2.5" : "меньше 2.5"} голов с вероятностью{" "}
           <span className="num text-text">
             {(Math.max(m.over25, m.under25) * 100).toFixed(1)}%
-          </span>{" "}
-          · ожидаемый счёт по модели{" "}
+          </span>
+          {/* При отсеве пишем прямо: это расчёт, а не вердикт. Без строчки
+              выше строка читалась бы как рекомендация, хотя модель от
+              выбора воздержалась. */}
+          {!m.total_verdict_given && (
+            <>
+              {" — "}
+              <span className="text-text">без вердикта</span>:{" "}
+              {m.total_verdict_reason}
+            </>
+          )}
+          {" · ожидаемый счёт по модели "}
           <span className="num text-text">
             {m.xg_home.toFixed(2)} : {m.xg_away.toFixed(2)}
           </span>
