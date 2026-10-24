@@ -94,25 +94,6 @@ mkdir -p "$REPO/web/public/data"
   # наши записи. Для web/public/data достаточно копии — там каждый прогон
   # пишет полный срез заново, а до пересчёта сайт показывает данные
   # прошлого успешного прогона, что и требовалось по замыслу.
-  BAK=$(mktemp -d)
-  cp -a data/forecast_log_*.jsonl "$BAK"/ 2>/dev/null || true
-  if [ -d web/public/data ]; then
-    cp -a web/public/data "$BAK"/web_public_data 2>/dev/null || true
-  fi
-
-  git checkout -- data web/public/data 2>/dev/null
-
-  # Если pull всё же не прошёл — это уже не «посчитаем на старом коде»,
-  # а поломка: сайт будет показывать данные по старой логике и выдавать
-  # их за свежие. Поэтому уходим, а не работаем вхолостую.
-  if ! git pull --ff-only origin main 2>&1 | tail -1; then
-    echo "git pull не удался — НЕ считаем на старом коде, данные были бы"
-    echo "показаны как свежие, хотя посчитаны прежней версией модели"
-    rm -rf "$BAK"
-    exit 1
-  fi
-  echo "код обновлён"
-
   # Шаг цикла: имя + команда. Падение любого шага останавливает
   # публикацию — см. комментарий ниже у блока расчёта.
   run_step() {
@@ -124,10 +105,21 @@ mkdir -p "$REPO/web/public/data"
     fi
   }
 
-  # Возврат откаченного. Отдельный шаг, а не строка внутри pull: если он
-  # упадёт, дальше идти нельзя — иначе получим пустой журнал и потерянные
-  # срезы, которые выше и пытались сохранить.
-  run_step "восстановление леджера" $PY - "$BAK" <<'RESTORE_LEDGER' || exit 1
+  BAK=$(mktemp -d)
+  cp -a data/forecast_log_*.jsonl "$BAK"/ 2>/dev/null || true
+  if [ -d web/public/data ]; then
+    cp -a web/public/data "$BAK"/web_public_data 2>/dev/null || true
+  fi
+
+  # Возврат откаченного. Нужен и на пути отказа: если уйти из скрипта,
+  # не вернув леджер, откат останется насовсем — а это ровно та потеря,
+  # ради которой затеяна вся эта схема.
+  restore_bak() {
+    if [ -d "$BAK" ]; then
+      # Не run_step: тот режет вывод до двух строк, а здесь важно видеть
+      # каждую из трёх спортивных веток — иначе пропажа леджера одного
+      # вида спорта осталась бы незамеченной в логе.
+      if ! $PY - "$BAK" 2>&1 <<'RESTORE_LEDGER'
 import glob
 import json
 import os
@@ -137,6 +129,7 @@ sys.path.insert(0, os.getcwd())
 from models import forecast  # noqa: E402  — путь подставляем выше
 
 bak = sys.argv[1]
+bad = 0
 for f in sorted(glob.glob(os.path.join(bak, "forecast_log_*.jsonl"))):
     sport = os.path.basename(f)[len("forecast_log_"):-len(".jsonl")]
     recs = []
@@ -148,19 +141,47 @@ for f in sorted(glob.glob(os.path.join(bak, "forecast_log_*.jsonl"))):
             recs.append(json.loads(line))
         except json.JSONDecodeError:
             # Оборванная строка в бэкапе не должна ронять восстановление
+            bad += 1
             continue
     if recs:
         added = forecast.append(recs, sport=sport)
         print(f"  леджер {sport}: возвращено {len(recs)} записей, "
               f"новых относительно git {added}")
+if bad:
+    print(f"  повреждённых строк в бэкапе пропущено: {bad}")
 RESTORE_LEDGER
+      then
+        echo "СБОЙ: леджер вернуть не удалось — дальше идти нельзя,"
+        echo "иначе откат перед pull уничтожит записи насовсем"
+        rm -rf "$BAK"
+        return 1
+      fi
+      if [ -d "$BAK/web_public_data" ]; then
+        mkdir -p web/public/data
+        cp -a "$BAK/web_public_data/." web/public/data/ 2>/dev/null || true
+        echo "  опубликованные данные возвращены до пересчёта"
+      fi
+      rm -rf "$BAK"
+    fi
+  }
 
-  if [ -d "$BAK/web_public_data" ]; then
-    mkdir -p web/public/data
-    cp -a "$BAK/web_public_data/." web/public/data/ 2>/dev/null || true
-    echo "  опубликованные данные возвращены до пересчёта"
+  git checkout -- data web/public/data 2>/dev/null
+
+  # Если pull всё же не прошёл — это уже не «посчитаем на старом коде»,
+  # а поломка: сайт будет показывать данные по старой логике и выдавать
+  # их за свежие. Поэтому уходим, а не работаем вхолостую.
+  if ! git pull --ff-only origin main 2>&1 | tail -1; then
+    echo "git pull не удался — НЕ считаем на старом коде, данные были бы"
+    echo "показаны как свежие, хотя посчитаны прежней версией модели"
+    restore_bak
+    exit 1
   fi
-  rm -rf "$BAK"
+  echo "код обновлён"
+
+  # Откат пережил pull — возвращаем данные, чтобы сайт не показывал
+  # журнальную статику от 11 октября до пересчёта. Если возврат не удался,
+  # дальше идти нельзя: продолжив, мы бы как раз и потеряли леджер.
+  restore_bak || exit 1
 
   # Дальше каждый шаг обязан довезти данные до публикации. Если сбор или
   # расчёт упали, публиковать нечего: на месте лежат файлы прошлого
