@@ -1,7 +1,7 @@
 {
   "league": "Единая лига ВТБ",
   "season": "2026/27",
-  "generated_at": "2026-10-31T10:41:44+00:00",
+  "generated_at": "2026-10-31T10:53:33+00:00",
   "history_matches": 531,
   "model": "лига: 80.6 очков на команду, дома +1.98, σ_разница=18.96, σ_тотал=16.73, сошёлся=True",
   "draws_possible": false,
@@ -37,7 +37,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 4.96,
-      "hours_before": 27.3
+      "hours_before": 27.1
     },
     {
       "match_id": "1081870",
@@ -63,7 +63,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": -1.35,
-      "hours_before": 25.3
+      "hours_before": 25.1
     },
     {
       "match_id": "1081871",
@@ -89,7 +89,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -7.08,
-      "hours_before": 78.8
+      "hours_before": 78.6
     },
     {
       "match_id": "1081872",
@@ -115,7 +115,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 4.96,
-      "hours_before": 151.3
+      "hours_before": 151.1
     },
     {
       "match_id": "1081873",
@@ -141,7 +141,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 0.28,
-      "hours_before": 173.3
+      "hours_before": 173.1
     },
     {
       "match_id": "1081874",
@@ -167,7 +167,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -1.35,
-      "hours_before": 171.3
+      "hours_before": 171.1
     },
     {
       "match_id": "1081875",
@@ -193,7 +193,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": -0.34,
-      "hours_before": 169.3
+      "hours_before": 169.1
     },
     {
       "match_id": "1081876",
@@ -219,7 +219,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": 4.38,
-      "hours_before": 196.8
+      "hours_before": 196.6
     },
     {
       "match_id": "1081877",
@@ -245,7 +245,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -3.2,
-      "hours_before": 248.3
+      "hours_before": 248.1
     },
     {
       "match_id": "1081878",
@@ -271,7 +271,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -0.34,
-      "hours_before": 272.3
+      "hours_before": 272.1
     },
     {
       "match_id": "1081879",
@@ -297,7 +297,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -7.08,
-      "hours_before": 272.8
+      "hours_before": 272.6
     },
     {
       "match_id": "1081880",
@@ -323,7 +323,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 4.96,
-      "hours_before": 270.8
+      "hours_before": 270.6
     },
     {
       "match_id": "1081882",
@@ -349,7 +349,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -0.34,
-      "hours_before": 339.3
+      "hours_before": 339.1
     },
     {
       "match_id": "1081881",
@@ -375,7 +375,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 0.48,
-      "hours_before": 337.3
+      "hours_before": 337.1
     },
     {
       "match_id": "1081883",
@@ -401,7 +401,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": 6.67,
-      "hours_before": 341.3
+      "hours_before": 341.1
     },
     {
       "match_id": "1081884",
@@ -427,7 +427,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 4.38,
-      "hours_before": 364.3
+      "hours_before": 364.1
     },
     {
       "match_id": "1081887",
@@ -453,7 +453,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -1.61,
-      "hours_before": 440.3
+      "hours_before": 440.1
     },
     {
       "match_id": "1081886",
@@ -479,7 +479,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -7.08,
-      "hours_before": 440.8
+      "hours_before": 440.6
     },
     {
       "match_id": "1081885",
@@ -505,7 +505,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 2.93,
-      "hours_before": 438.8
+      "hours_before": 438.6
     },
     {
       "match_id": "1081889",
@@ -531,7 +531,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 4.38,
-      "hours_before": 507.8
+      "hours_before": 507.6
     },
     {
       "match_id": "1081890",
@@ -557,7 +557,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 0.28,
-      "hours_before": 509.8
+      "hours_before": 509.6
     },
     {
       "match_id": "1081888",
@@ -583,7 +583,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 2.93,
-      "hours_before": 505.8
+      "hours_before": 505.6
     },
     {
       "match_id": "1081892",
@@ -609,7 +609,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -1.61,
-      "hours_before": 531.3
+      "hours_before": 531.1
     },
     {
       "match_id": "1081891",
@@ -635,7 +635,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": 4.96,
-      "hours_before": 534.3
+      "hours_before": 534.1
     },
     {
       "match_id": "1081893",
@@ -661,7 +661,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -1.61,
-      "hours_before": 755.3
+      "hours_before": 755.1
     },
     {
       "match_id": "1081894",
@@ -687,7 +687,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 6.67,
-      "hours_before": 803.3
+      "hours_before": 803.1
     },
     {
       "match_id": "1081896",
@@ -713,7 +713,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 4.38,
-      "hours_before": 828.3
+      "hours_before": 828.1
     },
     {
       "match_id": "1081895",
@@ -739,7 +739,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -7.08,
-      "hours_before": 822.3
+      "hours_before": 822.1
     },
     {
       "match_id": "1081897",
@@ -765,7 +765,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": 2.93,
-      "hours_before": 853.3
+      "hours_before": 853.1
     },
     {
       "match_id": "1081899",
@@ -791,7 +791,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -3.2,
-      "hours_before": 924.3
+      "hours_before": 924.1
     },
     {
       "match_id": "1081900",
@@ -817,7 +817,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 2.93,
-      "hours_before": 921.3
+      "hours_before": 921.1
     },
     {
       "match_id": "1081898",
@@ -843,7 +843,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -1.35,
-      "hours_before": 918.3
+      "hours_before": 918.1
     },
     {
       "match_id": "1081903",
@@ -869,7 +869,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -1.61,
-      "hours_before": 1020.3
+      "hours_before": 1020.1
     },
     {
       "match_id": "1081901",
@@ -895,7 +895,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -3.2,
-      "hours_before": 1021.3
+      "hours_before": 1021.1
     },
     {
       "match_id": "1081902",
@@ -921,7 +921,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 0.48,
-      "hours_before": 1021.3
+      "hours_before": 1021.1
     },
     {
       "match_id": "1081905",
@@ -947,7 +947,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": -1.61,
-      "hours_before": 1092.3
+      "hours_before": 1092.1
     },
     {
       "match_id": "1081904",
@@ -973,7 +973,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -7.08,
-      "hours_before": 1093.3
+      "hours_before": 1093.1
     },
     {
       "match_id": "1081906",
@@ -999,7 +999,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 0.48,
-      "hours_before": 1093.3
+      "hours_before": 1093.1
     },
     {
       "match_id": "1081907",
@@ -1025,7 +1025,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 2.93,
-      "hours_before": 1117.3
+      "hours_before": 1117.1
     },
     {
       "match_id": "1081908",
@@ -1051,7 +1051,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 6.67,
-      "hours_before": 1163.3
+      "hours_before": 1163.1
     },
     {
       "match_id": "1081910",
@@ -1077,7 +1077,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 2.93,
-      "hours_before": 1188.3
+      "hours_before": 1188.1
     },
     {
       "match_id": "1081909",
@@ -1103,7 +1103,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 4.96,
-      "hours_before": 1187.3
+      "hours_before": 1187.1
     },
     {
       "match_id": "1081911",
@@ -1129,7 +1129,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -0.34,
-      "hours_before": 1237.3
+      "hours_before": 1237.1
     },
     {
       "match_id": "1081912",
@@ -1155,7 +1155,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -7.08,
-      "hours_before": 1237.3
+      "hours_before": 1237.1
     },
     {
       "match_id": "1081913",
@@ -1181,7 +1181,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -1.35,
-      "hours_before": 1307.3
+      "hours_before": 1307.1
     },
     {
       "match_id": "1081914",
@@ -1207,7 +1207,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -1.61,
-      "hours_before": 1326.3
+      "hours_before": 1326.1
     },
     {
       "match_id": "1081915",
@@ -1233,7 +1233,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": 6.67,
-      "hours_before": 1357.3
+      "hours_before": 1357.1
     },
     {
       "match_id": "1081917",
@@ -1259,7 +1259,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 4.38,
-      "hours_before": 1547.3
+      "hours_before": 1547.1
     },
     {
       "match_id": "1081918",
@@ -1285,7 +1285,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 4.96,
-      "hours_before": 1542.3
+      "hours_before": 1542.1
     },
     {
       "match_id": "1081916",
@@ -1311,7 +1311,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -1.35,
-      "hours_before": 1549.3
+      "hours_before": 1549.1
     },
     {
       "match_id": "1081919",
@@ -1337,7 +1337,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -3.2,
-      "hours_before": 1571.3
+      "hours_before": 1571.1
     },
     {
       "match_id": "1081920",
@@ -1363,7 +1363,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": -7.08,
-      "hours_before": 1573.3
+      "hours_before": 1573.1
     },
     {
       "match_id": "1081921",
@@ -1389,7 +1389,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -3.2,
-      "hours_before": 1643.3
+      "hours_before": 1643.1
     },
     {
       "match_id": "1081922",
@@ -1415,7 +1415,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 4.38,
-      "hours_before": 1665.3
+      "hours_before": 1665.1
     },
     {
       "match_id": "1081923",
@@ -1441,7 +1441,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 0.28,
-      "hours_before": 1662.3
+      "hours_before": 1662.1
     },
     {
       "match_id": "1081924",
@@ -1467,7 +1467,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 6.67,
-      "hours_before": 1669.3
+      "hours_before": 1669.1
     },
     {
       "match_id": "1081925",
@@ -1493,7 +1493,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 4.96,
-      "hours_before": 1693.3
+      "hours_before": 1693.1
     },
     {
       "match_id": "1081926",
@@ -1519,7 +1519,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 0.28,
-      "hours_before": 1761.3
+      "hours_before": 1761.1
     },
     {
       "match_id": "1081927",
@@ -1545,7 +1545,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -1.35,
-      "hours_before": 1788.3
+      "hours_before": 1788.1
     },
     {
       "match_id": "1081929",
@@ -1571,7 +1571,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 6.67,
-      "hours_before": 1836.3
+      "hours_before": 1836.1
     },
     {
       "match_id": "1081928",
@@ -1597,7 +1597,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 4.96,
-      "hours_before": 1837.3
+      "hours_before": 1837.1
     },
     {
       "match_id": "1081931",
@@ -1623,7 +1623,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 0.48,
-      "hours_before": 1859.3
+      "hours_before": 1859.1
     },
     {
       "match_id": "1081930",
@@ -1649,7 +1649,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": -0.34,
-      "hours_before": 1861.3
+      "hours_before": 1861.1
     },
     {
       "match_id": "1081932",
@@ -1675,7 +1675,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -1.35,
-      "hours_before": 1909.3
+      "hours_before": 1909.1
     },
     {
       "match_id": "1081933",
@@ -1701,7 +1701,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -1.61,
-      "hours_before": 1933.3
+      "hours_before": 1933.1
     },
     {
       "match_id": "1081934",
@@ -1727,7 +1727,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 2.93,
-      "hours_before": 1955.3
+      "hours_before": 1955.1
     },
     {
       "match_id": "1081935",
@@ -1753,7 +1753,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": -0.34,
-      "hours_before": 1980.3
+      "hours_before": 1980.1
     },
     {
       "match_id": "1081936",
@@ -1779,7 +1779,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -7.08,
-      "hours_before": 2003.3
+      "hours_before": 2003.1
     },
     {
       "match_id": "1081939",
@@ -1805,7 +1805,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 4.96,
-      "hours_before": 2025.3
+      "hours_before": 2025.1
     },
     {
       "match_id": "1081937",
@@ -1831,7 +1831,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 2.93,
-      "hours_before": 2029.3
+      "hours_before": 2029.1
     },
     {
       "match_id": "1081938",
@@ -1857,7 +1857,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 6.67,
-      "hours_before": 2029.3
+      "hours_before": 2029.1
     },
     {
       "match_id": "1081941",
@@ -1883,7 +1883,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": 0.28,
-      "hours_before": 2100.3
+      "hours_before": 2100.1
     },
     {
       "match_id": "1081940",
@@ -1909,7 +1909,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 0.48,
-      "hours_before": 2094.3
+      "hours_before": 2094.1
     }
   ]
 }
