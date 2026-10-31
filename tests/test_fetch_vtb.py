@@ -141,6 +141,43 @@ def check_history_cached() -> bool:
     return ok
 
 
+def check_history_fetched_without_cache() -> bool:
+    """Кэша нет (свежий репозиторий, CI) — история качается из сети.
+
+    До исправления исторический сезон ветка сети не трогала вовсе, и в CI
+    fetch_vtb падал на первом же историческом сезоне, унося с собой шаг
+    публикации целиком.
+    """
+    print("\nИстория без кэша загружается из сети:")
+    with tempfile.TemporaryDirectory() as tmp:
+        raw = Path(tmp)
+        fv.RAW = raw
+
+        payload = _payload([_match("9", "ЦСКА", "Зенит", hs=83, as_=74)])
+        fake = _FakeSession(payload)
+        old_session, fv.SESSION = fv.SESSION, fake
+        try:
+            df = fv.fetch_season("2025", "2024/25")
+        finally:
+            fv.SESSION = old_session
+
+        ok = _check("без кэша сеть дёргается", fake.calls, 1)
+        ok &= _check("сезон получен", df.height, 1)
+        ok &= _check("кэш создан для следующих запусков",
+                     (raw / "vtb_2025.json").exists(), True)
+
+        # Второй вызов — уже из кэша: история не перекачивается зря.
+        fake2 = _FakeSession(_payload([]))
+        fv.SESSION = fake2
+        try:
+            again = fv.fetch_season("2025", "2024/25")
+        finally:
+            fv.SESSION = old_session
+        ok &= _check("повторно сеть не трогается", fake2.calls, 0)
+        ok &= _check("второй вызов дал те же данные", again.height, 1)
+    return ok
+
+
 def check_network_failure_is_loud() -> bool:
     """Падение сети нельзя проглатывать: кэш покажется как свежие данные."""
     print("\nПадение сети не скрывается:")
@@ -224,6 +261,7 @@ def main() -> int:
     results = [
         check_current_season_refetched(),
         check_history_cached(),
+        check_history_fetched_without_cache(),
         check_network_failure_is_loud(),
         check_cancelled_not_played(),
     ]
