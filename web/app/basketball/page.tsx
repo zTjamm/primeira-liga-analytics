@@ -97,6 +97,23 @@ export default async function BasketballPage() {
             </Link>
           </p>
         )}
+
+        {/* Вероятности исхода откалиброваны — и это подписано здесь же,
+            где они показываются: иначе читатель сравнивает проценты с
+            прошлыми страницами и не знает, что шкала изменилась. */}
+        {preds.calibration?.applied && (
+          <p className="mt-3 border-l-2 border-line pl-3 text-xs text-muted">
+            Вероятности исхода откалиброваны температурой{" "}
+            <span className="num text-text">T = {preds.calibration.T?.toFixed(4)}</span>:
+            модель занижала уверенность, и без калибровки средний прогноз
+            0.53 давал фактические 0.67 побед. Проверено на данных, где T не
+            подбирался (log-loss 0.66455 → 0.56639, точность не изменилась).
+            Тотал ТБ155 не калиброван — подтверждения нет.{" "}
+            <Link href="/basketball/methodology" className="link underline">
+              Методика
+            </Link>
+          </p>
+        )}
       </section>
 
       {[...byPhase.entries()].map(([phase, matches]) => (

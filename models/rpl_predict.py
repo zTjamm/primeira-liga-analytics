@@ -242,10 +242,17 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
     """Прогноз на каждый предстоящий матч РФПЛ -> web/public/data/rpl_predictions.json.
 
     Вердикт по тому же правилу, что и в португальском футболе: argmax
-    П1/Х/П2 показывается только при вероятности >= 0.55, иначе — отсев
-    с объяснением. Порог здесь НЕ подбирался на РФПЛ (валидации по этой
-    лиге пока нет), поэтому он помечен в файле как перенесённый, а не
-    собственный — честнее скрывать это, чем выдавать за откалиброванный.
+    П1/Х/П2 показывается только при вероятности >= порога, иначе — отсев
+    с объяснением. Порог для РФПЛ теперь СВОЙ, а не перенесённый:
+    models/rpl_selective.py подбирает его на валидационном сезоне 2023/24
+    и проверяет на тестовых 2024/25 и 2025/26 тем же walk-forward, что и
+    в португальском разделе. Значения читаются из отчёта подбора, чтобы
+    сайт и модель не разъезжались: в файле лежит тот порог, по которому
+    реально принималось решение.
+
+    Если отчёта ещё нет (свежий сервер) — работают константы
+    rpl_selective.RPL_*_THRESHOLD, и в шапке файла это подписано как
+    запасной путь, а не как результат подбора.
 
     Помимо файла прогнозов дописывает записи в общий журнал (леджер
     sport="rpl") и пересобирает рпl_journal.json. Леджер обязателен:
@@ -254,7 +261,10 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
     from datetime import datetime, timezone
 
     from . import forecast
-    from .verdict import VERDICT_THRESHOLD, total_verdict, verdict
+    from .verdict import total_verdict, verdict
+    from .rpl_selective import RPL_TOTAL_THRESHOLD, load_thresholds
+
+    out_th, total_th = load_thresholds()
 
     fixtures_path = PROCESSED / "rpl_fixtures.parquet"
     if not fixtures_path.exists():
@@ -290,8 +300,17 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
         team_games_min = min(games_h, games_a)
 
         ok, reason = verdict(conf, team_games=team_games_min,
-                             threshold=VERDICT_THRESHOLD)
-        t_ok, t_reason = total_verdict(p["over25"], threshold=VERDICT_THRESHOLD)
+                             threshold=out_th)
+        if total_th is None:
+            # Подбор порога по тоталу не дал преимущества над игрой без
+            # отсева (models/rpl_selective.py, chosen=None). Вердикт по
+            # тоталу не выдаём вовсе — порог, который ничего не отсекает,
+            # показывал бы «уверенность», которой нет.
+            t_ok, t_reason = False, (
+                "на РФПЛ ни один порог отсева не поднял точность по тоталу "
+                "над игрой без отсева — вердикт не выдаём")
+        else:
+            t_ok, t_reason = total_verdict(p["over25"], threshold=total_th)
 
         # Часы до матча и стадия — через общую функцию журнала, чтобы
         # границы этапов не разъезжались с португальским разделом.
@@ -320,7 +339,8 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
             "total_picked": "over" if p["over25"] >= 0.5 else "under",
             "total_given": t_ok,
             "total_reason": t_reason,
-            "threshold": VERDICT_THRESHOLD,
+            "threshold": out_th,
+            "total_threshold": total_th,
         })
 
         # Запись в леджер — тот же формат, что у остальных видов спорта:
@@ -352,15 +372,37 @@ def write_forecast(dc: DixonColesModel, matches: list[dict]) -> None:
         })
 
     rows.sort(key=lambda x: x["kickoff_utc"])
+
+    # Откуда взялся порог. Если отчёта подбора ещё нет, load_thresholds()
+    # вернул константу по умолчанию — и это должно быть видно в файле,
+    # а не спрятано за словом «подобран».
+    from etl.config import REPORTS
+    report_exists = (REPORTS / "rpl_selective.json").exists()
+    threshold_source = (
+        "подобран на РФПЛ: walk-forward подбор на валидационном сезоне "
+        "2023/24, проверка на тестовых 2024/25 и 2025/26 "
+        "(models/rpl_selective.py)"
+        if report_exists else
+        "запасной путь: отчёт models/rpl_selective.json ещё не сформирован, "
+        "значение по умолчанию"
+    )
+    total_source = (
+        "подобран на РФПЛ отдельно от исхода — тотал у РФПЛ шумливее "
+        "(models/rpl_selective.py)"
+        if report_exists and total_th is not None else
+        ("подбор не дал преимущества над игрой без отсева — вердикт "
+         "по тоталу не выдаётся" if report_exists else "значение по умолчанию")
+    )
+
     out = {
         "sport": "rpl",
         "league": "Российская Премьер-Лига",
         "generated_at": now.isoformat(timespec="seconds"),
         "n_matches_history": len(matches),
-        "threshold": VERDICT_THRESHOLD,
-        # Это не собственный порог лиги, а перенос правила из португальского
-        # футбола: валидация на РФПЛ не проводилась. Пишем прямо.
-        "threshold_source": "перенесён из португальского футбола, на РФПЛ не валидировался",
+        "threshold": out_th,
+        "threshold_source": threshold_source,
+        "total_threshold": total_th,
+        "total_threshold_source": total_source,
         "model": "Dixon-Coles, обученный только на матчах РФПЛ (изолирован от других лиг)",
         "upcoming": rows,
     }

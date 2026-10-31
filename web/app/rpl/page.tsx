@@ -140,7 +140,17 @@ export default async function RplPage() {
           Вердикт выдан у <span className="num text-text">{withVerdict.length}</span> из{" "}
           <span className="num">{upcoming.length}</span>. Порог{" "}
           <span className="num">{file.threshold.toFixed(2)}</span> —{" "}
-          {file.threshold_source}.{" "}
+          {file.threshold_source}{" "}
+          {file.total_threshold != null ? (
+            <>
+              · порог по тоталу{" "}
+              <span className="num">{file.total_threshold.toFixed(2)}</span> —{" "}
+              {file.total_threshold_source}
+            </>
+          ) : (
+            <>· {file.total_threshold_source}</>
+          )}
+          .{" "}
           <Link href="/rpl/methodology" className="link underline">
             Методика
           </Link>

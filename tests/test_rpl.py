@@ -107,11 +107,37 @@ def test_forecast_file() -> list[bool]:
     rows = data["upcoming"]
     ok.append(_check("прогнозы есть", len(rows) > 0, True))
     ok.append(_check_bool("изолированный sport", data["sport"] == "rpl", data.get("sport", "")))
+
+    # Порог обязан быть подписан источником. Допустимы ровно два
+    # честных варианта: собственный подбор на РФПЛ (models/rpl_selective.py)
+    # или явно помеченный запасной путь, когда отчёта ещё нет. Ни молчание,
+    # ни чужая валидация, выданная за свою, здесь не проходят.
+    src = data.get("threshold_source", "")
     ok.append(_check_bool(
-        "порог честно помечен как перенесённый",
-        "не валидировался" in data.get("threshold_source", ""),
-        data.get("threshold_source", ""),
+        "порог подписан источником: подбор на РФПЛ либо запасной путь",
+        ("models/rpl_selective.py" in src)
+        and ("подобран на РФПЛ" in src or "запасной путь" in src),
+        src,
     ))
+    t_src = data.get("total_threshold_source", "")
+    ok.append(_check_bool("источник порога по тоталу подписан отдельно",
+                          bool(t_src) and "тотал" in t_src, t_src))
+
+    # Пороги в шапке и в строках должны совпадать: файл не имеет права
+    # показывать один порог сверху и принимать решения по другому.
+    ok.append(_check("порог в строках = порог в шапке",
+                     {r.get("threshold") for r in rows}, {data["threshold"]}))
+    t_th = data.get("total_threshold")
+    ok.append(_check_bool("total_threshold: число или явный null",
+                          t_th is None or isinstance(t_th, (int, float)),
+                          repr(t_th)))
+    if t_th is not None:
+        wrong_t = [r["match_id"] for r in rows
+                   if r["total_given"] != (max(r["over25"], r["under25"]) >= t_th)]
+        ok.append(_check("вердикт по тоталу соответствует своему порогу",
+                         len(wrong_t), 0))
+        ok.append(_check("порог тотала в строках = в шапке",
+                         {r.get("total_threshold") for r in rows}, {t_th}))
 
     bad_sum = [r for r in rows
                if abs(r["p_home"] + r["p_draw"] + r["p_away"] - 1.0) > 1e-3]
@@ -174,9 +200,17 @@ def test_journal() -> list[bool]:
     if path.exists():
         data = json.loads(path.read_text(encoding="utf-8"))
         ok.append(_check("sport = rpl", data.get("sport"), "rpl"))
-        # Все записи в pending — прогнозы сделаны на будущие матчи
-        ok.append(_check("после старта сыгранных прогнозов нет",
-                         len(data["resolved"]), 0))
+        # Сыгранные матчи в журнале быть МОГУТ и должны сходиться со
+        # сводкой. Раньше здесь стояло «сыгранных нет» — проверка,
+        # годная только на первой неделе проекта: с появлением результатов
+        # она стала бы ругаться на правильное поведение журнала.
+        ok.append(_check("resolved сходится со сводкой",
+                         len(data["resolved"]), data["summary"]["total"]))
+        ok.append(_check_bool(
+            "у сыгранных есть факт и отметка попадания",
+            all(r.get("actual") and r.get("hit") is not None
+                for r in data["resolved"]),
+            "запись без факта или без hit"))
         ok.append(_check_bool("pending заполнен", len(data["pending"]) > 0, "пусто"))
 
     # Ключ тотала в общем модуле: для rpl — over25, а не баскетбольный over_155

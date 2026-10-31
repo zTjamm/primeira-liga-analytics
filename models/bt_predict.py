@@ -10,6 +10,18 @@ matchday из API означает разные вещи в разных фаз�
 даёт крошечную вероятность ничьей из-за дискретности счёта, и мы её не
 скрываем — просто не делаем вид, что это равновероятный исход.
 
+Калибровка. Из всех трёх видов спорта температура подтверждена только
+здесь (models/calibrate.py, applied=true): модель ВТБ систематически
+занижает уверенность — говорит «53%» там, где фактически побеждает 67%.
+На удержанном сезоне log-loss 0.66455 → 0.56639 при неизменной точности
+0.673 → 0.673: меняется шкала, а не порядок исходов. По футбольной и
+РФПЛ- моделям та же проверка показала, что калибровка НЕ помогает, и там
+вероятности остаются сырыми — решение принимается по отчёту, а не по
+желанию.
+
+Тотал over_155 намеренно НЕ калиброван: доказательств его калибровки нет,
+а линия 155 наша собственная, не рыночная. Показываем её как есть.
+
 Запуск:
     python -m models.bt_predict
 """
@@ -22,7 +34,7 @@ import numpy as np
 import polars as pl
 
 from etl.config import CURRENT_SEASON, PROCESSED
-from . import forecast
+from . import forecast, temperature
 from .basketball import BasketballModel
 
 WEEKDAYS = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
@@ -80,6 +92,17 @@ def build() -> dict:
     print(f"Сильнейшие: " + ", ".join(
         f"{_russian_name(names, r["team"])} {r['overall']:+.1f}" for r in model.strength()[:4]))
 
+    # Температура из отчёта калибровки. None — законная ситуация: отчёта
+    # ещё нет либо проверка показала, что калибровка не помогает. Тогда
+    # работают сырые вероятности, и в файле это подписывается явно.
+    calib_t = temperature.load_temperature("basketball")
+    if calib_t is not None:
+        print(f"Калибровка: температура T={calib_t:.4f} "
+              "(data/reports/calibration.json, applied=true)")
+    else:
+        print("Калибровка: не применяется (отчёта нет или проверка "
+              "калибровку не подтвердила) — вероятности сырые")
+
     now = datetime.now(timezone.utc)
     rows: list[dict] = []
     bt_ledger: list[dict] = []
@@ -87,7 +110,8 @@ def build() -> dict:
         for t in (f["home_id"], f["away_id"]):
             model.attack.setdefault(t, 0.0)
             model.defence.setdefault(t, 0.0)
-        probs = model.predict_1x2(f["home_id"], f["away_id"])
+        probs = temperature.apply(
+            list(model.predict_1x2(f["home_id"], f["away_id"])), calib_t)
         eh, eas = model.predicted_scores(f["home_id"], f["away_id"])
         kickoff = f.get("kickoff_msk") or ""
         try:
@@ -157,6 +181,17 @@ def build() -> dict:
         "history_matches": played.height,
         "model": model.summary(),
         "draws_possible": False,
+        # Калибровка показана в файле, а не спрятана в коде: сайт и
+        # журнал должны знать, откуда взялся масштаб вероятностей.
+        "calibration": {
+            "applied": calib_t is not None,
+            "T": calib_t,
+            "method": "температура T: q_i = p_i^(1/T) / сумма, "
+                      "порядок исходов не меняется, argmax тот же",
+            "source": "data/reports/calibration.json (models/calibrate.py)",
+            "note": "over_155 НЕ калиброван: подтверждения нет, "
+                    "линия 155 наша, а не рыночная",
+        },
         "upcoming": rows,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 

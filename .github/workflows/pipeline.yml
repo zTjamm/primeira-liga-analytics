@@ -165,19 +165,37 @@ jobs:
       - name: Собрать Единую лигу ВТБ
         # API лиги не требует токена, поэтому шаг работает даже если
         # секрет football-data.org по какой-то причине недоступен.
+        # models.bt_predict сознательно вынесен ниже, в общий шаг
+        # прогнозов: ему нужен отчёт калибровки (calibration.json),
+        # который считается после загрузки всех трёх источников.
         if: steps.gate.outputs.needs == 'true'
-        run: |
-          python -m etl.fetch_vtb
-          python -m models.bt_predict
+        run: python -m etl.fetch_vtb
 
       - name: Собрать РФПЛ
         # Изолированный пайплайн: свои данные (football-data.co.uk +
         # официальный API premierliga.ru), своя модель, свой файл
-        # прогнозов. Токен не нужен.
+        # прогнозов. Токен не нужен. models.rpl_predict тоже вынесен
+        # в общий шаг прогнозов — ему нужен отчёт подбора порогов
+        # rpl_selective.json.
         if: steps.gate.outputs.needs == 'true'
+        run: python -m etl.fetch_rpl
+
+      - name: Калибровка вероятностей и пороги РФПЛ
+        if: steps.gate.outputs.backtest == 'true'
+        # Тяжёлые отчёты (~4 и ~1.5 минуты), поэтому не каждый прогон,
+        # а раз в 6 часов — как остальные отчёты о качестве. Оба стоят
+        # ДО прогнозов: bt_predict/rpl_predict читают их и берут оттуда
+        # температуру и пороги. Если отчёта ещё нет (свежий репозиторий),
+        # прод честно работает на константах и подписывает это в файле.
+        #
+        # Правило внедрения калибровки записано в models/calibrate.py до
+        # запуска: применяется только если log-loss на данных, на которых
+        # T не подбирался, стал меньше. Сейчас applied=true только у
+        # баскетбола; футбол и РФПЛ проверка отвергла — и это остаётся
+        # в отчёте, а не выбрасывается.
         run: |
-          python -m etl.fetch_rpl
-          python -m models.rpl_predict
+          python -m models.calibrate
+          python -m models.rpl_selective
 
       - name: Калибровка снятия маржи
         if: steps.gate.outputs.needs == 'true'
@@ -225,7 +243,23 @@ jobs:
         if: steps.gate.outputs.needs == 'true'
         env:
           FD_ORG_TOKEN: ${{ secrets.FD_ORG_TOKEN }}
-        run: python -m models.predict
+        # Порядок внутри шага не случаен: все три пайплайна читают
+        # отчёты калибровки и подбора порогов, посчитанные выше.
+        run: |
+          python -m models.bt_predict
+          python -m models.rpl_predict
+          python -m models.predict
+
+      - name: Тесты
+        # Все проверки вместе занимают меньше десяти секунд, поэтому
+        # гоняются на каждом прогоне, а не только на тяжёлых отчётах.
+        # Стоят после прогнозов: часть проверок сверяет файлы витрины,
+        # которые появляются только после расчёта.
+        if: steps.gate.outputs.needs == 'true'
+        run: |
+          for t in test_asian test_ci test_fetch_vtb test_forecast test_rpl test_calibrate; do
+            python -m tests.$t
+          done
 
       - name: Бэктесты
         # Метрики на сезонных данных не меняются чаще раза в сутки,
@@ -258,7 +292,10 @@ jobs:
             data/reports/team_diagnostics.json \
             data/reports/feature_study.json \
             data/reports/league_scan.json \
+            data/reports/calibration.json \
+            data/reports/rpl_selective.json \
             data/forecast_log_football.jsonl \
+            data/forecast_log_rpl.jsonl \
             data/reports/vtb_ingest.json \
             data/reports/vtb_backtest.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"
@@ -274,7 +311,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add web/public/data data/forecast_log_football.jsonl data/forecast_log_basketball.jsonl
+          git add web/public/data \
+            data/forecast_log_football.jsonl \
+            data/forecast_log_basketball.jsonl \
+            data/forecast_log_rpl.jsonl \
+            data/reports/calibration.json \
+            data/reports/rpl_selective.json
           if git diff --cached --quiet; then
             echo "изменений нет"
           else

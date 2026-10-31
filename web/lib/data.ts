@@ -129,6 +129,20 @@ export interface VtbPredictionsFile {
   history_matches: number;
   model: string;
   draws_possible: boolean;
+  /**
+   * Температурная калибровка вероятностей исхода. Единственный вид
+   * спорта, где она подтверждена вне выборки: на удержанном сезоне
+   * log-loss 0.66455 → 0.56639 при неизменной точности. Футбольная и
+   * РФПЛ- калибровка проверялась тем же способом и НЕ помогла, там
+   * вероятности сырые (data/reports/calibration.json).
+   */
+  calibration?: {
+    applied: boolean;
+    T: number | null;
+    method: string;
+    source: string;
+    note: string;
+  };
   upcoming: VtbPrediction[];
 }
 
@@ -336,6 +350,9 @@ export interface RplPrediction {
   total_given: boolean;
   total_reason: string;
   threshold: number;
+  /** Порог по тоталу отдельный от исхода: тотал у РФПЛ шумливее.
+   *  null — подбор порога не дал преимущества, вердикт не выдаётся. */
+  total_threshold?: number | null;
 }
 
 export interface RplPredictionsFile {
@@ -344,9 +361,12 @@ export interface RplPredictionsFile {
   generated_at: string;
   n_matches_history: number;
   threshold: number;
-  /** Честная оговорка: порог не подбирался на РФПЛ, а перенесён.
-   *  Скрывать это значило бы выдавать чужую валидацию за свою. */
+  /** Откуда взялся порог: подбор на РФПЛ (walk-forward, валидация
+   *  2023/24, тест 2024/25 и 2025/26) или запасной путь, если отчёта
+   *  models/rpl_selective.json ещё нет. */
   threshold_source: string;
+  total_threshold: number | null;
+  total_threshold_source: string;
   model: string;
   upcoming: RplPrediction[];
 }
