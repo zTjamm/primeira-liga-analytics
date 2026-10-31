@@ -1,5 +1,5 @@
 {
- "n_matches": 3496,
+ "n_matches": 3497,
  "teams": [
   {
    "team": "Zenit",
@@ -9,225 +9,225 @@
   },
   {
    "team": "Krasnodar",
-   "attack": 0.419,
-   "defence": 0.192,
+   "attack": 0.42,
+   "defence": 0.191,
    "overall": 0.611
   },
   {
    "team": "Spartak Moscow",
-   "attack": 0.332,
+   "attack": 0.334,
    "defence": 0.165,
-   "overall": 0.497
+   "overall": 0.499
   },
   {
    "team": "Dynamo Moscow",
-   "attack": 0.354,
+   "attack": 0.355,
    "defence": 0.083,
-   "overall": 0.437
+   "overall": 0.438
   },
   {
    "team": "CSKA Moscow",
-   "attack": 0.242,
+   "attack": 0.243,
    "defence": 0.147,
-   "overall": 0.389
+   "overall": 0.39
   },
   {
    "team": "Baltika",
-   "attack": 0.025,
+   "attack": 0.027,
    "defence": 0.242,
-   "overall": 0.267
+   "overall": 0.269
   },
   {
    "team": "Lokomotiv Moscow",
-   "attack": 0.264,
-   "defence": -0.036,
+   "attack": 0.265,
+   "defence": -0.037,
    "overall": 0.228
   },
   {
    "team": "Amkar",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "FK Anzi Makhackala",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": -0.0
   },
   {
    "team": "Kuban",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "M. Saransk",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Spartak Nalchik",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "T. Moscow",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Tomsk",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Tosno",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Vladikavkaz",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Volga N. Novgorod",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "Volgar-Astrakhan",
-   "attack": -0.05,
-   "defence": 0.05,
+   "attack": -0.048,
+   "defence": 0.048,
    "overall": 0.0
   },
   {
    "team": "SKA Khabarovsk",
-   "attack": -0.051,
-   "defence": 0.049,
+   "attack": -0.049,
+   "defence": 0.048,
    "overall": -0.001
   },
   {
    "team": "R. Volgograd",
-   "attack": -0.051,
-   "defence": 0.049,
-   "overall": -0.002
+   "attack": -0.049,
+   "defence": 0.047,
+   "overall": -0.003
   },
   {
    "team": "Ufa",
-   "attack": -0.051,
-   "defence": 0.048,
+   "attack": -0.049,
+   "defence": 0.046,
    "overall": -0.003
   },
   {
    "team": "Tambov",
-   "attack": -0.051,
-   "defence": 0.047,
+   "attack": -0.049,
+   "defence": 0.045,
    "overall": -0.004
   },
   {
    "team": "Yenisey",
-   "attack": -0.056,
-   "defence": 0.046,
+   "attack": -0.055,
+   "defence": 0.044,
    "overall": -0.011
   },
   {
    "team": "Arsenal Tula",
-   "attack": -0.058,
-   "defence": 0.031,
+   "attack": -0.056,
+   "defence": 0.03,
    "overall": -0.027
   },
   {
    "team": "Torpedo Moscow",
-   "attack": -0.064,
-   "defence": 0.01,
+   "attack": -0.062,
+   "defence": 0.008,
    "overall": -0.054
   },
   {
    "team": "Akhmat Grozny",
-   "attack": 0.002,
+   "attack": 0.004,
    "defence": -0.07,
-   "overall": -0.068
+   "overall": -0.066
   },
   {
    "team": "Krylya Sovetov",
-   "attack": 0.097,
+   "attack": 0.099,
    "defence": -0.17,
-   "overall": -0.073
+   "overall": -0.071
   },
   {
    "team": "Orenburg",
-   "attack": -0.091,
+   "attack": -0.089,
    "defence": 0.017,
-   "overall": -0.074
+   "overall": -0.072
   },
   {
    "team": "Ural",
-   "attack": -0.067,
-   "defence": -0.008,
-   "overall": -0.076
+   "attack": -0.065,
+   "defence": -0.009,
+   "overall": -0.075
   },
   {
    "team": "FK Rostov",
-   "attack": -0.142,
-   "defence": 0.055,
-   "overall": -0.087
+   "attack": -0.14,
+   "defence": 0.054,
+   "overall": -0.085
   },
   {
    "team": "Rubin Kazan",
-   "attack": -0.137,
-   "defence": 0.034,
-   "overall": -0.103
+   "attack": -0.149,
+   "defence": 0.056,
+   "overall": -0.093
   },
   {
    "team": "Akron Togliatti",
-   "attack": 0.058,
-   "defence": -0.302,
-   "overall": -0.244
+   "attack": 0.059,
+   "defence": -0.301,
+   "overall": -0.242
   },
   {
    "team": "Khimki",
-   "attack": -0.037,
+   "attack": -0.035,
    "defence": -0.212,
-   "overall": -0.249
+   "overall": -0.248
   },
   {
    "team": "Dynamo Makhachkala",
-   "attack": -0.138,
+   "attack": -0.137,
    "defence": -0.166,
-   "overall": -0.305
+   "overall": -0.303
   },
   {
    "team": "Sochi",
-   "attack": -0.057,
+   "attack": -0.056,
    "defence": -0.266,
-   "overall": -0.323
+   "overall": -0.322
   },
   {
    "team": "Pari NN",
-   "attack": -0.143,
-   "defence": -0.241,
-   "overall": -0.385
+   "attack": -0.142,
+   "defence": -0.24,
+   "overall": -0.382
   },
   {
    "team": "Rodina Moscow",
-   "attack": -0.041,
-   "defence": -0.462,
-   "overall": -0.503
+   "attack": -0.038,
+   "defence": -0.464,
+   "overall": -0.502
   },
   {
    "team": "Fakel Voronezh",
-   "attack": -0.474,
-   "defence": -0.189,
-   "overall": -0.663
+   "attack": -0.522,
+   "defence": -0.174,
+   "overall": -0.696
   }
  ]
 }
