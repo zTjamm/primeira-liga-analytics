@@ -251,13 +251,13 @@ jobs:
           python -m models.predict
 
       - name: Тесты
-        # Все проверки вместе занимают меньше десяти секунд, поэтому
-        # гоняются на каждом прогоне, а не только на тяжёлых отчётах.
-        # Стоят после прогнозов: часть проверок сверяет файлы витрины,
-        # которые появляются только после расчёта.
+        # Все проверки вместе укладываются в порядка десяти секунд,
+        # поэтому гоняются на каждом прогоне, а не только на тяжёлых
+        # отчётах. Стоят после прогнозов: часть проверок сверяет файлы
+        # витрины, которые появляются только после расчёта.
         if: steps.gate.outputs.needs == 'true'
         run: |
-          for t in test_asian test_ci test_fetch_vtb test_forecast test_rpl test_calibrate; do
+          for t in test_asian test_ci test_deploy test_fetch_vtb test_forecast test_rpl test_calibrate; do
             python -m tests.$t
           done
 

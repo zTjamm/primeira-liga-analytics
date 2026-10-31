@@ -159,6 +159,16 @@ RESTORE_LEDGER
         cp -a "$BAK/web_public_data/." web/public/data/ 2>/dev/null || true
         echo "  опубликованные данные возвращены до пересчёта"
       fi
+      # Файлы, которых у нас не было (upstream добавляет новые), мы перед
+      # merge убирали, чтобы git не спотыкался об untracked. Если merge
+      # не состоялся, они просто исчезли бы — возвращаем те, которых
+      # сейчас нет. -n (без перезаписи) принципиален: после успешного
+      # merge такие файлы уже пришли из git, и наши старые копии поверх
+      # них класть нельзя. Леджер сюда же не попадает: после merge он
+      # существует и был восстановлен слиянием выше.
+      if [ -d "$BAK/upstream_new" ]; then
+        cp -an "$BAK/upstream_new/." . 2>/dev/null || true
+      fi
       rm -rf "$BAK"
     fi
   }
@@ -186,8 +196,33 @@ RESTORE_LEDGER
   if [ -n "$CHANGED" ]; then
     echo "upstream правит данные — откатываем только их:"
     echo "$CHANGED"
-    # shellcheck disable=SC2086  — слова из git нужно разобрать, а не экранировать
-    git checkout HEAD -- $CHANGED 2>/dev/null || true
+    # Откатываем по одному, потому что два случая разные.
+    #
+    # Файл есть в HEAD: обычный `git checkout HEAD -- путь`.
+    #
+    # Файла в HEAD нет (upstream его добавляет): git checkout молча
+    # ничего не делает — pathspec не находит ничего в HEAD, и в рабочем
+    # каталоге остаётся НЕОТСЛЕЖИВАЕМЫЙ файл. Дальше merge обязан на нём
+    # споткнуться: «untracked working tree files would be overwritten».
+    # Так и произошло 31 октября — data/forecast_log_rpl.jsonl до
+    # коммита 3819ec8 в git не входил, сервер его вёл сам, и цикл
+    # ушёл в бесконечный abort, оставаясь на старом коде.
+    #
+    # Поэтому такие файлы убираем сами, но копию кладём в $BAK: леджер
+    # вернётся слиянием в restore_bak, а остальное — из upstream_new.
+    while IFS= read -r f; do
+      [ -n "$f" ] || continue
+      if git cat-file -e "HEAD:$f" 2>/dev/null; then
+        git checkout HEAD -- "$f" 2>/dev/null || true
+      elif [ -e "$f" ]; then
+        mkdir -p "$BAK/upstream_new/$(dirname "$f")"
+        cp -a "$f" "$BAK/upstream_new/$f" 2>/dev/null || true
+        rm -f "$f"
+        echo "  убран неотслеживаемый $f (вернётся в restore_bak)"
+      fi
+    done <<EOF
+$CHANGED
+EOF
   fi
 
   if ! git merge --ff-only FETCH_HEAD 2>&1 | tail -1; then
