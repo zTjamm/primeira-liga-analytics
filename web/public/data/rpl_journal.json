@@ -1,6 +1,6 @@
 {
   "sport": "rpl",
-  "generated_at": "2026-10-31T10:32:32+00:00",
+  "generated_at": "2026-10-31T10:41:46+00:00",
   "resolved": [
     {
       "key": "rpl_16328",
@@ -819,8 +819,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Rubin Kazan",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4.55,
       "stage": "T-6h",
       "p_home": 0.5293,
       "p_draw": 0.3173,
@@ -849,8 +849,8 @@
           "p_home": 0.5293,
           "p_draw": 0.3173,
           "p_away": 0.1534,
-          "hours_before": 4.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -863,8 +863,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Dynamo Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 6.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 6.8,
       "stage": "T-6h",
       "p_home": 0.5952,
       "p_draw": 0.2438,
@@ -893,8 +893,8 @@
           "p_home": 0.5952,
           "p_draw": 0.2438,
           "p_away": 0.161,
-          "hours_before": 6.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 6.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -907,8 +907,8 @@
       "away_id": "Krasnodar",
       "home_name": "Rodina Moscow",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 9.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 9.05,
       "stage": "T-6h",
       "p_home": 0.1284,
       "p_draw": 0.1964,
@@ -937,8 +937,8 @@
           "p_home": 0.1284,
           "p_draw": 0.1964,
           "p_away": 0.6752,
-          "hours_before": 9.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 9.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -951,8 +951,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Orenburg",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 26.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 26.3,
       "stage": "T-24h",
       "p_home": 0.2761,
       "p_draw": 0.3196,
@@ -981,8 +981,8 @@
           "p_home": 0.2761,
           "p_draw": 0.3196,
           "p_away": 0.4043,
-          "hours_before": 26.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 26.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -995,8 +995,8 @@
       "away_id": "FK Rostov",
       "home_name": "Dynamo Makhachkala",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 28.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 28.55,
       "stage": "T-24h",
       "p_home": 0.3347,
       "p_draw": 0.3384,
@@ -1025,8 +1025,8 @@
           "p_home": 0.3347,
           "p_draw": 0.3384,
           "p_away": 0.3269,
-          "hours_before": 28.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 28.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1039,8 +1039,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Baltika",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 30.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 30.8,
       "stage": "T-24h",
       "p_home": 0.5767,
       "p_draw": 0.2623,
@@ -1069,8 +1069,8 @@
           "p_home": 0.5767,
           "p_draw": 0.2623,
           "p_away": 0.161,
-          "hours_before": 30.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 30.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1083,8 +1083,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 33.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 33.05,
       "stage": "T-24h",
       "p_home": 0.347,
       "p_draw": 0.2819,
@@ -1113,8 +1113,8 @@
           "p_home": 0.347,
           "p_draw": 0.2819,
           "p_away": 0.3711,
-          "hours_before": 33.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 33.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1127,8 +1127,8 @@
       "away_id": "Zenit",
       "home_name": "Krylya Sovetov",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 55.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 55.3,
       "stage": "T-24h",
       "p_home": 0.1763,
       "p_draw": 0.2496,
@@ -1157,8 +1157,8 @@
           "p_home": 0.1763,
           "p_draw": 0.2496,
           "p_away": 0.5741,
-          "hours_before": 55.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 55.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1171,8 +1171,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 152.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 152.8,
       "stage": "T-72h+",
       "p_home": 0.5182,
       "p_draw": 0.2832,
@@ -1193,8 +1193,8 @@
           "p_home": 0.5182,
           "p_draw": 0.2832,
           "p_away": 0.1987,
-          "hours_before": 152.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 152.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1207,15 +1207,15 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Fakel Voronezh",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 171.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 171.3,
       "stage": "T-72h+",
       "p_home": 0.1389,
       "p_draw": 0.262,
       "p_away": 0.5991,
       "extra": {
         "over25": 0.4417,
-        "xg_home": 0.722,
+        "xg_home": 0.723,
         "xg_away": 1.721,
         "team_games": 104,
         "verdict_given": true,
@@ -1229,8 +1229,8 @@
           "p_home": 0.1389,
           "p_draw": 0.262,
           "p_away": 0.5991,
-          "hours_before": 171.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 171.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1243,8 +1243,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 173.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 173.8,
       "stage": "T-72h+",
       "p_home": 0.5869,
       "p_draw": 0.2382,
@@ -1265,8 +1265,8 @@
           "p_home": 0.5869,
           "p_draw": 0.2382,
           "p_away": 0.1749,
-          "hours_before": 173.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 173.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1279,8 +1279,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Krasnodar",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 176.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 176.8,
       "stage": "T-72h+",
       "p_home": 0.4993,
       "p_draw": 0.2753,
@@ -1301,8 +1301,8 @@
           "p_home": 0.4993,
           "p_draw": 0.2753,
           "p_away": 0.2255,
-          "hours_before": 176.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 176.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1315,8 +1315,8 @@
       "away_id": "Orenburg",
       "home_name": "Krylya Sovetov",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 195.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 195.3,
       "stage": "T-72h+",
       "p_home": 0.4161,
       "p_draw": 0.3038,
@@ -1337,8 +1337,8 @@
           "p_home": 0.4161,
           "p_draw": 0.3038,
           "p_away": 0.2801,
-          "hours_before": 195.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 195.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1351,8 +1351,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Spartak Moscow",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 197.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 197.55,
       "stage": "T-72h+",
       "p_home": 0.6916,
       "p_draw": 0.1946,
@@ -1373,8 +1373,8 @@
           "p_home": 0.6916,
           "p_draw": 0.1946,
           "p_away": 0.1138,
-          "hours_before": 197.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 197.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1387,8 +1387,8 @@
       "away_id": "FK Rostov",
       "home_name": "Zenit",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 199.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 199.8,
       "stage": "T-72h+",
       "p_home": 0.671,
       "p_draw": 0.2311,
@@ -1409,8 +1409,8 @@
           "p_home": 0.671,
           "p_draw": 0.2311,
           "p_away": 0.0978,
-          "hours_before": 199.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 199.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1423,8 +1423,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Baltika",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 202.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 202.05,
       "stage": "T-72h+",
       "p_home": 0.5608,
       "p_draw": 0.288,
@@ -1445,8 +1445,8 @@
           "p_home": 0.5608,
           "p_draw": 0.288,
           "p_away": 0.1512,
-          "hours_before": 202.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 202.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1459,8 +1459,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "FK Rostov",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 488.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 488.8,
       "stage": "T-72h+",
       "p_home": 0.4056,
       "p_draw": 0.3124,
@@ -1481,8 +1481,8 @@
           "p_home": 0.4056,
           "p_draw": 0.3124,
           "p_away": 0.282,
-          "hours_before": 488.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 488.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1495,8 +1495,8 @@
       "away_id": "Baltika",
       "home_name": "Orenburg",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 506.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 506.3,
       "stage": "T-72h+",
       "p_home": 0.2964,
       "p_draw": 0.3522,
@@ -1517,8 +1517,8 @@
           "p_home": 0.2964,
           "p_draw": 0.3522,
           "p_away": 0.3515,
-          "hours_before": 506.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 506.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1531,8 +1531,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Akron Togliatti",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 508.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 508.55,
       "stage": "T-72h+",
       "p_home": 0.5408,
       "p_draw": 0.2793,
@@ -1553,8 +1553,8 @@
           "p_home": 0.5408,
           "p_draw": 0.2793,
           "p_away": 0.1798,
-          "hours_before": 508.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 508.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1567,8 +1567,8 @@
       "away_id": "Zenit",
       "home_name": "Rubin Kazan",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 510.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 510.8,
       "stage": "T-72h+",
       "p_home": 0.171,
       "p_draw": 0.2882,
@@ -1589,8 +1589,8 @@
           "p_home": 0.171,
           "p_draw": 0.2882,
           "p_away": 0.5408,
-          "hours_before": 510.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 510.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1603,8 +1603,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "CSKA Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 513.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 513.05,
       "stage": "T-72h+",
       "p_home": 0.5617,
       "p_draw": 0.2664,
@@ -1625,8 +1625,8 @@
           "p_home": 0.5617,
           "p_draw": 0.2664,
           "p_away": 0.1719,
-          "hours_before": 513.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 513.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1639,8 +1639,8 @@
       "away_id": "Krasnodar",
       "home_name": "Dynamo Moscow",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 531.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 531.3,
       "stage": "T-72h+",
       "p_home": 0.3792,
       "p_draw": 0.2792,
@@ -1661,8 +1661,8 @@
           "p_home": 0.3792,
           "p_draw": 0.2792,
           "p_away": 0.3416,
-          "hours_before": 531.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 531.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1675,8 +1675,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 533.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 533.8,
       "stage": "T-72h+",
       "p_home": 0.1973,
       "p_draw": 0.2762,
@@ -1697,8 +1697,8 @@
           "p_home": 0.1973,
           "p_draw": 0.2762,
           "p_away": 0.5265,
-          "hours_before": 533.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 533.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1711,8 +1711,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 536.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 536.3,
       "stage": "T-72h+",
       "p_home": 0.2156,
       "p_draw": 0.2358,
@@ -1733,8 +1733,8 @@
           "p_home": 0.2156,
           "p_draw": 0.2358,
           "p_away": 0.5486,
-          "hours_before": 536.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 536.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1747,8 +1747,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Rubin Kazan",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 675.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 675.3,
       "stage": "T-72h+",
       "p_home": 0.4624,
       "p_draw": 0.2933,
@@ -1769,8 +1769,8 @@
           "p_home": 0.4624,
           "p_draw": 0.2933,
           "p_away": 0.2442,
-          "hours_before": 675.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 675.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1783,8 +1783,8 @@
       "away_id": "Zenit",
       "home_name": "CSKA Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 677.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 677.8,
       "stage": "T-72h+",
       "p_home": 0.2895,
       "p_draw": 0.3013,
@@ -1805,8 +1805,8 @@
           "p_home": 0.2895,
           "p_draw": 0.3013,
           "p_away": 0.4092,
-          "hours_before": 677.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 677.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1819,8 +1819,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Baltika",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 680.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 680.3,
       "stage": "T-72h+",
       "p_home": 0.4944,
       "p_draw": 0.3092,
@@ -1841,8 +1841,8 @@
           "p_home": 0.4944,
           "p_draw": 0.3092,
           "p_away": 0.1964,
-          "hours_before": 680.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 680.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1855,8 +1855,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Orenburg",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 698.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 698.3,
       "stage": "T-72h+",
       "p_home": 0.5674,
       "p_draw": 0.2555,
@@ -1877,8 +1877,8 @@
           "p_home": 0.5674,
           "p_draw": 0.2555,
           "p_away": 0.1771,
-          "hours_before": 698.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 698.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1891,11 +1891,11 @@
       "away_id": "Krasnodar",
       "home_name": "FK Rostov",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 700.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 700.55,
       "stage": "T-72h+",
       "p_home": 0.2197,
-      "p_draw": 0.3011,
+      "p_draw": 0.301,
       "p_away": 0.4793,
       "extra": {
         "over25": 0.415,
@@ -1911,10 +1911,10 @@
         {
           "stage": "T-72h+",
           "p_home": 0.2197,
-          "p_draw": 0.3011,
+          "p_draw": 0.301,
           "p_away": 0.4793,
-          "hours_before": 700.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 700.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1927,12 +1927,12 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 702.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 702.8,
       "stage": "T-72h+",
       "p_home": 0.2758,
       "p_draw": 0.2683,
-      "p_away": 0.4558,
+      "p_away": 0.4559,
       "extra": {
         "over25": 0.5696,
         "xg_home": 1.279,
@@ -1948,9 +1948,9 @@
           "stage": "T-72h+",
           "p_home": 0.2758,
           "p_draw": 0.2683,
-          "p_away": 0.4558,
-          "hours_before": 702.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "p_away": 0.4559,
+          "hours_before": 702.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1963,8 +1963,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 705.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 705.05,
       "stage": "T-72h+",
       "p_home": 0.6027,
       "p_draw": 0.2418,
@@ -1985,8 +1985,8 @@
           "p_home": 0.6027,
           "p_draw": 0.2418,
           "p_away": 0.1555,
-          "hours_before": 705.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 705.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -1999,8 +1999,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Fakel Voronezh",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 728.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 728.8,
       "stage": "T-72h+",
       "p_home": 0.1298,
       "p_draw": 0.2646,
@@ -2021,8 +2021,8 @@
           "p_home": 0.1298,
           "p_draw": 0.2646,
           "p_away": 0.6056,
-          "hours_before": 728.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 728.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2035,8 +2035,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 824.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 824.8,
       "stage": "T-72h+",
       "p_home": 0.3515,
       "p_draw": 0.2969,
@@ -2057,8 +2057,8 @@
           "p_home": 0.3515,
           "p_draw": 0.2969,
           "p_away": 0.3516,
-          "hours_before": 824.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 824.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2071,8 +2071,8 @@
       "away_id": "Orenburg",
       "home_name": "Akron Togliatti",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 842.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 842.3,
       "stage": "T-72h+",
       "p_home": 0.3682,
       "p_draw": 0.3004,
@@ -2093,8 +2093,8 @@
           "p_home": 0.3682,
           "p_draw": 0.3004,
           "p_away": 0.3314,
-          "hours_before": 842.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 842.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2107,8 +2107,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 844.71,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 844.55,
       "stage": "T-72h+",
       "p_home": 0.1765,
       "p_draw": 0.237,
@@ -2129,8 +2129,8 @@
           "p_home": 0.1765,
           "p_draw": 0.237,
           "p_away": 0.5866,
-          "hours_before": 844.71,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 844.55,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2143,8 +2143,8 @@
       "away_id": "Baltika",
       "home_name": "Zenit",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 846.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 846.8,
       "stage": "T-72h+",
       "p_home": 0.5646,
       "p_draw": 0.2818,
@@ -2165,8 +2165,8 @@
           "p_home": 0.5646,
           "p_draw": 0.2818,
           "p_away": 0.1535,
-          "hours_before": 846.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 846.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2179,8 +2179,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 849.21,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 849.05,
       "stage": "T-72h+",
       "p_home": 0.3353,
       "p_draw": 0.2899,
@@ -2201,8 +2201,8 @@
           "p_home": 0.3353,
           "p_draw": 0.2899,
           "p_away": 0.3748,
-          "hours_before": 849.21,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 849.05,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2215,8 +2215,8 @@
       "away_id": "FK Rostov",
       "home_name": "Fakel Voronezh",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 867.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 867.8,
       "stage": "T-72h+",
       "p_home": 0.2377,
       "p_draw": 0.3586,
@@ -2237,8 +2237,8 @@
           "p_home": 0.2377,
           "p_draw": 0.3586,
           "p_away": 0.4037,
-          "hours_before": 867.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 867.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2251,8 +2251,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 870.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 870.3,
       "stage": "T-72h+",
       "p_home": 0.4538,
       "p_draw": 0.2762,
@@ -2273,8 +2273,8 @@
           "p_home": 0.4538,
           "p_draw": 0.2762,
           "p_away": 0.27,
-          "hours_before": 870.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 870.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2287,8 +2287,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Krasnodar",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 872.96,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 872.8,
       "stage": "T-72h+",
       "p_home": 0.6303,
       "p_draw": 0.2445,
@@ -2309,8 +2309,8 @@
           "p_home": 0.6303,
           "p_draw": 0.2445,
           "p_away": 0.1252,
-          "hours_before": 872.96,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 872.8,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2323,8 +2323,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Dynamo Moscow",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.5817,
       "p_draw": 0.2628,
@@ -2345,8 +2345,8 @@
           "p_home": 0.5817,
           "p_draw": 0.2628,
           "p_away": 0.1555,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2359,8 +2359,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.3409,
       "p_draw": 0.2731,
@@ -2381,8 +2381,8 @@
           "p_home": 0.3409,
           "p_draw": 0.2731,
           "p_away": 0.3859,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2395,8 +2395,8 @@
       "away_id": "Orenburg",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.335,
       "p_draw": 0.3304,
@@ -2417,8 +2417,8 @@
           "p_home": 0.335,
           "p_draw": 0.3304,
           "p_away": 0.3346,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2431,8 +2431,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Baltika",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.664,
       "p_draw": 0.2218,
@@ -2453,8 +2453,8 @@
           "p_home": 0.664,
           "p_draw": 0.2218,
           "p_away": 0.1143,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2467,8 +2467,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Krasnodar",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.4686,
       "p_draw": 0.2768,
@@ -2489,8 +2489,8 @@
           "p_home": 0.4686,
           "p_draw": 0.2768,
           "p_away": 0.2545,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2503,8 +2503,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Akhmat Grozny",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.4929,
       "p_draw": 0.269,
@@ -2525,8 +2525,8 @@
           "p_home": 0.4929,
           "p_draw": 0.269,
           "p_away": 0.2381,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2539,8 +2539,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "FK Rostov",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.2702,
       "p_draw": 0.3271,
@@ -2561,8 +2561,8 @@
           "p_home": 0.2702,
           "p_draw": 0.3271,
           "p_away": 0.4027,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2575,8 +2575,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Zenit",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 2869.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 2869.3,
       "stage": "T-72h+",
       "p_home": 0.8069,
       "p_draw": 0.1517,
@@ -2597,8 +2597,8 @@
           "p_home": 0.8069,
           "p_draw": 0.1517,
           "p_away": 0.0414,
-          "hours_before": 2869.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 2869.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2611,8 +2611,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.4913,
       "p_draw": 0.3179,
@@ -2633,8 +2633,8 @@
           "p_home": 0.4913,
           "p_draw": 0.3179,
           "p_away": 0.1908,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2647,8 +2647,8 @@
       "away_id": "Baltika",
       "home_name": "FK Rostov",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.2896,
       "p_draw": 0.3603,
@@ -2669,8 +2669,8 @@
           "p_home": 0.2896,
           "p_draw": 0.3603,
           "p_away": 0.3501,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2683,8 +2683,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Lokomotiv Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.3783,
       "p_draw": 0.2878,
@@ -2705,8 +2705,8 @@
           "p_home": 0.3783,
           "p_draw": 0.2878,
           "p_away": 0.3339,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2719,8 +2719,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Krasnodar",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.6693,
       "p_draw": 0.206,
@@ -2741,8 +2741,8 @@
           "p_home": 0.6693,
           "p_draw": 0.206,
           "p_away": 0.1246,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2755,8 +2755,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Akhmat Grozny",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.4096,
       "p_draw": 0.3258,
@@ -2777,8 +2777,8 @@
           "p_home": 0.4096,
           "p_draw": 0.3258,
           "p_away": 0.2646,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2791,8 +2791,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.164,
       "p_draw": 0.2152,
@@ -2813,8 +2813,8 @@
           "p_home": 0.164,
           "p_draw": 0.2152,
           "p_away": 0.6208,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2827,8 +2827,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.2125,
       "p_draw": 0.2518,
@@ -2849,8 +2849,8 @@
           "p_home": 0.2125,
           "p_draw": 0.2518,
           "p_away": 0.5357,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2863,8 +2863,8 @@
       "away_id": "Orenburg",
       "home_name": "Zenit",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3037.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3037.3,
       "stage": "T-72h+",
       "p_home": 0.6776,
       "p_draw": 0.224,
@@ -2885,8 +2885,8 @@
           "p_home": 0.6776,
           "p_draw": 0.224,
           "p_away": 0.0984,
-          "hours_before": 3037.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3037.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2899,8 +2899,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Dynamo Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.5155,
       "p_draw": 0.254,
@@ -2921,8 +2921,8 @@
           "p_home": 0.5155,
           "p_draw": 0.254,
           "p_away": 0.2305,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2935,8 +2935,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Spartak Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.6039,
       "p_draw": 0.2462,
@@ -2957,8 +2957,8 @@
           "p_home": 0.6039,
           "p_draw": 0.2462,
           "p_away": 0.1499,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -2971,8 +2971,8 @@
       "away_id": "Krasnodar",
       "home_name": "Baltika",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.3079,
       "p_draw": 0.3211,
@@ -2993,8 +2993,8 @@
           "p_home": 0.3079,
           "p_draw": 0.3211,
           "p_away": 0.371,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3007,8 +3007,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Orenburg",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.4155,
       "p_draw": 0.3039,
@@ -3029,8 +3029,8 @@
           "p_home": 0.4155,
           "p_draw": 0.3039,
           "p_away": 0.2806,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3043,8 +3043,8 @@
       "away_id": "Zenit",
       "home_name": "Rodina Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.0944,
       "p_draw": 0.1768,
@@ -3065,8 +3065,8 @@
           "p_home": 0.0944,
           "p_draw": 0.1768,
           "p_away": 0.7288,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3079,8 +3079,8 @@
       "away_id": "FK Rostov",
       "home_name": "Rubin Kazan",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.3776,
       "p_draw": 0.3533,
@@ -3101,8 +3101,8 @@
           "p_home": 0.3776,
           "p_draw": 0.3533,
           "p_away": 0.2691,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3115,8 +3115,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Akron Togliatti",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.4504,
       "p_draw": 0.2806,
@@ -3137,8 +3137,8 @@
           "p_home": 0.4504,
           "p_draw": 0.2806,
           "p_away": 0.269,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3151,8 +3151,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Fakel Voronezh",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3205.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3205.3,
       "stage": "T-72h+",
       "p_home": 0.1483,
       "p_draw": 0.2862,
@@ -3173,8 +3173,8 @@
           "p_home": 0.1483,
           "p_draw": 0.2862,
           "p_away": 0.5655,
-          "hours_before": 3205.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3205.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3187,8 +3187,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Krylya Sovetov",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.4256,
       "p_draw": 0.2881,
@@ -3209,8 +3209,8 @@
           "p_home": 0.4256,
           "p_draw": 0.2881,
           "p_away": 0.2862,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3223,8 +3223,8 @@
       "away_id": "Baltika",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.2454,
       "p_draw": 0.3305,
@@ -3245,8 +3245,8 @@
           "p_home": 0.2454,
           "p_draw": 0.3305,
           "p_away": 0.4241,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3259,8 +3259,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "FK Rostov",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.5543,
       "p_draw": 0.2654,
@@ -3281,8 +3281,8 @@
           "p_home": 0.5543,
           "p_draw": 0.2654,
           "p_away": 0.1803,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3295,8 +3295,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.6778,
       "p_draw": 0.2232,
@@ -3317,8 +3317,8 @@
           "p_home": 0.6778,
           "p_draw": 0.2232,
           "p_away": 0.099,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3331,8 +3331,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Krasnodar",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.497,
       "p_draw": 0.2634,
@@ -3353,8 +3353,8 @@
           "p_home": 0.497,
           "p_draw": 0.2634,
           "p_away": 0.2396,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3367,8 +3367,8 @@
       "away_id": "Orenburg",
       "home_name": "CSKA Moscow",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.5458,
       "p_draw": 0.2832,
@@ -3389,8 +3389,8 @@
           "p_home": 0.5458,
           "p_draw": 0.2832,
           "p_away": 0.171,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3403,8 +3403,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.2422,
       "p_draw": 0.3113,
@@ -3425,8 +3425,8 @@
           "p_home": 0.2422,
           "p_draw": 0.3113,
           "p_away": 0.4466,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3439,8 +3439,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Zenit",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3373.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3373.3,
       "stage": "T-72h+",
       "p_home": 0.78,
       "p_draw": 0.1519,
@@ -3461,8 +3461,8 @@
           "p_home": 0.78,
           "p_draw": 0.1519,
           "p_away": 0.0681,
-          "hours_before": 3373.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3373.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3475,8 +3475,8 @@
       "away_id": "Baltika",
       "home_name": "Dynamo Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.4614,
       "p_draw": 0.3036,
@@ -3497,8 +3497,8 @@
           "p_home": 0.4614,
           "p_draw": 0.3036,
           "p_away": 0.2349,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3511,8 +3511,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Spartak Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.6728,
       "p_draw": 0.2179,
@@ -3533,8 +3533,8 @@
           "p_home": 0.6728,
           "p_draw": 0.2179,
           "p_away": 0.1093,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3547,8 +3547,8 @@
       "away_id": "Zenit",
       "home_name": "FK Rostov",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.174,
       "p_draw": 0.2924,
@@ -3569,8 +3569,8 @@
           "p_home": 0.174,
           "p_draw": 0.2924,
           "p_away": 0.5336,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3583,8 +3583,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Orenburg",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.3957,
       "p_draw": 0.343,
@@ -3605,8 +3605,8 @@
           "p_home": 0.3957,
           "p_draw": 0.343,
           "p_away": 0.2612,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3619,8 +3619,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Akhmat Grozny",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.5653,
       "p_draw": 0.2876,
@@ -3641,8 +3641,8 @@
           "p_home": 0.5653,
           "p_draw": 0.2876,
           "p_away": 0.1471,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3655,12 +3655,12 @@
       "away_id": "Krasnodar",
       "home_name": "CSKA Moscow",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.3557,
       "p_draw": 0.2947,
-      "p_away": 0.3497,
+      "p_away": 0.3496,
       "extra": {
         "over25": 0.4907,
         "xg_home": 1.325,
@@ -3676,9 +3676,9 @@
           "stage": "T-72h+",
           "p_home": 0.3557,
           "p_draw": 0.2947,
-          "p_away": 0.3497,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "p_away": 0.3496,
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3691,8 +3691,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Rodina Moscow",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.3031,
       "p_draw": 0.2594,
@@ -3713,8 +3713,8 @@
           "p_home": 0.3031,
           "p_draw": 0.2594,
           "p_away": 0.4375,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3727,8 +3727,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3709.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3709.3,
       "stage": "T-72h+",
       "p_home": 0.2895,
       "p_draw": 0.2599,
@@ -3749,8 +3749,8 @@
           "p_home": 0.2895,
           "p_draw": 0.2599,
           "p_away": 0.4505,
-          "hours_before": 3709.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3709.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3763,8 +3763,8 @@
       "away_id": "FK Rostov",
       "home_name": "Krylya Sovetov",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.4147,
       "p_draw": 0.3112,
@@ -3785,8 +3785,8 @@
           "p_home": 0.4147,
           "p_draw": 0.3112,
           "p_away": 0.2742,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3799,8 +3799,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.3401,
       "p_draw": 0.336,
@@ -3821,8 +3821,8 @@
           "p_home": 0.3401,
           "p_draw": 0.336,
           "p_away": 0.3238,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3835,8 +3835,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Baltika",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.363,
       "p_draw": 0.3332,
@@ -3857,8 +3857,8 @@
           "p_home": 0.363,
           "p_draw": 0.3332,
           "p_away": 0.3038,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3871,8 +3871,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Orenburg",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.2505,
       "p_draw": 0.3073,
@@ -3893,8 +3893,8 @@
           "p_home": 0.2505,
           "p_draw": 0.3073,
           "p_away": 0.4422,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3907,8 +3907,8 @@
       "away_id": "Zenit",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.2499,
       "p_draw": 0.2745,
@@ -3929,8 +3929,8 @@
           "p_home": 0.2499,
           "p_draw": 0.2745,
           "p_away": 0.4756,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3943,8 +3943,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Krasnodar",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.8123,
       "p_draw": 0.1287,
@@ -3965,8 +3965,8 @@
           "p_home": 0.8123,
           "p_draw": 0.1287,
           "p_away": 0.059,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -3979,8 +3979,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.2734,
       "p_draw": 0.2856,
@@ -4001,8 +4001,8 @@
           "p_home": 0.2734,
           "p_draw": 0.2856,
           "p_away": 0.441,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4015,8 +4015,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Fakel Voronezh",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 3877.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 3877.3,
       "stage": "T-72h+",
       "p_home": 0.2902,
       "p_draw": 0.3131,
@@ -4037,8 +4037,8 @@
           "p_home": 0.2902,
           "p_draw": 0.3131,
           "p_away": 0.3967,
-          "hours_before": 3877.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 3877.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4051,8 +4051,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Dynamo Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.7326,
       "p_draw": 0.1941,
@@ -4073,8 +4073,8 @@
           "p_home": 0.7326,
           "p_draw": 0.1941,
           "p_away": 0.0733,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4087,8 +4087,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.4574,
       "p_draw": 0.2889,
@@ -4109,8 +4109,8 @@
           "p_home": 0.4574,
           "p_draw": 0.2889,
           "p_away": 0.2537,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4123,8 +4123,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "FK Rostov",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.3919,
       "p_draw": 0.3305,
@@ -4145,8 +4145,8 @@
           "p_home": 0.3919,
           "p_draw": 0.3305,
           "p_away": 0.2776,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4159,8 +4159,8 @@
       "away_id": "Orenburg",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.5143,
       "p_draw": 0.2801,
@@ -4181,8 +4181,8 @@
           "p_home": 0.5143,
           "p_draw": 0.2801,
           "p_away": 0.2056,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4195,8 +4195,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Rodina Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.3689,
       "p_draw": 0.2835,
@@ -4217,8 +4217,8 @@
           "p_home": 0.3689,
           "p_draw": 0.2835,
           "p_away": 0.3476,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4231,8 +4231,8 @@
       "away_id": "Baltika",
       "home_name": "Rubin Kazan",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.2868,
       "p_draw": 0.3575,
@@ -4253,8 +4253,8 @@
           "p_home": 0.2868,
           "p_draw": 0.3575,
           "p_away": 0.3556,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4267,8 +4267,8 @@
       "away_id": "Krasnodar",
       "home_name": "Akron Togliatti",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.1846,
       "p_draw": 0.2348,
@@ -4289,8 +4289,8 @@
           "p_home": 0.1846,
           "p_draw": 0.2348,
           "p_away": 0.5807,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4303,8 +4303,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Zenit",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4045.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4045.3,
       "stage": "T-72h+",
       "p_home": 0.7211,
       "p_draw": 0.1865,
@@ -4325,8 +4325,8 @@
           "p_home": 0.7211,
           "p_draw": 0.1865,
           "p_away": 0.0924,
-          "hours_before": 4045.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4045.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4339,8 +4339,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Baltika",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.5136,
       "p_draw": 0.2898,
@@ -4361,8 +4361,8 @@
           "p_home": 0.5136,
           "p_draw": 0.2898,
           "p_away": 0.1965,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4375,8 +4375,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Orenburg",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.5443,
       "p_draw": 0.3071,
@@ -4397,8 +4397,8 @@
           "p_home": 0.5443,
           "p_draw": 0.3071,
           "p_away": 0.1486,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4411,8 +4411,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Krasnodar",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.7131,
       "p_draw": 0.1952,
@@ -4433,8 +4433,8 @@
           "p_home": 0.7131,
           "p_draw": 0.1952,
           "p_away": 0.0917,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4447,8 +4447,8 @@
       "away_id": "Zenit",
       "home_name": "Akhmat Grozny",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.178,
       "p_draw": 0.2685,
@@ -4469,8 +4469,8 @@
           "p_home": 0.178,
           "p_draw": 0.2685,
           "p_away": 0.5535,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4483,8 +4483,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "CSKA Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.413,
       "p_draw": 0.2876,
@@ -4505,8 +4505,8 @@
           "p_home": 0.413,
           "p_draw": 0.2876,
           "p_away": 0.2994,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4519,10 +4519,10 @@
       "away_id": "Spartak Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
-      "p_home": 0.152,
+      "p_home": 0.1521,
       "p_draw": 0.217,
       "p_away": 0.631,
       "extra": {
@@ -4538,11 +4538,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.152,
+          "p_home": 0.1521,
           "p_draw": 0.217,
           "p_away": 0.631,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4555,8 +4555,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.3159,
       "p_draw": 0.3106,
@@ -4577,8 +4577,8 @@
           "p_home": 0.3159,
           "p_draw": 0.3106,
           "p_away": 0.3734,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4591,8 +4591,8 @@
       "away_id": "FK Rostov",
       "home_name": "Akron Togliatti",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4213.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4213.3,
       "stage": "T-72h+",
       "p_home": 0.3681,
       "p_draw": 0.308,
@@ -4613,8 +4613,8 @@
           "p_home": 0.3681,
           "p_draw": 0.308,
           "p_away": 0.324,
-          "hours_before": 4213.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4213.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4627,8 +4627,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Dynamo Moscow",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.6838,
       "p_draw": 0.1935,
@@ -4649,8 +4649,8 @@
           "p_home": 0.6838,
           "p_draw": 0.1935,
           "p_away": 0.1228,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4663,8 +4663,8 @@
       "away_id": "Baltika",
       "home_name": "Spartak Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.4715,
       "p_draw": 0.3088,
@@ -4685,8 +4685,8 @@
           "p_home": 0.4715,
           "p_draw": 0.3088,
           "p_away": 0.2196,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4699,8 +4699,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.2861,
       "p_draw": 0.286,
@@ -4721,8 +4721,8 @@
           "p_home": 0.2861,
           "p_draw": 0.286,
           "p_away": 0.4279,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4735,8 +4735,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.3414,
       "p_draw": 0.3141,
@@ -4757,8 +4757,8 @@
           "p_home": 0.3414,
           "p_draw": 0.3141,
           "p_away": 0.3445,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4771,8 +4771,8 @@
       "away_id": "Orenburg",
       "home_name": "FK Rostov",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.3821,
       "p_draw": 0.3472,
@@ -4793,8 +4793,8 @@
           "p_home": 0.3821,
           "p_draw": 0.3472,
           "p_away": 0.2707,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4807,8 +4807,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.7095,
       "p_draw": 0.1783,
@@ -4829,8 +4829,8 @@
           "p_home": 0.7095,
           "p_draw": 0.1783,
           "p_away": 0.1122,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4843,8 +4843,8 @@
       "away_id": "Krasnodar",
       "home_name": "Zenit",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.4969,
       "p_draw": 0.275,
@@ -4865,8 +4865,8 @@
           "p_home": 0.4969,
           "p_draw": 0.275,
           "p_away": 0.2281,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4879,8 +4879,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Fakel Voronezh",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4381.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4381.3,
       "stage": "T-72h+",
       "p_home": 0.2417,
       "p_draw": 0.3569,
@@ -4901,8 +4901,8 @@
           "p_home": 0.2417,
           "p_draw": 0.3569,
           "p_away": 0.4014,
-          "hours_before": 4381.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4381.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4915,8 +4915,8 @@
       "away_id": "FK Rostov",
       "home_name": "Dynamo Moscow",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.5742,
       "p_draw": 0.2672,
@@ -4937,8 +4937,8 @@
           "p_home": 0.5742,
           "p_draw": 0.2672,
           "p_away": 0.1586,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4951,8 +4951,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.5277,
       "p_draw": 0.2579,
@@ -4973,8 +4973,8 @@
           "p_home": 0.5277,
           "p_draw": 0.2579,
           "p_away": 0.2144,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -4987,8 +4987,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Krylya Sovetov",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.4211,
       "p_draw": 0.3081,
@@ -5009,8 +5009,8 @@
           "p_home": 0.4211,
           "p_draw": 0.3081,
           "p_away": 0.2707,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5023,8 +5023,8 @@
       "away_id": "Zenit",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.1328,
       "p_draw": 0.2434,
@@ -5045,8 +5045,8 @@
           "p_home": 0.1328,
           "p_draw": 0.2434,
           "p_away": 0.6238,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5059,8 +5059,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Baltika",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.6263,
       "p_draw": 0.2734,
@@ -5081,8 +5081,8 @@
           "p_home": 0.6263,
           "p_draw": 0.2734,
           "p_away": 0.1003,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5095,8 +5095,8 @@
       "away_id": "Orenburg",
       "home_name": "Krasnodar",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.6283,
       "p_draw": 0.2423,
@@ -5117,8 +5117,8 @@
           "p_home": 0.6283,
           "p_draw": 0.2423,
           "p_away": 0.1294,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5131,8 +5131,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "CSKA Moscow",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.6488,
       "p_draw": 0.2167,
@@ -5153,8 +5153,8 @@
           "p_home": 0.6488,
           "p_draw": 0.2167,
           "p_away": 0.1345,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5167,8 +5167,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Rodina Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4549.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4549.3,
       "stage": "T-72h+",
       "p_home": 0.2968,
       "p_draw": 0.2758,
@@ -5189,8 +5189,8 @@
           "p_home": 0.2968,
           "p_draw": 0.2758,
           "p_away": 0.4274,
-          "hours_before": 4549.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4549.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5203,8 +5203,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "FK Rostov",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.4577,
       "p_draw": 0.3212,
@@ -5225,8 +5225,8 @@
           "p_home": 0.4577,
           "p_draw": 0.3212,
           "p_away": 0.221,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5239,8 +5239,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Orenburg",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.2679,
       "p_draw": 0.3013,
@@ -5261,8 +5261,8 @@
           "p_home": 0.2679,
           "p_draw": 0.3013,
           "p_away": 0.4308,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5275,8 +5275,8 @@
       "away_id": "Baltika",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.3992,
       "p_draw": 0.3122,
@@ -5297,8 +5297,8 @@
           "p_home": 0.3992,
           "p_draw": 0.3122,
           "p_away": 0.2886,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5311,12 +5311,12 @@
       "away_id": "Krasnodar",
       "home_name": "Akhmat Grozny",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.2271,
       "p_draw": 0.2779,
-      "p_away": 0.495,
+      "p_away": 0.4949,
       "extra": {
         "over25": 0.4995,
         "xg_home": 1.043,
@@ -5332,9 +5332,9 @@
           "stage": "T-72h+",
           "p_home": 0.2271,
           "p_draw": 0.2779,
-          "p_away": 0.495,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "p_away": 0.4949,
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5347,8 +5347,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.267,
       "p_draw": 0.3241,
@@ -5369,8 +5369,8 @@
           "p_home": 0.267,
           "p_draw": 0.3241,
           "p_away": 0.4089,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5383,8 +5383,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.5507,
       "p_draw": 0.2314,
@@ -5405,8 +5405,8 @@
           "p_home": 0.5507,
           "p_draw": 0.2314,
           "p_away": 0.2178,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5419,8 +5419,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "Zenit",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.5295,
       "p_draw": 0.2701,
@@ -5441,8 +5441,8 @@
           "p_home": 0.5295,
           "p_draw": 0.2701,
           "p_away": 0.2004,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5455,8 +5455,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Fakel Voronezh",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4717.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4717.3,
       "stage": "T-72h+",
       "p_home": 0.2444,
       "p_draw": 0.3132,
@@ -5477,8 +5477,8 @@
           "p_home": 0.2444,
           "p_draw": 0.3132,
           "p_away": 0.4423,
-          "hours_before": 4717.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4717.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5491,8 +5491,8 @@
       "away_id": "Zenit",
       "home_name": "Dynamo Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.3084,
       "p_draw": 0.2875,
@@ -5513,8 +5513,8 @@
           "p_home": 0.3084,
           "p_draw": 0.2875,
           "p_away": 0.4041,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5527,8 +5527,8 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Spartak Moscow",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.6261,
       "p_draw": 0.227,
@@ -5549,8 +5549,8 @@
           "p_home": 0.6261,
           "p_draw": 0.227,
           "p_away": 0.147,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5563,8 +5563,8 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Orenburg",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.4015,
       "p_draw": 0.3218,
@@ -5585,8 +5585,8 @@
           "p_home": 0.4015,
           "p_draw": 0.3218,
           "p_away": 0.2767,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5599,8 +5599,8 @@
       "away_id": "FK Rostov",
       "home_name": "Lokomotiv Moscow",
       "away_name": "FK Rostov",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.5109,
       "p_draw": 0.2871,
@@ -5621,8 +5621,8 @@
           "p_home": 0.5109,
           "p_draw": 0.2871,
           "p_away": 0.202,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5635,8 +5635,8 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "CSKA Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.6315,
       "p_draw": 0.2406,
@@ -5657,8 +5657,8 @@
           "p_home": 0.6315,
           "p_draw": 0.2406,
           "p_away": 0.1278,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5671,8 +5671,8 @@
       "away_id": "Rodina Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.5516,
       "p_draw": 0.2647,
@@ -5693,8 +5693,8 @@
           "p_home": 0.5516,
           "p_draw": 0.2647,
           "p_away": 0.1837,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5707,8 +5707,8 @@
       "away_id": "Baltika",
       "home_name": "Akron Togliatti",
       "away_name": "Baltika",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.2675,
       "p_draw": 0.3031,
@@ -5729,8 +5729,8 @@
           "p_home": 0.2675,
           "p_draw": 0.3031,
           "p_away": 0.4294,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5743,8 +5743,8 @@
       "away_id": "Krasnodar",
       "home_name": "Fakel Voronezh",
       "away_name": "Krasnodar",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 4885.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 4885.3,
       "stage": "T-72h+",
       "p_home": 0.1116,
       "p_draw": 0.2426,
@@ -5765,8 +5765,8 @@
           "p_home": 0.1116,
           "p_draw": 0.2426,
           "p_away": 0.6457,
-          "hours_before": 4885.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 4885.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5779,8 +5779,8 @@
       "away_id": "Akron Togliatti",
       "home_name": "Krylya Sovetov",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.5065,
       "p_draw": 0.2523,
@@ -5801,8 +5801,8 @@
           "p_home": 0.5065,
           "p_draw": 0.2523,
           "p_away": 0.2412,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5815,8 +5815,8 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.2116,
       "p_draw": 0.2723,
@@ -5837,8 +5837,8 @@
           "p_home": 0.2116,
           "p_draw": 0.2723,
           "p_away": 0.5161,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5851,8 +5851,8 @@
       "away_id": "Spartak Moscow",
       "home_name": "FK Rostov",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.2454,
       "p_draw": 0.3146,
@@ -5873,8 +5873,8 @@
           "p_home": 0.2454,
           "p_draw": 0.3146,
           "p_away": 0.4399,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5887,8 +5887,8 @@
       "away_id": "Orenburg",
       "home_name": "Baltika",
       "away_name": "Orenburg",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.4799,
       "p_draw": 0.3264,
@@ -5909,8 +5909,8 @@
           "p_home": 0.4799,
           "p_draw": 0.3264,
           "p_away": 0.1937,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5923,8 +5923,8 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Krasnodar",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.5721,
       "p_draw": 0.2411,
@@ -5945,8 +5945,8 @@
           "p_home": 0.5721,
           "p_draw": 0.2411,
           "p_away": 0.1868,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5959,8 +5959,8 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Rodina Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.4643,
       "p_draw": 0.2968,
@@ -5981,8 +5981,8 @@
           "p_home": 0.4643,
           "p_draw": 0.2968,
           "p_away": 0.2389,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -5995,8 +5995,8 @@
       "away_id": "Rubin Kazan",
       "home_name": "Zenit",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.6785,
       "p_draw": 0.2261,
@@ -6017,8 +6017,8 @@
           "p_home": 0.6785,
           "p_draw": 0.2261,
           "p_away": 0.0954,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     },
@@ -6031,8 +6031,8 @@
       "away_id": "CSKA Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-10-31T10:32:32+00:00",
-      "hours_before": 5029.46,
+      "generated_at": "2026-10-31T10:41:46+00:00",
+      "hours_before": 5029.3,
       "stage": "T-72h+",
       "p_home": 0.2825,
       "p_draw": 0.3035,
@@ -6053,8 +6053,8 @@
           "p_home": 0.2825,
           "p_draw": 0.3035,
           "p_away": 0.4139,
-          "hours_before": 5029.46,
-          "generated_at": "2026-10-31T10:32:32+00:00"
+          "hours_before": 5029.3,
+          "generated_at": "2026-10-31T10:41:46+00:00"
         }
       ]
     }

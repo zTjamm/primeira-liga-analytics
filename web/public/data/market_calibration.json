@@ -1,46 +1,46 @@
 {
-  "n_matches": 2204,
+  "n_matches": 2223,
   "actual_freq": {
-    "H": 0.426,
-    "D": 0.2509,
-    "A": 0.323
+    "H": 0.4251,
+    "D": 0.2488,
+    "A": 0.3261
   },
   "methods": {
     "proportional": {
-      "logloss": 0.92306,
-      "brier": 0.545,
-      "accuracy": 0.5567,
+      "logloss": 0.92384,
+      "brier": 0.54541,
+      "accuracy": 0.5574,
       "mean_probs": {
-        "H": 0.4252,
+        "H": 0.425,
         "D": 0.2506,
-        "A": 0.3242
+        "A": 0.3245
       },
-      "calibration_gap": 0.00228,
-      "mean_overround": 1.06188
+      "calibration_gap": 0.00365,
+      "mean_overround": 1.062
     },
     "power": {
-      "logloss": 0.92044,
-      "brier": 0.54382,
-      "accuracy": 0.5567,
+      "logloss": 0.92128,
+      "brier": 0.54424,
+      "accuracy": 0.5574,
       "mean_probs": {
-        "H": 0.4319,
+        "H": 0.4316,
         "D": 0.2435,
-        "A": 0.3246
+        "A": 0.3249
       },
-      "calibration_gap": 0.01478,
-      "mean_overround": 1.06188
+      "calibration_gap": 0.01302,
+      "mean_overround": 1.062
     },
     "shin": {
-      "logloss": 0.94041,
-      "brier": 0.55556,
-      "accuracy": 0.5567,
+      "logloss": 0.94103,
+      "brier": 0.55592,
+      "accuracy": 0.5574,
       "mean_probs": {
-        "H": 0.4025,
+        "H": 0.4023,
         "D": 0.2749,
-        "A": 0.3225
+        "A": 0.3227
       },
-      "calibration_gap": 0.04803,
-      "mean_overround": 1.06188
+      "calibration_gap": 0.05229,
+      "mean_overround": 1.062
     }
   },
   "chosen": "power"

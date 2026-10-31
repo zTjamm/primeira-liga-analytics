@@ -1,0 +1,159 @@
+{
+  "val_season": "2023/24",
+  "test_seasons": [
+    "2024/25",
+    "2025/26"
+  ],
+  "min_n_pick": 40,
+  "method": "walk-forward Dixon-Coles, окно 6 лет, переподбор раз в 7 дней",
+  "outcome": {
+    "validation": {
+      "0.4": {
+        "n": 192,
+        "coverage": 0.7869,
+        "accuracy": 0.526,
+        "accuracy_always_home": 0.4948,
+        "edge": 0.0312
+      },
+      "0.45": {
+        "n": 149,
+        "coverage": 0.6107,
+        "accuracy": 0.5101,
+        "accuracy_always_home": 0.5034,
+        "edge": 0.0067
+      },
+      "0.5": {
+        "n": 107,
+        "coverage": 0.4385,
+        "accuracy": 0.5794,
+        "accuracy_always_home": 0.5327,
+        "edge": 0.0467
+      },
+      "0.55": {
+        "n": 76,
+        "coverage": 0.3115,
+        "accuracy": 0.5789,
+        "accuracy_always_home": 0.5,
+        "edge": 0.0789
+      },
+      "0.6": {
+        "n": 40,
+        "coverage": 0.1639,
+        "accuracy": 0.625,
+        "accuracy_always_home": 0.575,
+        "edge": 0.05
+      },
+      "0.65": {
+        "n": 24,
+        "coverage": 0.0984,
+        "accuracy": 0.6667,
+        "accuracy_always_home": 0.625,
+        "edge": 0.0417
+      },
+      "0.7": {
+        "n": 14,
+        "coverage": 0.0574,
+        "accuracy": 0.6429,
+        "accuracy_always_home": 0.5714,
+        "edge": 0.0714
+      }
+    },
+    "chosen": 0.55
+  },
+  "total": {
+    "without_gate": {
+      "n": 244,
+      "coverage": 1.0,
+      "accuracy": 0.5492,
+      "accuracy_always_over": 0.4713,
+      "edge": 0.0779
+    },
+    "validation": {
+      "0.4": {
+        "n": 244,
+        "coverage": 1.0,
+        "accuracy": 0.5492,
+        "accuracy_always_over": 0.4713,
+        "edge": 0.0779
+      },
+      "0.45": {
+        "n": 244,
+        "coverage": 1.0,
+        "accuracy": 0.5492,
+        "accuracy_always_over": 0.4713,
+        "edge": 0.0779
+      },
+      "0.5": {
+        "n": 244,
+        "coverage": 1.0,
+        "accuracy": 0.5492,
+        "accuracy_always_over": 0.4713,
+        "edge": 0.0779
+      },
+      "0.55": {
+        "n": 160,
+        "coverage": 0.6557,
+        "accuracy": 0.5563,
+        "accuracy_always_over": 0.45,
+        "edge": 0.1062
+      },
+      "0.6": {
+        "n": 91,
+        "coverage": 0.373,
+        "accuracy": 0.5824,
+        "accuracy_always_over": 0.4286,
+        "edge": 0.1538
+      },
+      "0.65": {
+        "n": 43,
+        "coverage": 0.1762,
+        "accuracy": 0.6047,
+        "accuracy_always_over": 0.2791,
+        "edge": 0.3256
+      },
+      "0.7": {
+        "n": 16,
+        "coverage": 0.0656,
+        "accuracy": 0.75,
+        "accuracy_always_over": 0.1875,
+        "edge": 0.5625
+      }
+    },
+    "chosen": 0.65
+  },
+  "test_исход": {
+    "chosen": 0.55,
+    "without_gate": {
+      "n": 480,
+      "coverage": 1.0,
+      "accuracy": 0.5646,
+      "accuracy_always_home": 0.4417,
+      "edge": 0.1229
+    },
+    "at_threshold": {
+      "n": 184,
+      "coverage": 0.3833,
+      "accuracy": 0.6902,
+      "accuracy_always_home": 0.5761,
+      "edge": 0.1141
+    }
+  },
+  "test_тотал": {
+    "chosen": 0.65,
+    "without_gate": {
+      "n": 480,
+      "coverage": 1.0,
+      "accuracy": 0.5792,
+      "accuracy_always_over": 0.4792,
+      "edge": 0.1
+    },
+    "at_threshold": {
+      "n": 108,
+      "coverage": 0.225,
+      "accuracy": 0.7222,
+      "accuracy_always_over": 0.3056,
+      "edge": 0.4167
+    }
+  },
+  "thin_sample_matches": 18
+}
