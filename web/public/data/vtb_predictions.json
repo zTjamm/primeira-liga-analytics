@@ -1,7 +1,7 @@
 {
   "league": "Единая лига ВТБ",
   "season": "2026/27",
-  "generated_at": "2026-10-31T17:58:14+00:00",
+  "generated_at": "2026-10-31T21:28:03+00:00",
   "history_matches": 531,
   "model": "лига: 80.6 очков на команду, дома +1.98, σ_разница=18.96, σ_тотал=16.73, сошёлся=True",
   "draws_possible": false,
@@ -37,7 +37,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 4.96,
-      "hours_before": 20.0
+      "hours_before": 16.5
     },
     {
       "match_id": "1081870",
@@ -51,11 +51,11 @@
       "away_id": "2747",
       "home_name": "Енисей",
       "away_name": "МБА-МАИ",
-      "p_home": 0.6889,
+      "p_home": 0.689,
       "p_draw": 0.0,
-      "p_away": 0.3111,
+      "p_away": 0.311,
       "prediction": "H",
-      "confidence": 0.6889,
+      "confidence": 0.689,
       "exp_home_score": 81.5,
       "exp_away_score": 79.7,
       "exp_total": 161.1,
@@ -63,7 +63,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": -1.35,
-      "hours_before": 18.0
+      "hours_before": 14.5
     },
     {
       "match_id": "1081871",
@@ -89,7 +89,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -7.08,
-      "hours_before": 71.5
+      "hours_before": 68.0
     },
     {
       "match_id": "1081872",
@@ -103,11 +103,11 @@
       "away_id": "697",
       "home_name": "Автодор",
       "away_name": "УНИКС",
-      "p_home": 0.3182,
+      "p_home": 0.3183,
       "p_draw": 0.0,
-      "p_away": 0.6818,
+      "p_away": 0.6817,
       "prediction": "A",
-      "confidence": 0.6818,
+      "confidence": 0.6817,
       "exp_home_score": 79.7,
       "exp_away_score": 81.4,
       "exp_total": 161.1,
@@ -115,7 +115,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 4.96,
-      "hours_before": 144.0
+      "hours_before": 140.5
     },
     {
       "match_id": "1081873",
@@ -129,11 +129,11 @@
       "away_id": "3059",
       "home_name": "Локомотив-Кубань",
       "away_name": "ПАРМА",
-      "p_home": 0.833,
+      "p_home": 0.8331,
       "p_draw": 0.0,
-      "p_away": 0.167,
+      "p_away": 0.1669,
       "prediction": "H",
-      "confidence": 0.833,
+      "confidence": 0.8331,
       "exp_home_score": 82.4,
       "exp_away_score": 78.7,
       "exp_total": 161.1,
@@ -141,7 +141,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 0.28,
-      "hours_before": 166.0
+      "hours_before": 162.5
     },
     {
       "match_id": "1081874",
@@ -167,7 +167,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -1.35,
-      "hours_before": 164.0
+      "hours_before": 160.5
     },
     {
       "match_id": "1081875",
@@ -181,11 +181,11 @@
       "away_id": "23358",
       "home_name": "Енисей",
       "away_name": "Динамо",
-      "p_home": 0.6783,
+      "p_home": 0.6784,
       "p_draw": 0.0,
-      "p_away": 0.3217,
+      "p_away": 0.3216,
       "prediction": "H",
-      "confidence": 0.6783,
+      "confidence": 0.6784,
       "exp_home_score": 81.4,
       "exp_away_score": 79.7,
       "exp_total": 161.1,
@@ -193,7 +193,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": -0.34,
-      "hours_before": 162.0
+      "hours_before": 158.5
     },
     {
       "match_id": "1081876",
@@ -219,7 +219,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": 4.38,
-      "hours_before": 189.5
+      "hours_before": 186.0
     },
     {
       "match_id": "1081877",
@@ -245,7 +245,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -3.2,
-      "hours_before": 241.0
+      "hours_before": 237.5
     },
     {
       "match_id": "1081878",
@@ -271,7 +271,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -0.34,
-      "hours_before": 265.0
+      "hours_before": 261.5
     },
     {
       "match_id": "1081879",
@@ -297,7 +297,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -7.08,
-      "hours_before": 265.5
+      "hours_before": 262.0
     },
     {
       "match_id": "1081880",
@@ -323,7 +323,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 4.96,
-      "hours_before": 263.5
+      "hours_before": 260.0
     },
     {
       "match_id": "1081882",
@@ -342,14 +342,14 @@
       "p_away": 0.3542,
       "prediction": "H",
       "confidence": 0.6458,
-      "exp_home_score": 81.2,
+      "exp_home_score": 81.3,
       "exp_away_score": 79.9,
       "exp_total": 161.1,
       "over_155": 0.6316,
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -0.34,
-      "hours_before": 332.0
+      "hours_before": 328.5
     },
     {
       "match_id": "1081881",
@@ -375,7 +375,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 0.48,
-      "hours_before": 330.0
+      "hours_before": 326.5
     },
     {
       "match_id": "1081883",
@@ -401,7 +401,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": 6.67,
-      "hours_before": 334.0
+      "hours_before": 330.5
     },
     {
       "match_id": "1081884",
@@ -427,7 +427,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 4.38,
-      "hours_before": 357.0
+      "hours_before": 353.5
     },
     {
       "match_id": "1081887",
@@ -453,7 +453,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -1.61,
-      "hours_before": 433.0
+      "hours_before": 429.5
     },
     {
       "match_id": "1081886",
@@ -467,11 +467,11 @@
       "away_id": "2792",
       "home_name": "МБА-МАИ",
       "away_name": "Самара",
-      "p_home": 0.8578,
+      "p_home": 0.8579,
       "p_draw": 0.0,
-      "p_away": 0.1422,
+      "p_away": 0.1421,
       "prediction": "H",
-      "confidence": 0.8578,
+      "confidence": 0.8579,
       "exp_home_score": 82.6,
       "exp_away_score": 78.5,
       "exp_total": 161.1,
@@ -479,7 +479,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": -7.08,
-      "hours_before": 433.5
+      "hours_before": 430.0
     },
     {
       "match_id": "1081885",
@@ -505,7 +505,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 2.93,
-      "hours_before": 431.5
+      "hours_before": 428.0
     },
     {
       "match_id": "1081889",
@@ -531,7 +531,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 4.38,
-      "hours_before": 500.5
+      "hours_before": 497.0
     },
     {
       "match_id": "1081890",
@@ -557,7 +557,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 0.28,
-      "hours_before": 502.5
+      "hours_before": 499.0
     },
     {
       "match_id": "1081888",
@@ -583,7 +583,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 2.93,
-      "hours_before": 498.5
+      "hours_before": 495.0
     },
     {
       "match_id": "1081892",
@@ -609,7 +609,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -1.61,
-      "hours_before": 524.0
+      "hours_before": 520.5
     },
     {
       "match_id": "1081891",
@@ -635,7 +635,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": 4.96,
-      "hours_before": 527.0
+      "hours_before": 523.5
     },
     {
       "match_id": "1081893",
@@ -661,7 +661,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -1.61,
-      "hours_before": 748.0
+      "hours_before": 744.5
     },
     {
       "match_id": "1081894",
@@ -675,11 +675,11 @@
       "away_id": "15",
       "home_name": "Уралмаш",
       "away_name": "ЦСКА",
-      "p_home": 0.3796,
+      "p_home": 0.3797,
       "p_draw": 0.0,
-      "p_away": 0.6204,
+      "p_away": 0.6203,
       "prediction": "A",
-      "confidence": 0.6204,
+      "confidence": 0.6203,
       "exp_home_score": 80.0,
       "exp_away_score": 81.1,
       "exp_total": 161.1,
@@ -687,7 +687,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 6.67,
-      "hours_before": 796.0
+      "hours_before": 792.5
     },
     {
       "match_id": "1081896",
@@ -713,7 +713,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 4.38,
-      "hours_before": 821.0
+      "hours_before": 817.5
     },
     {
       "match_id": "1081895",
@@ -727,11 +727,11 @@
       "away_id": "2792",
       "home_name": "Динамо",
       "away_name": "Самара",
-      "p_home": 0.8995,
+      "p_home": 0.8996,
       "p_draw": 0.0,
-      "p_away": 0.1005,
+      "p_away": 0.1004,
       "prediction": "H",
-      "confidence": 0.8995,
+      "confidence": 0.8996,
       "exp_home_score": 83.1,
       "exp_away_score": 78.1,
       "exp_total": 161.1,
@@ -739,7 +739,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -7.08,
-      "hours_before": 815.0
+      "hours_before": 811.5
     },
     {
       "match_id": "1081897",
@@ -765,7 +765,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": 2.93,
-      "hours_before": 846.0
+      "hours_before": 842.5
     },
     {
       "match_id": "1081899",
@@ -791,7 +791,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -3.2,
-      "hours_before": 917.0
+      "hours_before": 913.5
     },
     {
       "match_id": "1081900",
@@ -817,7 +817,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 2.93,
-      "hours_before": 914.0
+      "hours_before": 910.5
     },
     {
       "match_id": "1081898",
@@ -843,7 +843,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -1.35,
-      "hours_before": 911.0
+      "hours_before": 907.5
     },
     {
       "match_id": "1081903",
@@ -869,7 +869,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -1.61,
-      "hours_before": 1013.0
+      "hours_before": 1009.5
     },
     {
       "match_id": "1081901",
@@ -895,7 +895,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -3.2,
-      "hours_before": 1014.0
+      "hours_before": 1010.5
     },
     {
       "match_id": "1081902",
@@ -921,7 +921,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 0.48,
-      "hours_before": 1014.0
+      "hours_before": 1010.5
     },
     {
       "match_id": "1081905",
@@ -935,11 +935,11 @@
       "away_id": "688",
       "home_name": "Автодор",
       "away_name": "Енисей",
-      "p_home": 0.6767,
+      "p_home": 0.6768,
       "p_draw": 0.0,
-      "p_away": 0.3233,
+      "p_away": 0.3232,
       "prediction": "H",
-      "confidence": 0.6767,
+      "confidence": 0.6768,
       "exp_home_score": 81.4,
       "exp_away_score": 79.7,
       "exp_total": 161.1,
@@ -947,7 +947,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": -1.61,
-      "hours_before": 1085.0
+      "hours_before": 1081.5
     },
     {
       "match_id": "1081904",
@@ -973,7 +973,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": -7.08,
-      "hours_before": 1086.0
+      "hours_before": 1082.5
     },
     {
       "match_id": "1081906",
@@ -987,11 +987,11 @@
       "away_id": "1390",
       "home_name": "МБА-МАИ",
       "away_name": "Уралмаш",
-      "p_home": 0.5605,
+      "p_home": 0.5606,
       "p_draw": 0.0,
-      "p_away": 0.4395,
+      "p_away": 0.4394,
       "prediction": "H",
-      "confidence": 0.5605,
+      "confidence": 0.5606,
       "exp_home_score": 80.8,
       "exp_away_score": 80.3,
       "exp_total": 161.1,
@@ -999,7 +999,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 0.48,
-      "hours_before": 1086.0
+      "hours_before": 1082.5
     },
     {
       "match_id": "1081907",
@@ -1025,7 +1025,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 2.93,
-      "hours_before": 1110.0
+      "hours_before": 1106.5
     },
     {
       "match_id": "1081908",
@@ -1051,7 +1051,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 6.67,
-      "hours_before": 1156.0
+      "hours_before": 1152.5
     },
     {
       "match_id": "1081910",
@@ -1077,7 +1077,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 2.93,
-      "hours_before": 1181.0
+      "hours_before": 1177.5
     },
     {
       "match_id": "1081909",
@@ -1103,7 +1103,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 4.96,
-      "hours_before": 1180.0
+      "hours_before": 1176.5
     },
     {
       "match_id": "1081911",
@@ -1129,7 +1129,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -0.34,
-      "hours_before": 1230.0
+      "hours_before": 1226.5
     },
     {
       "match_id": "1081912",
@@ -1155,7 +1155,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -7.08,
-      "hours_before": 1230.0
+      "hours_before": 1226.5
     },
     {
       "match_id": "1081913",
@@ -1181,7 +1181,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -1.35,
-      "hours_before": 1300.0
+      "hours_before": 1296.5
     },
     {
       "match_id": "1081914",
@@ -1207,7 +1207,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": -1.61,
-      "hours_before": 1319.0
+      "hours_before": 1315.5
     },
     {
       "match_id": "1081915",
@@ -1233,7 +1233,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.96,
       "strength_away": 6.67,
-      "hours_before": 1350.0
+      "hours_before": 1346.5
     },
     {
       "match_id": "1081917",
@@ -1259,7 +1259,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": 4.38,
-      "hours_before": 1540.0
+      "hours_before": 1536.5
     },
     {
       "match_id": "1081918",
@@ -1285,7 +1285,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 4.96,
-      "hours_before": 1535.0
+      "hours_before": 1531.5
     },
     {
       "match_id": "1081916",
@@ -1311,7 +1311,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -1.35,
-      "hours_before": 1542.0
+      "hours_before": 1538.5
     },
     {
       "match_id": "1081919",
@@ -1337,7 +1337,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": -3.2,
-      "hours_before": 1564.0
+      "hours_before": 1560.5
     },
     {
       "match_id": "1081920",
@@ -1363,7 +1363,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": -7.08,
-      "hours_before": 1566.0
+      "hours_before": 1562.5
     },
     {
       "match_id": "1081921",
@@ -1389,7 +1389,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -3.2,
-      "hours_before": 1636.0
+      "hours_before": 1632.5
     },
     {
       "match_id": "1081922",
@@ -1415,7 +1415,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 4.38,
-      "hours_before": 1658.0
+      "hours_before": 1654.5
     },
     {
       "match_id": "1081923",
@@ -1441,7 +1441,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 0.28,
-      "hours_before": 1655.0
+      "hours_before": 1651.5
     },
     {
       "match_id": "1081924",
@@ -1467,7 +1467,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": 6.67,
-      "hours_before": 1662.0
+      "hours_before": 1658.5
     },
     {
       "match_id": "1081925",
@@ -1481,11 +1481,11 @@
       "away_id": "697",
       "home_name": "МБА-МАИ",
       "away_name": "УНИКС",
-      "p_home": 0.356,
+      "p_home": 0.3561,
       "p_draw": 0.0,
-      "p_away": 0.644,
+      "p_away": 0.6439,
       "prediction": "A",
-      "confidence": 0.644,
+      "confidence": 0.6439,
       "exp_home_score": 79.9,
       "exp_away_score": 81.2,
       "exp_total": 161.1,
@@ -1493,7 +1493,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 4.96,
-      "hours_before": 1686.0
+      "hours_before": 1682.5
     },
     {
       "match_id": "1081926",
@@ -1507,11 +1507,11 @@
       "away_id": "3059",
       "home_name": "Енисей",
       "away_name": "ПАРМА",
-      "p_home": 0.6658,
+      "p_home": 0.6659,
       "p_draw": 0.0,
-      "p_away": 0.3342,
+      "p_away": 0.3341,
       "prediction": "H",
-      "confidence": 0.6658,
+      "confidence": 0.6659,
       "exp_home_score": 81.4,
       "exp_away_score": 79.8,
       "exp_total": 161.1,
@@ -1519,7 +1519,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 0.28,
-      "hours_before": 1754.0
+      "hours_before": 1750.5
     },
     {
       "match_id": "1081927",
@@ -1533,11 +1533,11 @@
       "away_id": "2747",
       "home_name": "Самара",
       "away_name": "МБА-МАИ",
-      "p_home": 0.33,
+      "p_home": 0.3301,
       "p_draw": 0.0,
-      "p_away": 0.67,
+      "p_away": 0.6699,
       "prediction": "A",
-      "confidence": 0.67,
+      "confidence": 0.6699,
       "exp_home_score": 79.8,
       "exp_away_score": 81.4,
       "exp_total": 161.1,
@@ -1545,7 +1545,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": -1.35,
-      "hours_before": 1781.0
+      "hours_before": 1777.5
     },
     {
       "match_id": "1081929",
@@ -1571,7 +1571,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": 6.67,
-      "hours_before": 1829.0
+      "hours_before": 1825.5
     },
     {
       "match_id": "1081928",
@@ -1597,7 +1597,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 4.96,
-      "hours_before": 1830.0
+      "hours_before": 1826.5
     },
     {
       "match_id": "1081931",
@@ -1623,7 +1623,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 0.48,
-      "hours_before": 1852.0
+      "hours_before": 1848.5
     },
     {
       "match_id": "1081930",
@@ -1649,7 +1649,7 @@
       "sigma_margin": 18.96,
       "strength_home": 2.93,
       "strength_away": -0.34,
-      "hours_before": 1854.0
+      "hours_before": 1850.5
     },
     {
       "match_id": "1081932",
@@ -1675,7 +1675,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": -1.35,
-      "hours_before": 1902.0
+      "hours_before": 1898.5
     },
     {
       "match_id": "1081933",
@@ -1701,7 +1701,7 @@
       "sigma_margin": 18.96,
       "strength_home": 6.67,
       "strength_away": -1.61,
-      "hours_before": 1926.0
+      "hours_before": 1922.5
     },
     {
       "match_id": "1081934",
@@ -1721,13 +1721,13 @@
       "prediction": "H",
       "confidence": 0.6103,
       "exp_home_score": 81.1,
-      "exp_away_score": 80.1,
+      "exp_away_score": 80.0,
       "exp_total": 161.1,
       "over_155": 0.6316,
       "sigma_margin": 18.96,
       "strength_home": 0.28,
       "strength_away": 2.93,
-      "hours_before": 1948.0
+      "hours_before": 1944.5
     },
     {
       "match_id": "1081935",
@@ -1753,7 +1753,7 @@
       "sigma_margin": 18.96,
       "strength_home": -3.2,
       "strength_away": -0.34,
-      "hours_before": 1973.0
+      "hours_before": 1969.5
     },
     {
       "match_id": "1081936",
@@ -1779,7 +1779,7 @@
       "sigma_margin": 18.96,
       "strength_home": 0.48,
       "strength_away": -7.08,
-      "hours_before": 1996.0
+      "hours_before": 1992.5
     },
     {
       "match_id": "1081939",
@@ -1805,7 +1805,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.61,
       "strength_away": 4.96,
-      "hours_before": 2018.0
+      "hours_before": 2014.5
     },
     {
       "match_id": "1081937",
@@ -1831,7 +1831,7 @@
       "sigma_margin": 18.96,
       "strength_home": -1.35,
       "strength_away": 2.93,
-      "hours_before": 2022.0
+      "hours_before": 2018.5
     },
     {
       "match_id": "1081938",
@@ -1857,7 +1857,7 @@
       "sigma_margin": 18.96,
       "strength_home": 4.38,
       "strength_away": 6.67,
-      "hours_before": 2022.0
+      "hours_before": 2018.5
     },
     {
       "match_id": "1081941",
@@ -1883,7 +1883,7 @@
       "sigma_margin": 18.96,
       "strength_home": -7.08,
       "strength_away": 0.28,
-      "hours_before": 2093.0
+      "hours_before": 2089.5
     },
     {
       "match_id": "1081940",
@@ -1897,11 +1897,11 @@
       "away_id": "1390",
       "home_name": "Динамо",
       "away_name": "Уралмаш",
-      "p_home": 0.654,
+      "p_home": 0.6541,
       "p_draw": 0.0,
-      "p_away": 0.346,
+      "p_away": 0.3459,
       "prediction": "H",
-      "confidence": 0.654,
+      "confidence": 0.6541,
       "exp_home_score": 81.3,
       "exp_away_score": 79.8,
       "exp_total": 161.1,
@@ -1909,7 +1909,7 @@
       "sigma_margin": 18.96,
       "strength_home": -0.34,
       "strength_away": 0.48,
-      "hours_before": 2087.0
+      "hours_before": 2083.5
     }
   ]
 }
