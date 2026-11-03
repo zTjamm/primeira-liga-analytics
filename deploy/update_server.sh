@@ -34,6 +34,7 @@ LOCAL=(
   data/processed/vtb_predictions.json
   data/processed/vtb_strength.json
   data/processed/basketball_journal.json
+  data/processed/wnba_predictions.json
 )
 
 mkdir -p "$REPO/web/public/data"

@@ -171,6 +171,15 @@ jobs:
         if: steps.gate.outputs.needs == 'true'
         run: python -m etl.fetch_vtb
 
+      - name: Собрать WNBA
+        # Изолированный пайплайн: свои данные (nba_api), своя модель,
+        # свой файл прогнозов. Калибровка пока не применена (T не
+        # проверена на WNBA данных).
+        if: steps.gate.outputs.needs == 'true'
+        run: |
+          python -m etl.fetch_wnba
+          python -m models.wnba_predict
+
       - name: Собрать РФПЛ
         # Изолированный пайплайн: свои данные (football-data.co.uk +
         # официальный API premierliga.ru), своя модель, свой файл
@@ -250,6 +259,15 @@ jobs:
           python -m models.rpl_predict
           python -m models.predict
 
+      - name: Дрейф порогов RFПЛ
+        # Проверяем, не изменилась ли точность на сыгранных матчах
+        # по сравнению с валидированными порогами (outcome 0.55 → 69.0%,
+        # total 0.65 → 72.2%). Сценарий models.drift читает журнал
+        # rpl_journal.json и отчитывается, если acc упала >5 p.p.
+        # Если порог нужно переподбирать — будет явный сигнал в логе CI.
+        if: steps.gate.outputs.needs == 'true'
+        run: python -m models.drift
+
       - name: Тесты
         # Все проверки вместе укладываются в порядка десяти секунд,
         # поэтому гоняются на каждом прогоне, а не только на тяжёлых
@@ -279,6 +297,8 @@ jobs:
             data/processed/vtb_predictions.json \
             data/processed/vtb_strength.json \
             data/processed/basketball_journal.json \
+            data/processed/wnba_predictions.json \
+            data/reports/wnba_ingest.json \
             data/reports/elo_table.json \
             data/reports/dc_strength.json \
             data/reports/backtest.json \
@@ -315,6 +335,7 @@ jobs:
             data/forecast_log_football.jsonl \
             data/forecast_log_basketball.jsonl \
             data/forecast_log_rpl.jsonl \
+            data/reports/wnba_ingest.json \
             data/reports/calibration.json \
             data/reports/rpl_selective.json
           if git diff --cached --quiet; then

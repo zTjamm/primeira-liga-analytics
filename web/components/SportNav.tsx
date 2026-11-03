@@ -60,11 +60,47 @@ export const SPORTS: SportPages[] = [
       { href: "/rpl/methodology", label: "Методика" },
     ],
   },
+  {
+    id: "wnba",
+    label: "WNBA",
+    short: "WNBA",
+    base: "/wnba",
+    pages: [
+      { href: "/wnba", label: "Матчи" },
+      { href: "/wnba/journal", label: "Журнал" },
+      { href: "/wnba/teams", label: "Команды" },
+      { href: "/wnba/accuracy", label: "Точность" },
+      { href: "/wnba/methodology", label: "Методика" },
+    ],
+  },
+  {
+    id: "nhl",
+    label: "Национальная хоккейная лига",
+    short: "НХЛ",
+    base: "/nhl",
+    pages: [
+      { href: "/nhl", label: "Матчи" },
+      { href: "/nhl/journal", label: "Журнал" },
+    ],
+  },
+  {
+    id: "nba",
+    label: "Национальная баскетбольная ассоциация",
+    short: "NBA",
+    base: "/nba",
+    pages: [
+      { href: "/nba", label: "Матчи" },
+      { href: "/nba/journal", label: "Журнал" },
+    ],
+  },
 ];
 
 function sportFor(path: string): SportPages {
   if (path.startsWith("/basketball")) return SPORTS[1];
   if (path.startsWith("/rpl")) return SPORTS[2];
+  if (path.startsWith("/wnba")) return SPORTS[3];
+  if (path.startsWith("/nhl")) return SPORTS[4];
+  if (path.startsWith("/nba")) return SPORTS[5];
   return SPORTS[0];
 }
 

@@ -1,0 +1,9 @@
+{
+  "league": "NHL",
+  "season": "20262027",
+  "generated_at": "2026-11-03T21:00:42+00:00",
+  "history_matches": 19638,
+  "model": "лига: 3.1 очков на команду, дома +0.04, σ_разница=6.00, σ_тотал=8.00, сошёлся=True",
+  "draws_possible": false,
+  "upcoming": []
+}

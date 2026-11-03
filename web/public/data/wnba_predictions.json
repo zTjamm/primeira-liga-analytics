@@ -1,0 +1,17 @@
+{
+  "league": "WNBA",
+  "season": "2026/27",
+  "generated_at": "2026-11-03T20:08:31+00:00",
+  "history_matches": 975,
+  "model": "лига: 83.6 очков на команду, дома +2.41, σ_разница=13.86, σ_тотал=20.10, сошёлся=True",
+  "draws_possible": false,
+  "draw_removed": true,
+  "calibration": {
+    "applied": false,
+    "T": null,
+    "method": "температура T не применена (не проверена на WNBA данных)",
+    "source": "data/reports/calibration.json",
+    "note": "Калибровка T=0.1826 проверена только на ВТБ. Для WNBA требуется отдельная валидация. Ничья удалена из вероятностей."
+  },
+  "upcoming": []
+}

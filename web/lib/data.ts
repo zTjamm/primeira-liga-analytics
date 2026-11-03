@@ -120,6 +120,10 @@ export interface VtbPrediction {
   strength_home: number;
   strength_away: number;
   hours_before: number | null;
+  /** Выдан ли вердикт по исходу (порог 0.55). */
+  verdict_given?: boolean | null;
+  /** Текст причины отказа от вердикта. */
+  verdict_reason?: string | null;
 }
 
 export interface VtbPredictionsFile {
@@ -143,6 +147,7 @@ export interface VtbPredictionsFile {
     source: string;
     note: string;
   };
+  division?: string | null;
   upcoming: VtbPrediction[];
 }
 
@@ -152,6 +157,24 @@ export interface VtbStrengthRow {
   attack: number;
   defence: number;
   overall: number;
+}
+
+export interface WnbaPredictionsFile {
+  league: string;
+  season: string;
+  generated_at: string;
+  history_matches: number;
+  model: string;
+  draws_possible: boolean;
+  division?: string | null;
+  calibration?: {
+    applied: boolean;
+    T: number | null;
+    method: string;
+    source: string;
+    note: string;
+  };
+  upcoming: VtbPrediction[];
 }
 
 export interface VtbBacktestFile {
@@ -247,6 +270,9 @@ export interface ForecastHistory {
       accuracy: number;
       logloss: number | null;
       avg_p_actual: number;
+      roi?: number | null;
+      total_staked?: number | null;
+      total_profit?: number | null;
     };
     /** Точность по тоталу на тех же матчах. Отдельное число, а не
      *  дополнение к исходу: складывать рынки через «и» нельзя, это
@@ -265,7 +291,7 @@ export interface ForecastHistory {
     };
     by_stage: Record<
       string,
-      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
+      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number; roi?: number | null }
     >;
     multi_stage: number;
     flipped: number;
@@ -501,6 +527,9 @@ export const getForecastHistory = cache(() => getJournal("football"));
 export const getVtbPredictions = cache(
   () => readJson<VtbPredictionsFile>("vtb_predictions.json"),
 );
+export const getWnbaPredictions = cache(
+  () => readJson<WnbaPredictionsFile>("wnba_predictions.json"),
+);
 export const getVtbStrength = cache(() => readJson<VtbStrengthRow[]>("vtb_strength.json"));
 export const getVtbBacktest = cache(() => readJson<VtbBacktestFile>("vtb_backtest.json"));
 export const getVtbIngest = cache(() => readJson<VtbIngestFile>("vtb_ingest.json"));
@@ -533,6 +562,13 @@ export interface JournalRecord {
   p_away: number;
   extra: Record<string, unknown> | null;
   versions: JournalVersion[];
+  // ROI-tracking: опциональные коэффициенты и ставка из прогноза.
+  odds_home?: number | null;
+  odds_draw?: number | null;
+  odds_away?: number | null;
+  stake?: number | null;
+  profit?: number | null;
+  roi?: number | null;
 }
 
 export interface Journal {
@@ -578,6 +614,9 @@ export interface Journal {
       accuracy: number;
       logloss: number | null;
       avg_p_actual: number;
+      roi?: number | null;
+      total_staked?: number | null;
+      total_profit?: number | null;
     };
     /** Точность по исходу — только по матчам, где вердикт ВЫДАВАЛСЯ.
      *  Сводка overall считает по всем (на нём построен лог-loss),
@@ -614,7 +653,7 @@ export interface Journal {
     };
     by_stage: Record<
       string,
-      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number }
+      { n: number; accuracy: number; logloss: number | null; avg_p_actual: number; roi?: number | null }
     >;
     multi_stage: number;
     flipped: number;
@@ -622,9 +661,16 @@ export interface Journal {
   };
 }
 
-export const getJournal = cache((sport: "football" | "basketball" | "rpl") =>
+export const getJournal = cache((sport: "football" | "basketball" | "rpl" | "wnba" | "nhl" | "nba") =>
   readJson<Journal>(`${sport}_journal.json`),
 );
+export const getNhlJournal = cache(() => readJson<Journal>("nhl_journal.json"));
+export const getNbaJournal = cache(() => readJson<Journal>("nba_journal.json"));
+export const getNhlPredictions = cache(() => readJson<any>("nhl_predictions.json"));
+export const getNbaPredictions = cache(() => readJson<any>("nba_predictions.json"));
+
+export const getWnbaJournal = cache(() => readJson<Journal>("wnba_journal.json"));
+export const getWnbaStrength = cache(() => readJson<VtbStrengthRow[]>("wnba_strength.json"));
 
 export function getPredictionById(
   predictions: PredictionsFile | null,

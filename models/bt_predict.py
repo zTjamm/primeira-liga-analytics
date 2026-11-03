@@ -28,6 +28,7 @@ matchday из API означает разные вещи в разных фаз�
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
 
 import numpy as np
@@ -173,6 +174,11 @@ def build() -> dict:
                       "over_155": row["over_155"]},
         })
 
+    # Вывод в зависимости от Division: vtb или vtb2
+division = os.getenv("DIVISION", "vtb")
+if division == "vtb2":
+    out = PROCESSED / "vtb2_predictions.json"
+else:
     out = PROCESSED / "vtb_predictions.json"
     out.write_text(json.dumps({
         "league": "Единая лига ВТБ",

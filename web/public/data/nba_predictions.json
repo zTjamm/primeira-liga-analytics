@@ -1,0 +1,9 @@
+{
+  "league": "NBA",
+  "season": "2026-27",
+  "generated_at": "2026-11-03T21:00:54+00:00",
+  "history_matches": 2952,
+  "model": "лига: 113.8 очков на команду, дома +1.97, σ_разница=15.33, σ_тотал=22.87, сошёлся=True",
+  "draws_possible": false,
+  "upcoming": []
+}

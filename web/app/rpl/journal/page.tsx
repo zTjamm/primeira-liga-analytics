@@ -217,6 +217,11 @@ export default async function RplJournalPage() {
                               <span className="num text-[11px] text-muted">
                                 {((r.total_p ?? 0) * 100).toFixed(0)}%
                               </span>
+                              {r.total_threshold != null && (
+                                <span className="text-[10px] text-muted ml-2">
+                                  (порог {r.total_threshold.toFixed(2)})
+                                </span>
+                              )}
                             </>
                           )}
                         </div>
