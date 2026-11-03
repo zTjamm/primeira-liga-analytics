@@ -207,10 +207,36 @@ def _rpl() -> tuple[dict, list[str]]:
     return by, order
 
 
+def _wnba() -> tuple[dict, list[str]]:
+    """Калибровка для WNBA: берёт прогнозы из wnba_predictions.json."""
+    import json
+    from pathlib import Path
+    from etl.config import PROCESSED
+
+    preds_path = PROCESSED / "wnba_predictions.json"
+    if not preds_path.exists():
+        print("  WNBA: нет файла прогнозов, пропускаем")
+        return {}, []
+
+    data = json.loads(preds_path.read_text(encoding="utf-8"))
+    upcoming = data.get("upcoming", [])
+    if not upcoming:
+        print("  WNBA: нет upcoming-матчей, пропускаем")
+        return {}, []
+
+    idx = {"H": 0, "D": 1, "A": 2}
+    by: dict[str, list] = {}
+    for r in upcoming:
+        season = r.get("season", "2026")
+        by.setdefault(season, []).append(([r["p_home"], r["p_draw"], r["p_away"]], idx[r["prediction"]]))
+    order = sorted(by)
+    return by, order
+
+
 def main() -> int:
     report: dict = {}
     for sport, loader in (("football", _football), ("basketball", _basketball),
-                          ("rpl", _rpl)):
+                          ("wnba", _wnba), ("rpl", _rpl)):
         print(f"\n=== {sport} ===")
         by, order = loader()
         block = check_sport(sport, by, order)

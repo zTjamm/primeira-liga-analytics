@@ -116,7 +116,11 @@ def _normalize_result(m: dict) -> dict | None:
         return m if m["ftr"] is not None else None
 
     hs, as_ = m.get("home_score"), m.get("away_score")
-    if m.get("is_played") is not True or hs is None or as_ is None:
+    if hs is None or as_ is None:
+        return None
+    # is_played может отсутствовать (WNBA, VTM — там есть только счёт),
+    # тогда считаем_match сыгранным по наличию счёта.
+    if m.get("is_played", True) is not True:
         return None
     return {
         **m,
@@ -130,7 +134,7 @@ def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
     """Индекс результатов по (дата, домашний, гостевой)."""
     if matches.height == 0:
         return {}
-    if "ftr" not in matches.columns and "is_played" not in matches.columns:
+    if "home_score" not in matches.columns or "away_score" not in matches.columns:
         return {}
     idx = {}
     for m in matches.to_dicts():
@@ -176,6 +180,12 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "p_draw": latest["p_draw"],
             "p_away": latest["p_away"],
             "extra": latest.get("extra"),
+            # ROI-tracking: коэффициенты и ставка передаются из скрипта прогноза
+            # (models/wnba_predict.py, models/bt_predict.py и т.д.).
+            "odds_home": latest.get("odds_home"),
+            "odds_draw": latest.get("odds_draw"),
+            "odds_away": latest.get("odds_away"),
+            "stake": latest.get("stake"),
             "versions": [
                 {
                     "stage": v["stage"], "p_home": v["p_home"], "p_draw": v["p_draw"],
@@ -257,6 +267,29 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
                           zip([first["p_home"], first["p_draw"], first["p_away"]], probs)), 4)
         first_top = max(range(3), key=lambda i: [first["p_home"], first["p_draw"], first["p_away"]][i])
 
+        # --- ROI-tracking -------------------------------------------------
+        # Если в прогнозе были переданы коэффициенты и ставка,
+        # считаем прибыль по фактическому исходу.
+        odds_home = latest.get("odds_home")
+        odds_draw = latest.get("odds_draw")
+        odds_away = latest.get("odds_away")
+        stake = latest.get("stake")
+
+        profit = None
+        roi = None
+        if stake is not None:
+            if res["ftr"] == "H" and odds_home:
+                profit = round(stake * odds_home - stake, 2)
+            elif res["ftr"] == "D" and odds_draw:
+                profit = round(stake * odds_draw - stake, 2)
+            elif res["ftr"] == "A" and odds_away:
+                profit = round(stake * odds_away - stake, 2)
+            else:
+                # Исход не совпал ни с одним коэффициентом — проигрыш ставки.
+                profit = round(-stake, 2)
+            if profit is not None and stake:
+                roi = round(profit / stake, 4)
+
         base.update({
             "actual": res["ftr"],
             "score": f"{res['fthg']}-{res['ftag']}",
@@ -276,6 +309,9 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "n_versions": len(versions),
             "shift": shift,
             "flipped": shift > 0.01 and first_top != max(range(3), key=lambda i: probs[i]),
+            # ROI-поля (None, если коэффициенты/ставка не передавались).
+            "profit": profit,
+            "roi": roi,
         })
         resolved.append(base)
 
@@ -300,6 +336,14 @@ def summary(resolved: list[dict]) -> dict:
         if not rows:
             return {"n": 0}
         losses = [r["logloss"] for r in rows if r["logloss"] is not None]
+        # ROI-агрегат: сумма прибыли / сумма ставок.
+        stakes = [r["stake"] for r in rows if r.get("stake") is not None]
+        profits = [r["profit"] for r in rows if r.get("profit") is not None]
+        roi = (
+            round(sum(profits) / sum(stakes), 4)
+            if profits and stakes
+            else None
+        )
         return {
             "n": len(rows),
             "accuracy": round(sum(1 for r in rows if r["hit"]) / len(rows), 4),
@@ -307,6 +351,9 @@ def summary(resolved: list[dict]) -> dict:
             "avg_p_actual": round(
                 sum(r["p_actual"] for r in rows if r["p_actual"] is not None) / len(rows), 4
             ),
+            "roi": roi,
+            "total_staked": round(sum(stakes), 2) if stakes else None,
+            "total_profit": round(sum(profits), 2) if profits else None,
         }
 
     by_stage: dict[str, dict] = {}
