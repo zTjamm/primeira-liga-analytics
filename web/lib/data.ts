@@ -569,6 +569,10 @@ export interface JournalRecord {
   stake?: number | null;
   profit?: number | null;
   roi?: number | null;
+  /** Порог отсева по тоталу: у РФПЛ он свой, у остальных видов спорта
+   *  может быть null. Нужен журналу, чтобы показать, какой порог
+   *  применялся к конкретной записи. */
+  total_threshold?: number | null;
 }
 
 export interface Journal {
@@ -668,6 +672,8 @@ export const getNhlJournal = cache(() => readJson<Journal>("nhl_journal.json"));
 export const getNbaJournal = cache(() => readJson<Journal>("nba_journal.json"));
 export const getNhlPredictions = cache(() => readJson<any>("nhl_predictions.json"));
 export const getNbaPredictions = cache(() => readJson<any>("nba_predictions.json"));
+export const getNhlStrength = cache(() => readJson<VtbStrengthRow[]>("nhl_strength.json"));
+export const getNbaStrength = cache(() => readJson<VtbStrengthRow[]>("nba_strength.json"));
 
 export const getWnbaJournal = cache(() => readJson<Journal>("wnba_journal.json"));
 export const getWnbaStrength = cache(() => readJson<VtbStrengthRow[]>("wnba_strength.json"));

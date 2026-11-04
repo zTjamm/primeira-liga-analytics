@@ -17,7 +17,7 @@ from pathlib import Path
 import polars as pl
 
 from etl.config import PROCESSED, RAW
-from models import forecast
+from models import ball_sport, forecast, verdict
 from models.basketball import BasketballModel
 
 
@@ -56,10 +56,21 @@ def main() -> None:
         )
         model = BasketballModel().fit(train_df.to_dicts(), teams)
 
+        games: dict[str, int] = {}
+        for m in train_df.to_dicts():
+            for side in ("home_id", "away_id"):
+                games[m[side]] = games.get(m[side], 0) + 1
+
         for m in test_df.to_dicts():
-            probs = list(model.predict_1x2(m["home_id"], m["away_id"]))
-            top = int(max(range(3), key=lambda i: probs[i]))
-            prediction = ["H", "D", "A"][top]
+            # Ничьей в NBA не бывает — вероятность ничьей удаляется,
+            # как и в scripts/nba_predict.py.
+            probs = ball_sport.remove_draw(model.predict_1x2(m["home_id"], m["away_id"]))
+            top = int(max(range(2), key=lambda i: probs[i]))
+            prediction = ["H", "A"][top]
+            confidence = float(probs[top])
+            team_games_min = min(games.get(m["home_id"], 0),
+                                 games.get(m["away_id"], 0))
+            ok, reason = verdict.verdict(confidence, team_games_min)
 
             records.append({
                 "key": f"nba_{m['match_id']}",
@@ -72,13 +83,17 @@ def main() -> None:
                 "hours_before": 24.0,
                 "stage": "T-24h",
                 "p_home": round(probs[0], 4),
-                "p_draw": round(probs[1], 4),
-                "p_away": round(probs[2], 4),
+                "p_draw": 0.0,
+                "p_away": round(probs[1], 4),
                 "prediction": prediction,
                 "odds_home": None,
                 "odds_draw": None,
                 "odds_away": None,
                 "stake": None,
+                "extra": {
+                    "verdict_given": ok,
+                    "verdict_reason": reason,
+                },
             })
 
     RAW_LEDGER = RAW / "forecast_log_nba.jsonl"

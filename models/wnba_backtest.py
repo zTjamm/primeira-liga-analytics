@@ -20,7 +20,7 @@ from pathlib import Path
 import polars as pl
 
 from etl.config import PROCESSED, RAW
-from models import forecast
+from models import forecast, verdict
 from models.basketball import BasketballModel
 from models.wnba_predict import _load_names
 
@@ -68,10 +68,19 @@ def main() -> None:
         )
         model = BasketballModel().fit(train_df.to_dicts(), teams)
 
+        games: dict[str, int] = {}
+        for m in train_df.to_dicts():
+            for side in ("home_id", "away_id"):
+                games[m[side]] = games.get(m[side], 0) + 1
+
         for m in test_df.to_dicts():
             probs = _remove_draw(list(model.predict_1x2(m["home_id"], m["away_id"])))
-            top = int(max(range(3), key=lambda i: probs[i]))
-            prediction = ["H", "D", "A"][top]
+            top = int(max(range(2), key=lambda i: probs[i]))
+            prediction = ["H", "A"][top]
+            confidence = float(probs[top])
+            team_games_min = min(games.get(m["home_id"], 0),
+                                 games.get(m["away_id"], 0))
+            ok, reason = verdict.verdict(confidence, team_games_min)
 
             record = {
                 "key": f"wnba_{m['match_id']}",
@@ -92,6 +101,10 @@ def main() -> None:
                 "odds_draw": None,
                 "odds_away": None,
                 "stake": None,
+                "extra": {
+                    "verdict_given": ok,
+                    "verdict_reason": reason,
+                },
             }
             records.append(record)
 

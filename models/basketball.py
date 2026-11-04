@@ -96,13 +96,34 @@ class BasketballModel:
     rho: float = -0.10
     _converged: bool = False
     _message: str = ""
+    # Единица счёта в сводке модели: «очков» у баскетбола, «шайб» у хоккея.
+    score_unit: str = "очков"
 
     # ------------------------------------------------------------------ fit
 
     def fit(self, matches: list[dict], teams: list[str],
-            half_life_days: float = HALF_LIFE_DAYS) -> "BasketballModel":
+            half_life_days: float = HALF_LIFE_DAYS,
+            attack_bound: float = 20.0,
+            home_adv_bound: float = 8.0,
+            sigma_margin_range: tuple[float, float] = (6.0, 28.0),
+            sigma_total_range: tuple[float, float] = (8.0, 35.0),
+            sigma_margin_init: float = 13.0,
+            sigma_total_init: float = 17.0,
+            penalty_scale: float = 1.0) -> "BasketballModel":
         """matches: список словарей с home_id, away_id, home_score, away_score,
-        match_date. Команды, которых нет в teams, получают нейтральные параметры."""
+        match_date. Команды, которых нет в teams, получают нейтральные параметры.
+
+        Границы оптимизации задаются под вид спорта. Баскетбольные по
+        умолчанию (разница в очках: 12-16 очков) для хоккея не годятся:
+        оптимизатор упирается в нижнюю границу и получает σ_разница = 6
+        шайб, хотя реальный разброс — около 2.6 шайбы. Для хоккея границы
+        и штраф задаёт models/nhl_predict.py.
+
+        penalty_scale — во сколько раз «единица силы» в этом спорте меньше
+        баскетбольной. Штраф на параметры команд должен быть соразмерным
+        масштабу счёта, иначе для хоккея он почти не действует и модель
+        переобучается под каждую команду.
+        """
         if not matches:
             raise ValueError("пустой обучающий набор")
 
@@ -158,21 +179,24 @@ class BasketballModel:
             ll = (
                 norm.logpdf(margin, mu_margin, sm)
                 + norm.logpdf(total, mu_total, st)
-                - RIDGE * np.sum(atk ** 2 + dfn ** 2) / max(wsum, 1.0) * 100.0
+                - RIDGE * np.sum((atk / penalty_scale) ** 2 + (dfn / penalty_scale) ** 2)
+                / max(wsum, 1.0) * 100.0
             )
             return -float(np.sum(w * ll))
 
         x0 = np.zeros(2 * n + 3)
-        x0[2 * n + 1] = np.log(13.0)
-        x0[2 * n + 2] = np.log(17.0)
+        x0[2 * n + 1] = np.log(sigma_margin_init)
+        x0[2 * n + 2] = np.log(sigma_total_init)
         # Границы подобраны по физике, а не «на глаз»: разница мячей в
         # баскетболе имеет сд 12-16 очков, а домашнее преимущество
         # редко превышает 8 очков. Слишком широкие границы дают
         # оптимизатору возможность уползти в бессмыслицу на малой выборке.
         bounds = (
-            [(-20.0, 20.0)] * n
-            + [(-20.0, 20.0)] * n
-            + [(-8.0, 8.0), (np.log(6.0), np.log(28.0)), (np.log(8.0), np.log(35.0))]
+            [(-attack_bound, attack_bound)] * n
+            + [(-attack_bound, attack_bound)] * n
+            + [(-home_adv_bound, home_adv_bound),
+               (np.log(sigma_margin_range[0]), np.log(sigma_margin_range[1])),
+               (np.log(sigma_total_range[0]), np.log(sigma_total_range[1]))]
         )
 
         res = minimize(neg_ll, x0, method="L-BFGS-B", bounds=bounds,
@@ -249,6 +273,6 @@ class BasketballModel:
         return sorted(rows, key=lambda r: -r["overall"])
 
     def summary(self) -> str:
-        return (f"лига: {self.league_avg:.1f} очков на команду, "
+        return (f"лига: {self.league_avg:.1f} {self.score_unit} на команду, "
                 f"дома +{self.home_adv:.2f}, σ_разница={self.sigma_margin:.2f}, "
                 f"σ_тотал={self.sigma_total:.2f}, сошёлся={self._converged}")

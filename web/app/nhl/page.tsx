@@ -17,6 +17,7 @@ export default async function NhlPage() {
   }
 
   const upcoming = preds.upcoming || [];
+  const issued = upcoming.filter((m: any) => m.verdict_given).length;
 
   return (
     <div className="space-y-6">
@@ -29,6 +30,12 @@ export default async function NhlPage() {
           </p>
         </div>
         <p className="mt-2 text-xs text-muted">{preds.model}</p>
+        <p className="mt-1 text-xs text-muted">
+          Вердикт выдан по <span className="num text-text">{issued}</span> из{" "}
+          <span className="num">{upcoming.length}</span> матчей. Остальные
+          отсеяны порогом {preds.verdict_threshold ?? 0.55}: исходы почти
+          равны, и называть один из них было бы подменой «мы не знаем».
+        </p>
       </section>
 
       {upcoming.length > 0 && (
@@ -55,10 +62,13 @@ export default async function NhlPage() {
                     <td className="py-2 text-right text-xs">
                       {m.verdict_given ? (
                         <span className="rounded bg-good/15 px-1.5 py-0.5 text-good">
-                          {m.prediction} {(m.confidence * 100).toFixed(0)}%
+                          {m.prediction === "H" ? "П1" : "П2"} {(m.confidence * 100).toFixed(0)}%
                         </span>
                       ) : (
-                        <span className="rounded bg-line/20 px-1.5 py-0.5 text-muted">
+                        <span
+                          className="rounded bg-line/20 px-1.5 py-0.5 text-muted"
+                          title={m.verdict_reason || undefined}
+                        >
                           без вердикта
                         </span>
                       )}
@@ -68,6 +78,11 @@ export default async function NhlPage() {
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-xs text-muted">
+            «Вердикт» выдаётся, только когда вероятность лучшего исхода не ниже
+            порога. Вероятности при этом остаются в данных: не показывается
+            решение, а не расчёт.
+          </p>
         </section>
       )}
 

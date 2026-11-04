@@ -1,0 +1,184 @@
+[
+  {
+    "team": "1611661324",
+    "name": "Minnesota Lynx",
+    "attack": 2.33,
+    "defence": 2.88,
+    "overall": 5.22
+  },
+  {
+    "team": "1611661330",
+    "name": "Atlanta Dream",
+    "attack": 1.41,
+    "defence": 2.65,
+    "overall": 4.06
+  },
+  {
+    "team": "1611661319",
+    "name": "Las Vegas Aces",
+    "attack": 1.74,
+    "defence": 2.14,
+    "overall": 3.88
+  },
+  {
+    "team": "1611661313",
+    "name": "New York Liberty",
+    "attack": 1.52,
+    "defence": 1.91,
+    "overall": 3.43
+  },
+  {
+    "team": "1611661331",
+    "name": "Golden State Valkyries",
+    "attack": 1.66,
+    "defence": 1.19,
+    "overall": 2.85
+  },
+  {
+    "team": "1611661325",
+    "name": "Indiana Fever",
+    "attack": 2.09,
+    "defence": 0.71,
+    "overall": 2.8
+  },
+  {
+    "team": "1611665414",
+    "name": "Team Collier",
+    "attack": -0.0,
+    "defence": 0.19,
+    "overall": 0.18
+  },
+  {
+    "team": "1611665416",
+    "name": "Team Spoon",
+    "attack": -0.0,
+    "defence": 0.11,
+    "overall": 0.11
+  },
+  {
+    "team": "1611665411",
+    "name": "Team WNBA",
+    "attack": 0.03,
+    "defence": 0.0,
+    "overall": 0.03
+  },
+  {
+    "team": "1611665412",
+    "name": "USAB Women's National Team",
+    "attack": -0.0,
+    "defence": -0.03,
+    "overall": -0.03
+  },
+  {
+    "team": "1611665415",
+    "name": "Team Coop",
+    "attack": -0.11,
+    "defence": 0.0,
+    "overall": -0.11
+  },
+  {
+    "team": "1611665413",
+    "name": "Team Clark",
+    "attack": -0.19,
+    "defence": 0.0,
+    "overall": -0.18
+  },
+  {
+    "team": "116",
+    "name": "NaN",
+    "attack": -0.0,
+    "defence": -0.26,
+    "overall": -0.26
+  },
+  {
+    "team": "15008",
+    "name": " Japan National Team",
+    "attack": -0.0,
+    "defence": -0.38,
+    "overall": -0.38
+  },
+  {
+    "team": "502",
+    "name": "Toyota Antelopes",
+    "attack": -0.0,
+    "defence": -0.64,
+    "overall": -0.64
+  },
+  {
+    "team": "1611661317",
+    "name": "Phoenix Mercury",
+    "attack": -0.42,
+    "defence": -0.22,
+    "overall": -0.65
+  },
+  {
+    "team": "85",
+    "name": " Brazil National Team",
+    "attack": -0.0,
+    "defence": -0.65,
+    "overall": -0.66
+  },
+  {
+    "team": "1611661321",
+    "name": "Dallas Wings",
+    "attack": 0.27,
+    "defence": -1.03,
+    "overall": -0.75
+  },
+  {
+    "team": "15026",
+    "name": " Nigeria National Team",
+    "attack": -0.0,
+    "defence": -0.77,
+    "overall": -0.78
+  },
+  {
+    "team": "1611661328",
+    "name": "Seattle Storm",
+    "attack": -0.35,
+    "defence": -0.5,
+    "overall": -0.85
+  },
+  {
+    "team": "1611661322",
+    "name": "Washington Mystics",
+    "attack": -1.22,
+    "defence": 0.12,
+    "overall": -1.1
+  },
+  {
+    "team": "1611661327",
+    "name": "Portland Fire",
+    "attack": -1.2,
+    "defence": -0.89,
+    "overall": -2.09
+  },
+  {
+    "team": "1611661320",
+    "name": "Los Angeles Sparks",
+    "attack": -2.04,
+    "defence": -0.44,
+    "overall": -2.48
+  },
+  {
+    "team": "1611661332",
+    "name": "Toronto Tempo",
+    "attack": -2.09,
+    "defence": -1.57,
+    "overall": -3.67
+  },
+  {
+    "team": "1611661329",
+    "name": "Chicago Sky",
+    "attack": -2.03,
+    "defence": -1.88,
+    "overall": -3.91
+  },
+  {
+    "team": "1611661323",
+    "name": "Connecticut Sun",
+    "attack": -1.38,
+    "defence": -2.65,
+    "overall": -4.02
+  }
+]

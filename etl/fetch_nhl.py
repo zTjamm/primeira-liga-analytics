@@ -37,8 +37,33 @@ def _cache_path(season: str) -> Path:
     return RAW / f"nhl_{season}.json"
 
 
+def _season_for_date(game_date: str, fallback: str) -> str:
+    """Сезон по фактической дате матча.
+
+    Дата матча берётся из startTimeUTC, а не из запрошенной даты, и матч
+    может формально выпадать за границы запрошенного сезона. Тогда season
+    считается по дате, а не по тому, какой сезон мы качали.
+    """
+    for season, (start, end) in SEASON_DATE_RANGES.items():
+        if start <= game_date <= end:
+            return season
+    return fallback
+
+
 def _fetch_date(target_date: date, season: str) -> list[dict]:
-    """Загружает матчи на одну дату."""
+    """Загружает матчи недели, в которую попадает target_date.
+
+    ВАЖНО: /v1/schedule/{date} отдаёт НЕ один день, а всю неделю целиком
+    (в payload семь объектов gameWeek — по одному на день). Если брать из
+    ответа все матчи, то при итерации по дням каждый матч попадёт в
+    выборку семь раз: по разу на каждый день своей недели. Отсюда были
+    27 405 «матчей» вместо примерно 4 100 и даты, не совпадающие с
+    реальными.
+
+    Поэтому дата матча берётся из startTimeUTC (у API поле называется
+    именно так, gameDateTime в ответе нет), а перед сохранением строки
+    дедуплицируются по id.
+    """
     url = f"{API_BASE}/schedule/{target_date.isoformat()}"
     try:
         r = SESSION.get(url, timeout=30)
@@ -53,10 +78,13 @@ def _fetch_date(target_date: date, season: str) -> list[dict]:
         for game in week.get("games", []):
             home = game.get("homeTeam", {})
             away = game.get("awayTeam", {})
+            start = game.get("startTimeUTC")
+            game_date = start[:10] if start else target_date.isoformat()
             rows.append({
-                "season": season,
+                "season": _season_for_date(game_date, season),
                 "match_id": str(game["id"]),
-                "match_date": target_date.isoformat(),
+                "match_date": game_date,
+                "kickoff_utc": start,
                 "home_id": str(home.get("id")),
                 "home_name": home.get("commonName", {}).get("default", ""),
                 "away_id": str(away.get("id")),
@@ -81,13 +109,18 @@ def fetch_season(season: str) -> pl.DataFrame:
     end = date.fromisoformat(end_str)
 
     all_rows: list[dict] = []
+    seen: dict[str, dict] = {}
     current = start
     while current <= end:
         rows = _fetch_date(current, season)
-        if rows:
-            all_rows.extend(rows)
+        for r in rows:
+            # Дедупликация по id: неделя отдаётся целиком, поэтому без неё
+            # один матч попадает в выборку семь раз.
+            seen[r["match_id"]] = r
         current += timedelta(days=1)
         time.sleep(0.15)  # вежливость к API
+
+    all_rows = list(seen.values())
 
     # Сохраняем кэш
     if all_rows:

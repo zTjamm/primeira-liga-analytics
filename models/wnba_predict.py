@@ -10,7 +10,9 @@
 from __future__ import annotations
 
 import json
+import shutil
 from datetime import datetime, timezone
+from pathlib import Path
 
 import numpy as np
 import polars as pl
@@ -83,12 +85,61 @@ def main():
             return [p_home / decisive, 0.0, p_away / decisive]
         return [0.5, 0.0, 0.5]
 
-    # Прогнозы на будущие матчи
-    # Для WNBA пока нет расписания будущих матчей через nba_api
-    # (season 2026 закончился в октябре 2026)
-    # В реальном пайплайне здесь будут upcoming games
-    print("\nПрогнозы WNBA: пока нет расписания будущих матчей (сезон 2026 завершен)")
-    print("Для реального пайплайна нужен отдельный fetch расписания WNBA")
+    # Загружаем будущие матчи (фикстуры)
+    fixtures_path = PROCESSED / "wnba_future_fixtures.parquet"
+    upcoming = []
+    ledger_records = []
+    if fixtures_path.exists():
+        fixtures = pl.read_parquet(fixtures_path)
+        print(f"  Будущих матчей: {fixtures.height}")
+        for f in fixtures.to_dicts():
+            probs = model.predict_1x2(f["home_id"], f["away_id"])
+            probs = _remove_draw(probs)
+            top = int(max(range(2), key=lambda i: probs[i]))
+            prediction = ["H", "A"][top]
+            verdict_given = bool(max(probs) >= 0.55)
+            upcoming.append({
+                "match_id": f["match_id"],
+                "date": str(f["match_date"]),
+                "home_id": f["home_id"],
+                "away_id": f["away_id"],
+                "home_name": f["home_name"],
+                "away_name": f["away_name"],
+                "p_home": round(float(probs[0]), 4),
+                "p_draw": 0.0,
+                "p_away": round(float(probs[1]), 4),
+                "prediction": prediction,
+                "confidence": round(float(probs[top]), 4),
+                "verdict_given": verdict_given,
+                "verdict_reason": "" if verdict_given else f"вероятность {max(probs):.1%} ниже порога 0.55",
+            })
+            ledger_records.append({
+                "key": f"wnba_{f['match_id']}",
+                "date": str(f["match_date"]),
+                "home_id": f["home_id"],
+                "away_id": f["away_id"],
+                "home_name": f.get("home_name", f["home_id"]),
+                "away_name": f.get("away_name", f["away_id"]),
+                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "hours_before": 24.0,
+                "stage": "T-24h",
+                "p_home": round(float(probs[0]), 4),
+                "p_draw": 0.0,
+                "p_away": round(float(probs[1]), 4),
+                "prediction": ["H", "A"][top],
+                "odds_home": None,
+                "odds_draw": None,
+                "odds_away": None,
+                "stake": None,
+                # Метки вердикта обязательны: точность в журнале считается
+                # только по выданным вердиктам, иначе отсев был бы незаметен.
+                "extra": {
+                    "verdict_given": verdict_given,
+                    "verdict_reason": "" if verdict_given else f"вероятность {max(probs):.1%} ниже порога 0.55",
+                },
+            })
+    else:
+        print("  Будущих матчей нет")
 
     # Сохраняем результаты
     out = PROCESSED / "wnba_predictions.json"
@@ -107,18 +158,27 @@ def main():
             "source": "data/reports/calibration.json",
             "note": "Калибровка T=0.1826 проверена только на ВТБ. Для WNBA требуется отдельная валидация. Ничья удалена из вероятностей.",
         },
-        "upcoming": [],
+        "verdict_threshold": 0.55,
+        "upcoming": upcoming,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Файл: {out}")
 
-    # --- Запись в журнал прогнозов (с поддержкой ROI) ---------------------
-    # Строим записи для forecast.append. Пока upcoming пуст (сезон закончен),
-    # но структура готова: когда появятся будущие матчи, они попадут в журнал.
-    ledger_records = []
-    # Заглушка: будущих матчей WNBA нет (сезон 2026 завершён).
-    # Когда появятся, здесь будет forecast.append(ledger_records, "wnba")
-    # с полями odds_home/odds_draw/odds_away/stake для отслеживания ROI.
+    # Рейтинги команд — для страницы «Команды».
+    strength_path = PROCESSED / "wnba_strength.json"
+    strength_rows = []
+    for r in model.strength():
+        strength_rows.append({
+            "team": r["team"],
+            "name": names.get(r["team"], r["team"]),
+            "attack": r["attack"],
+            "defence": r["defence"],
+            "overall": r["overall"],
+        })
+    strength_path.write_text(json.dumps(strength_rows, ensure_ascii=False, indent=2),
+                             encoding="utf-8")
+    print(f"Рейтинги: {strength_path}")
 
+    # --- Запись в журнал прогнозов (с поддержкой ROI) ---------------------
     if ledger_records:
         added = forecast.append(ledger_records, "wnba")
         print(f"В журнал WNBA добавлено новых записей: {added}")
@@ -135,6 +195,13 @@ def main():
                   f"(ставок: {s['overall']['total_staked']}, прибыль: {s['overall']['total_profit']})")
     else:
         print("Журнал WNBA пока без сыгранных прогнозов — метрики появятся, когда в данных будут результаты.")
+
+    # Копии в витрину: сайт читает файлы из web/public/data.
+    public_dir = Path("web/public/data")
+    public_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy(out, public_dir / "wnba_predictions.json")
+    shutil.copy(PROCESSED / "wnba_journal.json", public_dir / "wnba_journal.json")
+    shutil.copy(strength_path, public_dir / "wnba_strength.json")
 
 
 if __name__ == "__main__":

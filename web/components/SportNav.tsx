@@ -81,6 +81,9 @@ export const SPORTS: SportPages[] = [
     pages: [
       { href: "/nhl", label: "Матчи" },
       { href: "/nhl/journal", label: "Журнал" },
+      { href: "/nhl/teams", label: "Команды" },
+      { href: "/nhl/accuracy", label: "Точность" },
+      { href: "/nhl/methodology", label: "Методика" },
     ],
   },
   {
@@ -91,6 +94,9 @@ export const SPORTS: SportPages[] = [
     pages: [
       { href: "/nba", label: "Матчи" },
       { href: "/nba/journal", label: "Журнал" },
+      { href: "/nba/teams", label: "Команды" },
+      { href: "/nba/accuracy", label: "Точность" },
+      { href: "/nba/methodology", label: "Методика" },
     ],
   },
 ];
