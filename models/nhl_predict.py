@@ -44,9 +44,9 @@ from models.nhl_backtest import write_web_journal
 def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
     """Сколько часов осталось до матча.
 
-    Точного времени старта в фикстурах НХЛ раньше не было, поэтому при
-    его отсутствии считаем от полуночи дня матча. Это влияет только на
-    подпись этапа в журнале, а не на вероятности.
+    Время старта берётся из API (оно в UTC), и матчи без него — редкий
+    случай у архивных сезонов — считаем от полуночи дня матча. На
+    подпись этапа в журнале это влияет, на вероятности — нет.
     """
     if kickoff:
         try:
@@ -63,6 +63,60 @@ def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
     if ts.tzinfo is None:
         ts = ts.replace(tzinfo=timezone.utc)
     return max((ts - now).total_seconds() / 3600.0, 0.0)
+
+
+def _upcoming_matches(matches: pl.DataFrame, now: datetime) -> list[dict]:
+    """Матчи, которые ещё не начались.
+
+    Отбор по времени старта, а не по дате матча. Дата у матча местная
+    (так её и показывает сайт), а «сейчас» считается в UTC, и вечерний
+    матч по местному времени оказывается то «сегодня», то «завтра» по
+    UTC. Время старта в UTC — единственная величина, сравнимая с текущим
+    моментом, поэтому сравниваем с ним.
+
+    Матч без времени старта (так бывает у архивных сезонов) сравниваем
+    по дате: если дата прошла, матч не показываем.
+
+    Отдельно важно не показывать начавшийся матч: у него счёт появится
+    через два с половиной часа, а до этого он «несыгранный», и в
+    прогнозах он смотрелся бы как матч впереди.
+    """
+    today = now.date().isoformat()
+    out: list[dict] = []
+    for m in matches.filter(pl.col("home_score").is_null()).to_dicts():
+        kickoff = m.get("kickoff_utc")
+        if kickoff:
+            try:
+                ts = datetime.fromisoformat(str(kickoff).replace("Z", "+00:00"))
+            except ValueError:
+                ts = None
+            if ts is not None:
+                if ts.tzinfo is None:
+                    ts = ts.replace(tzinfo=timezone.utc)
+                if ts <= now:
+                    continue
+        elif str(m.get("match_date")) < today:
+            continue
+        row = dict(m)
+        row["match_date"] = str(m["match_date"])
+        out.append(row)
+    out.sort(key=lambda r: (r["match_date"], r.get("kickoff_utc") or "",
+                            r["match_id"]))
+    return out
+
+
+def _season_label(matches: pl.DataFrame, fixtures: list[dict]) -> str:
+    """Сезон, к которому относятся будущие матчи.
+
+    Не вписываем руками: в апреле следующий сезон уже расписан, и
+    вписанная строка врала бы на полгода. Берём сезон будущих матчей,
+    а если их нет — последний сезон в данных.
+    """
+    seasons = [str(f.get("season")) for f in fixtures if f.get("season")]
+    if seasons:
+        return max(seasons)
+    all_seasons = [str(s) for s in matches["season"].unique().to_list() if s]
+    return max(all_seasons) if all_seasons else ""
 
 
 def main() -> None:
@@ -108,81 +162,90 @@ def main() -> None:
         print("Калибровка: не применяется (отчёта нет или проверка "
               "калибровку не подтвердила) — вероятности сырые")
 
-    # Будущие матчи (фикстуры).
-    fixtures_path = PROCESSED / "nhl_future_fixtures.parquet"
+    # Будущие матчи — из того же датасета, что и история.
+    #
+    # Раньше для них был отдельный сборщик (etl/fetch_nhl_fixtures.py)
+    # со своими соглашениями: даты в UTC вместо местных, обход по дням
+    # (в семь раз больше запросов, чем нужно), кэш «навсегда» и свой
+    # список сезонов. Он не запускался ни в цикле сервера, ни в CI, и
+    # из-за этого расписание на сайте зависело от того, когда его
+    # запускали руками: CI публиковал прогнозы вовсе без будущих
+    # матчей, а в кэше оставались уже сыгранные матчи с прошедшей
+    # датой (четыре матча вечера 4 ноября — их файл считал ещё
+    # несыгранными).
+    #
+    # Теперь источник один: data/processed/nhl_matches.parquet, его
+    # обновляет etl.fetch_nhl в каждом цикле обновления.
+    now = datetime.now(timezone.utc)
+    fixtures = _upcoming_matches(matches, now)
+    print(f"  Будущих матчей: {len(fixtures)}")
     upcoming: list[dict] = []
     ledger: list[dict] = []
-    if fixtures_path.exists():
-        fixtures = ball_sport.future_fixtures(pl.read_parquet(fixtures_path))
-        print(f"  Будущих матчей: {fixtures.height}")
-        now = datetime.now(timezone.utc)
-        for f in fixtures.to_dicts():
-            p_home, p_away = model.predict_outcome(f["home_id"], f["away_id"])
-            probs = temperature.apply([float(p_home), float(p_away)], calib_t)
-            top = int(max(range(2), key=lambda i: probs[i]))
-            prediction = ["H", "A"][top]
-            confidence = float(probs[top])
+    for f in fixtures:
+        p_home, p_away = model.predict_outcome(f["home_id"], f["away_id"])
+        probs = temperature.apply([float(p_home), float(p_away)], calib_t)
+        top = int(max(range(2), key=lambda i: probs[i]))
+        prediction = ["H", "A"][top]
+        confidence = float(probs[top])
 
-            # Отказ от вердикта там, где исходы почти равны: вероятности
-            # остаются в данных, не показывается только решение.
-            team_games_min = min(games.get(f["home_id"], 0),
-                                 games.get(f["away_id"], 0))
-            ok, reason = verdict.verdict(confidence, team_games_min)
+        # Отказ от вердикта там, где исходы почти равны: вероятности
+        # остаются в данных, не показывается только решение.
+        team_games_min = min(games.get(f["home_id"], 0),
+                             games.get(f["away_id"], 0))
+        ok, reason = verdict.verdict(confidence, team_games_min)
 
-            match_date = str(f["match_date"])
-            kickoff = f.get("kickoff_utc")
-            upcoming.append({
-                "match_id": f["match_id"],
-                "date": match_date,
-                "kickoff_utc": kickoff,
-                "home_id": f["home_id"],
-                "away_id": f["away_id"],
-                "home_name": f["home_name"],
-                "away_name": f["away_name"],
-                "p_home": round(float(probs[0]), 4),
-                "p_draw": 0.0,
-                "p_away": round(float(probs[1]), 4),
-                "prediction": prediction,
-                "confidence": round(confidence, 4),
+        match_date = str(f["match_date"])
+        kickoff = f.get("kickoff_utc")
+        upcoming.append({
+            "match_id": f["match_id"],
+            "date": match_date,
+            "kickoff_utc": kickoff,
+            "home_id": f["home_id"],
+            "away_id": f["away_id"],
+            "home_name": f["home_name"],
+            "away_name": f["away_name"],
+            "p_home": round(float(probs[0]), 4),
+            "p_draw": 0.0,
+            "p_away": round(float(probs[1]), 4),
+            "prediction": prediction,
+            "confidence": round(confidence, 4),
+            "verdict_given": ok,
+            "verdict_reason": reason,
+            "shootout_prob": round(float(model.shootout_prob(
+                f["home_id"], f["away_id"])), 4),
+        })
+
+        hours = _hours_before(kickoff, match_date, now)
+        ledger.append({
+            "key": f"nhl_{f['match_id']}",
+            "date": match_date,
+            "kickoff": kickoff,
+            "matchday": None,
+            "home_id": f["home_id"],
+            "away_id": f["away_id"],
+            "home_name": f["home_name"],
+            "away_name": f["away_name"],
+            "generated_at": now.isoformat(timespec="seconds"),
+            "hours_before": round(hours, 2),
+            "stage": forecast.stage_for(hours),
+            "p_home": round(float(probs[0]), 4),
+            "p_draw": 0.0,
+            "p_away": round(float(probs[1]), 4),
+            "prediction": prediction,
+            "odds_home": None,
+            "odds_draw": None,
+            "odds_away": None,
+            "stake": None,
+            "extra": {
                 "verdict_given": ok,
                 "verdict_reason": reason,
-                "shootout_prob": round(float(model.shootout_prob(
-                    f["home_id"], f["away_id"])), 4),
-            })
-
-            hours = _hours_before(kickoff, match_date, now)
-            ledger.append({
-                "key": f"nhl_{f['match_id']}",
-                "date": match_date,
-                "kickoff": kickoff,
-                "matchday": None,
-                "home_id": f["home_id"],
-                "away_id": f["away_id"],
-                "home_name": f["home_name"],
-                "away_name": f["away_name"],
-                "generated_at": now.isoformat(timespec="seconds"),
-                "hours_before": round(hours, 2),
-                "stage": forecast.stage_for(hours),
-                "p_home": round(float(probs[0]), 4),
-                "p_draw": 0.0,
-                "p_away": round(float(probs[1]), 4),
-                "prediction": prediction,
-                "odds_home": None,
-                "odds_draw": None,
-                "odds_away": None,
-                "stake": None,
-                "extra": {
-                    "verdict_given": ok,
-                    "verdict_reason": reason,
-                },
-            })
-    else:
-        print("  Будущих матчей нет")
+            },
+        })
 
     out = PROCESSED / "nhl_predictions.json"
     ball_sport.write_json(out, {
         "league": "NHL",
-        "season": "20262027",
+        "season": _season_label(matches, fixtures),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "history_matches": played.height,
         "model": model.summary(),
