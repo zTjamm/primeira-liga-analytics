@@ -371,6 +371,84 @@ def check_web_journal_trimmed() -> bool:
             out.unlink()
 
 
+def check_fail_loud() -> bool:
+    """Сборщик без данных обязан падать, а не выходить «успешно».
+
+    Так было в CI: шаг отработал, ничего не собрал, прогон остался
+    зелёным. Зелёный статус должен означать «данные есть», иначе он
+    ничего не значит.
+    """
+    print("\nПадение при отсутствии данных:")
+    ok = True
+
+    original = fn.fetch_all
+    fn.fetch_all = lambda *a, **kw: pl.DataFrame()
+    try:
+        code = None
+        try:
+            fn.main()
+        except SystemExit as e:
+            code = e.code
+        ok &= _check("пустой сбор — ненулевой код выхода", code, 1)
+    finally:
+        fn.fetch_all = original
+
+    # NBA_FROM_LOCAL: сеть не трогаем, отчёт считаем по файлу.
+    ok &= _check("есть режим работы без сети",
+                 "NBA_FROM_LOCAL" in _code_strings(ROOT / "etl" / "fetch_nba.py")
+                 or "NBA_FROM_LOCAL" in
+                 (ROOT / "etl" / "fetch_nba.py").read_text(encoding="utf-8"),
+                 True)
+    return ok
+
+
+def check_ci_data_source() -> bool:
+    """CI не должен ходить в API NBA: с раннеров он недоступен.
+
+    Проверено на реальном прогоне: 18 запросов, девять минут ожидания,
+    ноль данных — и зелёный статус. Источник данных для CI теперь
+    витрина (её собирает сервер) плюс запасной датасет в репозитории.
+    """
+    print("\nИсточник данных в CI:")
+    path = ROOT / ".github" / "workflows" / "nba.yml"
+    text = path.read_text(encoding="utf-8")
+    ok = True
+    # Сборщик в CI может вызываться только в режиме «сеть не трогаем»:
+    # обычный заход идёт в API, который с раннеров не отвечает.
+    calls = [line.strip() for line in text.splitlines()
+             if "python -m etl.fetch_nba" in line]
+    ok &= _check_bool(
+        "CI не собирает данные напрямую через etl.fetch_nba",
+        bool(calls) and all("NBA_FROM_LOCAL=1" in line for line in calls),
+        "stats.nba.com с раннеров не отвечает: все запросы истекли "
+        "по таймауту; в CI сборщик допустим только в режиме без сети")
+    ok &= _check_bool(
+        "CI берёт датасет с витрины",
+        "nba_matches.parquet" in text and "curl" in text)
+    ok &= _check_bool(
+        "у CI есть запасной датасет из репозитория",
+        "git checkout HEAD -- data/processed/nba_matches.parquet" in text)
+    ok &= _check_bool(
+        "CI проверяет свежесть данных перед публикацией",
+        "nba_stale" in text and "days_since_last_played" in text)
+
+    # Запасной датасет должен лежать в репозитории.
+    seed = ROOT / "data" / "processed" / "nba_matches.parquet"
+    ok &= _check_bool("запасной датасет есть в репозитории", seed.exists(),
+                      "без него CI не переживёт недоступность витрины")
+    if seed.exists():
+        df = pl.read_parquet(seed)
+        ok &= _check("в запасном датасете есть сыгранные матчи",
+                     df.filter(pl.col("home_score").is_not_null()).height > 0, True)
+
+    # Витрина должна публиковать датасет — иначе CI нечего забирать.
+    deploy = (ROOT / "deploy" / "update_server.sh").read_text(encoding="utf-8")
+    ok &= _check_bool(
+        "сервер публикует датасет NBA на витрину",
+        "data/processed/nba_matches.parquet" in deploy)
+    return ok
+
+
 def main() -> int:
     print("Проверка пайплайна NBA\n" + "-" * 46)
     results = [
@@ -382,6 +460,8 @@ def main() -> int:
         check_upcoming_selection(),
         check_deploy_and_web(),
         check_web_journal_trimmed(),
+        check_fail_loud(),
+        check_ci_data_source(),
     ]
     print("-" * 46)
     if all(results):

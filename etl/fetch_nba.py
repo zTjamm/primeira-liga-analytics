@@ -30,6 +30,7 @@ etl/fetch_nba.py (только история, кэш «навсегда» — �
 from __future__ import annotations
 
 import json
+import os
 import time
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -646,24 +647,15 @@ def fetch_all(today: date | None = None) -> pl.DataFrame:
     return df
 
 
-def main() -> None:
-    print("Загрузка данных NBA...")
-    df = fetch_all()
-    if df.is_empty():
-        print("Нет данных NBA")
-        return
+def write_ingest_report(df: pl.DataFrame) -> dict:
+    """Самопроверки и отчёт по датасету.
 
-    out_path = PROCESSED / "nba_matches.parquet"
-    df.write_parquet(out_path)
-    print(f"Сохранено: {out_path}")
-    print(f"Всего матчей: {len(df)}")
-    print(f"Уникальных id: {df['match_id'].n_unique()}")
-
+    Вынесено отдельно от main(), потому что отчёт нужен не только при
+    сборе: CI берёт готовый датасет с витрины и считает по нему отчёт
+    (см. NBA_FROM_LOCAL), и проверки должны работать одинаково.
+    """
     played = df.filter(pl.col("is_played"))
     upcoming = df.filter(~pl.col("is_played"))
-    print(f"Сыгранных: {played.height}, будущих: {upcoming.height}")
-    print(f"Сезоны: {sorted(df['season'].unique().to_list())}")
-    print(f"Диапазон: {df['match_date'].min()} … {df['match_date'].max()}")
 
     # Самопроверка: число матчей в завершённом сезоне известно точно.
     # Несовпадение означает потерянный запрос.
@@ -723,6 +715,52 @@ def main() -> None:
     stats_path.write_text(json.dumps(stats, ensure_ascii=False, indent=2),
                           encoding="utf-8")
     print(f"Статистика: {stats_path}")
+    return stats
+
+
+def main() -> None:
+    print("Загрузка данных NBA...")
+
+    # NBA_FROM_LOCAL=1: данные уже собраны, сеть не трогаем.
+    #
+    # Нужен GitHub Actions: официальный API NBA (stats.nba.com) с
+    # раннеров недоступен — все запросы истекли по таймауту (проверено:
+    # 18 запросов, 9 минут, ноль данных). Раннеры живут в дата-центрах,
+    # и NBA такие адреса не отдаёт. Собирает сервер: у него есть
+    # прямой доступ. Поэтому CI берёт готовый датасет с витрины и
+    # считает по нему отчёт — сеть при этом не нужна.
+    if os.environ.get("NBA_FROM_LOCAL") == "1":
+        path = PROCESSED / "nba_matches.parquet"
+        if not path.exists():
+            print(f"НЕТ ФАЙЛА {path} — обрабатывать нечего")
+            raise SystemExit(1)
+        df = pl.read_parquet(path)
+        print(f"  датасет из файла: {df.height} матчей")
+        write_ingest_report(df)
+        return
+
+    df = fetch_all()
+    if df.is_empty():
+        # Молча выйти нельзя. Раньше здесь стоял просто print и
+        # возврат: шаг CI отрабатывал «успешно», не собрав ничего, и
+        # зелёный прогон означал, что данных нет. Сейчас падение видно
+        # и в CI, и в цикле сервера.
+        print("Нет данных NBA: сеть недоступна и кэша нет — работать не с чем")
+        raise SystemExit(1)
+
+    out_path = PROCESSED / "nba_matches.parquet"
+    df.write_parquet(out_path)
+    print(f"Сохранено: {out_path}")
+    print(f"Всего матчей: {len(df)}")
+    print(f"Уникальных id: {df['match_id'].n_unique()}")
+
+    played = df.filter(pl.col("is_played"))
+    upcoming = df.filter(~pl.col("is_played"))
+    print(f"Сыгранных: {played.height}, будущих: {upcoming.height}")
+    print(f"Сезоны: {sorted(df['season'].unique().to_list())}")
+    print(f"Диапазон: {df['match_date'].min()} … {df['match_date'].max()}")
+
+    write_ingest_report(df)
 
 
 if __name__ == "__main__":

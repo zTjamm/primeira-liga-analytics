@@ -13,9 +13,26 @@ name: nba
 #     в GitHub пушить не умеет: у него нет прав на запись), а журнал
 #     проверяется тестами.
 #
-# Почему раз в сутки: обход сезона — это два запроса к API (статистика
-# сыгранных матчей и календарь), считать их каждый прогон незачем, а
-# история журнала меняется медленно. Ежедневно — с запасом.
+# ПОЧЕМУ ДАННЫЕ БЕРУТСЯ С ВИТРИНЫ, А НЕ ИЗ API
+#
+# Официальный API NBA (stats.nba.com) с раннеров GitHub недоступен:
+# все запросы истекли по таймауту. Проверено на реальном прогоне — 18
+# запросов, девять минут ожидания, ноль данных, и при этом зелёный
+# статус: шаг отрабатывал «успешно», просто ничего не собрав.
+#
+# Раннеры живут в дата-центрах, и NBA такие адреса не отдаёт. Зато
+# сервер до API дотягивается: он собирает данные каждые пять минут и
+# публикует датасет на витрину. Оттуда его и забирает CI — свежим и
+# без девяти минут бесполезного ожидания.
+#
+# Если витрина недоступна, берётся запасной датасет из репозитория
+# (data/processed/nba_matches.parquet лежит в git). Он может быть
+# чуть старше, и тогда артефакты не публикуются: затирать свежие
+# данные протухшими незачем.
+#
+# Почему раз в сутки, а не каждый прогон: сервер и так обновляет всё
+# каждые пять минут, а тяжёлые отчёты (walk-forward по сезонам)
+# считаются в GitHub Actions.
 #
 # Почему не в основном pipeline.yml: там шаг включается по расписанию
 # футбола, а NBA играет по своему календарю.
@@ -53,10 +70,68 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Собрать матчи NBA
-        # Кэша сезонов в CI нет (data/raw не в репозитории), поэтому
-        # сезоны обходятся заново: шесть запросов к API.
-        run: python -m etl.fetch_nba
+      - name: Взять матчи NBA с витрины
+        # stats.nba.com с раннеров не отвечает (см. заголовок workflow),
+        # поэтому источник данных — сервер. Запасной вариант — датасет
+        # из репозитория.
+        run: |
+          set -euo pipefail
+          mkdir -p data/processed
+          URL="http://89.125.54.41:8080/data/nba_matches.parquet"
+          if curl -fsS --max-time 120 "$URL" -o data/processed/nba_matches.parquet.new; then
+            mv data/processed/nba_matches.parquet.new data/processed/nba_matches.parquet
+            echo "датасет взят с витрины"
+          else
+            rm -f data/processed/nba_matches.parquet.new
+            echo "витрина недоступна — беру запасной датасет из репозитория"
+            git checkout HEAD -- data/processed/nba_matches.parquet
+          fi
+          ls -l data/processed/nba_matches.parquet
+
+      - name: Проверить датасет
+        # Пустой или протухший датасет — это не данные. Молча
+        # публиковать такое нельзя: артефакты будут выглядеть свежими.
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          from datetime import date
+          from pathlib import Path
+
+          import polars as pl
+
+          path = Path("data/processed/nba_matches.parquet")
+          df = pl.read_parquet(path)
+          played = df.filter(pl.col("home_score").is_not_null())
+          if played.height == 0:
+              print("В датасете нет сыгранных матчей")
+              sys.exit(1)
+
+          last = played["match_date"].max()
+          days = (date.today() - last).days
+          report = Path("data/reports/nba_ingest.json")
+          report.parent.mkdir(parents=True, exist_ok=True)
+          report.write_text(json.dumps({
+              "total_matches": df.height,
+              "played_matches": played.height,
+              "last_played_date": str(last),
+              "days_since_last_played": days,
+          }, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(f"матчей: {df.height}, сыгранных: {played.height}, "
+                f"последний: {last} ({days} дн. назад)")
+
+          # Протухшие данные не публикуем: лучше оставить в репозитории
+          # свежие артефакты, чем заменить их пустым отчётом.
+          if days > 3:
+              print("ДАННЫЕ ПРОТУХЛИ — артефакты не публикую")
+              Path("data/processed/.nba_stale").write_text("1", encoding="utf-8")
+              sys.exit(0)
+          PY
+
+      - name: Отчёт по данным NBA
+        # NBA_FROM_LOCAL=1: сеть не трогаем, считаем отчёт по датасету.
+        run: NBA_FROM_LOCAL=1 python -m etl.fetch_nba
 
       - name: Прогнозы и журнал
         run: python -m models.nba_predict
@@ -69,19 +144,24 @@ jobs:
 
       - name: Опубликовать артефакты
         run: |
+          if [ -f data/processed/.nba_stale ]; then
+            echo "датасет протухший — артефакты не публикую"
+            exit 0
+          fi
           mkdir -p web/public/data
           for f in \
             data/processed/nba_predictions.json \
-            data/processed/nba_strength.json \
-            data/reports/nba_ingest.json ; do
+            data/processed/nba_strength.json ; do
             [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"
           done
 
       - name: Опубликовать в репозиторий
         run: |
+          rm -f data/processed/.nba_stale
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add web/public/data \
+            data/processed/nba_matches.parquet \
             data/forecast_log_nba.jsonl \
             data/reports/nba_ingest.json
           if git diff --cached --quiet; then

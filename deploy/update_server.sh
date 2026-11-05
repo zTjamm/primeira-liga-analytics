@@ -39,6 +39,12 @@ export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
 # models.nhl_predict кладёт в web/public/data сам. С NBA так же: полный
 # журнал NBA — три с половиной мегабайта, урезанный пишет сам
 # models.nba_predict.
+#
+# nba_matches.parquet публикуется намеренно: это 75 КБ, и по нему CI
+# забирает свежие данные. Официальный API NBA (stats.nba.com) с раннеров
+# GitHub недоступен — все запросы истекли по таймауту, — и единственный,
+# кто до API дотягивается, это сервер. Поэтому источник данных для CI
+# здесь, а не сам API.
 LOCAL=(
   data/processed/predictions.json
   data/processed/football_journal.json
@@ -52,6 +58,7 @@ LOCAL=(
   data/reports/nhl_periods_ingest.json
   data/processed/nba_predictions.json
   data/processed/nba_strength.json
+  data/processed/nba_matches.parquet
   data/reports/nba_ingest.json
 )
 
