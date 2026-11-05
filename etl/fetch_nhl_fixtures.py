@@ -15,8 +15,15 @@ import requests
 from etl.config import PROCESSED, RAW, REPORTS
 
 API_BASE = "https://api-web.nhle.com/v1"
-SEASONS = ["20242025", "20252026", "20262027"]
+# Фикстуры нужны только для текущего сезона и предыдущего: на сайте
+# показываются матчи впереди, а история берётся из nhl_matches.parquet.
+SEASONS = ["20252026", "20262027"]
 CURRENT_SEASON = "20262027"
+
+# Тип игры: 2 = регулярный чемпионат. Всё остальное (плей-офф,
+# пресезон, Олимпиада, 4 Nations) — не тот турнир, фикстуры по нему
+# не показываем. Подробности в etl/fetch_nhl.py.
+GAME_TYPE_REGULAR = 2
 
 SEASON_DATE_RANGES = {
     "20242025": ("2024-10-04", "2025-04-17"),
@@ -32,12 +39,12 @@ def _cache_path(season: str) -> Path:
     return RAW / f"nhl_{season}_fixtures.json"
 
 
-def _season_for_date(game_date: str, fallback: str) -> str:
-    """Сезон по фактической дате матча (см. etl/fetch_nhl.py)."""
-    for season, (start, end) in SEASON_DATE_RANGES.items():
-        if start <= game_date <= end:
-            return season
-    return fallback
+def _season_for_id(match_id: str) -> str | None:
+    """Сезон по id матча (см. etl/fetch_nhl.py)."""
+    if not match_id or len(match_id) < 6 or not match_id[:4].isdigit():
+        return None
+    year = int(match_id[:4])
+    return f"{year}{year + 1}"
 
 
 def _fetch_date(target_date: date, season: str) -> list[dict]:
@@ -61,13 +68,15 @@ def _fetch_date(target_date: date, season: str) -> list[dict]:
     rows = []
     for week in payload.get("gameWeek", []):
         for game in week.get("games", []):
+            if game.get("gameType") != GAME_TYPE_REGULAR:
+                continue
             home = game.get("homeTeam", {})
             away = game.get("awayTeam", {})
             game_state = game.get("gameState", "")
             start = game.get("startTimeUTC")
             game_date = start[:10] if start else target_date.isoformat()
             rows.append({
-                "season": _season_for_date(game_date, season),
+                "season": _season_for_id(str(game.get("id"))) or season,
                 "match_id": str(game["id"]),
                 "match_date": game_date,
                 "kickoff_utc": start,

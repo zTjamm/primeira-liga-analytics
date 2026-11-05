@@ -16,8 +16,6 @@ from pathlib import Path
 
 import polars as pl
 
-from models.basketball import BasketballModel
-
 
 def load_names(matches: pl.DataFrame) -> dict[str, str]:
     """Названия команд по id: самое частое написание из данных."""
@@ -77,8 +75,15 @@ def future_fixtures(fixtures: pl.DataFrame, today: str | None = None) -> pl.Data
     return fixtures.filter(pl.col("match_date").cast(pl.Utf8) >= today)
 
 
-def export_strength(model: BasketballModel, names: dict[str, str], out: Path) -> None:
-    """Рейтинг-листа: атака, оборона и итоговая сила."""
+def export_strength(model, names: dict[str, str], out: Path) -> None:
+    """Рейтинг-листа: атака, оборона и итоговая сила.
+
+    Модель намеренно не типизирована: у баскетбола это BasketballModel,
+    у хоккея — HockeyModel (models/hockey.py). Обе отдают одинаковый
+    список словарей с полями team/attack/defence/overall, и жёсткая
+    аннотация здесь только мешала бы второй модели попасть в общий
+    конвейер.
+    """
     rows = []
     for r in model.strength():
         rows.append({

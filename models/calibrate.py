@@ -233,10 +233,51 @@ def _wnba() -> tuple[dict, list[str]]:
     return by, order
 
 
+def _nhl() -> tuple[dict, list[str]]:
+    """Калибровка для НХЛ: walk-forward по сезонам на хоккейной модели.
+
+    Берутся те же прогнозы, что и в журнале (models/nhl_backtest.py),
+    иначе журнал и калибровка считали бы разные числа.
+
+    Вектор вероятностей — двухкомпонентный [P(хозяева), P(гости)]:
+    температура нормирует по элементам вектора, а добавление третьей
+    нулевой компоненты (ничья) исказило бы масштаб: ноль под ненулевой
+    степенью — не ноль, и модель начала бы «изобретать» ничьи в
+    хоккее, где их не бывает.
+    """
+    import polars as pl
+    from etl.config import PROCESSED
+    from .hockey import load_periods, production_config, production_tie_boost
+    from .nhl_backtest import walk_forward_rows
+
+    matches_path = PROCESSED / "nhl_matches.parquet"
+    if not matches_path.exists():
+        print("  НХЛ: нет файла матчей, пропускаем")
+        return {}, []
+
+    played = pl.read_parquet(matches_path).filter(pl.col("home_score").is_not_null())
+    seasons = sorted(played["season"].unique().to_list())
+    scale, half_life = production_config()
+    periods = load_periods()
+    tie_boost = production_tie_boost()
+    all_rows = played.to_dicts()
+
+    by: dict[str, list] = {}
+    for i in range(1, len(seasons)):
+        train = [r for r in all_rows if r["season"] in seasons[:i]]
+        test = [r for r in all_rows if r["season"] == seasons[i]]
+        for p in walk_forward_rows(train, test, scale, half_life, periods,
+                                   tie_boost):
+            y = 0 if p["actual"] == "H" else 1
+            by.setdefault(seasons[i], []).append(
+                ([p["p_home"], p["p_away"]], y))
+    return by, seasons
+
+
 def main() -> int:
     report: dict = {}
     for sport, loader in (("football", _football), ("basketball", _basketball),
-                          ("wnba", _wnba), ("rpl", _rpl)):
+                          ("nhl", _nhl), ("wnba", _wnba), ("rpl", _rpl)):
         print(f"\n=== {sport} ===")
         by, order = loader()
         block = check_sport(sport, by, order)

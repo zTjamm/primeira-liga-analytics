@@ -48,6 +48,7 @@ export default async function NhlPage() {
                   <th className="py-2 text-left font-normal">дата</th>
                   <th className="py-2 text-left font-normal">матч</th>
                   <th className="py-2 text-right font-normal">П1 / П2</th>
+                  <th className="py-2 text-right font-normal">буллиты</th>
                   <th className="py-2 text-right font-normal">вердикт</th>
                 </tr>
               </thead>
@@ -58,6 +59,14 @@ export default async function NhlPage() {
                     <td className="py-2">{m.home_name} — {m.away_name}</td>
                     <td className="num py-2 text-right text-xs">
                       {(m.p_home * 100).toFixed(1)} / {(m.p_away * 100).toFixed(1)}
+                    </td>
+                    <td
+                      className="num py-2 text-right text-xs text-muted"
+                      title="Вероятность, что матч уйдёт в буллитную серию: ничья после основного времени и овертайма без победной шайбы"
+                    >
+                      {m.shootout_prob != null
+                        ? `${(m.shootout_prob * 100).toFixed(1)}%`
+                        : "—"}
                     </td>
                     <td className="py-2 text-right text-xs">
                       {m.verdict_given ? (

@@ -675,6 +675,89 @@ export const getNbaPredictions = cache(() => readJson<any>("nba_predictions.json
 export const getNhlStrength = cache(() => readJson<VtbStrengthRow[]>("nhl_strength.json"));
 export const getNbaStrength = cache(() => readJson<VtbStrengthRow[]>("nba_strength.json"));
 
+/** Отчёт сравнения моделей НХЛ (models/nhl_compare.py). */
+export interface NhlCompareModel {
+  n: number;
+  logloss: number;
+  accuracy: number;
+  brier: number;
+  coverage: number;
+  accuracy_given: number | null;
+  n_given?: number;
+  avg_p_home?: number;
+  model_tie_share?: number;
+  summary?: string;
+}
+
+export interface NhlCompareFile {
+  generated_at: string;
+  apply_rule: {
+    selection_folds: string[];
+    verification_folds: string[];
+    [key: string]: string | string[];
+  };
+  folds: Array<{
+    name: string;
+    n_train: number;
+    n_test: number;
+    observed_tie_share: number;
+    models: Record<string, NhlCompareModel>;
+  }>;
+  pooled_all: Record<string, {
+    n: number;
+    logloss: number;
+    accuracy: number;
+    accuracy_given: number | null;
+    coverage: number;
+  }>;
+  pooled_verification: Record<string, {
+    n: number;
+    logloss: number;
+    accuracy: number;
+    accuracy_given: number | null;
+    coverage: number;
+  }>;
+  selection: Record<string, {
+    strength_scale: number;
+    half_life_days: number;
+    mean_logloss_selection: number;
+    within_tolerance?: string[];
+  }>;
+  verdict: Record<string, {
+    adopt: boolean;
+    reasons: string[];
+    folds_won: number;
+    folds_total: number;
+    worst_fold_delta: number;
+    strict_verification_folds: {
+      adopt: boolean;
+      logloss_new: number;
+      logloss_baseline: number;
+      note: string;
+    };
+  }>;
+  adopt: string[];
+  adopt_kappa: boolean;
+  tie_boost_experiment: {
+    rule: string[];
+    adopt_kappa: boolean;
+    n: number;
+    mean_logloss_diff_plain_minus_boost: number;
+    stderr: number;
+    t_statistic: number;
+    ci95: [number, number];
+    matches_better_with_kappa: number;
+    matches_worse_with_kappa: number;
+    observed_tie_share: number;
+    model_tie_share: Record<string, number>;
+    note: string;
+  };
+}
+
+export const getNhlCompare = cache(() =>
+  readJson<NhlCompareFile>("nhl_model_compare.json"),
+);
+
 export const getWnbaJournal = cache(() => readJson<Journal>("wnba_journal.json"));
 export const getWnbaStrength = cache(() => readJson<VtbStrengthRow[]>("wnba_strength.json"));
 

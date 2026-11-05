@@ -1,13 +1,26 @@
 """Прогнозы НХЛ на ближайшие матчи.
 
-Модель — та же аддитивная нормальная, что и для баскетбола
-(models/basketball.py), но обученная на данных НХЛ: счёт в хоккее
-измеряется в шайбах, и параметры лиги другие.
+Модель — отдельная для хоккея (models/hockey.py), а не общая
+баскетбольная: счёт в хоккее измеряется в шайбах, он дискретный, а
+матч состоит из основного времени, овертайма и буллитов.
 
-В отличие от NBA и WNBA, три исхода остаются: ничья в хоккее возможна
-(основное время, овертайм, буллиты), и её вероятность в модели
-не ноль — а около 15-20% на равных командах. Выбрасывать её значило бы
-врать в прогнозе.
+Почему это важно. Общая аддитивная нормальная модель даёт для хоккея
+около 15% вероятности ничьей, потому что разность двух пуассонов
+(«Скеллам») имеет ненулевой пик в нуле. В реальности ничьих в
+ИТОГОВОМ счёте НХЛ не бывает вообще: за 10 019 матчей девяти сезонов
+ничьих ровно ноль. Такую ничью приходилось выбрасывать и
+перераспределять, а это ломает калибровку.
+
+Хоккейная модель устроена честнее: счёт — пуассоновский счётчик,
+овертайм играется только при ничьей в основное время, а оставшаяся
+после овертайма ничья уходит в буллитную серию, победитель которой
+определяется жребием. Поэтому ничьи в прогнозе нет by construction, а
+не потому, что её выбросили, и доля буллитных серий получается
+правдоподобной (единицы процентов), а не 15%.
+
+Гиперпараметры модели (априор силы команды и горизонт затухания
+весов) выбраны walk-forward в models/nhl_compare.py; отчёт —
+data/reports/nhl_model_compare.json.
 
 Запуск:
     python -m models.nhl_predict
@@ -21,16 +34,18 @@ from pathlib import Path
 import polars as pl
 
 from etl.config import PROCESSED
-from models import ball_sport, forecast, verdict
-from models.basketball import BasketballModel
+from models import ball_sport, forecast, temperature, verdict
+from models.hockey import (HockeyModel, load_periods, production_config,
+                           production_tie_boost)
+from models.nhl_backtest import write_web_journal
 
 
 def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
     """Сколько часов осталось до матча.
 
-    Точного времени старта в бесплатных фикстурах НХЛ раньше не было,
-    поэтому при его отсутствии считаем от полуночи дня матча. Это
-    влияет только на подпись этапа в журнале, а не на вероятности.
+    Точного времени старта в фикстурах НХЛ раньше не было, поэтому при
+    его отсутствии считаем от полуночи дня матча. Это влияет только на
+    подпись этапа в журнале, а не на вероятности.
     """
     if kickoff:
         try:
@@ -64,34 +79,35 @@ def main() -> None:
     names = ball_sport.load_names(played)
     games = ball_sport.team_games(played)
     teams = sorted(games)
-    # Границы оптимизации — под хоккей, а не под баскетбол.
-    #
-    # Баскетбольные по умолчанию (σ_разница 6-28 очков) для хоккея
-    # непригодны: оптимизатор упирается в нижнюю границу и выдаёт
-    # σ_разница = 6.0 шайбы при реальном разбросе около 2.6. Из-за
-    # этого все вероятности сжимались к 0.50 и вердикт не мог быть
-    # выдан ни по одному матчу.
-    model = BasketballModel(score_unit="шайб").fit(
-        played.to_dicts(), teams,
-        attack_bound=3.0,
-        home_adv_bound=1.0,
-        sigma_margin_range=(1.2, 5.0),
-        sigma_total_range=(1.5, 6.0),
-        sigma_margin_init=2.6,
-        sigma_total_init=2.3,
-        # Штраф на параметры команд подобран walk-forward: обучение на
-        # сезоне 2024/25, проверка на 2025/26. При слишком слабом штрафе
-        # log-loss на отложенном сезоне растёт (0.6930 → 0.7070), при
-        # слишком сильном модель перестаёт различать команды (разброс
-        # сил падает с 0.6 шайбы до нуля).
-        penalty_scale=0.10,
-    )
-    print(f"Модель: {model.summary().replace('σ', 'sigma')}")
+
+    scale, half_life = production_config()
+    periods = load_periods()
+    tie_boost = production_tie_boost()
+    print(f"Разбивка по периодам: {len(periods)} матчей")
+    print(f"Поправка на избыток ничьих (κ): "
+          f"{'применяется' if tie_boost else 'не применяется'}")
+    model = HockeyModel().fit(played.to_dicts(), teams,
+                               strength_scale=scale,
+                               half_life_days=half_life,
+                               periods=periods,
+                               use_tie_boost=tie_boost)
+    print(f"Модель: {model.summary()}")
     print("Сильнейшие: " + ", ".join(
-        f"{names.get(r['team'], r['team'])} {r['overall']:+.1f}"
+        f"{names.get(r['team'], r['team'])} {r['overall']:+.2f}"
         for r in model.strength()[:4]))
 
-    # Загружаем будущие матчи (фикстуры).
+    # Температура из отчёта калибровки. None — законная ситуация: отчёта
+    # ещё нет либо проверка показала, что калибровка не помогает. Тогда
+    # работают сырые вероятности, и в файле это подписывается явно.
+    calib_t = temperature.load_temperature("nhl")
+    if calib_t is not None:
+        print(f"Калибровка: температура T={calib_t:.4f} "
+              "(data/reports/calibration.json, applied=true)")
+    else:
+        print("Калибровка: не применяется (отчёта нет или проверка "
+              "калибровку не подтвердила) — вероятности сырые")
+
+    # Будущие матчи (фикстуры).
     fixtures_path = PROCESSED / "nhl_future_fixtures.parquet"
     upcoming: list[dict] = []
     ledger: list[dict] = []
@@ -100,13 +116,8 @@ def main() -> None:
         print(f"  Будущих матчей: {fixtures.height}")
         now = datetime.now(timezone.utc)
         for f in fixtures.to_dicts():
-            # Ничьей в НХЛ на практике не бывает: за 2901 сыгранный матч
-            # трёх сезонов в данных нет ни одной ничьей — матч всегда
-            # заканчивается победой, в том числе по буллитам. Поэтому
-            # вероятность ничьей из модели (она возникает из-за
-            # дискретности счёта и нормального приближения) удаляется и
-            # перераспределяется на П1 и П2.
-            probs = ball_sport.remove_draw(model.predict_1x2(f["home_id"], f["away_id"]))
+            p_home, p_away = model.predict_outcome(f["home_id"], f["away_id"])
+            probs = temperature.apply([float(p_home), float(p_away)], calib_t)
             top = int(max(range(2), key=lambda i: probs[i]))
             prediction = ["H", "A"][top]
             confidence = float(probs[top])
@@ -134,6 +145,8 @@ def main() -> None:
                 "confidence": round(confidence, 4),
                 "verdict_given": ok,
                 "verdict_reason": reason,
+                "shootout_prob": round(float(model.shootout_prob(
+                    f["home_id"], f["away_id"])), 4),
             })
 
             hours = _hours_before(kickoff, match_date, now)
@@ -173,8 +186,26 @@ def main() -> None:
         "history_matches": played.height,
         "model": model.summary(),
         "draws_possible": False,
-        "draw_removed": True,
-        "draw_note": "Ни одной ничьей в 2901 сыгранном матче НХЛ за три сезона: матч всегда заканчивается победой, в том числе по буллитам.",
+        "draw_removed": False,
+        "draw_note": (
+            "Ничьей в итоговом счёте НХЛ не бывает: за 10 019 матчей "
+            "девяти сезонов regular season их ровно ноль. В модели ничьи "
+            "нет by construction — ничья после основного времени уходит "
+            "в овертайм, а оставшаяся после овертайма — в буллитную "
+            "серию, победитель которой определяется жребием (масса "
+            "делится поровну)."
+        ),
+        "model_family": "hockey_ot (пуассоновские скорости голов + овертайм + буллиты)",
+        "model_report": "data/reports/nhl_model_compare.json",
+        "calibration": {
+            "applied": calib_t is not None,
+            "T": calib_t,
+            "method": "температура T: q_i = p_i^(1/T) / сумма, "
+                      "порядок исходов не меняется, argmax тот же",
+            "source": "data/reports/calibration.json (models/calibrate.py)",
+            "note": "калибровка применяется только если подтверждена на "
+                    "отложенном сезоне; иначе вероятности сырые",
+        },
         "verdict_threshold": verdict.VERDICT_THRESHOLD,
         "upcoming": upcoming,
     })
@@ -205,7 +236,10 @@ def main() -> None:
     public_dir = Path("web/public/data")
     public_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy(out, public_dir / "nhl_predictions.json")
-    shutil.copy(PROCESSED / "nhl_journal.json", public_dir / "nhl_journal.json")
+    # Журнал в вебе — урезанный: полная история (8748 матчей) весит
+    # четырнадцать мегабайт и грузится страницей целиком, а в таблице
+    # показываются последние 600 строк.
+    write_web_journal(hist, public_dir / "nhl_journal.json")
     shutil.copy(strength_path, public_dir / "nhl_strength.json")
 
 
