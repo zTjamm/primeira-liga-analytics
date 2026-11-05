@@ -193,36 +193,68 @@ RESTORE_LEDGER
     exit 1
   fi
 
-  CHANGED=$(git diff --name-only HEAD FETCH_HEAD -- data web/public/data)
-  if [ -n "$CHANGED" ]; then
-    echo "upstream правит данные — откатываем только их:"
-    echo "$CHANGED"
-    # Откатываем по одному, потому что два случая разные.
+  # Что именно upstream меняет — по всему дереву, а не только по данным.
+  #
+  # Раньше список ограничивался путями data/ и web/public/data/, и из-за
+  # этого merge упирался в файлы кода: 5 ноября 2026 сервер вёл
+  # update.sh и web/run.sh как неотслеживаемые (они жили только на
+  # сервере), а коммит с ними в GitHub давал ровно ту ошибку, что и
+  # 31 октября с data/forecast_log_rpl.jsonl:
+  #
+  #     error: The following untracked working tree files would be
+  #     overwritten by merge: update.sh, web/run.sh
+  #
+  # Цикл уходил в abort и молча переставал обновлять сайт. Поэтому
+  # теперь разбираемся со ВСЕМ, что upstream трогает, а не только с
+  # данными. Разница в том, что с данными делается, отдельно:
+  #
+  #   * данные (data/, web/public/data/) сервер считает сам — их версия
+  #     важнее версии из git, и restore_bak вернёт её после merge;
+  #   * код берётся из GitHub — локальные правки кода откатываются.
+  #
+  # TOUCHED — всё, что upstream меняет или удаляет.
+  # NEWFILES — то, чего в HEAD нет, а upstream добавляет.
+  TOUCHED=$(git diff --name-only HEAD FETCH_HEAD)
+  NEWFILES=$(git diff --name-only --diff-filter=A HEAD FETCH_HEAD)
+
+  if [ -n "$TOUCHED" ]; then
+    echo "upstream меняет файлы — готовим рабочий каталог:"
+    echo "$TOUCHED"
+
+    # Шаг 1: файлы, которых в HEAD нет, а upstream их добавляет.
     #
-    # Файл есть в HEAD: обычный `git checkout HEAD -- путь`.
+    # Если такой файл уже лежит в рабочем каталоге как неотслеживаемый,
+    # merge обязан на нём споткнуться: «untracked working tree files
+    # would be overwritten». Копию убираем в бэкап — вернётся в
+    # restore_bak, если файла после merge не окажется.
+    while IFS= read -r f; do
+      [ -n "$f" ] || continue
+      [ -e "$f" ] || continue
+      if git ls-files --error-unmatch -- "$f" >/dev/null 2>&1; then
+        continue
+      fi
+      mkdir -p "$BAK/upstream_new/$(dirname "$f")"
+      cp -a "$f" "$BAK/upstream_new/$f" 2>/dev/null || true
+      rm -f "$f"
+      echo "  убран неотслеживаемый $f (вернётся в restore_bak)"
+    done <<EOF
+$NEWFILES
+EOF
+
+    # Шаг 2: откатываем локальные правки по тем файлам, которых касается
+    # upstream. Без этого merge не идёт: git требует, чтобы файл, который
+    # он собирается записать, совпадал с HEAD.
     #
-    # Файла в HEAD нет (upstream его добавляет): git checkout молча
-    # ничего не делает — pathspec не находит ничего в HEAD, и в рабочем
-    # каталоге остаётся НЕОТСЛЕЖИВАЕМЫЙ файл. Дальше merge обязан на нём
-    # споткнуться: «untracked working tree files would be overwritten».
-    # Так и произошло 31 октября — data/forecast_log_rpl.jsonl до
-    # коммита 3819ec8 в git не входил, сервер его вёл сам, и цикл
-    # ушёл в бесконечный abort, оставаясь на старом коде.
-    #
-    # Поэтому такие файлы убираем сами, но копию кладём в $BAK: леджер
-    # вернётся слиянием в restore_bak, а остальное — из upstream_new.
+    # Для данных это откат к версии из git — версия сервера вернётся
+    # в restore_bak слиянием (леджер append-only, перезапись недопустима).
+    # Для кода это «код берётся из GitHub»: серверные правки отступают.
     while IFS= read -r f; do
       [ -n "$f" ] || continue
       if git cat-file -e "HEAD:$f" 2>/dev/null; then
         git checkout HEAD -- "$f" 2>/dev/null || true
-      elif [ -e "$f" ]; then
-        mkdir -p "$BAK/upstream_new/$(dirname "$f")"
-        cp -a "$f" "$BAK/upstream_new/$f" 2>/dev/null || true
-        rm -f "$f"
-        echo "  убран неотслеживаемый $f (вернётся в restore_bak)"
       fi
     done <<EOF
-$CHANGED
+$TOUCHED
 EOF
   fi
 

@@ -84,6 +84,20 @@ def test_untracked_handling() -> list[bool]:
         "возврат бэкапа не затирает то, что уже пришло из git",
         'cp -an "$BAK/upstream_new/." . 2>/dev/null' in text,
         "нужен именно -n: иначе старая копия вытеснит свежую из merge"))
+
+    # Отступ 5 ноября 2026: сервер вёл update.sh и web/run.sh как
+    # неотслеживаемые файлы (они жили только на сервере), а коммит с
+    # ними в GitHub ронял merge. Скрипт разбирался с untracked только
+    # внутри data/ и web/public/data/, поэтому код не был защищён.
+    ok.append(_check_bool(
+        "upstream разбирается по всему дереву, а не только по данным",
+        "TOUCHED=$(git diff --name-only HEAD FETCH_HEAD)" in text
+        and "NEWFILES=$(git diff --name-only --diff-filter=A HEAD FETCH_HEAD)" in text,
+        "список ограничен data/ — новый файл в коде снова уронит merge"))
+    ok.append(_check_bool(
+        "неотслеживаемый файл проверяется на отслеживаемость",
+        "git ls-files --error-unmatch" in text,
+        "иначе откат затронет уже отслеживаемые файлы"))
     return ok
 
 
@@ -94,10 +108,13 @@ def test_order_and_safety() -> list[bool]:
     ok = []
 
     pos_bak = text.find('cp -a data/forecast_log_*.jsonl "$BAK"')
-    pos_changed = text.find("CHANGED=$(git diff --name-only HEAD FETCH_HEAD")
+    # Откат — любое `git checkout HEAD --` по путям, которых касается
+    # upstream. Ищем по смыслу, а не по имени переменной: переименование
+    # не должно ронять проверку, а вот откат после бэкапа — должен.
+    pos_changed = text.find('git checkout HEAD -- "$f"')
     ok.append(_check_bool("бэкап леджера сделан до отката перед merge",
                           0 < pos_bak < pos_changed,
-                          f"bакап={pos_bak}, откат={pos_changed}"))
+                          f"бэкап={pos_bak}, откат={pos_changed}"))
 
     # Падение шага расчёта не должно доезжать до публикации: сайт
     # обязан показывать прошлый успешный прогон, а не пустоту.
