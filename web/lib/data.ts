@@ -758,6 +758,39 @@ export const getNhlCompare = cache(() =>
   readJson<NhlCompareFile>("nhl_model_compare.json"),
 );
 
+/** Отчёт о загрузке матчей НХЛ (etl/fetch_nhl.py). */
+export interface NhlIngestFile {
+  total_matches: number;
+  played_matches: number;
+  seasons: string[];
+  date_range: [string, string];
+  teams: number;
+  home_win_share: number;
+  draws: number;
+}
+
+/** Отчёт о разбивке матчей НХЛ по периодам (etl/fetch_nhl_periods.py). */
+export interface NhlPeriodsIngestFile {
+  matches: number;
+  reg_tie_share: number;
+  shootout_share: number;
+  ot_played_share: number;
+  ot_decided_share: number;
+  shootout_of_ties: number;
+  ot_home_win_share: number;
+  ot_home_wins: number;
+  consistency_ot_without_tie: number;
+  consistency_winner_delta_not_1: number;
+  generated_at: string;
+}
+
+export const getNhlIngest = cache(() =>
+  readJson<NhlIngestFile>("nhl_ingest.json"),
+);
+export const getNhlPeriodsIngest = cache(() =>
+  readJson<NhlPeriodsIngestFile>("nhl_periods_ingest.json"),
+);
+
 export const getWnbaJournal = cache(() => readJson<Journal>("wnba_journal.json"));
 export const getWnbaStrength = cache(() => readJson<VtbStrengthRow[]>("wnba_strength.json"));
 

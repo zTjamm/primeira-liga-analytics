@@ -283,6 +283,45 @@ def test_self_update() -> list[bool]:
     return ok
 
 
+def test_nhl_pipeline() -> list[bool]:
+    """НХЛ должен обновляться на сервере автоматически.
+
+    До 5 ноября 2026 раздел НХЛ не был ни в cron сервера, ни в CI:
+    обновлялся только вручную. Это была дыра — сайт показывал
+    хоккейные прогнозы, не менявшиеся сутками.
+
+    Порядок шагов обязателен: прогнозы считаются по разбивке на
+    периоды (основное время → овертайм → буллиты), а она берётся из
+    сыгранных матчей. Без этого модель хоккея получит неполные данные.
+    """
+    text = SCRIPT.read_text(encoding="utf-8")
+    ok = []
+
+    pos_fetch = text.find('run_step "etl.fetch_nhl"')
+    pos_periods = text.find('run_step "etl.fetch_nhl_periods"')
+    pos_predict = text.find('run_step "models.nhl_predict"')
+    ok.append(_check_bool(
+        "в цикле есть все три шага НХЛ",
+        -1 not in (pos_fetch, pos_periods, pos_predict)))
+    ok.append(_check_bool(
+        "шаги НХЛ идут в правильном порядке",
+        0 <= pos_fetch < pos_periods < pos_predict,
+        f"матчи={pos_fetch}, периоды={pos_periods}, прогнозы={pos_predict}"))
+
+    # Полный журнал НХЛ — 14 мегабайт; странице нужны последние 600
+    # строк, и урезанную версию кладёт в витрину models.nhl_predict.
+    # Если полный журнал попадёт в список публикации, он затрёт
+    # урезанный, и страница станет грузить четырнадцать мегабайт.
+    ok.append(_check_bool(
+        "полный журнал НХЛ не публикуется в витрину",
+        "data/processed/nhl_journal.json" not in text))
+    ok.append(_check_bool(
+        "прогнозы и рейтинги НХЛ публикуются",
+        "data/processed/nhl_predictions.json" in text
+        and "data/processed/nhl_strength.json" in text))
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_script_exists()
@@ -290,6 +329,7 @@ def main() -> int:
     results += test_order_and_safety()
     results += test_web_rebuild()
     results += test_self_update()
+    results += test_nhl_pipeline()
     results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)

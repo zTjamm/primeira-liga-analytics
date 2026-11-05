@@ -1,0 +1,151 @@
+name: nhl
+
+# НХЛ — изолированный вид спорта: свои данные (api-web.nhle.com), своя
+# модель (models/hockey.py), свой файл прогнозов.
+#
+# Зачем этот workflow, если сервер и так обновляет НХЛ каждые пять
+# минут (deploy/update_server.sh). Разделение намеренное:
+#
+#   * сервер — быстрый путь. Данные свежие, прогнозы пересчитаны, сайт
+#     показывает вчерашние данные не из-за забывшего кого-то коммита, а
+#     из-за того, что код считает их раз в пять минут;
+#   * CI — тяжёлый путь. Здесь модель сверяется с прежней на всей
+#     истории walk-forward, считается бэктест, и артефакты кладутся в
+#     репозиторий (сервер в GitHub пушить не умеет: у него нет
+#     прав на запись).
+#
+# Почему раз в сутки, а не каждый прогон: сверка моделей
+# (models/nhl_compare.py) считает восемь fold'ов и занимает около двух
+# с половиной минут, а обход календаря API тянет почти три сотни
+# запросов. Ежедневно — с запасом.
+#
+# Почему не в основном pipeline.yml: там двадцать минут между
+# прогонами, и такой объём работы каждые двадцать минут — это
+# бессмысленная нагрузка на чужой API.
+on:
+  schedule:
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: nhl
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  nhl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Установить зависимости
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Собрать матчи НХЛ
+        # Кэша сезонов в CI нет (data/raw не в репозитории), поэтому
+        # сезоны обходятся заново: около трёхсот запросов к API.
+        run: python -m etl.fetch_nhl
+
+      - name: Собрать разбивку по периодам
+        # Разбивка берётся из снимка в репозитории
+        # (data/processed/nhl_periods.parquet), докачиваются только новые
+        # матчи. Без снимка это десять тысяч запросов к gamecenter.
+        run: python -m etl.fetch_nhl_periods
+
+      - name: Сравнить модели
+        # Пересчитывает отчёт о внедрении: какая модель лучше прежней
+        # на walk-forward, и принимается ли поправка на ничьи.
+        run: python -m models.nhl_compare
+
+      - name: Проверить, что решение не изменилось
+        id: guard
+        # Решение о внедрении меняет модель на сервере: production_config()
+        # читает его из отчёта. Поэтому автоматический переключатель
+        # модели без разбора — это не «обновление», а тихая смена
+        # правил на лету.
+        #
+        # Если решение изменилось, старый отчёт возвращается на место,
+        # артефакты считаются по нему (то есть по действующей модели),
+        # а job в конце падает с требованием разбора. Так решение
+        # принимает человек, а не расписание.
+        run: |
+          set -uo pipefail
+          NEW=data/reports/nhl_model_compare.json
+          OLD=web/public/data/nhl_model_compare.json
+          changed=false
+          if [ -f "$OLD" ]; then
+            for key in adopt adopt_kappa selection; do
+              a=$(jq -c ".$key" "$OLD")
+              b=$(jq -c ".$key" "$NEW")
+              if [ "$a" != "$b" ]; then
+                echo "РЕШЕНИЕ ИЗМЕНИЛОСЬ: .$key"
+                echo "  было:  $a"
+                echo "  стало: $b"
+                changed=true
+              fi
+            done
+          fi
+          if [ "$changed" = "true" ]; then
+            cp "$OLD" "$NEW"
+            echo "старый отчёт возвращён на место — сервер продолжает считать прежней моделью"
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: Бэктест и прогнозы
+        run: |
+          python -m models.nhl_backtest
+          python -m models.nhl_predict
+
+      - name: Опубликовать артефакты
+        run: |
+          mkdir -p web/public/data
+          for f in \
+            data/processed/nhl_predictions.json \
+            data/processed/nhl_strength.json \
+            data/reports/nhl_ingest.json \
+            data/reports/nhl_periods_ingest.json \
+            data/reports/nhl_model_compare.json ; do
+            [ -f "$f" ] && cp "$f" web/public/data/ || echo "нет файла: $f"
+          done
+
+      - name: Опубликовать в репозиторий
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add web/public/data \
+            data/forecast_log_nhl.jsonl \
+            data/reports/nhl_ingest.json \
+            data/reports/nhl_periods_ingest.json \
+            data/reports/nhl_model_compare.json \
+            data/processed/nhl_periods.parquet
+          if git diff --cached --quiet; then
+            echo "изменений нет"
+          else
+            git commit -m "chore(data): автообновление НХЛ [skip ci]"
+            # Основной pipeline тоже коммитит артефакты каждые двадцать
+            # минут, поэтому перед push подтягиваем его коммиты.
+            git pull --rebase --autostash origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Решение о внедрении изменилось — нужен разбор
+        # Job остаётся красным: решение о смене модели принимает человек.
+        # Артефакты при этом уже опубликованы, сайт продолжает работать
+        # на прежней модели.
+        if: steps.guard.outputs.changed == 'true'
+        run: |
+          echo "::error::Решение о внедрении модели НХЛ изменилось. Отчёт возвращён к прежнему, разбор нужен вручную."
+          exit 1

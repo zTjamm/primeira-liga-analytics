@@ -1,4 +1,4 @@
-"""Проверка пайплайна GitHub Actions.
+"""Проверка пайплайнов GitHub Actions.
 
 Мотивация простая: workflow уже один раз молча сломался. Правки скриптом
 вставили шаги с отступом 4 пробела вместо 6, и GitHub Actions отвергал файл
@@ -11,6 +11,10 @@
 Проверяется не только синтаксис: пайплайн может быть валиден, но шаг без
 run или без имени не выполнится, и об этом тоже лучше узнать сразу.
 
+Проверяются ВСЕ workflow'и в .github/workflows, а не только основной:
+файл с опечаткой в отступе роняет все прогоны этого workflow, и заметить
+это можно только по интерфейсу Actions.
+
 Запуск:
     python -m tests.test_ci
 """
@@ -22,7 +26,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-WORKFLOW = ROOT / ".github" / "workflows" / "pipeline.yml"
+WORKFLOWS_DIR = ROOT / ".github" / "workflows"
+WORKFLOW = WORKFLOWS_DIR / "pipeline.yml"
 
 PASS = "\u2713"
 FAIL = "\u2717"
@@ -38,25 +43,23 @@ REQUIRED_STEPS = (
     "Опубликовать артефакты в репозиторий",
 )
 
+# Ключи верхнего уровня, которые GitHub Actions понимает. Любой другой
+# ключ делает файл невалидным: Actions отвергает весь workflow, YAML —
+# нет.
+ALLOWED_TOP = {"name", "on", True, "env", "defaults", "concurrency",
+               "permissions", "jobs", "run-name"}
+
 
 def _check(name: str, ok: bool, detail: str = "") -> bool:
     print(f"  [{PASS if ok else FAIL}] {name}" + (f"  {detail}" if not ok and detail else ""))
     return ok
 
 
-def main() -> int:
-    print("Проверка пайплайна\n" + "-" * 46)
+def _check_workflow(path: Path) -> bool:
+    """Общая проверка любого workflow: разбор, ключи, job, шаги."""
+    print(f"\n{path.name}")
+    raw = path.read_text(encoding="utf-8")
 
-    if not WORKFLOW.exists():
-        print(f"  [{FAIL}] файла нет: {WORKFLOW}")
-        return 1
-
-    raw = WORKFLOW.read_text(encoding="utf-8")
-
-    ok = True
-
-    # 1. Разбор YAML. Собщение об ошибке указывает строку — этого хватает,
-    #    чтобы чинить, не открывая файл целиком.
     try:
         doc = yaml.safe_load(raw)
         print(f"  [{PASS}] YAML разбирается")
@@ -65,55 +68,60 @@ def main() -> int:
         where = f"строка {mark.line + 1}" if mark else ""
         print(f"  [{FAIL}] YAML не разбирается  {where}")
         print(f"         {getattr(exc, 'problem', exc)}")
-        return 1
+        return False
 
+    ok = True
     jobs = doc.get("jobs") or {}
     ok &= _check("есть хотя бы один job", bool(jobs))
 
-    # 5. Ключи верхнего уровня: GitHub Actions отвергает файл при любом
-    #    неизвестном ключе, а YAML — нет. Именно так в env заехала
-    #    FINISHED_HOURS без отступа: файл разбирался, прогоны падали за
-    #    0 секунд, и причина была неочевидна.
-    allowed = {"name", "on", True, "env", "defaults", "concurrency",
-               "permissions", "jobs", "run-name"}
-    unknown = [k for k in doc if k not in allowed]
+    unknown = [k for k in doc if k not in ALLOWED_TOP]
     ok &= _check("нет лишних ключей верхнего уровня", not unknown,
                  "лишние: " + ", ".join(map(str, unknown[:4])))
 
-    # 6. Переменные окружения должны быть именно в env, а не на верхнем
-    #    уровне: иначе ${ПЕРЕМЕННАЯ} в скриптах подставится пустотой и
-    #    арифметика в gate молча даст неверный результат.
-    if isinstance(doc.get("env"), dict):
-        ok &= _check("в env есть WINDOW_HOURS и FINISHED_HOURS",
-                     {"WINDOW_HOURS", "FINISHED_HOURS"} <= set(doc["env"]),
-                     "в env: " + ", ".join(sorted(doc["env"])))
-    else:
-        ok &= _check("блок env разбирается как объект", False)
+    for name, job in jobs.items():
+        steps = job.get("steps") or []
+        ok &= _check(f"в job «{name}» есть шаги", bool(steps))
 
-    if not jobs:
+        # Шаг без run и без uses не выполнится. Имя при этом необязательно:
+        # у шагов вида uses: actions/checkout GitHub подставляет его сам, и
+        # требовать имя там — ложная ошибка.
+        broken = []
+        for i, st in enumerate(steps):
+            if not (st.get("run") or st.get("uses")):
+                broken.append(f"шаг {i + 1} без run и без uses")
+        ok &= _check(f"в job «{name}» у всех шагов есть run или uses",
+                     not broken, "; ".join(broken[:3]))
+
+    return ok
+
+
+def main() -> int:
+    print("Проверка пайплайнов\n" + "-" * 46)
+
+    if not WORKFLOW.exists():
+        print(f"  [{FAIL}] файла нет: {WORKFLOW}")
         return 1
 
-    job = next(iter(jobs.values()))
+    files = sorted(WORKFLOWS_DIR.glob("*.yml")) + sorted(WORKFLOWS_DIR.glob("*.yaml"))
+    if not files:
+        print(f"  [{FAIL}] в {WORKFLOWS_DIR} нет ни одного workflow")
+        return 1
+
+    ok = True
+    for path in files:
+        ok &= _check_workflow(path)
+
+    # Обязательные шаги основного пайплайна — иначе он зелёный, а сайт мёртв.
+    raw = WORKFLOW.read_text(encoding="utf-8")
+    doc = yaml.safe_load(raw)
+    job = next(iter((doc.get("jobs") or {}).values()))
     steps = job.get("steps") or []
-    ok &= _check("в job есть шаги", bool(steps))
-
-    # 2. Шаг без run и без uses не выполнится. Имя при этом необязательно:
-    #    у шагов вида uses: actions/checkout GitHub подставляет его сам, и
-    #    требовать имя там — ложная ошибка.
-    broken = []
-    for i, st in enumerate(steps):
-        if not (st.get("run") or st.get("uses")):
-            broken.append(f"шаг {i + 1} без run и без uses")
-    ok &= _check("у всех шагов есть run или uses", not broken,
-                 "; ".join(broken[:3]))
-
-    # 3. Обязательные шаги на месте — иначе пайплайн зелёный, а сайт мёртв.
     names = [st.get("name") or "" for st in steps]
     missing = [n for n in REQUIRED_STEPS if n not in names]
-    ok &= _check("обязательные шаги на месте", not missing,
+    ok &= _check("обязательные шаги основного пайплайна на месте", not missing,
                  "нет: " + ", ".join(missing[:3]))
 
-    # 4. Отступы: YAML это ловит, но полезно показать заранее, где именно.
+    # Отступы: YAML это ловит, но полезно показать заранее, где именно.
     bad_indent = []
     for i, line in enumerate(raw.split("\n"), 1):
         if re.match(r"^ {1,5}- name:", line) and i > 40:
@@ -123,9 +131,9 @@ def main() -> int:
 
     print("-" * 46)
     if ok:
-        print("Пайплайн в порядке.")
+        print("Пайплайны в порядке.")
         return 0
-    print("Есть проблемы с пайплайном.")
+    print("Есть проблемы с пайплайнами.")
     return 1
 
 

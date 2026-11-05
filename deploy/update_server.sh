@@ -28,6 +28,10 @@ export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
 # rpl_predictions.json и rpl_teams.json здесь НЕТ намеренно: они пишутся
 # models.rpl_predict сразу в web/public/data, копировать файл на самого
 # себя не на чем.
+#
+# nhl_journal.json здесь тоже НЕТ: полный журнал НХЛ весит четырнадцать
+# мегабайт, а странице нужны последние 600 строк. Урезанную версию
+# models.nhl_predict кладёт в web/public/data сам.
 LOCAL=(
   data/processed/predictions.json
   data/processed/football_journal.json
@@ -35,6 +39,10 @@ LOCAL=(
   data/processed/vtb_strength.json
   data/processed/basketball_journal.json
   data/processed/wnba_predictions.json
+  data/processed/nhl_predictions.json
+  data/processed/nhl_strength.json
+  data/reports/nhl_ingest.json
+  data/reports/nhl_periods_ingest.json
 )
 
 mkdir -p "$REPO/web/public/data"
@@ -319,10 +327,30 @@ EOF
   echo "-- РФПЛ (изолированный пайплайн)"
   run_step "etl.fetch_rpl" $PY -m etl.fetch_rpl || exit 1
 
+  echo "-- НХЛ (изолированный пайплайн)"
+  #
+  # НХЛ до сих пор не был в цикле: раздел обновлялся только вручную,
+  # и это была дыра — сайт показывал хоккейные прогнозы, которых
+  # не менялось сутками, пока в мире играли.
+  #
+  # Шаги идут строго по порядку: сначала матчи (из них берутся
+  # сыгранные), потом разбивка по периодам (она нужна, чтобы отличить
+  # основное время от овертайма и буллитов), потом прогнозы.
+  #
+  # Стоимость шагов на живом сервере измерена: обход текущего сезона
+  # идёт по окну вокруг сегодняшнего дня (около шести запросов, а не
+  # тридцати — весь сезон перебирать незачем, счёт старых матчей не
+  # меняется), докачка периодов — по одному запросу на новый матч,
+  # пересчёт модели — несколько секунд. Итого цикл остаётся в
+  # пятиминутном бюджете таймера.
+  run_step "etl.fetch_nhl" $PY -m etl.fetch_nhl || exit 1
+  run_step "etl.fetch_nhl_periods" $PY -m etl.fetch_nhl_periods || exit 1
+
   echo "-- прогнозы"
   run_step "models.predict" $PY -m models.predict || exit 1
   run_step "models.bt_predict" $PY -m models.bt_predict || exit 1
   run_step "models.rpl_predict" $PY -m models.rpl_predict || exit 1
+  run_step "models.nhl_predict" $PY -m models.nhl_predict || exit 1
 
   echo "-- публикация"
   for f in "${LOCAL[@]}"; do

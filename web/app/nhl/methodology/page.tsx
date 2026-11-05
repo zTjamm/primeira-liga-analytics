@@ -1,4 +1,4 @@
-import { getNhlCompare, getNhlPredictions } from "@/lib/data";
+import { getNhlCompare, getNhlIngest, getNhlPeriodsIngest, getNhlPredictions } from "@/lib/data";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -39,7 +39,12 @@ const MODEL_LABELS: Record<string, string> = {
 export const dynamic = "force-dynamic";
 
 export default async function NhlMethodologyPage() {
-  const [preds, cmp] = await Promise.all([getNhlPredictions(), getNhlCompare()]);
+  const [preds, cmp, ingest, periods] = await Promise.all([
+    getNhlPredictions(),
+    getNhlCompare(),
+    getNhlIngest(),
+    getNhlPeriodsIngest(),
+  ]);
 
   const pooled = cmp?.pooled_all;
   const verdict = cmp?.verdict?.hockey_ot;
@@ -50,6 +55,23 @@ export default async function NhlMethodologyPage() {
   // отчёта нет: страница должна читаться, а не показывать прочерки.
   const tiePlain = kappa?.model_tie_share.hockey_ot_plain ?? 0.1684;
   const tieObserved = kappa?.observed_tie_share ?? 0.2236;
+
+  // Числа выборки — тоже из отчётов. Раньше они были вписаны в текст
+  // страницы, и каждое обновление данных делало их неверными: отчёт
+  // о загрузке и отчёт о периодах знают правду, страница — нет.
+  const seasons = ingest?.seasons ?? [];
+  const seasonFrom = seasons.length ? seasonLabel(seasons[0]) : "2018/19";
+  const seasonTo = seasons.length ? seasonLabel(seasons[seasons.length - 1]) : "2026/27";
+  const played = ingest?.played_matches ?? preds?.history_matches ?? 10022;
+  const total = ingest?.total_matches ?? 11116;
+  const teams = ingest?.teams ?? 34;
+  const draws = ingest?.draws ?? 0;
+  const periodMatches = periods?.matches ?? played;
+  const regTieShare = periods?.reg_tie_share ?? 0.2223;
+  const shootoutShare = periods?.shootout_share ?? 0.0729;
+  const otDecidedShare = periods?.ot_decided_share ?? 0.1494;
+  const shootoutOfTies = periods?.shootout_of_ties ?? 0.3281;
+  const otHomeWinShare = periods?.ot_home_win_share ?? 0.5081;
 
   return (
     <div className="space-y-4">
@@ -69,9 +91,11 @@ export default async function NhlMethodologyPage() {
           матчей. Ключ не нужен, лицензия не нужна.
         </p>
         <p>
-          Загружены <N>9 сезонов</N> регулярного чемпионата — 2018/19 — 2026/27.
-          Из них <N>10 019</N> сыгранных матчей, <N>0</N> ничьих в итоговом
-          счёте, <N>34</N> команды. Плей-офф и матчи звёзд отбрасываются: у них
+          Загружены <N>{seasons.length || 9}</N> сезонов регулярного
+          чемпионата — {seasonFrom} — {seasonTo}. Из них <N>{played.toLocaleString("ru-RU")}</N>{" "}
+          сыгранных матчей (<N>{total.toLocaleString("ru-RU")}</N> с учётом
+          расписания), <N>{draws}</N> ничьих в итоговом счёте,{" "}
+          <N>{teams}</N> команды. Плей-офф и матчи звёзд отбрасываются: у них
           другой формат (тот же счёт, но иные соперники и мотивация).
         </p>
         <p>
@@ -80,8 +104,8 @@ export default async function NhlMethodologyPage() {
           <N>/v1/gamecenter/{"{id}"}/landing</N>. Без неё параметры овертайма
           по итоговым счётам не определяются: счёт <N>2:1</N> одинаков и для
           «победная шайба в овертайме», и для «буллиты, выигранные хозяевами».
-          Разбивка собрана для всех <N>10 019</N> матчей, пропусков и
-          противоречий нет.
+          Разбивка собрана для всех <N>{periodMatches.toLocaleString("ru-RU")}</N>{" "}
+          матчей, пропусков и противоречий нет.
         </p>
         <p>
           Тонкость API: адрес <N>/v1/schedule/{"{дате}"}</N> отдаёт не один
@@ -131,10 +155,11 @@ export default async function NhlMethodologyPage() {
         </ol>
         <p>
           Что при этом измерено на данных, а не предположено: ничья после
-          основного времени — около <N>22%</N> матчей, овертайм дошёл до
-          победной шайбы в <N>14.9%</N>, буллитная серия случилась в{" "}
-          <N>7.3%</N> (то есть в <N>32.8%</N> ничьих), домашних побед в
-          овертайме — <N>51.3%</N>.
+          основного времени — <N>{pct(regTieShare)}</N> матчей, овертайм дошёл
+          до победной шайбы в <N>{pct(otDecidedShare)}</N>, буллитная серия
+          случилась в <N>{pct(shootoutShare)}</N> (то есть в{" "}
+          <N>{pct(shootoutOfTies)}</N> ничьих), домашних побед в овертайме —{" "}
+          <N>{pct(otHomeWinShare)}</N>.
         </p>
         <p>
           В итоговом счёте ничьей нет by construction: она появляется ровно
