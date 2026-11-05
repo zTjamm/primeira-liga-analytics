@@ -177,22 +177,66 @@ def _is_consistent(row: dict) -> bool:
     return True
 
 
-def _load_cache() -> dict[str, dict]:
-    if not CACHE.exists():
+def _seed_from_parquet() -> dict[str, dict]:
+    """Разбивка из ранее сохранённого parquet — если кэша нет.
+
+    Зачем: полная пересборка разбивки — это десять тысяч запросов к
+    gamecenter, по одному на матч. В CI рабочий каталог каждый раз
+    чистый, и без посева job скачивал бы всё заново (десятки минут и
+    десять тысяч запросов к чужому API).
+
+    parquet лежит в репозитории (data/processed/nhl_periods.parquet,
+    35 КБ) — это снимок того же разбора, и он переживает перезапуск.
+    Докачиваются только те матчи, которых в снимке нет.
+
+    Раскладка колонок совпадает с кэшем: parquet пишется из кэша, и
+    наоборот — из parquet можно восстановить кэш как есть.
+    """
+    path = PROCESSED / "nhl_periods.parquet"
+    if not path.exists():
+        return {}
+    try:
+        df = pl.read_parquet(path)
+    except Exception as e:
+        print(f"  снимок разбивки не читается ({e}), качаю с нуля")
         return {}
     out: dict[str, dict] = {}
-    for line in CACHE.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
+    for row in df.to_dicts():
+        mid = row.get("match_id")
+        if mid is None:
             continue
-        try:
-            row = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if row.get("match_id"):
-            out[row["match_id"]] = row
+        out[str(mid)] = {
+            "match_id": str(mid),
+            "reg_home": row.get("reg_home"),
+            "reg_away": row.get("reg_away"),
+            "ot_played": bool(row.get("ot_played")),
+            "shootout": bool(row.get("shootout")),
+            "ot_winner": row.get("ot_winner"),
+            "final_home": row.get("final_home"),
+            "final_away": row.get("final_away"),
+        }
+    return out
+
+
+def _load_cache() -> dict[str, dict]:
+    out: dict[str, dict] = {}
+    if CACHE.exists():
+        for line in CACHE.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if row.get("match_id"):
+                out[row["match_id"]] = row
     # Непротиворечивые строки оставляем, противоречивые — перекачиваем.
-    return {k: v for k, v in out.items() if _is_consistent(v)}
+    out = {k: v for k, v in out.items() if _is_consistent(v)}
+    if not out:
+        print("  кэша нет — беру снимок разбивки из репозитория")
+        return _seed_from_parquet()
+    return out
 
 
 def main() -> None:
@@ -253,6 +297,10 @@ def main() -> None:
         (ot_rows["final_home"] - ot_rows["reg_home"]) * (ot_rows["final_home"] > ot_rows["reg_home"])
         + (ot_rows["final_away"] - ot_rows["reg_away"]) * (ot_rows["final_away"] > ot_rows["reg_away"])
     ) != 1).sum())
+    # Кто выигрывает овертайм — отдельный измеренный факт, а не
+    # предположение. Модель не вводит преимущества хозяев в овертайме:
+    # если бы оно было, его можно было бы оценить из данных.
+    ot_home_wins = int((ot_rows["ot_winner"] == "H").sum())
     stats = {
         "matches": n,
         "reg_tie_share": round(reg_tie / n, 4),
@@ -260,6 +308,8 @@ def main() -> None:
         "ot_played_share": round(ot_played / n, 4),
         "ot_decided_share": round((ot_played - so) / n, 4),
         "shootout_of_ties": round(so / max(reg_tie, 1), 4),
+        "ot_home_win_share": round(ot_home_wins / max(ot_played, 1), 4),
+        "ot_home_wins": ot_home_wins,
         "consistency_ot_without_tie": bad_tie,
         "consistency_winner_delta_not_1": bad_delta,
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
