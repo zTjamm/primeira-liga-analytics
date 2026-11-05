@@ -1,3 +1,8 @@
+# Зависимости всего пайплайна: основной CI, тяжёлые отчёты и сборщики
+# NBA/WNBA.
+#
+# pandas и nba_api нужны etl/fetch_nba.py: официальный API NBA отдаёт
+# статистику в pandas-таблицах, и без них сборщик не запустится.
 polars>=2.0
 pyarrow>=17.0
 numpy>=2.0
@@ -8,3 +13,5 @@ requests>=2.32
 fastapi>=0.115
 uvicorn[standard]>=0.32
 pydantic>=2.9
+pandas>=2.0
+nba_api>=1.10

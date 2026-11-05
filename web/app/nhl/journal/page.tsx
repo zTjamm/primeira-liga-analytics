@@ -20,6 +20,12 @@ export default async function NhlJournalPage() {
   }
 
   const { resolved, pending, summary } = journal;
+  const next48 = pending.filter(
+    (p) =>
+      p.kickoff &&
+      new Date(p.kickoff).getTime() - Date.now() < 48 * 3600 * 1000 &&
+      new Date(p.kickoff).getTime() > Date.now(),
+  );
 
   return (
     <div className="space-y-6">
@@ -39,6 +45,77 @@ export default async function NhlJournalPage() {
           hint="Журнал ведётся с текущего запуска."
         />
       )}
+
+      <section>
+        <h2 className="mb-3 flex items-center gap-3 text-sm font-medium text-muted">
+          Ближайшие 48 часов
+          <span className="h-px flex-1 bg-line" />
+          <span className="text-xs">матчей: {next48.length}</span>
+        </h2>
+        {next48.length === 0 ? (
+          <p className="panel p-4 text-sm text-muted">
+            В ближайшие двое суток матчей нет. Полный список — на{" "}
+            <Link href="/nhl" className="link underline">
+              странице матчей
+            </Link>
+            .
+          </p>
+        ) : (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {next48.map((p) => {
+              const hours =
+                p.kickoff && p.hours_before !== null
+                  ? (new Date(p.kickoff).getTime() - Date.now()) / 3600000
+                  : null;
+              const fav = p.p_home > p.p_away ? "H" : "A";
+              return (
+                <div key={p.key} className="panel p-4">
+                  <div className="mb-2 flex items-center justify-between text-xs text-muted">
+                    <span>
+                      {longDate(p.date)}
+                      {p.matchday ? ` · № ${p.matchday}` : ""}
+                    </span>
+                    {hours !== null && hours > 0 && (
+                      <span
+                        className={`rounded px-1.5 py-0.5 ${
+                          hours <= 4 ? "bg-home/20 text-home" : "bg-panel-2"
+                        }`}
+                      >
+                        {hours < 1 ? "меньше часа" : `через ${hours.toFixed(0)} ч`}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mb-3 flex items-start gap-2">
+                    <div className="min-w-0 flex-1 text-right text-[13px] font-medium leading-tight">
+                      {p.home_name}
+                    </div>
+                    <div className="num shrink-0 rounded bg-panel-2 px-1.5 py-0.5 text-center text-[11px] leading-tight text-muted">
+                      <div>{fav === "H" ? "П1" : "П2"}</div>
+                      <div className="opacity-70">
+                        {(Math.max(p.p_home, p.p_away) * 100).toFixed(0)}%
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1 text-[13px] font-medium leading-tight">
+                      {p.away_name}
+                    </div>
+                  </div>
+                  <div className="bar-track" style={{ height: 6 }}>
+                    <div className="bar-seg bg-home" style={{ width: `${p.p_home * 100}%` }} />
+                    <div className="bar-seg bg-draw" style={{ width: `${p.p_draw * 100}%` }} />
+                    <div className="bar-seg bg-away" style={{ width: `${p.p_away * 100}%` }} />
+                  </div>
+                  <div className="mt-1.5 flex items-center justify-between text-[11px] text-muted">
+                    <span className="num">
+                      {(p.p_home * 100).toFixed(1)} / {(p.p_away * 100).toFixed(1)}
+                    </span>
+                    <span>срез {p.stage}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </section>
 
       {resolved.length > 0 && (
         <section>

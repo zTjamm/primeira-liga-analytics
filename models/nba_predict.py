@@ -8,6 +8,14 @@
 0.5%, она возникает из-за дискретности счёта) удаляется и
 перераспределяется на П1 и П2 пропорционально.
 
+Источник данных один — data/processed/nba_matches.parquet. Раньше
+будущие матчи брались из отдельного файла nba_future_fixtures.parquet,
+который собирал etl/fetch_nba_fixtures.py: свой сборщик, свой кэш
+«навсегда», ни шага в цикле обновления сервера. Из-за этого расписание
+на сайте жило своей жизнью, а в журнале не было матчей за последний
+день. Теперь тот же датасет, что и история: его обновляет
+etl.fetch_nba в каждом цикле.
+
 Запуск:
     python -m models.nba_predict
 """
@@ -27,9 +35,9 @@ from models.basketball import BasketballModel
 def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
     """Сколько часов осталось до матча.
 
-    Если точного времени старта в фикстурах нет, считаем от полуночи
-    дня матча: на подпись этапа в журнале это влияет, на вероятности —
-    нет.
+    Время старта берётся из календаря NBA (оно в UTC), и матчи без него
+    — редкий случай — считаем от полуночи дня матча. На подпись этапа
+    в журнале это влияет, на вероятности — нет.
     """
     ts = None
     if kickoff:
@@ -59,6 +67,14 @@ def main() -> None:
     print(f"  Матчей в истории: {matches.height}")
     print(f"  Сыгранных: {played.height}")
 
+    # Пустая история — значит, сбор данных не удался. Молча перезаписывать
+    # опубликованные файлы в этом случае нельзя: сайт показал бы старые
+    # прогнозы с новой отметкой времени и выглядел бы свежим.
+    if played.height == 0:
+        print("  НЕТ сыгранных матчей — публикацию пропускаю, "
+              "чтобы старые данные не выдали за свежие")
+        return
+
     names = ball_sport.load_names(played)
     games = ball_sport.team_games(played)
     teams = sorted(games)
@@ -68,75 +84,74 @@ def main() -> None:
         f"{names.get(r['team'], r['team'])} {r['overall']:+.1f}"
         for r in model.strength()[:4]))
 
-    fixtures_path = PROCESSED / "nba_future_fixtures.parquet"
+    # Будущие матчи — из того же датасета, что и история. Отбор по
+    # времени старта: начавшийся матч в прогнозах смотрелся бы как
+    # матч впереди (счёт у него появится через два с половиной часа).
+    now = datetime.now(timezone.utc)
+    fixtures = ball_sport.upcoming_matches(matches, now)
+    print(f"  Будущих матчей: {len(fixtures)}")
     upcoming: list[dict] = []
     ledger: list[dict] = []
-    if fixtures_path.exists():
-        fixtures = ball_sport.future_fixtures(pl.read_parquet(fixtures_path))
-        print(f"  Будущих матчей: {fixtures.height}")
-        now = datetime.now(timezone.utc)
-        for f in fixtures.to_dicts():
-            probs = ball_sport.remove_draw(model.predict_1x2(f["home_id"], f["away_id"]))
-            top = int(max(range(2), key=lambda i: probs[i]))
-            prediction = ["H", "A"][top]
-            confidence = float(probs[top])
+    for f in fixtures:
+        probs = ball_sport.remove_draw(model.predict_1x2(f["home_id"], f["away_id"]))
+        top = int(max(range(2), key=lambda i: probs[i]))
+        prediction = ["H", "A"][top]
+        confidence = float(probs[top])
 
-            team_games_min = min(games.get(f["home_id"], 0),
-                                 games.get(f["away_id"], 0))
-            ok, reason = verdict.verdict(confidence, team_games_min)
+        team_games_min = min(games.get(f["home_id"], 0),
+                             games.get(f["away_id"], 0))
+        ok, reason = verdict.verdict(confidence, team_games_min)
 
-            match_date = str(f["match_date"])
-            kickoff = f.get("kickoff_utc")
-            upcoming.append({
-                "match_id": f["match_id"],
-                "date": match_date,
-                "kickoff_utc": kickoff,
-                "home_id": f["home_id"],
-                "away_id": f["away_id"],
-                "home_name": f["home_name"],
-                "away_name": f["away_name"],
-                "p_home": round(float(probs[0]), 4),
-                "p_draw": 0.0,
-                "p_away": round(float(probs[1]), 4),
-                "prediction": prediction,
-                "confidence": round(confidence, 4),
+        match_date = str(f["match_date"])
+        kickoff = f.get("kickoff_utc")
+        upcoming.append({
+            "match_id": f["match_id"],
+            "date": match_date,
+            "kickoff_utc": kickoff,
+            "home_id": f["home_id"],
+            "away_id": f["away_id"],
+            "home_name": f["home_name"],
+            "away_name": f["away_name"],
+            "p_home": round(float(probs[0]), 4),
+            "p_draw": 0.0,
+            "p_away": round(float(probs[1]), 4),
+            "prediction": prediction,
+            "confidence": round(confidence, 4),
+            "verdict_given": ok,
+            "verdict_reason": reason,
+        })
+
+        hours = _hours_before(kickoff, match_date, now)
+        ledger.append({
+            "key": f"nba_{f['match_id']}",
+            "date": match_date,
+            "kickoff": kickoff,
+            "matchday": None,
+            "home_id": f["home_id"],
+            "away_id": f["away_id"],
+            "home_name": f["home_name"],
+            "away_name": f["away_name"],
+            "generated_at": now.isoformat(timespec="seconds"),
+            "hours_before": round(hours, 2),
+            "stage": forecast.stage_for(hours),
+            "p_home": round(float(probs[0]), 4),
+            "p_draw": 0.0,
+            "p_away": round(float(probs[1]), 4),
+            "prediction": prediction,
+            "odds_home": None,
+            "odds_draw": None,
+            "odds_away": None,
+            "stake": None,
+            "extra": {
                 "verdict_given": ok,
                 "verdict_reason": reason,
-            })
-
-            hours = _hours_before(kickoff, match_date, now)
-            ledger.append({
-                "key": f"nba_{f['match_id']}",
-                "date": match_date,
-                "kickoff": kickoff,
-                "matchday": None,
-                "home_id": f["home_id"],
-                "away_id": f["away_id"],
-                "home_name": f["home_name"],
-                "away_name": f["away_name"],
-                "generated_at": now.isoformat(timespec="seconds"),
-                "hours_before": round(hours, 2),
-                "stage": forecast.stage_for(hours),
-                "p_home": round(float(probs[0]), 4),
-                "p_draw": 0.0,
-                "p_away": round(float(probs[1]), 4),
-                "prediction": prediction,
-                "odds_home": None,
-                "odds_draw": None,
-                "odds_away": None,
-                "stake": None,
-                "extra": {
-                    "verdict_given": ok,
-                    "verdict_reason": reason,
-                },
-            })
-    else:
-        print("  Будущих матчей нет")
+            },
+        })
 
     out = PROCESSED / "nba_predictions.json"
     ball_sport.write_json(out, {
         "league": "NBA",
-        "season": "2026-27",
+        "season": ball_sport.season_label(matches, fixtures),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "history_matches": played.height,
         "model": model.summary(),
@@ -169,7 +184,9 @@ def main() -> None:
     public_dir = Path("web/public/data")
     public_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy(out, public_dir / "nba_predictions.json")
-    shutil.copy(PROCESSED / "nba_journal.json", public_dir / "nba_journal.json")
+    # Журнал в вебе — урезанный: полная история весит мегабайты три с
+    # половиной, а в таблице показываются последние 600 строк.
+    ball_sport.write_web_journal(hist, public_dir / "nba_journal.json")
     shutil.copy(strength_path, public_dir / "nba_strength.json")
 
 

@@ -322,6 +322,43 @@ def test_nhl_pipeline() -> list[bool]:
     return ok
 
 
+def test_nba_pipeline() -> list[bool]:
+    """NBA должен обновляться на сервере автоматически.
+
+    До 5 ноября 2026 раздел NBA не был ни в цикле сервера, ни в CI:
+    обновлялся только вручную, а кэш сезона был «навсегда». Из-за этого
+    в журнале NBA не было матчей за последний день — ровно то, на что
+    жаловались.
+
+    Порядок шагов обязателен: прогнозы считаются по данным о матчах, и
+    без них модель не знает, что вообще прогнозировать.
+    """
+    text = SCRIPT.read_text(encoding="utf-8")
+    ok = []
+
+    pos_fetch = text.find('run_step "etl.fetch_nba"')
+    pos_predict = text.find('run_step "models.nba_predict"')
+    ok.append(_check_bool(
+        "в цикле есть сбор и прогнозы NBA",
+        -1 not in (pos_fetch, pos_predict)))
+    ok.append(_check_bool(
+        "шаги NBA идут в правильном порядке",
+        0 <= pos_fetch < pos_predict,
+        f"сбор={pos_fetch}, прогнозы={pos_predict}"))
+
+    # Полный журнал NBA — три с половиной мегабайта; странице нужны
+    # последние 600 строк, и урезанную версию кладёт в витрину
+    # models.nba_predict.
+    ok.append(_check_bool(
+        "полный журнал NBA не публикуется в витрину",
+        "data/processed/nba_journal.json" not in text))
+    ok.append(_check_bool(
+        "прогнозы и рейтинги NBA публикуются",
+        "data/processed/nba_predictions.json" in text
+        and "data/processed/nba_strength.json" in text))
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_script_exists()
@@ -330,6 +367,7 @@ def main() -> int:
     results += test_web_rebuild()
     results += test_self_update()
     results += test_nhl_pipeline()
+    results += test_nba_pipeline()
     results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)

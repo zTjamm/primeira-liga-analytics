@@ -7,9 +7,9 @@
 # обновление зависело от cron, сайт показывал устаревшие данные часами.
 #
 # Теперь код тянется с GitHub, а прогнозы считаются локально. Полный
-# цикл занимает около пятнадцати секунд (замер на живом сервере: 15 с
-# с учётом НХЛ) и пик памяти 183 МБ, поэтому запускается каждые пять
-# минут и не мешает VPN: xray, x-ui и обе игры не трогаются.
+# цикл занимает около двадцати секунд (замер на живом сервере: 15 с
+# с учётом НХЛ, плюс NBA) и пик памяти 183 МБ, поэтому запускается
+# каждые пять минут и не мешает VPN: xray, x-ui и обе игры не трогаются.
 #
 # Первый прогон после смены данных длиннее: если кэш сезона НХЛ надо
 # пересобрать с нуля, цикл занимает около трёх минут (замер: 172 с).
@@ -36,7 +36,9 @@ export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
 #
 # nhl_journal.json здесь тоже НЕТ: полный журнал НХЛ весит четырнадцать
 # мегабайт, а странице нужны последние 600 строк. Урезанную версию
-# models.nhl_predict кладёт в web/public/data сам.
+# models.nhl_predict кладёт в web/public/data сам. С NBA так же: полный
+# журнал NBA — три с половиной мегабайта, урезанный пишет сам
+# models.nba_predict.
 LOCAL=(
   data/processed/predictions.json
   data/processed/football_journal.json
@@ -48,6 +50,9 @@ LOCAL=(
   data/processed/nhl_strength.json
   data/reports/nhl_ingest.json
   data/reports/nhl_periods_ingest.json
+  data/processed/nba_predictions.json
+  data/processed/nba_strength.json
+  data/reports/nba_ingest.json
 )
 
 mkdir -p "$REPO/web/public/data"
@@ -351,11 +356,26 @@ EOF
   run_step "etl.fetch_nhl" $PY -m etl.fetch_nhl || exit 1
   run_step "etl.fetch_nhl_periods" $PY -m etl.fetch_nhl_periods || exit 1
 
+  echo "-- NBA (изолированный пайплайн)"
+  #
+  # NBA до сих пор не было в цикле: раздел обновлялся только вручную,
+  # и это была дыра — сайт показывал баскетбольные прогнозы, которых
+  # не менялось сутками, пока в мире играли. Кэш сезона NBA был
+  # «навсегда», а сборщик фикстур в цикл не входил вовсе, поэтому в
+  # журнале не было матчей за последний день.
+  #
+  # Стоимость шага на живом сервере измерена: два запроса к официальному
+  # API NBA (статистика сыгранных матчей и календарь сезона) занимают
+  # несколько секунд, пересчёт модели — секунды. Прошлые сезоны берутся
+  # из кэша, обновляется только текущий.
+  run_step "etl.fetch_nba" $PY -m etl.fetch_nba || exit 1
+
   echo "-- прогнозы"
   run_step "models.predict" $PY -m models.predict || exit 1
   run_step "models.bt_predict" $PY -m models.bt_predict || exit 1
   run_step "models.rpl_predict" $PY -m models.rpl_predict || exit 1
   run_step "models.nhl_predict" $PY -m models.nhl_predict || exit 1
+  run_step "models.nba_predict" $PY -m models.nba_predict || exit 1
 
   echo "-- публикация"
   for f in "${LOCAL[@]}"; do

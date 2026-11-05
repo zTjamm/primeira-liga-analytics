@@ -282,7 +282,7 @@ jobs:
         # сломан, а цикл обновления молча прерывался на нём.
         if: steps.gate.outputs.needs == 'true'
         run: |
-          for t in test_syntax test_asian test_ci test_deploy test_fetch_vtb test_forecast test_rpl test_calibrate; do
+          for t in test_syntax test_asian test_ci test_deploy test_fetch_vtb test_forecast test_rpl test_calibrate test_nba test_nhl; do
             python -m tests.$t
           done
 

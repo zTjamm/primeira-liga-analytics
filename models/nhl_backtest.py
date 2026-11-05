@@ -20,7 +20,6 @@
 """
 from __future__ import annotations
 
-import json
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,7 +27,7 @@ from pathlib import Path
 import polars as pl
 
 from etl.config import PROCESSED
-from models import forecast, verdict
+from models import ball_sport, forecast, verdict
 from models.hockey import (HockeyModel, load_periods, production_config,
                            production_tie_boost)
 
@@ -40,7 +39,7 @@ from models.hockey import (HockeyModel, load_periods, production_config,
 # log-loss) считаются по всей истории, а таблица показывает свежие
 # матчи. Полная проверка моделей — в models/nhl_compare.py и
 # data/reports/nhl_model_compare.json.
-WEB_JOURNAL_ROWS = 600
+WEB_JOURNAL_ROWS = ball_sport.WEB_JOURNAL_ROWS
 
 
 def load_names(matches: pl.DataFrame) -> dict[str, str]:
@@ -128,20 +127,10 @@ def walk_forward_rows(train_rows: list[dict], test_rows: list[dict],
 def write_web_journal(hist: dict, path: Path, rows: int = WEB_JOURNAL_ROWS) -> None:
     """Веб-копия журнала: полные итоги, но только свежие строки в таблице.
 
-    Общая функция для backtest'а и прогнозов: иначе прогнозы, копируя
-    полный журнал в web/public/data, затирали бы урезанную версию —
-    и страница грузила бы четырнадцать мегабайт вместо полутора.
+    Реализация общая (models/ball_sport.py): ею пользуются и НХЛ, и NBA,
+    иначе одна из витрин снова начала бы грузить полную историю.
     """
-    path.parent.mkdir(parents=True, exist_ok=True)
-    trimmed = dict(hist)
-    trimmed["resolved"] = hist["resolved"][:rows]
-    trimmed["resolved_total"] = len(hist["resolved"])
-    trimmed["resolved_note"] = (
-        f"в таблице показаны последние {rows} матчей из "
-        f"{len(hist['resolved'])}; итоги посчитаны по всем"
-    )
-    path.write_text(json.dumps(trimmed, ensure_ascii=False, indent=2),
-                    encoding="utf-8")
+    ball_sport.write_web_journal(hist, path, rows)
 
 
 def main() -> None:

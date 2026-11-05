@@ -10,7 +10,6 @@ Walk-forward по сезонам:
 from __future__ import annotations
 
 import json
-import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -107,10 +106,11 @@ def main() -> None:
     print(f"  Точность: {s['overall']['accuracy']:.1%}")
     print(f"  Log-loss: {s['overall']['logloss']}")
 
+    # В веб — урезанный журнал: полная история весит мегабайты три с
+    # половиной, а таблица показывает последние 600 строк.
     PUBLIC_JOURNAL = Path("web/public/data/nba_journal.json")
-    PUBLIC_JOURNAL.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy(PROCESSED / "nba_journal.json", PUBLIC_JOURNAL)
-    print(f"Скопировано в {PUBLIC_JOURNAL}")
+    ball_sport.write_web_journal(hist, PUBLIC_JOURNAL)
+    print(f"Записано в {PUBLIC_JOURNAL}")
 
 
 if __name__ == "__main__":

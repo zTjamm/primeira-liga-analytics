@@ -38,7 +38,6 @@ from etl.config import PROCESSED
 from models import ball_sport, forecast, temperature, verdict
 from models.hockey import (HockeyModel, load_periods, production_config,
                            production_tie_boost)
-from models.nhl_backtest import write_web_journal
 
 
 def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
@@ -68,55 +67,15 @@ def _hours_before(kickoff: str | None, match_date: str, now: datetime) -> float:
 def _upcoming_matches(matches: pl.DataFrame, now: datetime) -> list[dict]:
     """Матчи, которые ещё не начались.
 
-    Отбор по времени старта, а не по дате матча. Дата у матча местная
-    (так её и показывает сайт), а «сейчас» считается в UTC, и вечерний
-    матч по местному времени оказывается то «сегодня», то «завтра» по
-    UTC. Время старта в UTC — единственная величина, сравнимая с текущим
-    моментом, поэтому сравниваем с ним.
-
-    Матч без времени старта (так бывает у архивных сезонов) сравниваем
-    по дате: если дата прошла, матч не показываем.
-
-    Отдельно важно не показывать начавшийся матч: у него счёт появится
-    через два с половиной часа, а до этого он «несыгранный», и в
-    прогнозах он смотрелся бы как матч впереди.
+    Логика общая для НХЛ, NBA и WNBA и лежит в models/ball_sport.py —
+    здесь осталась тонкая обёртка, чтобы старые вызовы и тесты работали.
     """
-    today = now.date().isoformat()
-    out: list[dict] = []
-    for m in matches.filter(pl.col("home_score").is_null()).to_dicts():
-        kickoff = m.get("kickoff_utc")
-        if kickoff:
-            try:
-                ts = datetime.fromisoformat(str(kickoff).replace("Z", "+00:00"))
-            except ValueError:
-                ts = None
-            if ts is not None:
-                if ts.tzinfo is None:
-                    ts = ts.replace(tzinfo=timezone.utc)
-                if ts <= now:
-                    continue
-        elif str(m.get("match_date")) < today:
-            continue
-        row = dict(m)
-        row["match_date"] = str(m["match_date"])
-        out.append(row)
-    out.sort(key=lambda r: (r["match_date"], r.get("kickoff_utc") or "",
-                            r["match_id"]))
-    return out
+    return ball_sport.upcoming_matches(matches, now)
 
 
 def _season_label(matches: pl.DataFrame, fixtures: list[dict]) -> str:
-    """Сезон, к которому относятся будущие матчи.
-
-    Не вписываем руками: в апреле следующий сезон уже расписан, и
-    вписанная строка врала бы на полгода. Берём сезон будущих матчей,
-    а если их нет — последний сезон в данных.
-    """
-    seasons = [str(f.get("season")) for f in fixtures if f.get("season")]
-    if seasons:
-        return max(seasons)
-    all_seasons = [str(s) for s in matches["season"].unique().to_list() if s]
-    return max(all_seasons) if all_seasons else ""
+    """Сезон, к которому относятся будущие матчи."""
+    return ball_sport.season_label(matches, fixtures)
 
 
 def main() -> None:
@@ -303,7 +262,7 @@ def main() -> None:
     # Журнал в вебе — урезанный: полная история (8748 матчей) весит
     # четырнадцать мегабайт и грузится страницей целиком, а в таблице
     # показываются последние 600 строк.
-    write_web_journal(hist, public_dir / "nhl_journal.json")
+    ball_sport.write_web_journal(hist, public_dir / "nhl_journal.json")
     shutil.copy(strength_path, public_dir / "nhl_strength.json")
 
 
