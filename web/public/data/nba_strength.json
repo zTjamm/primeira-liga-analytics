@@ -4,7 +4,7 @@
     "name": "Oklahoma City Thunder",
     "attack": 4.8,
     "defence": 3.76,
-    "overall": 8.55
+    "overall": 8.56
   },
   {
     "team": "1610612738",
@@ -73,8 +73,8 @@
     "team": "1610612744",
     "name": "Golden State Warriors",
     "attack": 0.45,
-    "defence": 0.99,
-    "overall": 1.44
+    "defence": 0.98,
+    "overall": 1.43
   },
   {
     "team": "1610612747",
@@ -107,7 +107,7 @@
   {
     "team": "1610616859",
     "name": "Stars",
-    "attack": -0.0,
+    "attack": 0.0,
     "defence": 0.22,
     "overall": 0.22
   },
@@ -120,14 +120,14 @@
   },
   {
     "team": "1610616852",
-    "name": " OGs",
+    "name": "OGs",
     "attack": 0.03,
-    "defence": 0.11,
+    "defence": 0.1,
     "overall": 0.13
   },
   {
     "team": "1610616855",
-    "name": " Team C",
+    "name": "Team C",
     "attack": 0.08,
     "defence": 0.0,
     "overall": 0.08
@@ -141,7 +141,7 @@
   },
   {
     "team": "1610616839",
-    "name": "Team Giannis",
+    "name": "Team Bonds",
     "attack": -0.0,
     "defence": 0.04,
     "overall": 0.04
@@ -155,7 +155,7 @@
   },
   {
     "team": "1610616857",
-    "name": " Team M",
+    "name": "Team M",
     "attack": -0.02,
     "defence": 0.0,
     "overall": -0.01
@@ -168,13 +168,6 @@
     "overall": -0.02
   },
   {
-    "team": "1610616856",
-    "name": " Team T",
-    "attack": -0.0,
-    "defence": -0.02,
-    "overall": -0.02
-  },
-  {
     "team": "1610616861",
     "name": "World",
     "attack": -0.0,
@@ -183,16 +176,16 @@
   },
   {
     "team": "1610616854",
-    "name": " Rising Stars",
+    "name": "Rising Stars",
     "attack": -0.0,
     "defence": -0.03,
     "overall": -0.03
   },
   {
-    "team": "1610616865",
-    "name": "Team Austin",
+    "team": "1610616856",
+    "name": "Team T",
     "attack": -0.0,
-    "defence": -0.03,
+    "defence": -0.02,
     "overall": -0.03
   },
   {
@@ -211,16 +204,23 @@
   },
   {
     "team": "1610616853",
-    "name": " Young Stars",
+    "name": "Young Stars",
     "attack": -0.0,
     "defence": -0.04,
     "overall": -0.04
   },
   {
     "team": "1610616858",
-    "name": " Team G League",
+    "name": "Team G League",
     "attack": -0.0,
     "defence": -0.04,
+    "overall": -0.04
+  },
+  {
+    "team": "1610616865",
+    "name": "Team Austin",
+    "attack": -0.0,
+    "defence": -0.03,
     "overall": -0.04
   },
   {
@@ -232,7 +232,7 @@
   },
   {
     "team": "1610616851",
-    "name": " Global Stars",
+    "name": "Global Stars",
     "attack": -0.06,
     "defence": 0.0,
     "overall": -0.06
@@ -326,7 +326,7 @@
     "name": "Dallas Mavericks",
     "attack": -1.23,
     "defence": -1.19,
-    "overall": -2.42
+    "overall": -2.43
   },
   {
     "team": "1610612749",
@@ -346,7 +346,7 @@
     "team": "1610612740",
     "name": "New Orleans Pelicans",
     "attack": -1.39,
-    "defence": -2.72,
+    "defence": -2.71,
     "overall": -4.11
   },
   {
