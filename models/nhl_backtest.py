@@ -15,6 +15,11 @@
 порога 0.55. Точность в журнале считается по выданным вердиктам, а
 отсев показывается отдельным числом — иначе отсев был бы незаметен.
 
+Записи идут в ОТДЕЛЬНЫЙ журнал data/forecast_log_nhl_backtest.jsonl.
+Раньше бэктест писал в живой журнал, а записи различаются по паре
+(матч, этап) — walk-forward запись этапа T-24h затирала живой прогноз
+того же матча. Подробнее — в docstring модуля models.forecast.
+
 Запуск:
     python -m models.nhl_backtest
 """
@@ -119,6 +124,7 @@ def walk_forward_rows(train_rows: list[dict], test_rows: list[dict],
             "extra": {
                 "verdict_given": ok,
                 "verdict_reason": reason,
+                "source": forecast.SOURCE_BACKTEST,
             },
         })
     return rows
@@ -167,8 +173,8 @@ def main() -> None:
             train_df.to_dicts(), test_df.to_dicts(), scale, half_life,
             periods, tie_boost))
 
-    added = forecast.append(records, "nhl")
-    print(f"\nВ журнал НХЛ добавлено записей: {added}")
+    added = forecast.append_backtest(records, "nhl")
+    print(f"\nВ walk-forward журнал НХЛ добавлено записей: {added}")
 
     hist = forecast.save(played, "nhl", out=PROCESSED / "nhl_journal.json")
     s = hist["summary"]

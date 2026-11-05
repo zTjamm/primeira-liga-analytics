@@ -1,21 +1,25 @@
-"""Генерация демо-журнала NBA из реальных сыгранных матчей.
+"""Генерация walk-forward журнала NBA из реальных сыгранных матчей.
 
 Walk-forward по сезонам:
   • Обучаемся на сезоне 2024-25 → предсказываем 2025-26
   • Обучаемся на сезонах 2024-25+2025-26 → предсказываем 2026-27
+
+Записи идут в ОТДЕЛЬНЫЙ журнал data/forecast_log_nba_backtest.jsonl.
+Раньше бэктест писал в живой журнал, а записи различаются по паре
+(матч, этап) — walk-forward запись этапа T-24h затирала живой прогноз
+того же матча. Подробнее — в docstring модуля models.forecast.
 
 Запуск:
     python -m models.nba_backtest
 """
 from __future__ import annotations
 
-import json
 from datetime import datetime, timezone
 from pathlib import Path
 
 import polars as pl
 
-from etl.config import PROCESSED, RAW
+from etl.config import PROCESSED
 from models import ball_sport, forecast, verdict
 from models.basketball import BasketballModel
 
@@ -92,13 +96,12 @@ def main() -> None:
                 "extra": {
                     "verdict_given": ok,
                     "verdict_reason": reason,
+                    "source": forecast.SOURCE_BACKTEST,
                 },
             })
 
-    RAW_LEDGER = RAW / "forecast_log_nba.jsonl"
-    RAW_LEDGER.parent.mkdir(parents=True, exist_ok=True)
-    added = forecast.append(records, "nba")
-    print(f"\nВ журнал NBA добавлено записей: {added}")
+    added = forecast.append_backtest(records, "nba")
+    print(f"\nВ walk-forward журнал NBA добавлено записей: {added}")
 
     hist = forecast.save(played, "nba", out=PROCESSED / "nba_journal.json")
     s = hist["summary"]

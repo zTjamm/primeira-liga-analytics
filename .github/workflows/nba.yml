@@ -163,6 +163,7 @@ jobs:
           git add web/public/data \
             data/processed/nba_matches.parquet \
             data/forecast_log_nba.jsonl \
+            data/forecast_log_nba_backtest.jsonl \
             data/reports/nba_ingest.json
           if git diff --cached --quiet; then
             echo "изменений нет"

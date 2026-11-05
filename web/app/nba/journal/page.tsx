@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getNbaJournal, type Journal } from "@/lib/data";
 import { longDate } from "@/lib/format";
 import { EmptyState } from "@/components/EmptyState";
+import { JournalSourceBadge } from "@/components/JournalSourceBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -30,9 +31,12 @@ export default async function NbaJournalPage() {
       <div>
         <h1 className="text-lg font-semibold">Журнал прогнозов — NBA</h1>
         <p className="mt-1 text-sm text-muted">
-          Все сделанные прогнозы с пометкой, совпало или нет. Записи никогда не
-          перезаписываются. Ничья в баскетболе удалена: вероятность
-          перераспределена на П1 и П2.
+          Все сделанные прогнозы с пометкой, совпало или нет. Живые прогнозы
+          не затираются: walk-forward записи лежат в отдельном журнале и
+          отмечены «WF». Историю до последних матчей дополняет walk-forward
+          оценка модели на прошлых сезонах — там модель обучена только на
+          прошлом, прогноз сделан уже после матча. Ничья в баскетболе
+          удалена: вероятность перераспределена на П1 и П2.
         </p>
       </div>
 
@@ -141,6 +145,7 @@ export default async function NbaJournalPage() {
                     <td className="num py-2 pl-4 text-xs text-muted whitespace-nowrap">
                       {longDate(r.date)}
                       <span className="ml-1 opacity-60">{r.stage}</span>
+                      <JournalSourceBadge source={r.source} />
                     </td>
                     <td className="py-2">{r.home_name} — {r.away_name}</td>
                     <td className="num py-2 text-right">{r.score}</td>

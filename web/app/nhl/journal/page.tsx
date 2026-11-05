@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getNhlJournal, type Journal } from "@/lib/data";
 import { longDate } from "@/lib/format";
 import { EmptyState } from "@/components/EmptyState";
+import { JournalSourceBadge } from "@/components/JournalSourceBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -32,8 +33,11 @@ export default async function NhlJournalPage() {
       <div>
         <h1 className="text-lg font-semibold">Журнал прогнозов — НХЛ</h1>
         <p className="mt-1 text-sm text-muted">
-          Все сделанные прогнозы с пометкой, совпало или нет. Записи никогда не
-          перезаписываются.
+          Все сделанные прогнозы с пометкой, совпало или нет. Живые прогнозы
+          не затираются: walk-forward записи лежат в отдельном журнале и
+          отмечены «WF». Историю до последних матчей дополняет walk-forward
+          оценка модели на прошлых сезонах — там модель обучена только на
+          прошлом, прогноз сделан уже после матча.
         </p>
       </div>
 
@@ -142,6 +146,7 @@ export default async function NhlJournalPage() {
                     <td className="num py-2 pl-4 text-xs text-muted whitespace-nowrap">
                       {longDate(r.date)}
                       <span className="ml-1 opacity-60">{r.stage}</span>
+                      <JournalSourceBadge source={r.source} />
                     </td>
                     <td className="py-2">{r.home_name} — {r.away_name}</td>
                     <td className="num py-2 text-right">{r.score}</td>

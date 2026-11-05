@@ -198,6 +198,9 @@ def main() -> None:
             "extra": {
                 "verdict_given": ok,
                 "verdict_reason": reason,
+                # Живой прогноз: метка нужна, чтобы по записи было видно,
+                # что она не из walk-forward журнала.
+                "source": forecast.SOURCE_LIVE,
             },
         })
 

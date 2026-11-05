@@ -171,8 +171,35 @@ from models import forecast  # noqa: E402  — путь подставляем �
 
 bak = sys.argv[1]
 bad = 0
+
+
+def kind_of(rec):
+    """Куда положить запись: в живой журнал или в walk-forward.
+
+    Живых прогнозов и walk-forward записей теперь два разных журнала.
+    В бэкапе они лежат по файлам, но переходный период один: в
+    бэкапе может лежать старый смешанный файл, где walk-forward записи
+    ещё не были отделены. Их узнаём по отсутствию времени начала
+    матча (бэктест его не пишет) либо по явной метке extra.source.
+    """
+    source = (rec.get("extra") or {}).get("source")
+    if source == forecast.SOURCE_BACKTEST:
+        return "backtest"
+    if source == forecast.SOURCE_LIVE:
+        return "live"
+    if rec.get("stage") == "T-24h" and "kickoff" not in rec:
+        return "backtest"
+    return "live"
+
+
 for f in sorted(glob.glob(os.path.join(bak, "forecast_log_*.jsonl"))):
-    sport = os.path.basename(f)[len("forecast_log_"):-len(".jsonl")]
+    name = os.path.basename(f)[len("forecast_log_"):-len(".jsonl")]
+    if name.endswith(forecast.BACKTEST_SUFFIX):
+        sport = name[:-len(forecast.BACKTEST_SUFFIX)]
+        file_kind = "backtest"
+    else:
+        sport = name
+        file_kind = "live"
     recs = []
     for line in open(f, encoding="utf-8"):
         line = line.strip()
@@ -184,9 +211,17 @@ for f in sorted(glob.glob(os.path.join(bak, "forecast_log_*.jsonl"))):
             # Оборванная строка в бэкапе не должна ронять восстановление
             bad += 1
             continue
-    if recs:
-        added = forecast.append(recs, sport=sport)
-        print(f"  леджер {sport}: возвращено {len(recs)} записей, "
+    if not recs:
+        continue
+    live_recs = [r for r in recs if file_kind == "live" and kind_of(r) == "live"]
+    bt_recs = [r for r in recs if file_kind == "backtest" or kind_of(r) == "backtest"]
+    if live_recs:
+        added = forecast.append(live_recs, sport=sport)
+        print(f"  живой леджер {sport}: возвращено {len(live_recs)} записей, "
+              f"новых относительно git {added}")
+    if bt_recs:
+        added = forecast.append_backtest(bt_recs, sport=sport)
+        print(f"  walk-forward {sport}: возвращено {len(bt_recs)} записей, "
               f"новых относительно git {added}")
 if bad:
     print(f"  повреждённых строк в бэкапе пропущено: {bad}")

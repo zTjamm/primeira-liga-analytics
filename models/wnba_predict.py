@@ -136,6 +136,11 @@ def main():
                 "extra": {
                     "verdict_given": verdict_given,
                     "verdict_reason": "" if verdict_given else f"вероятность {max(probs):.1%} ниже порога 0.55",
+                    # Живой прогноз: метка нужна, чтобы по записи было видно,
+                    # что она не из walk-forward журнала. У WNBA нет времени
+                    # начала матча, поэтому по одному лишь набору полей
+                    # живую запись от walk-forward не отличить.
+                    "source": forecast.SOURCE_LIVE,
                 },
             })
     else:

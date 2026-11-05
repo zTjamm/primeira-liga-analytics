@@ -5,6 +5,27 @@
 обновление ближе к матчу. Поэтому ведём append-only журнал: одна запись
 на пару (матч, этап), где этап — расстояние до начала игры.
 
+Журналов два, и различаются они источником записи:
+
+  * forecast_log_<sport>.jsonl          — живые прогнозы, сделанные
+    до матча (models/*_predict.py);
+  * forecast_log_<sport>_backtest.jsonl — walk-forward записи бэктеста
+    (models/*_backtest.py): модель обучена на прошлых сезонах и
+    «предсказывает» уже сыгранные матчи.
+
+Раньше оба вида писались в один файл. Записи различаются по паре
+(матч, этап), а walk-forward запись всегда имеет этап T-24h — тот же,
+что и у живого прогноза за сутки до матча. В итоге бэктест перезаписывал
+живой прогноз того же матча: он не оставлял времени начала и подменял
+вероятность на walk-forward. Замерено на живых данных: NBA — 1560 из
+2662 записей оказались бэктестовыми, НХЛ — 8752 из 9863; живых записей
+по сыгранным матчам осталось 14 (NBA) и 4 (НХЛ), и только этапа T-4h.
+То есть видимая история журналов была построена бэктестом, а настоящие
+прогнозы, сделанные до матчей, исчезали — как только бэктест отрабатывал
+(в CI НХЛ он запускается ежедневно). Отделить их — единственный способ
+вернуть журналу смысл: теперь показано, что было сказано, а не что
+сказал бэктест.
+
 Спорта два, и различия между ними только в источнике результатов:
 матчи футбола лежат в matches.parquet, баскетбола — в vtb_matches.parquet.
 Всё остальное — этапы, разрешение вердиктов, метрики по этапам — общее,
@@ -37,9 +58,32 @@ STAGE_ORDER = {name: i for i, (name, _) in enumerate(STAGES)}
 
 ACTUAL = {"H": 0, "D": 1, "A": 2}
 
+# Суффикс файла walk-forward журнала.
+BACKTEST_SUFFIX = "_backtest"
+
+# Метка источника записи. Её ставят живые прогнозы и бэктест, чтобы по
+# любой записи было видно, откуда она взялась, даже если файл потерялся.
+SOURCE_LIVE = "live"
+SOURCE_BACKTEST = "backtest"
+
 
 def ledger_path(sport: str) -> Path:
     return ROOT / "data" / f"forecast_log_{sport}.jsonl"
+
+
+def backtest_ledger_path(sport: str) -> Path:
+    """Файл walk-forward записей. Отдельный от живого — см. docstring.
+
+    Путь строится от ledger_path, а не наоборот: тесты подменяют
+    ledger_path, и walk-forward журнал уезжает вместе с ним. Иначе
+    тесты читали бы настоящий файл из репозитория и видели в своих
+    журналах чужую историю.
+    """
+    path = ledger_path(sport)
+    name = path.name
+    if name.endswith(".jsonl"):
+        name = name[: -len(".jsonl")]
+    return path.with_name(f"{name}{BACKTEST_SUFFIX}.jsonl")
 
 
 def stage_for(hours_before: float) -> str:
@@ -49,8 +93,7 @@ def stage_for(hours_before: float) -> str:
     return STAGES[-1][0]
 
 
-def load(sport: str) -> list[dict]:
-    path = ledger_path(sport)
+def _read_records(path: Path) -> list[dict]:
     if not path.exists():
         return []
     out = []
@@ -67,13 +110,55 @@ def load(sport: str) -> list[dict]:
     return out
 
 
+def load(sport: str) -> list[dict]:
+    return _read_records(ledger_path(sport))
+
+
+def load_backtest(sport: str) -> list[dict]:
+    return _read_records(backtest_ledger_path(sport))
+
+
+def _write_records(path: Path, merged: dict) -> None:
+    payload = [merged[k] for k in
+               sorted(merged, key=lambda t: (t[0], STAGE_ORDER.get(t[1], 99)))]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in payload) + "\n",
+        encoding="utf-8",
+    )
+
+
 def append(records: list[dict], sport: str = "football") -> int:
-    """Дописывает прогнозы в журнал. Запись с тем же (матч, этап)
+    """Дописывает живые прогнозы в журнал. Запись с тем же (матч, этап)
     заменяется более свежей — иначе десять прогонов подряд дадут
     десять одинаковых строк."""
+    return _append_to(ledger_path(sport), load(sport), records)
+
+
+def append_backtest(records: list[dict], sport: str = "football") -> int:
+    """Дописывает walk-forward записи бэктеста — в отдельный журнал.
+
+    Отдельный файл здесь не косметика: записи различаются по паре
+    (матч, этап), и walk-forward запись этапа T-24h затирала живой
+    прогноз того же матча (см. docstring модуля).
+    """
+    return _append_to(backtest_ledger_path(sport), load_backtest(sport), records)
+
+
+def replace(records: list[dict], sport: str = "football") -> None:
+    """Полностью перезаписывает живой журнал.
+
+    Только для миграций (etl/split_ledgers.py). Обычная запись идёт
+    через append: журнал append-only, и перезапись существующей записи
+    допустима лишь для того же (матч, этап).
+    """
     path = ledger_path(sport)
     path.parent.mkdir(parents=True, exist_ok=True)
-    merged = {(r["key"], r["stage"]): r for r in load(sport)}
+    _write_records(path, {(r["key"], r["stage"]): r for r in records})
+
+
+def _append_to(path: Path, existing: list[dict], records: list[dict]) -> int:
+    merged = {(r["key"], r["stage"]): r for r in existing}
     added = 0
     for r in records:
         k = (r["key"], r["stage"])
@@ -81,12 +166,39 @@ def append(records: list[dict], sport: str = "football") -> int:
             added += 1
         merged[k] = r
 
-    payload = [merged[k] for k in sorted(merged, key=lambda t: (t[0], STAGE_ORDER.get(t[1], 99)))]
-    path.write_text(
-        "\n".join(json.dumps(r, ensure_ascii=False) for r in payload) + "\n",
-        encoding="utf-8",
-    )
+    _write_records(path, merged)
     return added
+
+
+def load_journal(sport: str) -> list[dict]:
+    """Журнал для показа: живые записи и walk-forward там, где живых нет.
+
+    Приоритет — по матчу, а не по этапу: если по матчу есть хоть одна
+    живая запись, walk-forward по нему не показывается. Иначе в одном
+    матче смешались бы два разных среза (живой и walk-forward), а
+    счётчик «мнение изменилось» показывал бы не изменение мнения, а
+    разницу двух моделей.
+
+    Walk-forward записи помечаются extra.source = "backtest": по журналу
+    должно быть видно, какие матчи оценены бэктестом, а какие —
+    настоящими прогнозами до матча.
+    """
+    live = load(sport)
+    backtest = load_backtest(sport)
+    if not backtest:
+        return live
+
+    live_keys = {r["key"] for r in live}
+    out = list(live)
+    for r in backtest:
+        if r["key"] in live_keys:
+            continue
+        rec = dict(r)
+        extra = dict(rec.get("extra") or {})
+        extra.setdefault("source", SOURCE_BACKTEST)
+        rec["extra"] = extra
+        out.append(rec)
+    return out
 
 
 def _date_key(d) -> str:
@@ -130,8 +242,8 @@ def _normalize_result(m: dict) -> dict | None:
     }
 
 
-def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
-    """Индекс результатов по (дата, домашний, гостевой).
+def _results_index(matches: pl.DataFrame) -> tuple[dict[tuple, dict], dict[str, dict]]:
+    """Индекс результатов: по (дата, домашний, гостевой) и по match_id.
 
     Формат результата у видов спорта разный, и принимать надо оба:
     футбол и РФПЛ дают готовые ftr/fthg/ftag, а НХЛ, НБА, ВТБ и WNBA —
@@ -140,24 +252,48 @@ def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
     перестали резолвиться совсем: страницы точности показывали ноль
     сыгранных прогнозов, хотя данные и прогнозы были на месте.
     Проверка ловит только случай, когда нет ни того, ни другого.
+
+    Второй индекс — по match_id — нужен для матчей, у которых дата в
+    журнале и дата в датасете разошлись. Так вышло с НХЛ: старый
+    сборщик писал дату в UTC, а датасет — местную (gameWeek.date), и
+    для вечерних матчей это разные дни. Индекс по (дата, ...) такой
+    матч не находил, и он навсегда оставался «незавершённым», хотя был
+    сыгран. match_id у таких записей с датасетом совпадает, поэтому по
+    нему матч находится точно — без догадок про соседние дни.
     """
     if matches.height == 0:
-        return {}
+        return {}, {}
     has_ftr = "ftr" in matches.columns
     has_scores = ("home_score" in matches.columns
                   and "away_score" in matches.columns)
     if not (has_ftr or has_scores):
-        return {}
+        return {}, {}
     idx = {}
+    by_id = {}
     for m in matches.to_dicts():
         r = _normalize_result(m)
         if r is None:
             continue
         idx[(_date_key(m["match_date"]), m["home_id"], m["away_id"])] = r
-    return idx
+        mid = m.get("match_id")
+        if mid is not None:
+            by_id[str(mid)] = r
+    return idx, by_id
 
 
-def _find_result(results: dict[tuple, dict], version: dict) -> dict | None:
+def _match_id_from_key(key: str | None) -> str | None:
+    """Идентификатор матча из ключа журнала: «nba_0012500001» → «0012500001».
+
+    У части видов спорта ключ — просто идентификатор без префикса
+    (футбол, ВТБ), у части — с префиксом вида спорта.
+    """
+    if not key:
+        return None
+    return key.split("_", 1)[1] if "_" in key else key
+
+
+def _find_result(results: tuple[dict[tuple, dict], dict[str, dict]],
+                 version: dict) -> dict | None:
     """Ищет результат матча для среза журнала.
 
     Сначала — точное совпадение (дата, домашний, гостевой). Если его
@@ -169,16 +305,24 @@ def _find_result(results: dict[tuple, dict], version: dict) -> dict | None:
     навсегда оставались бы «незавершёнными»: сыграны, а в журнале — в
     ожидании, и точность на странице считалась по меньшему числу
     матчей, чем на самом деле.
+
+    И последний шаг — поиск по match_id из ключа записи. Он спасает
+    матчи, у которых разошлись даты (UTC против местной): идентификатор
+    матча при этом один и тот же, а дата — нет.
     """
+    idx, by_id = results
     day = _date_key(version["date"])
     home = version.get("home_id")
     away = version.get("away_id")
-    found = results.get((day, home, away))
+    found = idx.get((day, home, away))
+    if found is None and home is not None and away is not None and home != away:
+        found = idx.get((day, away, home))
     if found is not None:
         return found
-    if home is None or away is None or home == away:
+    mid = _match_id_from_key(version.get("key"))
+    if mid is None:
         return None
-    return results.get((day, away, home))
+    return by_id.get(mid)
 
 
 def _oriented(version: dict, result: dict | None) -> dict:
@@ -233,7 +377,7 @@ def _pick_latest(versions: list[dict]) -> dict:
 
 def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
     """Сводит журнал в отчёт: сыгранные прогнозы с вердиктом и незавершённые."""
-    log = load(sport)
+    log = load_journal(sport)
     results = _results_index(matches)
 
     grouped: dict[str, list[dict]] = {}
@@ -295,6 +439,10 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             "p_draw": shown["p_draw"],
             "p_away": shown["p_away"],
             "extra": shown.get("extra"),
+            # Откуда запись: живой прогноз или walk-forward оценка модели
+            # на истории. На странице это видно меткой — иначе история
+            # выглядит как сплошная череда настоящих прогнозов.
+            "source": (shown.get("extra") or {}).get("source") or SOURCE_LIVE,
             # ROI-tracking: коэффициенты и ставка передаются из скрипта прогноза
             # (models/wnba_predict.py, models/bt_predict.py и т.д.).
             "odds_home": shown.get("odds_home"),

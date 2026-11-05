@@ -449,6 +449,40 @@ def check_ci_data_source() -> bool:
     return ok
 
 
+def check_split_ledgers() -> bool:
+    """Бэктест и живые прогнозы лежат в разных журналах.
+
+    Записи журнала различаются по паре (матч, этап), а walk-forward
+    запись всегда имеет этап T-24h — тот же, что у живого прогноза за
+    сутки до матча. Пока оба вида лежали в одном файле, бэктест затирал
+    живой прогноз: у его записи нет времени начала матча, а вероятность
+    в ней своя. Замерено на живых данных: NBA — 1560 из 2662 записей
+    оказались walk-forward, и только 14 живых записей сохранились по
+    сыгранным матчам.
+    """
+    print("\nЖурналы NBA разделены:")
+    ok = True
+    bt = ROOT / "models" / "nba_backtest.py"
+    if not bt.exists():
+        return _check_bool("файл бэктеста есть", False, str(bt))
+    text = bt.read_text(encoding="utf-8")
+    ok &= _check_bool("бэктест пишет в отдельный журнал",
+                      "append_backtest" in text)
+    ok &= _check_bool("живой журнал бэктестом не трогается",
+                      "forecast.append(records" not in text)
+
+    pred = ROOT / "models" / "nba_predict.py"
+    ptext = pred.read_text(encoding="utf-8")
+    ok &= _check_bool("живой прогноз помечен как живой",
+                      "SOURCE_LIVE" in ptext)
+
+    wf = ROOT / ".github" / "workflows" / "nba.yml"
+    wtext = wf.read_text(encoding="utf-8")
+    ok &= _check_bool("CI публикует walk-forward журнал",
+                      "forecast_log_nba_backtest.jsonl" in wtext)
+    return ok
+
+
 def main() -> int:
     print("Проверка пайплайна NBA\n" + "-" * 46)
     results = [
@@ -459,6 +493,7 @@ def main() -> int:
         check_fetch_retries(),
         check_upcoming_selection(),
         check_deploy_and_web(),
+        check_split_ledgers(),
         check_web_journal_trimmed(),
         check_fail_loud(),
         check_ci_data_source(),

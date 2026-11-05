@@ -276,6 +276,33 @@ def check_workflow() -> bool:
     return ok
 
 
+def check_split_ledgers() -> bool:
+    """Бэктест НХЛ пишет в отдельный журнал, и CI его публикует.
+
+    Бэктест в CI НХЛ запускается ежедневно, а его записи имеют этап
+    T-24h — тот же, что у живого прогноза за сутки до матча. Пока оба
+    вида лежали в одном файле, ежедневный прогон CI затирал живые
+    прогнозы: замерено, 8752 из 9863 записей НХЛ оказались walk-forward,
+    а по сыгранным матчам уцелели только четыре живые записи.
+    """
+    print("\nЖурналы НХЛ разделены:")
+    ok = True
+    bt = ROOT / "models" / "nhl_backtest.py"
+    if not bt.exists():
+        return _check_bool("файл бэктеста есть", False, str(bt))
+    text = bt.read_text(encoding="utf-8")
+    ok &= _check_bool("бэктест пишет в отдельный журнал",
+                      "append_backtest" in text)
+    ok &= _check_bool("живой журнал бэктестом не трогается",
+                      "forecast.append(records" not in text)
+
+    wf = ROOT / ".github" / "workflows" / "nhl.yml"
+    wtext = wf.read_text(encoding="utf-8")
+    ok &= _check_bool("CI публикует walk-forward журнал",
+                      "forecast_log_nhl_backtest.jsonl" in wtext)
+    return ok
+
+
 def main() -> int:
     print("Проверка пайплайна НХЛ\n" + "-" * 46)
     results = [
@@ -286,6 +313,7 @@ def main() -> int:
         check_refresh_window(),
         check_fetch_retries(),
         check_workflow(),
+        check_split_ledgers(),
     ]
     print("-" * 46)
     if all(results):

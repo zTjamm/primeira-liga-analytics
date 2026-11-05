@@ -127,6 +127,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add web/public/data \
             data/forecast_log_nhl.jsonl \
+            data/forecast_log_nhl_backtest.jsonl \
             data/reports/nhl_ingest.json \
             data/reports/nhl_periods_ingest.json \
             data/reports/nhl_model_compare.json \

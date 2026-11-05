@@ -7,6 +7,11 @@ Walk-forward по сезонам:
 Никаких вымышленных чисел: коэффициенты букмекеров отсутствуют,
 поэтому ROI-поля остаются null (заполнятся, когда появятся коэффициенты).
 
+Записи идут в ОТДЕЛЬНЫЙ журнал data/forecast_log_wnba_backtest.jsonl.
+Раньше бэктест писал в живой журнал, а записи различаются по паре
+(матч, этап) — walk-forward запись этапа T-24h затирала живой прогноз
+того же матча. Подробнее — в docstring модуля models.forecast.
+
 Запуск:
     python -m models.wnba_backtest
 """
@@ -19,12 +24,11 @@ from pathlib import Path
 
 import polars as pl
 
-from etl.config import PROCESSED, RAW
+from etl.config import PROCESSED
 from models import forecast, verdict
 from models.basketball import BasketballModel
 from models.wnba_predict import _load_names
 
-RAW_LEDGER = RAW / "forecast_log_wnba.jsonl"
 MATCHES_PATH = PROCESSED / "wnba_matches.parquet"
 OUT_JOURNAL = PROCESSED / "wnba_journal.json"
 PUBLIC_JOURNAL = Path("web/public/data/wnba_journal.json")
@@ -104,14 +108,14 @@ def main() -> None:
                 "extra": {
                     "verdict_given": ok,
                     "verdict_reason": reason,
+                    "source": forecast.SOURCE_BACKTEST,
                 },
             }
             records.append(record)
 
-    # Пишем в журнал прогнозов
-    RAW_LEDGER.parent.mkdir(parents=True, exist_ok=True)
-    added = forecast.append(records, "wnba")
-    print(f"\nВ журнал WNBA добавлено записей: {added}")
+    # Пишем в walk-forward журнал
+    added = forecast.append_backtest(records, "wnba")
+    print(f"\nВ walk-forward журнал WNBA добавлено записей: {added}")
 
     # Строим историю с реальными метриками (точность, log-loss, итоги)
     hist = forecast.save(played, "wnba", out=OUT_JOURNAL)

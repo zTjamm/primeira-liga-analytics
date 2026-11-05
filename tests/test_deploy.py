@@ -359,6 +359,36 @@ def test_nba_pipeline() -> list[bool]:
     return ok
 
 
+def test_split_ledgers() -> list[bool]:
+    """Восстановление леджера должно знать про разделение журналов.
+
+    Живых прогнозов и walk-forward записей теперь по два файла на вид
+    спорта. Если восстановление из бэкапа сложит их обратно в один
+    файл, через несколько циклов всё вернётся к прежнему: walk-forward
+    запись снова начнёт затирать живой прогноз того же матча.
+    """
+    text = SCRIPT.read_text(encoding="utf-8")
+    ok = []
+
+    ok.append(_check_bool(
+        "восстановление раскладывает записи по журналам",
+        "append_backtest" in text,
+        "иначе walk-forward вернётся в живой журнал"))
+    ok.append(_check_bool(
+        "файл walk-forward узнаётся по суффиксу",
+        "BACKTEST_SUFFIX" in text))
+    ok.append(_check_bool(
+        "запись определяется по метке источника",
+        "SOURCE_BACKTEST" in text and "SOURCE_LIVE" in text,
+        "без метки запись этапа T-24h без времени начала считалась бы "
+        "живой, а это как раз walk-forward"))
+    ok.append(_check_bool(
+        "бэкап забирает оба журнала",
+        'cp -a data/forecast_log_*.jsonl "$BAK"' in text,
+        "glob покрывает и живой файл, и walk-forward"))
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_script_exists()
@@ -368,6 +398,7 @@ def main() -> int:
     results += test_self_update()
     results += test_nhl_pipeline()
     results += test_nba_pipeline()
+    results += test_split_ledgers()
     results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)

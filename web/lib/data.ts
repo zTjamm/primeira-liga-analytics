@@ -561,6 +561,13 @@ export interface JournalRecord {
   p_draw: number;
   p_away: number;
   extra: Record<string, unknown> | null;
+  /**
+   * Источник записи: "live" — прогноз, сделанный до матча; "backtest" —
+   * walk-forward оценка модели на истории (модель обучена на прошлых
+   * сезонах). Нужна, чтобы в таблице было видно, где настоящий прогноз,
+   * а где оценка модели задним числом.
+   */
+  source?: "live" | "backtest";
   versions: JournalVersion[];
   // ROI-tracking: опциональные коэффициенты и ставка из прогноза.
   odds_home?: number | null;

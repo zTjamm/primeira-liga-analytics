@@ -566,6 +566,111 @@ def check_pending_picks_known_kickoff() -> bool:
     return ok
 
 
+def check_split_ledgers() -> bool:
+    """Walk-forward записи не должны затирать живые прогнозы.
+
+    Бэктест пишет запись этапа T-24h с тем же ключом матча, что и живой
+    прогноз за сутки до матча. Пока оба вида лежали в одном файле, живой
+    прогноз исчезал: у walk-forward записи нет времени начала матча, а
+    вероятность в ней своя. Замерено на живых данных: NBA — 1560 из
+    2662 записей оказались бэктестовыми, НХЛ — 8752 из 9863.
+
+    Проверяем: записи разошлись по файлам, живой прогноз уцелел, в
+    журнале по матчу побеждает живая запись, а матч без живой записи
+    показан по walk-forward и помечен как такой.
+    """
+    print("\nРазделение живых и walk-forward записей:")
+    d = date(2026, 11, 4)
+    matches = pl.DataFrame([
+        {"match_id": "m1", "match_date": d, "home_id": "aaa", "away_id": "bbb",
+         "home_score": 110, "away_score": 100, "is_played": True},
+        {"match_id": "m2", "match_date": d, "home_id": "ccc", "away_id": "ddd",
+         "home_score": 100, "away_score": 120, "is_played": True},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+
+        live = _rec("nba_m1", d, "T-24h", [0.60, 0.0, 0.40], 24.0,
+                    home="aaa", away="bbb")
+        live["extra"] = {"source": forecast.SOURCE_LIVE}
+        # Walk-forward запись того же матча: без времени начала, своя
+        # вероятность. Именно она раньше затирала живой прогноз.
+        wf = _rec("nba_m1", d, "T-24h", [0.51, 0.0, 0.49], 24.0,
+                  home="aaa", away="bbb")
+        wf.pop("kickoff")
+        wf["extra"] = {"source": forecast.SOURCE_BACKTEST}
+        # Матч, по которому живого прогноза не было вовсе.
+        wf2 = _rec("nba_m2", d, "T-24h", [0.30, 0.0, 0.70], 24.0,
+                   home="ccc", away="ddd")
+        wf2.pop("kickoff")
+        wf2["extra"] = {"source": forecast.SOURCE_BACKTEST}
+
+        forecast.append([live], "nba")
+        forecast.append_backtest([wf, wf2], "nba")
+
+        ok = True
+        ok &= _check("живая запись лежит в живом журнале",
+                     len(forecast.load("nba")), 1)
+        ok &= _check("walk-forward записи — в отдельном файле",
+                     len(forecast.load_backtest("nba")), 2)
+        ok &= _check("живой прогноз уцелел (время начала на месте)",
+                     forecast.load("nba")[0].get("kickoff"),
+                     f"{d}T19:00:00Z")
+        ok &= _check("вероятность живая, а не walk-forward",
+                     forecast.load("nba")[0]["p_home"], 0.60)
+
+        hist = forecast.build_history(matches, "nba")
+        ok &= _check("оба матча засчитаны как сыгранные",
+                     len(hist["resolved"]), 2)
+        by_key = {r["key"]: r for r in hist["resolved"]}
+        ok &= _check("по матчу с живым прогнозом показана живая запись",
+                     round(by_key["nba_m1"]["p_home"], 2), 0.60)
+        ok &= _check("источник живой записи — live",
+                     by_key["nba_m1"]["source"], forecast.SOURCE_LIVE)
+        ok &= _check("матч без живого прогноза показан по walk-forward",
+                     round(by_key["nba_m2"]["p_home"], 2), 0.30)
+        ok &= _check("источник walk-forward записи помечен",
+                     by_key["nba_m2"]["source"], forecast.SOURCE_BACKTEST)
+        ok &= _check("walk-forward не смешан с живым прогнозом по матчу",
+                     by_key["nba_m1"]["n_versions"], 1)
+    return ok
+
+
+def check_match_id_fallback() -> bool:
+    """Матч должен находиться, даже если разошлись даты.
+
+    Старый сборщик НХЛ писал дату матча в UTC, а датасет — местную
+    (gameWeek.date). Для вечерних матчей это разные дни, и индекс
+    результатов (ключ — дата) такой матч не находил: он навсегда
+    оставался в «ожидании», хотя был сыгран.
+
+    Спасает идентификатор матча: он и в журнале, и в датасете один и
+    тот же, а дата — нет.
+    """
+    print("\nМатч с разошедшейся датой:")
+    d = date(2026, 11, 4)
+    d_wrong = date(2026, 11, 5)
+    matches = pl.DataFrame([
+        {"match_id": "2026020247", "match_date": d, "home_id": "sab",
+         "away_id": "sen", "home_score": 2, "away_score": 1, "is_played": True},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        rec = _rec("nhl_2026020247", d_wrong, "T-4h", [0.55, 0.0, 0.45], 3.0,
+                   home="sab", away="sen")
+        forecast.append([rec], "nhl")
+
+        hist = forecast.build_history(matches, "nhl")
+        ok = True
+        ok &= _check("матч найден по идентификатору", len(hist["resolved"]), 1)
+        ok &= _check("в pending его нет", len(hist["pending"]), 0)
+        if hist["resolved"]:
+            r = hist["resolved"][0]
+            ok &= _check("факт определён верно", r["actual"], "H")
+            ok &= _check("дата в журнале не менялась", r["date"], str(d_wrong))
+    return ok
+
+
 def main() -> int:
     print("Проверка журнала прогнозов\n" + "-" * 46)
     results = [
@@ -574,6 +679,8 @@ def main() -> int:
         check_wrong_date_slice(),
         check_flipped_sides(),
         check_pending_picks_known_kickoff(),
+        check_split_ledgers(),
+        check_match_id_fallback(),
         check_sports_isolated(),
         check_vtb_schema(),
         check_total_lines(),
