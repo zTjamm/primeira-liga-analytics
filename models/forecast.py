@@ -131,10 +131,22 @@ def _normalize_result(m: dict) -> dict | None:
 
 
 def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
-    """Индекс результатов по (дата, домашний, гостевой)."""
+    """Индекс результатов по (дата, домашний, гостевой).
+
+    Формат результата у видов спорта разный, и принимать надо оба:
+    футбол и РФПЛ дают готовые ftr/fthg/ftag, а НХЛ, НБА, ВТБ и WNBA —
+    счёт в home_score/away_score. Раньше здесь стояла проверка
+    «если нет home_score/away_score —.index пуст», и футбол с РФПЛ
+    перестали резолвиться совсем: страницы точности показывали ноль
+    сыгранных прогнозов, хотя данные и прогнозы были на месте.
+    Проверка ловит только случай, когда нет ни того, ни другого.
+    """
     if matches.height == 0:
         return {}
-    if "home_score" not in matches.columns or "away_score" not in matches.columns:
+    has_ftr = "ftr" in matches.columns
+    has_scores = ("home_score" in matches.columns
+                  and "away_score" in matches.columns)
+    if not (has_ftr or has_scores):
         return {}
     idx = {}
     for m in matches.to_dicts():
@@ -159,10 +171,29 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
 
     for key, versions in grouped.items():
         versions.sort(key=lambda r: STAGE_ORDER.get(r["stage"], 99))
+
+        # Результат ищем по всем срезам записи, а не только по последнему.
+        #
+        # Срез — это запись журнала, и дата в ней может разойтись с датой
+        # матча. Так вышло с НХЛ: отдельный сборщик фикстур писал дату в
+        # UTC, а календарь — в местном времени, и для вечерних матчей
+        # это разные дни. Тогда последний срез не находил свой матч, и
+        # прогноз навсегда оставался «незавершённым», хотя матч давно
+        # сыгран: разрешение шло только по последнему срезу.
+        #
+        # Поэтому ищем от свежего среза к старому и берём тот, который
+        # сошёлся с результатом. Срез выбирается целиком: его вероятности
+        # и его подпись этапа — из одного и того же места.
         latest = versions[-1]
-        res = results.get(
-            (_date_key(latest["date"]), latest["home_id"], latest["away_id"])
-        )
+        res = None
+        for v in reversed(versions):
+            found = results.get(
+                (_date_key(v["date"]), v["home_id"], v["away_id"])
+            )
+            if found is not None:
+                res = found
+                latest = v
+                break
 
         base = {
             "key": key,

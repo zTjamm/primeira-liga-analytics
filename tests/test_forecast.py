@@ -430,11 +430,56 @@ def check_ledger_roundtrip() -> bool:
                       len(forecast.load("football")), 1)
 
 
+def check_wrong_date_slice() -> bool:
+    """Срез с неверной датой не должен навсегда оставлять прогноз
+    незавершённым.
+
+    Так было с НХЛ: отдельный сборщик фикстур писал в журнал дату в
+    UTC, а календарь — в местном времени, и для вечерних матчей это
+    разные дни. Разрешение шло только по последнему срезу, поэтому
+    матч, давно сыгранный, навсегда оставался в «ожидании», и точность
+    на странице считалась по меньшему числу матчей, чем есть.
+
+    Правило: результат ищем по всем срезам записи, от свежего к
+    старому, и берём тот, который сошёлся с результатом.
+    """
+    print("\nСрез с неверной датой:")
+    d = date(2026, 3, 14)
+    d_wrong = date(2026, 3, 15)  # дата в UTC, а матч — в местном времени
+    matches = pl.DataFrame([
+        {"match_date": d, "home_id": "sab", "away_id": "sen",
+         "home_score": 2, "away_score": 1},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        # Последний срез (T-4h) записан с неверной датой, более ранний
+        # (T-24h) — с верной.
+        forecast.append([
+            _rec("nhl_1", d, "T-24h", [0.60, 0.0, 0.40], 24.0,
+                 home="sab", away="sen"),
+            _rec("nhl_1", d_wrong, "T-4h", [0.55, 0.0, 0.45], 3.0,
+                 home="sab", away="sen"),
+        ], "nhl")
+
+        hist = forecast.build_history(matches, "nhl")
+        ok = True
+        ok &= _check("матч засчитан как сыгранный", len(hist["resolved"]), 1)
+        ok &= _check("в pending его нет", len(hist["pending"]), 0)
+        r = hist["resolved"][0]
+        ok &= _check("факт определён верно", r["actual"], "H")
+        ok &= _check("взят срез, сошедшийся с результатом", r["stage"], "T-24h")
+        ok &= _check("вероятности взяты из того же среза",
+                     round(r["p_home"], 2), 0.60)
+        ok &= _check("оба среза сохранены в записи", r["n_versions"], 2)
+    return ok
+
+
 def main() -> int:
     print("Проверка журнала прогнозов\n" + "-" * 46)
     results = [
         check_stage(),
         check_resolution(),
+        check_wrong_date_slice(),
         check_sports_isolated(),
         check_vtb_schema(),
         check_total_lines(),
