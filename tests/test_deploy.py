@@ -188,11 +188,51 @@ def test_syntax() -> list[bool]:
     return ok
 
 
+def test_web_rebuild() -> list[bool]:
+    """Витрина должна пересобираться, когда изменился код.
+
+    Молчаливая поломка: страницы читают JSON при каждом запросе, поэтому
+    свежие данные видны сразу — и на этом основании сборку решили не
+    трогать. Но правка React-компонента попадает на сайт только после
+    `npm run build`. Без пересборки сайт отвечает 200 и показывает
+    старый код: заметить это можно только сравнив страницу с GitHub.
+    """
+    text = SCRIPT.read_text(encoding="utf-8")
+    ok = []
+
+    ok.append(_check_bool(
+        "сравнивается собранный коммит с текущим",
+        ".built_commit" in text and "git rev-parse HEAD" in text,
+        "без метки сборка не поймёт, что её надо повторить"))
+    ok.append(_check_bool(
+        "сборка запускается через npm run build",
+        "npm run build" in text))
+    ok.append(_check_bool(
+        "после сборки pm2 перезапускается",
+        "pm2 restart liga-analytics" in text,
+        "иначе процесс продолжит отдавать старый билд"))
+    ok.append(_check_bool(
+        "упавшая сборка не оставляет витрину без билеа",
+        "web/.next.prev" in text and "mv web/.next.prev web/.next" in text,
+        "next build пишет прямо в .next — неудача убила бы и старый билд"))
+    ok.append(_check_bool(
+        "метка собранного коммита записывается после сборки",
+        "> web/.next/.built_commit" in text,
+        "иначе сборка повторялась бы каждый прогон"))
+    ok.append(_check_bool(
+        "сборка не запускается при нехватке памяти",
+        "AVAIL_MB" in text and "-lt 700" in text,
+        "на сервере 1.9 Ги RAM рядом с xray: OOM-killer не разбирает, "
+        "кого убивать"))
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_script_exists()
     results += test_untracked_handling()
     results += test_order_and_safety()
+    results += test_web_rebuild()
     results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)
