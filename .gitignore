@@ -31,6 +31,29 @@ web/.next/
 !data/forecast_log_football.jsonl
 !data/forecast_log_basketball.jsonl
 
+# Архивы прежних данных. В data/raw_old лежат выгрузки сырья и разборы
+# периодов НХЛ, которые сервер копил у себя: они большие, к нужному
+# состоянию не относятся и в каждом прогоне перезаписываются. Их
+# присутствие в рабочем каталоге ломало merge — git отказывался
+# затирать неотслеживаемый файл, которого в HEAD нет.
+#
+# Исключения — два файла, которые ценны сами по себе: архив старого
+# леджера НХЛ (локальная и серверная копии). Они не перезаписываются
+# пайплайном и хранят историю прогнозов по старой модели.
+data/raw_old/*
+!data/raw_old/forecast_log_nhl_old_basketball_model.jsonl
+!data/raw_old/forecast_log_nhl_old_basketball_model_server.jsonl
+
+# Отчёты о загрузке фикстур — машинный мусор, перезаписывается при
+# каждом прогоне. Раньше такие файлы копились на сервере как
+# неотслеживаемые и ломали merge тем же способом.
+#
+# Шаблон шире, чем «*_fixtures_ingest.json»: встречается ещё
+# nba_future_fixtures_v3_ingest.json, где суффикс не в конце.
+# Отслеживаемые nba_ingest.json / nhl_ingest.json / wnba_ingest.json
+# под шаблон не попадают — в них нет слова «fixtures».
+data/reports/*fixtures*_ingest.json
+
 # Секреты
 .env
 .env.local
