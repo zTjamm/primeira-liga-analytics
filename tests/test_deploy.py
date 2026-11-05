@@ -227,12 +227,53 @@ def test_web_rebuild() -> list[bool]:
     return ok
 
 
+def test_self_update() -> list[bool]:
+    """Скрипт должен уметь обновить сам себя.
+
+    bash разбирает весь блок `{ ... }` до выполнения. Если merge меняет
+    сам update_server.sh, до конца цикла работает старая версия — то
+    есть защита merge не может спасти саму себя: исправленный скрипт
+    вступает в силу только на следующем прогоне. Именно так 5 ноября
+    2026 merge с исправлением упал на старом скрипте.
+    """
+    text = SCRIPT.read_text(encoding="utf-8")
+    ok = []
+
+    ok.append(_check_bool(
+        "контрольная сумма скрипта снимается до merge",
+        "SELF_SUM_BEFORE=$(md5sum" in text))
+    ok.append(_check_bool(
+        "после merge сумма сверяется заново",
+        "SELF_SUM_AFTER=$(md5sum" in text))
+    ok.append(_check_bool(
+        "на новой версии цикл продолжается заново",
+        'exec /usr/bin/bash "$SELF"' in text,
+        "иначе исправление вступит в силу только через пять минут"))
+    ok.append(_check_bool(
+        "замок отпускается перед перезапуском",
+        "exec 9>&-" in text,
+        "наследованный дескриптор удержал бы замок, и новый запуск "
+        "молча пропустил бы цикл"))
+    ok.append(_check_bool(
+        "перезапуск происходит после возврата данных",
+        text.find("restore_bak || exit 1") < text.find('exec /usr/bin/bash "$SELF"'),
+        "перезапуск раньше restore_bak оставил бы леджеры откаченными"))
+
+    # Перезапускаться можно только на заведомо рабочем скрипте.
+    ok.append(_check_bool(
+        "перед перезапуском скрипт проверяется на синтаксис",
+        'bash -n "$SELF"' in text,
+        "иначе сломанный merge обрушит и следующий прогон"))
+    return ok
+
+
 def main() -> int:
     results: list[bool] = []
     results += test_script_exists()
     results += test_untracked_handling()
     results += test_order_and_safety()
     results += test_web_rebuild()
+    results += test_self_update()
     results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)
