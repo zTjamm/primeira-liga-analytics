@@ -157,6 +157,80 @@ def _results_index(matches: pl.DataFrame) -> dict[tuple, dict]:
     return idx
 
 
+def _find_result(results: dict[tuple, dict], version: dict) -> dict | None:
+    """Ищет результат матча для среза журнала.
+
+    Сначала — точное совпадение (дата, домашний, гостевой). Если его
+    нет, ищем с обратным порядком команд.
+
+    Обратный порядок нужен из-за старого сборщика фикстур NBA
+    (etl/fetch_nba_fixtures_v3*.py): он путал дома и гостей, из-за чего
+    записи журнала сохраняли пары команд наоборот. Такие матчи иначе
+    навсегда оставались бы «незавершёнными»: сыграны, а в журнале — в
+    ожидании, и точность на странице считалась по меньшему числу
+    матчей, чем на самом деле.
+    """
+    day = _date_key(version["date"])
+    home = version.get("home_id")
+    away = version.get("away_id")
+    found = results.get((day, home, away))
+    if found is not None:
+        return found
+    if home is None or away is None or home == away:
+        return None
+    return results.get((day, away, home))
+
+
+def _oriented(version: dict, result: dict | None) -> dict:
+    """Версия среза в той же перспективе, что и результат матча.
+
+    Если в данных команды стоят в обратном порядке, чем в записи
+    журнала, меняем местами дома и гостей вместе с вероятностями и
+    коэффициентами. Иначе в таблице «П1» означала бы чужую команду, а
+    счёт не совпадал бы с названиями: матч Detroit — Philadelphia со
+    счётом 106:112 был бы показан как Philadelphia — Detroit 112:106, и
+    читатель решил бы, что перепутаны команды.
+    """
+    if result is None:
+        return version
+    rh = result.get("home_id")
+    ra = result.get("away_id")
+    if rh is None or ra is None:
+        return version
+    if (str(rh) == str(version.get("home_id"))
+            and str(ra) == str(version.get("away_id"))):
+        return version
+    out = dict(version)
+    out["home_id"] = version.get("away_id")
+    out["away_id"] = version.get("home_id")
+    out["home_name"] = version.get("away_name")
+    out["away_name"] = version.get("home_name")
+    out["p_home"] = version.get("p_away")
+    out["p_away"] = version.get("p_home")
+    out["odds_home"] = version.get("odds_away")
+    out["odds_away"] = version.get("odds_home")
+    return out
+
+
+def _pick_latest(versions: list[dict]) -> dict:
+    """Какой срез показывать для незавершённого матча.
+
+    Обычно это самый поздний этап — он ближе всех к началу матча. Но
+    срез без времени начала матча не может быть финальным: в нём «часов
+    до матча» посчитано от полуночи дня матча, то есть выдумано. И
+    из-за этого матч выпадал из раздела «ближайшие двое суток», хотя
+    время начала было известно в других срезах той же записи: старый
+    сборщик фикстур NBA не знал времени старта для шестнадцати матчей
+    и оставлял им «ноль часов до матча».
+
+    Поэтому: если для матча есть срезы с известным временем начала,
+    показываем ближайший из них.
+    """
+    known = [v for v in versions if v.get("kickoff")]
+    pool = known if known else versions
+    return pool[-1]
+
+
 def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
     """Сводит журнал в отчёт: сыгранные прогнозы с вердиктом и незавершённые."""
     log = load(sport)
@@ -187,43 +261,53 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         latest = versions[-1]
         res = None
         for v in reversed(versions):
-            found = results.get(
-                (_date_key(v["date"]), v["home_id"], v["away_id"])
-            )
+            found = _find_result(results, v)
             if found is not None:
                 res = found
                 latest = v
                 break
 
+        if res is None:
+            # Матч ещё не сыгран. Показываем ближайший срез с известным
+            # временем начала: срез без времени старта не может быть
+            # финальным (см. _pick_latest).
+            latest = _pick_latest(versions)
+
+        # Показать срез нужно в той же перспективе, что и результат: если
+        # команды в данных стоят наоборот, «дома» и «в гостях» меняются
+        # местами вместе с вероятностями (см. _oriented).
+        shown = _oriented(latest, res)
+        shown_versions = [_oriented(v, res) for v in versions]
+
         base = {
             "key": key,
-            "date": latest["date"],
-            "kickoff": latest.get("kickoff"),
-            "matchday": latest.get("matchday"),
-            "home_id": latest["home_id"],
-            "away_id": latest["away_id"],
-            "home_name": latest.get("home_name"),
-            "away_name": latest.get("away_name"),
-            "generated_at": latest["generated_at"],
-            "hours_before": latest["hours_before"],
-            "stage": latest["stage"],
-            "p_home": latest["p_home"],
-            "p_draw": latest["p_draw"],
-            "p_away": latest["p_away"],
-            "extra": latest.get("extra"),
+            "date": shown["date"],
+            "kickoff": shown.get("kickoff"),
+            "matchday": shown.get("matchday"),
+            "home_id": shown["home_id"],
+            "away_id": shown["away_id"],
+            "home_name": shown.get("home_name"),
+            "away_name": shown.get("away_name"),
+            "generated_at": shown["generated_at"],
+            "hours_before": shown["hours_before"],
+            "stage": shown["stage"],
+            "p_home": shown["p_home"],
+            "p_draw": shown["p_draw"],
+            "p_away": shown["p_away"],
+            "extra": shown.get("extra"),
             # ROI-tracking: коэффициенты и ставка передаются из скрипта прогноза
             # (models/wnba_predict.py, models/bt_predict.py и т.д.).
-            "odds_home": latest.get("odds_home"),
-            "odds_draw": latest.get("odds_draw"),
-            "odds_away": latest.get("odds_away"),
-            "stake": latest.get("stake"),
+            "odds_home": shown.get("odds_home"),
+            "odds_draw": shown.get("odds_draw"),
+            "odds_away": shown.get("odds_away"),
+            "stake": shown.get("stake"),
             "versions": [
                 {
                     "stage": v["stage"], "p_home": v["p_home"], "p_draw": v["p_draw"],
                     "p_away": v["p_away"], "hours_before": v["hours_before"],
                     "generated_at": v["generated_at"],
                 }
-                for v in versions
+                for v in shown_versions
             ],
         }
 
@@ -231,7 +315,7 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             pending.append(base)
             continue
 
-        probs = [latest["p_home"], latest["p_draw"], latest["p_away"]]
+        probs = [shown["p_home"], shown["p_draw"], shown["p_away"]]
         ai = ACTUAL.get(res["ftr"])
         total = sum(probs) or 1.0
         probs = [p / total for p in probs]
@@ -266,7 +350,7 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         # пустым, хотя вероятность в журнале лежала.
         total_hit = total_p = total_label = total_line = None
         total_given = total_reason = None
-        extra = latest.get("extra") or {}
+        extra = shown.get("extra") or {}
         # Ключ и линия зависят от вида спорта. Раньше здесь была двойка
         # «football → over25, иначе over_155», из-за чего у третьего вида
         # (РФПЛ, тотал 2.5) вердикт по тоталу был бы всегда пустым.
@@ -293,7 +377,7 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
             total_given = extra.get("total_verdict_given")
             total_reason = extra.get("total_verdict_reason")
 
-        first = versions[0]
+        first = shown_versions[0]
         shift = round(sum(abs(a - b) for a, b in
                           zip([first["p_home"], first["p_draw"], first["p_away"]], probs)), 4)
         first_top = max(range(3), key=lambda i: [first["p_home"], first["p_draw"], first["p_away"]][i])
@@ -301,10 +385,10 @@ def build_history(matches: pl.DataFrame, sport: str = "football") -> dict:
         # --- ROI-tracking -------------------------------------------------
         # Если в прогнозе были переданы коэффициенты и ставка,
         # считаем прибыль по фактическому исходу.
-        odds_home = latest.get("odds_home")
-        odds_draw = latest.get("odds_draw")
-        odds_away = latest.get("odds_away")
-        stake = latest.get("stake")
+        odds_home = shown.get("odds_home")
+        odds_draw = shown.get("odds_draw")
+        odds_away = shown.get("odds_away")
+        stake = shown.get("stake")
 
         profit = None
         roi = None

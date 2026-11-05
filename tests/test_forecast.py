@@ -474,12 +474,106 @@ def check_wrong_date_slice() -> bool:
     return ok
 
 
+def check_flipped_sides() -> bool:
+    """Матч должен находиться, даже если в журнале команды записаны наоборот.
+
+    Так было с NBA: старый сборщик фикстур путал дома и гостей, и
+    четырнадцать матчей 4 ноября 2026 года навсегда оставались
+    «незавершёнными» — сыграны, а в журнале висели в ожидании, и
+    точность на странице считалась по меньшему числу матчей, чем есть.
+
+    Проверяем две вещи: матч находится по обратному порядку команд, и
+    показывается он в правильной перспективе — домашний первый, счёт
+    и вероятности ему соответствуют.
+    """
+    print("\nПеревёрнутые дома и гости:")
+    d = date(2026, 11, 4)
+    # В данных Detroit дома, Philadelphia в гостях, счёт 106:112.
+    matches = pl.DataFrame([
+        {"match_date": d, "home_id": "det", "away_id": "phi",
+         "home_score": 106, "away_score": 112, "is_played": True},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        # В журнале те же команды записаны наоборот, и модель считала
+        # победу Philadelphia (она была «домашней» в записи).
+        forecast.append([
+            _rec("nba_1", d, "T-4h", [0.30, 0.02, 0.68], 3.0,
+                 home="phi", away="det"),
+        ], "nba")
+
+        hist = forecast.build_history(matches, "nba")
+        ok = True
+        ok &= _check("матч найден и засчитан как сыгранный",
+                     len(hist["resolved"]), 1)
+        ok &= _check("в pending его нет", len(hist["pending"]), 0)
+        if not hist["resolved"]:
+            return ok
+        r = hist["resolved"][0]
+        ok &= _check("домашний показан тот, кто дома по данным",
+                     r["home_name"], "det")
+        ok &= _check("гости показаны те, кто в гостях по данным",
+                     r["away_name"], "phi")
+        ok &= _check("счёт в перспективе данных", r["score"], "106-112")
+        ok &= _check("факт определён по данным", r["actual"], "A")
+        # Вероятность «гостей» из журнала (0.68) стала вероятностью
+        # домашнего по данным, потому что перспектива перевернута.
+        ok &= _check("вероятности перевернуты вместе с командами",
+                     (round(r["p_home"], 2), round(r["p_away"], 2)), (0.68, 0.30))
+        ok &= _check("фактический исход — П2, вероятность 0.30",
+                     round(r["p_actual"], 2), 0.30)
+        ok &= _check("назван П1 (Detroit) — промах", r["hit"], False)
+        ok &= _check("названный исход — П1", r["picked"], "H")
+    return ok
+
+
+def check_pending_picks_known_kickoff() -> bool:
+    """Незавершённый матч надо показывать по срезу с известным стартом.
+
+    Старый сборщик фикстур NBA не знал времени начала для шестнадцати
+    матчей и оставлял им «ноль часов до матча» — срез T-4h без времени
+    старта. Он становился «последним» и вытеснял нормальный срез, и
+    матч пропадал из раздела «ближайшие двое суток», хотя время начала
+    было известно в других срезах той же записи.
+    """
+    print("\nНезавершённый матч: срез с известным временем старта:")
+    d = date(2026, 11, 5)
+    future = pl.DataFrame([
+        {"match_date": d, "home_id": "phx", "away_id": "orl",
+         "home_score": None, "away_score": None, "is_played": False},
+    ])
+    with tempfile.TemporaryDirectory() as tmp:
+        forecast.ledger_path = lambda sport: Path(tmp) / f"log_{sport}.jsonl"
+        good = _rec("nba_2", d, "T-24h", [0.55, 0.0, 0.45], 16.0,
+                    home="phx", away="orl")
+        # «Финальный» срез без времени начала: hours_before выдуман.
+        bad = _rec("nba_2", d, "T-4h", [0.52, 0.0, 0.48], 0.0,
+                   home="phx", away="orl")
+        bad["kickoff"] = None
+        forecast.append([good, bad], "nba")
+
+        hist = forecast.build_history(future, "nba")
+        ok = True
+        ok &= _check("матч остался незавершённым", len(hist["pending"]), 1)
+        ok &= _check("в resolved пусто", len(hist["resolved"]), 0)
+        p = hist["pending"][0]
+        ok &= _check("показан срез с известным временем начала",
+                     p["stage"], "T-24h")
+        ok &= _check("время начала не потерялось",
+                     p["kickoff"], "2026-11-05T19:00:00Z")
+        ok &= _check("оба среза сохранены в записи",
+                     len(p["versions"]), 2)
+    return ok
+
+
 def main() -> int:
     print("Проверка журнала прогнозов\n" + "-" * 46)
     results = [
         check_stage(),
         check_resolution(),
         check_wrong_date_slice(),
+        check_flipped_sides(),
+        check_pending_picks_known_kickoff(),
         check_sports_isolated(),
         check_vtb_schema(),
         check_total_lines(),
