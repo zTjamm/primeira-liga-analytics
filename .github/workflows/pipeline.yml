@@ -273,9 +273,16 @@ jobs:
         # поэтому гоняются на каждом прогоне, а не только на тяжёлых
         # отчётах. Стоят после прогнозов: часть проверок сверяет файлы
         # витрины, которые появляются только после расчёта.
+        #
+        # test_syntax — первым в списке не по порядку, а по смыслу:
+        # модуль с неверным отступом не ломает импорт соседних, но
+        # роняет пайплайн на своём шаге, и все следующие шаги (в том
+        # числе публикация) не выполняются. Именно так сайт остался
+        # без свежих данных с 3 ноября 2026: models/bt_predict.py был
+        # сломан, а цикл обновления молча прерывался на нём.
         if: steps.gate.outputs.needs == 'true'
         run: |
-          for t in test_asian test_ci test_deploy test_fetch_vtb test_forecast test_rpl test_calibrate; do
+          for t in test_syntax test_asian test_ci test_deploy test_fetch_vtb test_forecast test_rpl test_calibrate; do
             python -m tests.$t
           done
 

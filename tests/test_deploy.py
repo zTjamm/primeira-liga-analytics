@@ -31,6 +31,15 @@ PASS = "\u2713"
 FAIL = "\u2717"
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPT = ROOT / "deploy" / "update_server.sh"
+# Скрипты запуска витрины и обёртка обновления. Жили только на сервере —
+# и выравнивание сервера по GitHub (git reset --hard) их удаляло.
+# pm2 запускает витрину именно через web/run.sh, поэтому после такой
+# потери процесс уходил в «errored», а причина была видна только в
+# /root/.pm2/logs/liga-analytics-error.log. Теперь они в репозитории,
+# и проверка ниже не даст им исчезнуть снова.
+RUN_SCRIPT = ROOT / "web" / "run.sh"
+UPDATE_WRAPPER = ROOT / "update.sh"
+SHELL_SCRIPTS = (SCRIPT, RUN_SCRIPT, UPDATE_WRAPPER)
 
 
 def _check(name: str, got, want) -> bool:
@@ -108,6 +117,27 @@ def test_order_and_safety() -> list[bool]:
     return ok
 
 
+def test_runtime_scripts_exist() -> list[bool]:
+    """Точка входа pm2 и обёртка обновления обязаны лежать в репозитории."""
+    print("\nСкрипты запуска:")
+    ok = []
+    ok.append(_check_bool("web/run.sh существует (pm2 запускает витрину через него)",
+                          RUN_SCRIPT.exists(), str(RUN_SCRIPT)))
+    ok.append(_check_bool("update.sh существует (обёртка deploy/update_server.sh)",
+                          UPDATE_WRAPPER.exists(), str(UPDATE_WRAPPER)))
+    if RUN_SCRIPT.exists():
+        text = RUN_SCRIPT.read_text(encoding="utf-8")
+        ok.append(_check_bool("web/run.sh запускает next на порту 8080",
+                              "next start -p 8080" in text))
+        ok.append(_check_bool("web/run.sh ограничивает кучу node",
+                              "--max-old-space-size" in text))
+    if UPDATE_WRAPPER.exists():
+        text = UPDATE_WRAPPER.read_text(encoding="utf-8")
+        ok.append(_check_bool("update.sh зовёт deploy/update_server.sh",
+                              "deploy/update_server.sh" in text))
+    return ok
+
+
 def test_syntax() -> list[bool]:
     """bash -n, если bash доступен. На Windows его может не быть — тогда
     проверка честно пропускается, а не считается пройденной молча.
@@ -120,18 +150,25 @@ def test_syntax() -> list[bool]:
     if not Path(bash).exists():
         print(f"  [—] bash не найден ({bash}) — пропущено")
         return []
-    src = SCRIPT.read_text(encoding="utf-8").replace("\r\n", "\n")
-    fd, tmp = tempfile.mkstemp(suffix=".sh")
-    os.close(fd)
-    try:
-        Path(tmp).write_text(src, encoding="utf-8", newline="\n")
-        r = subprocess.run([bash, "-n", tmp],
-                           capture_output=True, text=True)
-    finally:
-        os.unlink(tmp)
-    return [_check_bool("bash -n проходит",
-                        r.returncode == 0,
-                        (r.stderr or r.stdout).strip()[:200])]
+    ok = []
+    for script in SHELL_SCRIPTS:
+        if not script.exists():
+            ok.append(_check_bool(f"bash -n проходит: {script.name}",
+                                  False, "файла нет"))
+            continue
+        src = script.read_text(encoding="utf-8").replace("\r\n", "\n")
+        fd, tmp = tempfile.mkstemp(suffix=".sh")
+        os.close(fd)
+        try:
+            Path(tmp).write_text(src, encoding="utf-8", newline="\n")
+            r = subprocess.run([bash, "-n", tmp],
+                               capture_output=True, text=True)
+        finally:
+            os.unlink(tmp)
+        ok.append(_check_bool(f"bash -n проходит: {script.name}",
+                              r.returncode == 0,
+                              (r.stderr or r.stdout).strip()[:200]))
+    return ok
 
 
 def main() -> int:
@@ -139,6 +176,7 @@ def main() -> int:
     results += test_script_exists()
     results += test_untracked_handling()
     results += test_order_and_safety()
+    results += test_runtime_scripts_exist()
     results += test_syntax()
     print("-" * 46)
     if all(results):
