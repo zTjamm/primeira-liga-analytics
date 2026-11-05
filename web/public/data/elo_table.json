@@ -1,39 +1,39 @@
 [
   {
     "team": "porto",
-    "rating": 1645.9
+    "rating": 1651.8
   },
   {
     "team": "benfica",
-    "rating": 1621.8
+    "rating": 1626.9
   },
   {
     "team": "sp Lisbon",
     "rating": 1602.8
   },
   {
-    "team": "academico",
-    "rating": 1535.9
+    "team": "santa_clara",
+    "rating": 1547.1
   },
   {
-    "team": "santa_clara",
-    "rating": 1532.9
+    "team": "academico",
+    "rating": 1541.5
   },
   {
     "team": "arouca",
-    "rating": 1531.3
-  },
-  {
-    "team": "famalicao",
-    "rating": 1515.7
-  },
-  {
-    "team": "gil_vicente",
-    "rating": 1510.6
+    "rating": 1537.1
   },
   {
     "team": "braga",
-    "rating": 1501.4
+    "rating": 1516.6
+  },
+  {
+    "team": "gil_vicente",
+    "rating": 1507.8
+  },
+  {
+    "team": "famalicao",
+    "rating": 1500.5
   },
   {
     "team": "beira_mar",
@@ -120,10 +120,6 @@
     "rating": 1497.9
   },
   {
-    "team": "alverca",
-    "rating": 1495.2
-  },
-  {
     "team": "farense",
     "rating": 1494.4
   },
@@ -133,31 +129,35 @@
   },
   {
     "team": "moreirense",
-    "rating": 1482.7
+    "rating": 1490.2
+  },
+  {
+    "team": "alverca",
+    "rating": 1490.1
   },
   {
     "team": "tondela",
     "rating": 1476.9
   },
   {
+    "team": "guimaraes",
+    "rating": 1474.5
+  },
+  {
     "team": "avs",
     "rating": 1473.7
   },
   {
-    "team": "guimaraes",
-    "rating": 1471.7
-  },
-  {
     "team": "estrela",
-    "rating": 1455.6
+    "rating": 1448.1
   },
   {
     "team": "maritimo",
-    "rating": 1454.8
+    "rating": 1440.6
   },
   {
     "team": "nacional",
-    "rating": 1436.2
+    "rating": 1430.4
   },
   {
     "team": "casa_pia",
@@ -165,10 +165,10 @@
   },
   {
     "team": "rio_ave",
-    "rating": 1430.0
+    "rating": 1424.5
   },
   {
     "team": "estoril",
-    "rating": 1415.0
+    "rating": 1409.1
   }
 ]
