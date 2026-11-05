@@ -50,16 +50,42 @@ GAME_TYPE_REGULAR = 2
 # Примерные границы регулярных сезонов (месяц-день начала и конца).
 # Нужны только для обхода API по датам; season матча определяется по
 # префиксу id, а не по дате (см. _season_for_id).
+#
+# Границы 2020/21 выставлены по последнему матчу регулярного чемпионата:
+# из-за пузыря сезон длился до 19 мая 2021 года, и при более ранней
+# границе (10 мая) последний матч выпадал из обхода целиком. Проверено
+# по числу матчей: сезон должен давать 868 игр, а давал 867.
 SEASON_DATE_RANGES = {
     "20182019": ("2018-10-03", "2019-04-06"),
     "20192020": ("2019-10-02", "2020-03-11"),
-    "20202021": ("2021-01-13", "2021-05-10"),
+    "20202021": ("2021-01-13", "2021-05-19"),
     "20212022": ("2021-10-12", "2022-04-29"),
     "20222023": ("2022-10-07", "2023-04-14"),
     "20232024": ("2023-10-10", "2024-04-18"),
     "20242025": ("2024-10-04", "2025-04-18"),
     "20252026": ("2025-10-09", "2026-04-17"),
     "20262027": ("2026-10-08", "2027-04-17"),
+}
+
+# Сколько матчей в полном регулярном сезоне.
+#
+# Число известно точно: 32 команды × 82 игры, каждая игра засчитывается
+# обеим сторонам, — 1 312 матчей. Сезоны, урезанные пандемией, имеют
+# меньше: 1 271 (2018/19), 1 082 (2019/20), 868 (2020/21).
+#
+# Смысл таблицы — самопроверка сбора: сезон, где число матчей не
+# совпало, означает либо обрезанный обход, либо потерянный запрос.
+# Молча такое проходило: сезон 2020/21 давал 867 матчей вместо 868, и
+# один матч просто не попадал в обучение — без единого признака.
+FULL_SEASON_MATCHES = {
+    "20182019": 1271,
+    "20192020": 1082,
+    "20202021": 868,
+    "20212022": 1312,
+    "20222023": 1312,
+    "20232024": 1312,
+    "20242025": 1312,
+    "20252026": 1312,
 }
 
 # Окно докачки текущего сезона, в днях назад и вперёд.
@@ -93,6 +119,9 @@ SEASON_OPEN_WINDOW_DAYS = 14
 
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "primeira-liga-analytics/1.0"})
+
+# Сколько раз повторять неудачный запрос к расписанию.
+FETCH_ATTEMPTS = 3
 
 
 def _cache_path(season: str) -> Path:
@@ -154,14 +183,26 @@ def _fetch_date(target_date: date, season: str) -> list[dict]:
     календарь без пропусков. Проверено на реальных данных: обход сезона
     с шагом 1 и с шагом 7 дают ОДИНАКОВЫЙ набор матчей (1 336 для
     2026/27), при семикратном меньшем числе запросов.
+
+    Повторы. Неделя — это не одна игра, а десятки, и молча потерянная
+    неделя выглядит как «сезон стал короче»: никто не увидит, что
+    запрос не прошёл. Поэтому неудачный запрос повторяется, и только
+    после этого считается потерянным.
     """
     url = f"{API_BASE}/schedule/{target_date.isoformat()}"
-    try:
-        r = SESSION.get(url, timeout=30)
-        r.raise_for_status()
-        payload = r.json()
-    except Exception as e:
-        print(f"    Ошибка {target_date}: {e}")
+    payload = None
+    for attempt in range(1, FETCH_ATTEMPTS + 1):
+        try:
+            r = SESSION.get(url, timeout=30)
+            r.raise_for_status()
+            payload = r.json()
+            break
+        except Exception as e:
+            print(f"    Ошибка {target_date} (попытка {attempt}/{FETCH_ATTEMPTS}): {e}")
+            if attempt < FETCH_ATTEMPTS:
+                time.sleep(1.5 * attempt)
+    if payload is None:
+        print(f"    НЕДЕЛЯ {target_date} ПОТЕРЯНА — в данных её не будет")
         return []
 
     rows = []
@@ -301,6 +342,22 @@ def fetch_season(season: str, refresh: bool = False) -> pl.DataFrame:
                 dirty = True
                 print(f"  Сезон {season}: в кэше есть плей-офф, помеченный "
                       f"как регулярный, пересобираю")
+            else:
+                # Неполный кэш завершённого сезона. Число матчей в полном
+                # регулярном сезоне известно точно (см.
+                # FULL_SEASON_MATCHES), и несовпадение означает, что
+                # обход season потерял неделю.
+                #
+                # Так и выпал матч 2020020634 (последний матч сезона
+                # 2020/21, 19 мая 2021): граница сезона в коде стояла на
+                # 10 мая, и матч просто не попадал в обход. Кэш был
+                # «чистым» — без дублей и плей-офф — и молча терял
+                # данные.
+                expected = FULL_SEASON_MATCHES.get(season)
+                if expected is not None and len(cached_rows) != expected:
+                    dirty = True
+                    print(f"  Сезон {season}: в кэше {len(cached_rows)} матчей "
+                          f"вместо {expected} — неполно, пересобираю")
 
     if cached_rows and not refresh and not dirty:
         print(f"  Сезон {season}: из кэша {cache_file.name}")
@@ -417,11 +474,35 @@ def main():
     print(f"Сезоны: {sorted(df['season'].unique().to_list())}")
     print(f"Диапазон: {df['match_date'].min()} … {df['match_date'].max()}")
 
+    # Самопроверка: в полном регулярном сезоне число матчей известно
+    # точно. Несовпадение означает, что обход season потерял неделю
+    # (или, наоборот, в границах сезона затесался плей-офф).
+    #
+    # Молча такое проходило: сезон 2020/21 давал 867 матчей вместо 868,
+    # и один матч просто не попадал в обучение. Ни одного признака.
+    by_season = df.group_by("season").len().sort("season")
+    season_counts = {r["season"]: r["len"] for r in by_season.to_dicts()}
+    short = []
+    for season, expected in FULL_SEASON_MATCHES.items():
+        got = season_counts.get(season)
+        if got is None:
+            short.append(f"{season}: нет вовсе (ожидалось {expected})")
+        elif got != expected:
+            short.append(f"{season}: {got} матчей вместо {expected}")
+    if short:
+        print("ВНИМАНИЕ: число матчей в сезоне не совпадает с ожидаемым:")
+        for line in short:
+            print(f"  {line}")
+    else:
+        print("Число матчей по всем завершённым сезонам совпадает с ожидаемым.")
+
     played = df.filter(pl.col("is_played"))
     stats = {
         "total_matches": len(df),
         "played_matches": len(played),
         "seasons": sorted(df['season'].unique().to_list()),
+        "matches_by_season": season_counts,
+        "season_counts_ok": not short,
         "date_range": [str(df['match_date'].min()), str(df['match_date'].max())],
         "teams": df['home_id'].n_unique(),
         "home_win_share": round(played["home_score"].gt(played["away_score"]).mean(), 4),
