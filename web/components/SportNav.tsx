@@ -113,45 +113,65 @@ function sportFor(path: string): SportPages {
 export function SportNav() {
   const path = usePathname() ?? "/";
   const current = sportFor(path);
+  // «100%» — сквозная вкладка: она собирает прогнозы всех разделов,
+  // поэтому живёт в верхнем ряду и не привязана ни к одному виду спорта.
+  // На её странице вкладки конкретного спорта не показываем: они бы
+  // выглядели как часть общего раздела.
+  const isTop = path.startsWith("/top");
 
   return (
     <div>
       <div className="flex items-center justify-between gap-4 py-3">
-        <Link href={current.base} className="font-semibold tracking-tight">
-          {current.label}
+        <Link
+          href={isTop ? "/top" : current.base}
+          className="font-semibold tracking-tight"
+        >
+          {isTop ? "Лучшие прогнозы" : current.label}
         </Link>
-        <nav className="flex items-center gap-4 text-sm">
+        <nav className="flex min-w-0 items-center gap-3 overflow-x-auto pb-1 text-sm sm:gap-4">
           {SPORTS.map((s) => (
             <Link
               key={s.id}
               href={s.base}
-              className={s.id === current.id ? "text-text" : "link"}
-              aria-current={s.id === current.id ? "page" : undefined}
+              className={`whitespace-nowrap ${
+                s.id === current.id && !isTop ? "text-text" : "link"
+              }`}
+              aria-current={s.id === current.id && !isTop ? "page" : undefined}
             >
               {s.short}
             </Link>
           ))}
+          <span className="h-4 w-px shrink-0 bg-line" aria-hidden />
+          <Link
+            href="/top"
+            className={`whitespace-nowrap ${isTop ? "text-text" : "link"}`}
+            aria-current={isTop ? "page" : undefined}
+          >
+            100%
+          </Link>
         </nav>
       </div>
-      <div className="-mt-1 flex gap-4 overflow-x-auto pb-1 text-sm">
-        {current.pages.map((p) => {
-          const active = path === p.href;
-          return (
-            <Link
-              key={p.href}
-              href={p.href}
-              className={`whitespace-nowrap border-b-2 pb-1 transition-colors ${
-                active
-                  ? "border-home text-text"
-                  : "border-transparent text-muted hover:text-text"
-              }`}
-              aria-current={active ? "page" : undefined}
-            >
-              {p.label}
-            </Link>
-          );
-        })}
-      </div>
+      {!isTop && (
+        <div className="-mt-1 flex gap-4 overflow-x-auto pb-1 text-sm">
+          {current.pages.map((p) => {
+            const active = path === p.href;
+            return (
+              <Link
+                key={p.href}
+                href={p.href}
+                className={`whitespace-nowrap border-b-2 pb-1 transition-colors ${
+                  active
+                    ? "border-home text-text"
+                    : "border-transparent text-muted hover:text-text"
+                }`}
+                aria-current={active ? "page" : undefined}
+              >
+                {p.label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
