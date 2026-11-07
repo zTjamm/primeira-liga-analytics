@@ -38,7 +38,7 @@
   {
     "team": "famalicao",
     "attack": 0.09,
-    "defence": 0.12,
+    "defence": 0.119,
     "overall": 0.21
   },
   {
@@ -231,7 +231,7 @@
     "team": "tondela",
     "attack": -0.217,
     "defence": -0.186,
-    "overall": -0.402
+    "overall": -0.403
   },
   {
     "team": "rio_ave",
@@ -247,7 +247,7 @@
   },
   {
     "team": "maritimo",
-    "attack": -0.112,
+    "attack": -0.111,
     "defence": -0.421,
     "overall": -0.533
   },
