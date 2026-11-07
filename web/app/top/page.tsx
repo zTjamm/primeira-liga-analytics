@@ -32,9 +32,24 @@ const MODELS: { sport: Sport; label: string }[] = [
 
 const THRESHOLDS = [60, 65, 70, 75, 80];
 const DEFAULT_THRESHOLD = 70;
-/** Больше строк на одной странице не нужно: таблица теряет смысл,
- *  если «самые уверенные» превращаются в список из тысячи матчей. */
-const MAX_ROWS = 200;
+/**
+ * Окно таблицы. Сверху — «сегодня + 3 дня», снизу — фиксированная дата
+ * 15.10.2026: дальше в прошлое журнал не разворачиваем, иначе вкладка
+ * превращается в историю. Границы включительные.
+ */
+const DATE_FROM = "2026-10-15";
+const DAYS_AHEAD = 3;
+
+/** Дата в московском времени (UTC+3): матчи в журналах — по местным датам. */
+function mskDate(ms: number): string {
+  return new Date(ms + 3 * 3600 * 1000).toISOString().slice(0, 10);
+}
+
+/** 2026-10-15 → 15.10.2026 (для текста, а не для сортировки). */
+function ruDate(iso: string): string {
+  const [y, m, d] = iso.split("-");
+  return `${d}.${m}.${y}`;
+}
 
 interface TopRow {
   key: string;
@@ -76,6 +91,10 @@ export default async function TopPage({
   const sp = await searchParams;
   const thresholdPct = parseThreshold(sp.p);
   const threshold = thresholdPct / 100;
+  // Верхняя граница окна считается от текущего момента: завтра она
+  // сдвинется сама, нижняя (15.10.2026) остаётся на месте.
+  const dateTo = mskDate(Date.now() + DAYS_AHEAD * 86400000);
+  const inWindow = (date: string) => date >= DATE_FROM && date <= dateTo;
 
   const journals = await Promise.all(
     MODELS.map(async (m) => ({ ...m, journal: await getJournal(m.sport) })),
@@ -98,6 +117,7 @@ export default async function TopPage({
   const rows: TopRow[] = [];
   for (const { label, journal } of present) {
     for (const r of journal.resolved) {
+      if (!inWindow(r.date)) continue;
       const p = r.picked_p ?? pickOf(r).p;
       if (!Number.isFinite(p) || p < threshold) continue;
       rows.push({
@@ -114,6 +134,7 @@ export default async function TopPage({
       });
     }
     for (const r of journal.pending) {
+      if (!inWindow(r.date)) continue;
       const { picked, p } = pickOf(r);
       if (!Number.isFinite(p) || p < threshold) continue;
       rows.push({
@@ -130,9 +151,11 @@ export default async function TopPage({
     }
   }
 
-  rows.sort((a, b) => b.p - a.p || b.date.localeCompare(a.date));
+  // Сверху вниз — по убыванию даты: верхняя строка это «сегодня + 3 дня»,
+  // нижняя — 15.10.2026. Внутри одной даты первыми идут более уверенные.
+  rows.sort((a, b) => b.date.localeCompare(a.date) || b.p - a.p);
 
-  const shown = rows.slice(0, MAX_ROWS);
+  const shown = rows;
   const resolvedRows = shown.filter((r) => r.hit !== null);
   const hits = resolvedRows.filter((r) => r.hit).length;
   const pendingRows = shown.length - resolvedRows.length;
@@ -143,12 +166,13 @@ export default async function TopPage({
       <div>
         <h1 className="text-lg font-semibold">100% — самые уверенные прогнозы</h1>
         <p className="mt-1 text-sm text-muted">
-          Все разделы проекта в одной таблице. Здесь только те прогнозы, где
-          модель называет исход с вероятностью не ниже выбранного порога.
-          Название вкладки — про уверенность модели, а не про гарантию:
-          фактическая точность показана ниже и всегда меньше 100%.
-          Сыгранные матчи подсвечены по факту — зелёный прогноз сбылся,
-          красный нет.
+          Все разделы проекта в одной таблице. Окно: с {ruDate(DATE_FROM)} по{" "}
+          {ruDate(dateTo)} (сегодня + {DAYS_AHEAD} дня). Сортировка — по
+          убыванию даты: сверху ближайшие матчи, снизу {ruDate(DATE_FROM)}. Внутри дня
+          первыми идут более уверенные прогнозы. Название вкладки — про
+          уверенность модели, а не про гарантию: фактическая точность показана
+          ниже и всегда меньше 100%. Сыгранные матчи стоят в общем списке и
+          подсвечены по факту — зелёный прогноз сбылся, красный нет.
         </p>
       </div>
 
@@ -183,12 +207,6 @@ export default async function TopPage({
           <Stat label="ожидают матча" value={String(pendingRows)} />
         </div>
 
-        {rows.length > MAX_ROWS && (
-          <p className="mt-3 text-xs text-muted">
-            Показаны первые {MAX_ROWS} из {rows.length}: список отсортирован по
-            вероятности, дальше идут менее уверенные прогнозы.
-          </p>
-        )}
         {resolvedRows.length > 0 && resolvedRows.length < 30 && (
           <p className="mt-3 rounded bg-panel-2 p-2.5 text-xs leading-relaxed text-muted">
             Сыгранных матчей мало ({resolvedRows.length}) — точность выше шум.
@@ -199,7 +217,7 @@ export default async function TopPage({
 
       {shown.length === 0 ? (
         <EmptyState
-          title={`Прогнозов с уверенностью ${thresholdPct}% и выше нет`}
+          title={`В окне нет прогнозов с уверенностью ${thresholdPct}% и выше`}
           hint="Попробуйте понизить порог: на 60–65% прогнозов заметно больше."
         />
       ) : (
