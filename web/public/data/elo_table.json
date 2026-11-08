@@ -13,15 +13,19 @@
   },
   {
     "team": "santa_clara",
-    "rating": 1547.1
+    "rating": 1534.3
   },
   {
     "team": "academico",
-    "rating": 1541.5
+    "rating": 1530.0
   },
   {
     "team": "arouca",
     "rating": 1527.8
+  },
+  {
+    "team": "gil_vicente",
+    "rating": 1520.6
   },
   {
     "team": "braga",
@@ -30,10 +34,6 @@
   {
     "team": "famalicao",
     "rating": 1509.8
-  },
-  {
-    "team": "gil_vicente",
-    "rating": 1507.8
   },
   {
     "team": "beira_mar",
@@ -152,16 +152,16 @@
     "rating": 1448.1
   },
   {
+    "team": "nacional",
+    "rating": 1441.9
+  },
+  {
     "team": "maritimo",
     "rating": 1440.6
   },
   {
     "team": "casa_pia",
     "rating": 1433.6
-  },
-  {
-    "team": "nacional",
-    "rating": 1430.4
   },
   {
     "team": "rio_ave",
