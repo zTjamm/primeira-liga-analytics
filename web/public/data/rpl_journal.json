@@ -1,7 +1,161 @@
 {
   "sport": "rpl",
-  "generated_at": "2026-11-08T08:03:13+00:00",
+  "generated_at": "2026-11-08T15:07:55+00:00",
   "resolved": [
+    {
+      "key": "rpl_16338",
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T16:15:00Z",
+      "matchday": "Тур 14",
+      "home_id": "Spartak Moscow",
+      "away_id": "Akron Togliatti",
+      "home_name": "Spartak Moscow",
+      "away_name": "Akron Togliatti",
+      "generated_at": "2026-11-08T08:03:12+00:00",
+      "hours_before": 8.2,
+      "stage": "T-6h",
+      "p_home": 0.7252,
+      "p_draw": 0.1748,
+      "p_away": 0.1,
+      "extra": {
+        "over25": 0.6603,
+        "xg_home": 2.529,
+        "xg_away": 0.872,
+        "team_games": 75,
+        "verdict_given": true,
+        "verdict_reason": "",
+        "total_verdict_given": true,
+        "total_verdict_reason": ""
+      },
+      "source": "live",
+      "odds_home": null,
+      "odds_draw": null,
+      "odds_away": null,
+      "stake": null,
+      "versions": [
+        {
+          "stage": "T-72h+",
+          "p_home": 0.7229,
+          "p_draw": 0.1792,
+          "p_away": 0.0979,
+          "hours_before": 76.56,
+          "generated_at": "2026-11-05T11:41:11+00:00"
+        },
+        {
+          "stage": "T-24h",
+          "p_home": 0.7252,
+          "p_draw": 0.1748,
+          "p_away": 0.1,
+          "hours_before": 14.52,
+          "generated_at": "2026-11-08T01:43:35+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.7252,
+          "p_draw": 0.1748,
+          "p_away": 0.1,
+          "hours_before": 8.2,
+          "generated_at": "2026-11-08T08:03:12+00:00"
+        }
+      ],
+      "actual": "H",
+      "score": "2-1",
+      "hit": true,
+      "picked": "H",
+      "picked_p": 0.7252,
+      "verdict_given": true,
+      "verdict_reason": "",
+      "total_hit": true,
+      "total_label": "ТБ 2.5",
+      "total_line": 2.5,
+      "total_given": true,
+      "total_no_reason": "",
+      "total_p": 0.6603,
+      "p_actual": 0.7252,
+      "logloss": 0.3213,
+      "n_versions": 3,
+      "shift": 0.0088,
+      "flipped": false,
+      "profit": null,
+      "roi": null
+    },
+    {
+      "key": "rpl_16339",
+      "date": "2026-11-08",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "matchday": "Тур 14",
+      "home_id": "Krylya Sovetov",
+      "away_id": "Orenburg",
+      "home_name": "Krylya Sovetov",
+      "away_name": "Orenburg",
+      "generated_at": "2026-11-08T08:03:12+00:00",
+      "hours_before": 5.95,
+      "stage": "T-6h",
+      "p_home": 0.3929,
+      "p_draw": 0.3061,
+      "p_away": 0.3009,
+      "extra": {
+        "over25": 0.42,
+        "xg_home": 1.275,
+        "xg_away": 1.086,
+        "team_games": 227,
+        "verdict_given": false,
+        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "total_verdict_given": false,
+        "total_verdict_reason": "вероятность ТМ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
+      },
+      "source": "live",
+      "odds_home": null,
+      "odds_draw": null,
+      "odds_away": null,
+      "stake": null,
+      "versions": [
+        {
+          "stage": "T-72h+",
+          "p_home": 0.3882,
+          "p_draw": 0.314,
+          "p_away": 0.2979,
+          "hours_before": 74.31,
+          "generated_at": "2026-11-05T11:41:11+00:00"
+        },
+        {
+          "stage": "T-24h",
+          "p_home": 0.3929,
+          "p_draw": 0.3061,
+          "p_away": 0.3009,
+          "hours_before": 12.27,
+          "generated_at": "2026-11-08T01:43:35+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.3929,
+          "p_draw": 0.3061,
+          "p_away": 0.3009,
+          "hours_before": 5.95,
+          "generated_at": "2026-11-08T08:03:12+00:00"
+        }
+      ],
+      "actual": "H",
+      "score": "2-0",
+      "hit": true,
+      "picked": "H",
+      "picked_p": 0.3929,
+      "verdict_given": false,
+      "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
+      "total_hit": true,
+      "total_label": "ТМ 2.5",
+      "total_line": 2.5,
+      "total_given": false,
+      "total_no_reason": "вероятность ТМ 0.58 ниже порога 0.65: тотал около линии, модель его не различает",
+      "total_p": 0.58,
+      "p_actual": 0.3929,
+      "logloss": 0.9341,
+      "n_versions": 3,
+      "shift": 0.0156,
+      "flipped": false,
+      "profit": null,
+      "roi": null
+    },
     {
       "key": "rpl_16342",
       "date": "2026-11-07",
@@ -1762,120 +1916,6 @@
   ],
   "pending": [
     {
-      "key": "rpl_16339",
-      "date": "2026-11-08",
-      "kickoff": "2026-11-08T14:00:00Z",
-      "matchday": "Тур 14",
-      "home_id": "Krylya Sovetov",
-      "away_id": "Orenburg",
-      "home_name": "Krylya Sovetov",
-      "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 5.95,
-      "stage": "T-6h",
-      "p_home": 0.3929,
-      "p_draw": 0.3061,
-      "p_away": 0.3009,
-      "extra": {
-        "over25": 0.42,
-        "xg_home": 1.275,
-        "xg_away": 1.086,
-        "team_games": 227,
-        "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
-        "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
-      },
-      "source": "live",
-      "odds_home": null,
-      "odds_draw": null,
-      "odds_away": null,
-      "stake": null,
-      "versions": [
-        {
-          "stage": "T-72h+",
-          "p_home": 0.3882,
-          "p_draw": 0.314,
-          "p_away": 0.2979,
-          "hours_before": 74.31,
-          "generated_at": "2026-11-05T11:41:11+00:00"
-        },
-        {
-          "stage": "T-24h",
-          "p_home": 0.3929,
-          "p_draw": 0.3061,
-          "p_away": 0.3009,
-          "hours_before": 12.27,
-          "generated_at": "2026-11-08T01:43:35+00:00"
-        },
-        {
-          "stage": "T-6h",
-          "p_home": 0.3929,
-          "p_draw": 0.3061,
-          "p_away": 0.3009,
-          "hours_before": 5.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
-        }
-      ]
-    },
-    {
-      "key": "rpl_16338",
-      "date": "2026-11-08",
-      "kickoff": "2026-11-08T16:15:00Z",
-      "matchday": "Тур 14",
-      "home_id": "Spartak Moscow",
-      "away_id": "Akron Togliatti",
-      "home_name": "Spartak Moscow",
-      "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 8.2,
-      "stage": "T-6h",
-      "p_home": 0.7252,
-      "p_draw": 0.1748,
-      "p_away": 0.1,
-      "extra": {
-        "over25": 0.6603,
-        "xg_home": 2.529,
-        "xg_away": 0.872,
-        "team_games": 75,
-        "verdict_given": true,
-        "verdict_reason": "",
-        "total_verdict_given": true,
-        "total_verdict_reason": ""
-      },
-      "source": "live",
-      "odds_home": null,
-      "odds_draw": null,
-      "odds_away": null,
-      "stake": null,
-      "versions": [
-        {
-          "stage": "T-72h+",
-          "p_home": 0.7229,
-          "p_draw": 0.1792,
-          "p_away": 0.0979,
-          "hours_before": 76.56,
-          "generated_at": "2026-11-05T11:41:11+00:00"
-        },
-        {
-          "stage": "T-24h",
-          "p_home": 0.7252,
-          "p_draw": 0.1748,
-          "p_away": 0.1,
-          "hours_before": 14.52,
-          "generated_at": "2026-11-08T01:43:35+00:00"
-        },
-        {
-          "stage": "T-6h",
-          "p_home": 0.7252,
-          "p_draw": 0.1748,
-          "p_away": 0.1,
-          "hours_before": 8.2,
-          "generated_at": "2026-11-08T08:03:12+00:00"
-        }
-      ]
-    },
-    {
       "key": "rpl_16344",
       "date": "2026-11-08",
       "kickoff": "2026-11-08T18:30:00Z",
@@ -1884,16 +1924,16 @@
       "away_id": "FK Rostov",
       "home_name": "Zenit",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 10.45,
-      "stage": "T-6h",
-      "p_home": 0.6582,
-      "p_draw": 0.2331,
-      "p_away": 0.1087,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3.37,
+      "stage": "T-4h",
+      "p_home": 0.66,
+      "p_draw": 0.2319,
+      "p_away": 0.1081,
       "extra": {
-        "over25": 0.4568,
-        "xg_home": 1.867,
-        "xg_away": 0.636,
+        "over25": 0.4587,
+        "xg_home": 1.875,
+        "xg_away": 0.635,
         "team_games": 433,
         "verdict_given": true,
         "verdict_reason": "",
@@ -1929,6 +1969,14 @@
           "p_away": 0.1087,
           "hours_before": 10.45,
           "generated_at": "2026-11-08T08:03:12+00:00"
+        },
+        {
+          "stage": "T-4h",
+          "p_home": 0.66,
+          "p_draw": 0.2319,
+          "p_away": 0.1081,
+          "hours_before": 3.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -1941,15 +1989,15 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Baltika",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 12.7,
-      "stage": "T-24h",
-      "p_home": 0.5903,
-      "p_draw": 0.2691,
-      "p_away": 0.1406,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 5.62,
+      "stage": "T-6h",
+      "p_home": 0.5919,
+      "p_draw": 0.2682,
+      "p_away": 0.1399,
       "extra": {
-        "over25": 0.401,
-        "xg_home": 1.617,
+        "over25": 0.4025,
+        "xg_home": 1.623,
         "xg_away": 0.671,
         "team_games": 73,
         "verdict_given": true,
@@ -1978,6 +2026,14 @@
           "p_away": 0.1406,
           "hours_before": 12.7,
           "generated_at": "2026-11-08T08:03:12+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.5919,
+          "p_draw": 0.2682,
+          "p_away": 0.1399,
+          "hours_before": 5.62,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -1990,21 +2046,21 @@
       "away_id": "Krylya Sovetov",
       "home_name": "FK Rostov",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 299.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 292.37,
       "stage": "T-72h+",
-      "p_home": 0.455,
-      "p_draw": 0.295,
-      "p_away": 0.2501,
+      "p_home": 0.4414,
+      "p_draw": 0.2977,
+      "p_away": 0.2609,
       "extra": {
-        "over25": 0.4351,
-        "xg_home": 1.423,
-        "xg_away": 0.996,
-        "team_games": 349,
+        "over25": 0.4317,
+        "xg_home": 1.39,
+        "xg_away": 1.015,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.46 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -2014,11 +2070,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.455,
-          "p_draw": 0.295,
-          "p_away": 0.2501,
-          "hours_before": 299.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4414,
+          "p_draw": 0.2977,
+          "p_away": 0.2609,
+          "hours_before": 292.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2031,19 +2087,19 @@
       "away_id": "Baltika",
       "home_name": "Orenburg",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 316.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 309.87,
       "stage": "T-72h+",
-      "p_home": 0.2943,
-      "p_draw": 0.3498,
-      "p_away": 0.3559,
+      "p_home": 0.2809,
+      "p_draw": 0.3497,
+      "p_away": 0.3694,
       "extra": {
-        "over25": 0.2879,
-        "xg_home": 0.877,
-        "xg_away": 0.992,
+        "over25": 0.2854,
+        "xg_home": 0.848,
+        "xg_away": 1.012,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -2055,11 +2111,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2943,
-          "p_draw": 0.3498,
-          "p_away": 0.3559,
-          "hours_before": 316.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2809,
+          "p_draw": 0.3497,
+          "p_away": 0.3694,
+          "hours_before": 309.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2072,17 +2128,17 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Akron Togliatti",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 319.2,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 312.12,
       "stage": "T-72h+",
-      "p_home": 0.5389,
-      "p_draw": 0.2755,
-      "p_away": 0.1856,
+      "p_home": 0.5443,
+      "p_draw": 0.2739,
+      "p_away": 0.1818,
       "extra": {
-        "over25": 0.4428,
-        "xg_home": 1.601,
-        "xg_away": 0.848,
-        "team_games": 75,
+        "over25": 0.4431,
+        "xg_home": 1.612,
+        "xg_away": 0.838,
+        "team_games": 76,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.54 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
@@ -2096,11 +2152,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5389,
-          "p_draw": 0.2755,
-          "p_away": 0.1856,
-          "hours_before": 319.2,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5443,
+          "p_draw": 0.2739,
+          "p_away": 0.1818,
+          "hours_before": 312.12,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2113,16 +2169,16 @@
       "away_id": "Zenit",
       "home_name": "Rubin Kazan",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 321.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 314.37,
       "stage": "T-72h+",
-      "p_home": 0.1737,
-      "p_draw": 0.2924,
-      "p_away": 0.5339,
+      "p_home": 0.1747,
+      "p_draw": 0.2925,
+      "p_away": 0.5328,
       "extra": {
-        "over25": 0.3756,
-        "xg_home": 0.731,
-        "xg_away": 1.463,
+        "over25": 0.3763,
+        "xg_home": 0.734,
+        "xg_away": 1.462,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.53 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2137,11 +2193,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1737,
-          "p_draw": 0.2924,
-          "p_away": 0.5339,
-          "hours_before": 321.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1747,
+          "p_draw": 0.2925,
+          "p_away": 0.5328,
+          "hours_before": 314.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2154,15 +2210,15 @@
       "away_id": "Akhmat Grozny",
       "home_name": "CSKA Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 323.7,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 316.62,
       "stage": "T-72h+",
-      "p_home": 0.5482,
-      "p_draw": 0.2691,
-      "p_away": 0.1826,
+      "p_home": 0.5496,
+      "p_draw": 0.2684,
+      "p_away": 0.182,
       "extra": {
-        "over25": 0.4609,
-        "xg_home": 1.654,
+        "over25": 0.462,
+        "xg_home": 1.659,
         "xg_away": 0.864,
         "team_games": 434,
         "verdict_given": false,
@@ -2178,11 +2234,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5482,
-          "p_draw": 0.2691,
-          "p_away": 0.1826,
-          "hours_before": 323.7,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5496,
+          "p_draw": 0.2684,
+          "p_away": 0.182,
+          "hours_before": 316.62,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2195,16 +2251,16 @@
       "away_id": "Krasnodar",
       "home_name": "Dynamo Moscow",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 341.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 334.87,
       "stage": "T-72h+",
-      "p_home": 0.4069,
-      "p_draw": 0.2649,
-      "p_away": 0.3282,
+      "p_home": 0.4086,
+      "p_draw": 0.2645,
+      "p_away": 0.327,
       "extra": {
-        "over25": 0.5822,
-        "xg_home": 1.602,
-        "xg_away": 1.422,
+        "over25": 0.5832,
+        "xg_home": 1.608,
+        "xg_away": 1.421,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2219,11 +2275,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4069,
-          "p_draw": 0.2649,
-          "p_away": 0.3282,
-          "hours_before": 341.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4086,
+          "p_draw": 0.2645,
+          "p_away": 0.327,
+          "hours_before": 334.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2236,16 +2292,16 @@
       "away_id": "Spartak Moscow",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 344.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 337.37,
       "stage": "T-72h+",
-      "p_home": 0.1575,
-      "p_draw": 0.2451,
-      "p_away": 0.5974,
+      "p_home": 0.1616,
+      "p_draw": 0.248,
+      "p_away": 0.5903,
       "extra": {
-        "over25": 0.5094,
-        "xg_home": 0.858,
-        "xg_away": 1.855,
+        "over25": 0.5053,
+        "xg_home": 0.865,
+        "xg_away": 1.831,
         "team_games": 73,
         "verdict_given": true,
         "verdict_reason": "",
@@ -2260,11 +2316,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1575,
-          "p_draw": 0.2451,
-          "p_away": 0.5974,
-          "hours_before": 344.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1616,
+          "p_draw": 0.248,
+          "p_away": 0.5903,
+          "hours_before": 337.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2277,16 +2333,16 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 346.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 339.87,
       "stage": "T-72h+",
-      "p_home": 0.2794,
+      "p_home": 0.2811,
       "p_draw": 0.258,
-      "p_away": 0.4626,
+      "p_away": 0.4609,
       "extra": {
-        "over25": 0.59,
-        "xg_home": 1.318,
-        "xg_away": 1.741,
+        "over25": 0.5907,
+        "xg_home": 1.324,
+        "xg_away": 1.739,
         "team_games": 16,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.46 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2301,11 +2357,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2794,
+          "p_home": 0.2811,
           "p_draw": 0.258,
-          "p_away": 0.4626,
-          "hours_before": 346.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.4609,
+          "hours_before": 339.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2318,19 +2374,19 @@
       "away_id": "Akron Togliatti",
       "home_name": "Rubin Kazan",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 485.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 478.87,
       "stage": "T-72h+",
-      "p_home": 0.4761,
-      "p_draw": 0.2903,
-      "p_away": 0.2336,
+      "p_home": 0.4722,
+      "p_draw": 0.2915,
+      "p_away": 0.2363,
       "extra": {
-        "over25": 0.4394,
-        "xg_home": 1.472,
-        "xg_away": 0.963,
-        "team_games": 75,
+        "over25": 0.4371,
+        "xg_home": 1.46,
+        "xg_away": 0.966,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.47 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -2342,11 +2398,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4761,
-          "p_draw": 0.2903,
-          "p_away": 0.2336,
-          "hours_before": 485.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4722,
+          "p_draw": 0.2915,
+          "p_away": 0.2363,
+          "hours_before": 478.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2359,15 +2415,15 @@
       "away_id": "Zenit",
       "home_name": "CSKA Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 488.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 481.37,
       "stage": "T-72h+",
-      "p_home": 0.2631,
-      "p_draw": 0.2869,
-      "p_away": 0.45,
+      "p_home": 0.2643,
+      "p_draw": 0.2868,
+      "p_away": 0.4489,
       "extra": {
-        "over25": 0.471,
-        "xg_home": 1.08,
+        "over25": 0.4718,
+        "xg_home": 1.084,
         "xg_away": 1.478,
         "team_games": 433,
         "verdict_given": false,
@@ -2383,11 +2439,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2631,
-          "p_draw": 0.2869,
-          "p_away": 0.45,
-          "hours_before": 488.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2643,
+          "p_draw": 0.2868,
+          "p_away": 0.4489,
+          "hours_before": 481.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2400,16 +2456,16 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Baltika",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 490.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 483.87,
       "stage": "T-72h+",
-      "p_home": 0.4959,
-      "p_draw": 0.3087,
-      "p_away": 0.1954,
+      "p_home": 0.4977,
+      "p_draw": 0.3078,
+      "p_away": 0.1945,
       "extra": {
-        "over25": 0.3508,
-        "xg_home": 1.349,
-        "xg_away": 0.753,
+        "over25": 0.352,
+        "xg_home": 1.354,
+        "xg_away": 0.752,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.50 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2424,11 +2480,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4959,
-          "p_draw": 0.3087,
-          "p_away": 0.1954,
-          "hours_before": 490.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4977,
+          "p_draw": 0.3078,
+          "p_away": 0.1945,
+          "hours_before": 483.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2441,21 +2497,21 @@
       "away_id": "Rodina Moscow",
       "home_name": "Orenburg",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 508.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 501.87,
       "stage": "T-72h+",
-      "p_home": 0.5234,
-      "p_draw": 0.2761,
-      "p_away": 0.2005,
+      "p_home": 0.5049,
+      "p_draw": 0.2823,
+      "p_away": 0.2128,
       "extra": {
-        "over25": 0.4576,
-        "xg_home": 1.599,
-        "xg_away": 0.907,
+        "over25": 0.4483,
+        "xg_home": 1.545,
+        "xg_away": 0.925,
         "team_games": 16,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.50 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.54 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.55 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -2465,11 +2521,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5234,
-          "p_draw": 0.2761,
-          "p_away": 0.2005,
-          "hours_before": 508.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5049,
+          "p_draw": 0.2823,
+          "p_away": 0.2128,
+          "hours_before": 501.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2482,16 +2538,16 @@
       "away_id": "Krasnodar",
       "home_name": "FK Rostov",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 511.2,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 504.12,
       "stage": "T-72h+",
-      "p_home": 0.2577,
-      "p_draw": 0.2915,
-      "p_away": 0.4508,
+      "p_home": 0.2587,
+      "p_draw": 0.2913,
+      "p_away": 0.45,
       "extra": {
-        "over25": 0.4517,
-        "xg_home": 1.038,
-        "xg_away": 1.445,
+        "over25": 0.4526,
+        "xg_home": 1.041,
+        "xg_away": 1.444,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.45 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2506,11 +2562,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2577,
-          "p_draw": 0.2915,
-          "p_away": 0.4508,
-          "hours_before": 511.2,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2587,
+          "p_draw": 0.2913,
+          "p_away": 0.45,
+          "hours_before": 504.12,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2523,19 +2579,19 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 513.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 506.37,
       "stage": "T-72h+",
-      "p_home": 0.252,
-      "p_draw": 0.2576,
-      "p_away": 0.4904,
+      "p_home": 0.2661,
+      "p_draw": 0.2611,
+      "p_away": 0.4727,
       "extra": {
-        "over25": 0.5735,
-        "xg_home": 1.219,
-        "xg_away": 1.766,
-        "team_games": 349,
+        "over25": 0.5692,
+        "xg_home": 1.247,
+        "xg_away": 1.719,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.49 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.47 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -2547,11 +2603,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.252,
-          "p_draw": 0.2576,
-          "p_away": 0.4904,
-          "hours_before": 513.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2661,
+          "p_draw": 0.2611,
+          "p_away": 0.4727,
+          "hours_before": 506.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2564,15 +2620,15 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 515.7,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 508.62,
       "stage": "T-72h+",
-      "p_home": 0.5797,
-      "p_draw": 0.2459,
-      "p_away": 0.1743,
+      "p_home": 0.581,
+      "p_draw": 0.2452,
+      "p_away": 0.1738,
       "extra": {
-        "over25": 0.5327,
-        "xg_home": 1.868,
+        "over25": 0.5341,
+        "xg_home": 1.873,
         "xg_away": 0.941,
         "team_games": 73,
         "verdict_given": true,
@@ -2588,11 +2644,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5797,
-          "p_draw": 0.2459,
-          "p_away": 0.1743,
-          "hours_before": 515.7,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.581,
+          "p_draw": 0.2452,
+          "p_away": 0.1738,
+          "hours_before": 508.62,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2605,21 +2661,21 @@
       "away_id": "Spartak Moscow",
       "home_name": "Fakel Voronezh",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 539.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 532.37,
       "stage": "T-72h+",
-      "p_home": 0.1139,
-      "p_draw": 0.2429,
-      "p_away": 0.6432,
+      "p_home": 0.1171,
+      "p_draw": 0.2462,
+      "p_away": 0.6367,
       "extra": {
-        "over25": 0.4352,
-        "xg_home": 0.629,
-        "xg_away": 1.79,
+        "over25": 0.4306,
+        "xg_home": 0.634,
+        "xg_away": 1.768,
         "team_games": 106,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -2629,11 +2685,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1139,
-          "p_draw": 0.2429,
-          "p_away": 0.6432,
-          "hours_before": 539.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1171,
+          "p_draw": 0.2462,
+          "p_away": 0.6367,
+          "hours_before": 532.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2646,19 +2702,19 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 635.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 628.37,
       "stage": "T-72h+",
-      "p_home": 0.3419,
-      "p_draw": 0.2891,
-      "p_away": 0.369,
+      "p_home": 0.3296,
+      "p_draw": 0.2888,
+      "p_away": 0.3816,
       "extra": {
-        "over25": 0.4889,
-        "xg_home": 1.286,
-        "xg_away": 1.344,
+        "over25": 0.488,
+        "xg_home": 1.257,
+        "xg_away": 1.369,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.38 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.51 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -2670,11 +2726,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3419,
-          "p_draw": 0.2891,
-          "p_away": 0.369,
-          "hours_before": 635.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3296,
+          "p_draw": 0.2888,
+          "p_away": 0.3816,
+          "hours_before": 628.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2687,21 +2743,21 @@
       "away_id": "Orenburg",
       "home_name": "Akron Togliatti",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 652.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 645.87,
       "stage": "T-72h+",
-      "p_home": 0.3622,
-      "p_draw": 0.2992,
-      "p_away": 0.3387,
+      "p_home": 0.3843,
+      "p_draw": 0.2999,
+      "p_away": 0.3158,
       "extra": {
-        "over25": 0.4511,
-        "xg_home": 1.265,
-        "xg_away": 1.216,
-        "team_games": 75,
+        "over25": 0.4449,
+        "xg_home": 1.299,
+        "xg_away": 1.157,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.38 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.55 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -2711,11 +2767,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3622,
-          "p_draw": 0.2992,
-          "p_away": 0.3387,
-          "hours_before": 652.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3843,
+          "p_draw": 0.2999,
+          "p_away": 0.3158,
+          "hours_before": 645.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2728,16 +2784,16 @@
       "away_id": "CSKA Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 655.2,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 648.12,
       "stage": "T-72h+",
-      "p_home": 0.2076,
-      "p_draw": 0.25,
-      "p_away": 0.5424,
+      "p_home": 0.209,
+      "p_draw": 0.2502,
+      "p_away": 0.5408,
       "extra": {
-        "over25": 0.5607,
-        "xg_home": 1.079,
-        "xg_away": 1.85,
+        "over25": 0.5609,
+        "xg_home": 1.083,
+        "xg_away": 1.847,
         "team_games": 16,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.54 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2752,11 +2808,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2076,
-          "p_draw": 0.25,
-          "p_away": 0.5424,
-          "hours_before": 655.2,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.209,
+          "p_draw": 0.2502,
+          "p_away": 0.5408,
+          "hours_before": 648.12,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2769,15 +2825,15 @@
       "away_id": "Baltika",
       "home_name": "Zenit",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 657.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 650.37,
       "stage": "T-72h+",
-      "p_home": 0.5766,
-      "p_draw": 0.2724,
-      "p_away": 0.151,
+      "p_home": 0.5777,
+      "p_draw": 0.2717,
+      "p_away": 0.1506,
       "extra": {
-        "over25": 0.4067,
-        "xg_home": 1.603,
+        "over25": 0.408,
+        "xg_home": 1.607,
         "xg_away": 0.708,
         "team_games": 73,
         "verdict_given": true,
@@ -2793,11 +2849,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5766,
-          "p_draw": 0.2724,
-          "p_away": 0.151,
-          "hours_before": 657.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5777,
+          "p_draw": 0.2717,
+          "p_away": 0.1506,
+          "hours_before": 650.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2810,16 +2866,16 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 659.7,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 652.62,
       "stage": "T-72h+",
-      "p_home": 0.3676,
-      "p_draw": 0.2933,
-      "p_away": 0.3391,
+      "p_home": 0.3692,
+      "p_draw": 0.2929,
+      "p_away": 0.3379,
       "extra": {
-        "over25": 0.4727,
-        "xg_home": 1.313,
-        "xg_away": 1.252,
+        "over25": 0.4737,
+        "xg_home": 1.318,
+        "xg_away": 1.251,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2834,11 +2890,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3676,
-          "p_draw": 0.2933,
-          "p_away": 0.3391,
-          "hours_before": 659.7,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3692,
+          "p_draw": 0.2929,
+          "p_away": 0.3379,
+          "hours_before": 652.62,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2851,16 +2907,16 @@
       "away_id": "FK Rostov",
       "home_name": "Fakel Voronezh",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 678.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 671.37,
       "stage": "T-72h+",
-      "p_home": 0.2174,
+      "p_home": 0.2189,
       "p_draw": 0.3421,
-      "p_away": 0.4404,
+      "p_away": 0.4391,
       "extra": {
-        "over25": 0.2801,
-        "xg_home": 0.712,
-        "xg_away": 1.128,
+        "over25": 0.2807,
+        "xg_home": 0.716,
+        "xg_away": 1.126,
         "team_games": 106,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -2875,11 +2931,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2174,
+          "p_home": 0.2189,
           "p_draw": 0.3421,
-          "p_away": 0.4404,
-          "hours_before": 678.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.4391,
+          "hours_before": 671.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2892,21 +2948,21 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 680.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 673.87,
       "stage": "T-72h+",
-      "p_home": 0.4792,
-      "p_draw": 0.2656,
-      "p_away": 0.2552,
+      "p_home": 0.475,
+      "p_draw": 0.2667,
+      "p_away": 0.2583,
       "extra": {
-        "over25": 0.545,
-        "xg_home": 1.682,
-        "xg_away": 1.179,
+        "over25": 0.5425,
+        "xg_home": 1.668,
+        "xg_away": 1.182,
         "team_games": 404,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.47 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.55 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.54 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -2916,11 +2972,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4792,
-          "p_draw": 0.2656,
-          "p_away": 0.2552,
-          "hours_before": 680.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.475,
+          "p_draw": 0.2667,
+          "p_away": 0.2583,
+          "hours_before": 673.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2933,15 +2989,15 @@
       "away_id": "Rubin Kazan",
       "home_name": "Krasnodar",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 683.45,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 676.37,
       "stage": "T-72h+",
-      "p_home": 0.5959,
-      "p_draw": 0.2547,
-      "p_away": 0.1493,
+      "p_home": 0.5972,
+      "p_draw": 0.254,
+      "p_away": 0.1489,
       "extra": {
-        "over25": 0.462,
-        "xg_home": 1.752,
+        "over25": 0.4635,
+        "xg_home": 1.757,
         "xg_away": 0.771,
         "team_games": 404,
         "verdict_given": true,
@@ -2957,11 +3013,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5959,
-          "p_draw": 0.2547,
-          "p_away": 0.1493,
-          "hours_before": 683.45,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5972,
+          "p_draw": 0.254,
+          "p_away": 0.1489,
+          "hours_before": 676.37,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -2974,15 +3030,15 @@
       "away_id": "Rubin Kazan",
       "home_name": "Dynamo Moscow",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.5594,
-      "p_draw": 0.2721,
-      "p_away": 0.1684,
+      "p_home": 0.5608,
+      "p_draw": 0.2714,
+      "p_away": 0.1678,
       "extra": {
-        "over25": 0.4322,
-        "xg_home": 1.62,
+        "over25": 0.4335,
+        "xg_home": 1.625,
         "xg_away": 0.787,
         "team_games": 404,
         "verdict_given": true,
@@ -2998,11 +3054,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5594,
-          "p_draw": 0.2721,
-          "p_away": 0.1684,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5608,
+          "p_draw": 0.2714,
+          "p_away": 0.1678,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3015,19 +3071,19 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.3695,
-      "p_draw": 0.2694,
-      "p_away": 0.361,
+      "p_home": 0.386,
+      "p_draw": 0.2692,
+      "p_away": 0.3448,
       "extra": {
-        "over25": 0.5681,
-        "xg_home": 1.49,
-        "xg_away": 1.471,
-        "team_games": 349,
+        "over25": 0.5672,
+        "xg_home": 1.525,
+        "xg_away": 1.432,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -3039,11 +3095,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3695,
-          "p_draw": 0.2694,
-          "p_away": 0.361,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.386,
+          "p_draw": 0.2692,
+          "p_away": 0.3448,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3056,21 +3112,21 @@
       "away_id": "Orenburg",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.3087,
-      "p_draw": 0.3274,
-      "p_away": 0.3639,
+      "p_home": 0.3245,
+      "p_draw": 0.3293,
+      "p_away": 0.3462,
       "extra": {
-        "over25": 0.353,
-        "xg_home": 1.001,
-        "xg_away": 1.109,
+        "over25": 0.3484,
+        "xg_home": 1.025,
+        "xg_away": 1.067,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
-        "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.65 ниже порога 0.65: тотал около линии, модель его не различает"
+        "verdict_reason": "вероятность исхода 0.35 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "total_verdict_given": true,
+        "total_verdict_reason": ""
       },
       "source": "live",
       "odds_home": null,
@@ -3080,11 +3136,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3087,
-          "p_draw": 0.3274,
-          "p_away": 0.3639,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3245,
+          "p_draw": 0.3293,
+          "p_away": 0.3462,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3097,15 +3153,15 @@
       "away_id": "Rodina Moscow",
       "home_name": "Baltika",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.6282,
-      "p_draw": 0.2386,
-      "p_away": 0.1332,
+      "p_home": 0.6297,
+      "p_draw": 0.2377,
+      "p_away": 0.1325,
       "extra": {
-        "over25": 0.4894,
-        "xg_home": 1.875,
+        "over25": 0.4908,
+        "xg_home": 1.882,
         "xg_away": 0.756,
         "team_games": 16,
         "verdict_given": true,
@@ -3121,11 +3177,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6282,
-          "p_draw": 0.2386,
-          "p_away": 0.1332,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6297,
+          "p_draw": 0.2377,
+          "p_away": 0.1325,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3138,19 +3194,19 @@
       "away_id": "Spartak Moscow",
       "home_name": "Krasnodar",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.423,
-      "p_draw": 0.2698,
-      "p_away": 0.3072,
+      "p_home": 0.4291,
+      "p_draw": 0.2694,
+      "p_away": 0.3014,
       "extra": {
-        "over25": 0.5564,
-        "xg_home": 1.585,
-        "xg_away": 1.325,
-        "team_games": 433,
+        "over25": 0.5553,
+        "xg_home": 1.596,
+        "xg_away": 1.309,
+        "team_games": 434,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.43 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -3162,11 +3218,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.423,
-          "p_draw": 0.2698,
-          "p_away": 0.3072,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4291,
+          "p_draw": 0.2694,
+          "p_away": 0.3014,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3179,19 +3235,19 @@
       "away_id": "Akron Togliatti",
       "home_name": "Akhmat Grozny",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.4776,
-      "p_draw": 0.273,
-      "p_away": 0.2494,
+      "p_home": 0.4734,
+      "p_draw": 0.2742,
+      "p_away": 0.2524,
       "extra": {
-        "over25": 0.5126,
-        "xg_home": 1.614,
-        "xg_away": 1.112,
-        "team_games": 75,
+        "over25": 0.5101,
+        "xg_home": 1.6,
+        "xg_away": 1.115,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.47 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.51 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -3203,11 +3259,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4776,
-          "p_draw": 0.273,
-          "p_away": 0.2494,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4734,
+          "p_draw": 0.2742,
+          "p_away": 0.2524,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3220,15 +3276,15 @@
       "away_id": "CSKA Moscow",
       "home_name": "FK Rostov",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.3115,
-      "p_draw": 0.3162,
-      "p_away": 0.3723,
+      "p_home": 0.3125,
+      "p_draw": 0.3159,
+      "p_away": 0.3716,
       "extra": {
-        "over25": 0.3886,
-        "xg_home": 1.06,
+        "over25": 0.3895,
+        "xg_home": 1.064,
         "xg_away": 1.182,
         "team_games": 434,
         "verdict_given": false,
@@ -3244,11 +3300,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3115,
-          "p_draw": 0.3162,
-          "p_away": 0.3723,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3125,
+          "p_draw": 0.3159,
+          "p_away": 0.3716,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3261,15 +3317,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Zenit",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2679.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2672.87,
       "stage": "T-72h+",
-      "p_home": 0.8129,
-      "p_draw": 0.1465,
-      "p_away": 0.0407,
+      "p_home": 0.8138,
+      "p_draw": 0.1457,
+      "p_away": 0.0405,
       "extra": {
-        "over25": 0.543,
-        "xg_home": 2.432,
+        "over25": 0.5448,
+        "xg_home": 2.439,
         "xg_away": 0.421,
         "team_games": 106,
         "verdict_given": true,
@@ -3285,11 +3341,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8129,
-          "p_draw": 0.1465,
-          "p_away": 0.0407,
-          "hours_before": 2679.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.8138,
+          "p_draw": 0.1457,
+          "p_away": 0.0405,
+          "hours_before": 2672.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3302,15 +3358,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.4669,
-      "p_draw": 0.3198,
-      "p_away": 0.2133,
+      "p_home": 0.4683,
+      "p_draw": 0.3191,
+      "p_away": 0.2126,
       "extra": {
-        "over25": 0.3341,
-        "xg_home": 1.267,
+        "over25": 0.3354,
+        "xg_home": 1.272,
         "xg_away": 0.773,
         "team_games": 73,
         "verdict_given": false,
@@ -3326,11 +3382,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4669,
-          "p_draw": 0.3198,
-          "p_away": 0.2133,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4683,
+          "p_draw": 0.3191,
+          "p_away": 0.2126,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3343,16 +3399,16 @@
       "away_id": "Baltika",
       "home_name": "FK Rostov",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.3151,
-      "p_draw": 0.3487,
-      "p_away": 0.3362,
+      "p_home": 0.3157,
+      "p_draw": 0.3482,
+      "p_away": 0.3361,
       "extra": {
-        "over25": 0.293,
-        "xg_home": 0.924,
-        "xg_away": 0.964,
+        "over25": 0.2938,
+        "xg_home": 0.926,
+        "xg_away": 0.965,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.35 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -3367,11 +3423,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3151,
-          "p_draw": 0.3487,
-          "p_away": 0.3362,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3157,
+          "p_draw": 0.3482,
+          "p_away": 0.3361,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3384,16 +3440,16 @@
       "away_id": "CSKA Moscow",
       "home_name": "Lokomotiv Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.3468,
-      "p_draw": 0.2794,
-      "p_away": 0.3738,
+      "p_home": 0.3482,
+      "p_draw": 0.279,
+      "p_away": 0.3727,
       "extra": {
-        "over25": 0.5272,
-        "xg_home": 1.363,
-        "xg_away": 1.423,
+        "over25": 0.5282,
+        "xg_home": 1.368,
+        "xg_away": 1.422,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -3408,11 +3464,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3468,
-          "p_draw": 0.2794,
-          "p_away": 0.3738,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3482,
+          "p_draw": 0.279,
+          "p_away": 0.3727,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3425,21 +3481,21 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Krasnodar",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.679,
-      "p_draw": 0.1943,
-      "p_away": 0.1267,
+      "p_home": 0.6647,
+      "p_draw": 0.2003,
+      "p_away": 0.1349,
       "extra": {
-        "over25": 0.6476,
-        "xg_home": 2.375,
-        "xg_away": 0.96,
-        "team_games": 349,
+        "over25": 0.6404,
+        "xg_home": 2.321,
+        "xg_away": 0.979,
+        "team_games": 350,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.65 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.64 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -3449,11 +3505,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.679,
-          "p_draw": 0.1943,
-          "p_away": 0.1267,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6647,
+          "p_draw": 0.2003,
+          "p_away": 0.1349,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3466,15 +3522,15 @@
       "away_id": "Rubin Kazan",
       "home_name": "Akhmat Grozny",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.3732,
-      "p_draw": 0.3397,
-      "p_away": 0.2871,
+      "p_home": 0.3745,
+      "p_draw": 0.3391,
+      "p_away": 0.2864,
       "extra": {
-        "over25": 0.3135,
-        "xg_home": 1.063,
+        "over25": 0.3144,
+        "xg_home": 1.067,
         "xg_away": 0.9,
         "team_games": 404,
         "verdict_given": false,
@@ -3490,11 +3546,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3732,
-          "p_draw": 0.3397,
-          "p_away": 0.2871,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3745,
+          "p_draw": 0.3391,
+          "p_away": 0.2864,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3507,16 +3563,16 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.1778,
-      "p_draw": 0.2263,
-      "p_away": 0.5959,
+      "p_home": 0.1791,
+      "p_draw": 0.2267,
+      "p_away": 0.5942,
       "extra": {
-        "over25": 0.6136,
-        "xg_home": 1.078,
-        "xg_away": 2.091,
+        "over25": 0.6137,
+        "xg_home": 1.083,
+        "xg_away": 2.087,
         "team_games": 16,
         "verdict_given": true,
         "verdict_reason": "",
@@ -3531,11 +3587,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1778,
-          "p_draw": 0.2263,
-          "p_away": 0.5959,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1791,
+          "p_draw": 0.2267,
+          "p_away": 0.5942,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3548,21 +3604,21 @@
       "away_id": "Spartak Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.1857,
-      "p_draw": 0.232,
-      "p_away": 0.5823,
+      "p_home": 0.1942,
+      "p_draw": 0.2369,
+      "p_away": 0.5689,
       "extra": {
-        "over25": 0.6025,
-        "xg_home": 1.084,
-        "xg_away": 2.033,
-        "team_games": 75,
+        "over25": 0.5945,
+        "xg_home": 1.096,
+        "xg_away": 1.984,
+        "team_games": 76,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.60 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -3572,11 +3628,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1857,
-          "p_draw": 0.232,
-          "p_away": 0.5823,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1942,
+          "p_draw": 0.2369,
+          "p_away": 0.5689,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3589,21 +3645,21 @@
       "away_id": "Orenburg",
       "home_name": "Zenit",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 2847.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 2840.87,
       "stage": "T-72h+",
-      "p_home": 0.6785,
-      "p_draw": 0.2237,
-      "p_away": 0.0978,
+      "p_home": 0.6938,
+      "p_draw": 0.216,
+      "p_away": 0.0902,
       "extra": {
-        "over25": 0.4625,
-        "xg_home": 1.922,
-        "xg_away": 0.603,
-        "team_games": 227,
+        "over25": 0.4685,
+        "xg_home": 1.967,
+        "xg_away": 0.581,
+        "team_games": 228,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.54 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.53 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -3613,11 +3669,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6785,
-          "p_draw": 0.2237,
-          "p_away": 0.0978,
-          "hours_before": 2847.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6938,
+          "p_draw": 0.216,
+          "p_away": 0.0902,
+          "hours_before": 2840.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3630,15 +3686,15 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Dynamo Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.5723,
-      "p_draw": 0.2355,
-      "p_away": 0.1922,
+      "p_home": 0.574,
+      "p_draw": 0.2347,
+      "p_away": 0.1913,
       "extra": {
-        "over25": 0.5978,
-        "xg_home": 2.0,
+        "over25": 0.5992,
+        "xg_home": 2.007,
         "xg_away": 1.095,
         "team_games": 404,
         "verdict_given": true,
@@ -3654,11 +3710,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5723,
-          "p_draw": 0.2355,
-          "p_away": 0.1922,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.574,
+          "p_draw": 0.2347,
+          "p_away": 0.1913,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3671,21 +3727,21 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Spartak Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.6341,
-      "p_draw": 0.2336,
-      "p_away": 0.1323,
+      "p_home": 0.6299,
+      "p_draw": 0.2357,
+      "p_away": 0.1345,
       "extra": {
-        "over25": 0.5056,
-        "xg_home": 1.923,
-        "xg_away": 0.774,
-        "team_games": 433,
+        "over25": 0.5021,
+        "xg_home": 1.906,
+        "xg_away": 0.776,
+        "team_games": 434,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.51 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.50 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -3695,11 +3751,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6341,
-          "p_draw": 0.2336,
-          "p_away": 0.1323,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6299,
+          "p_draw": 0.2357,
+          "p_away": 0.1345,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3712,16 +3768,16 @@
       "away_id": "Krasnodar",
       "home_name": "Baltika",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.3269,
-      "p_draw": 0.3049,
-      "p_away": 0.3681,
+      "p_home": 0.3288,
+      "p_draw": 0.3046,
+      "p_away": 0.3665,
       "extra": {
-        "over25": 0.4292,
-        "xg_home": 1.155,
-        "xg_away": 1.24,
+        "over25": 0.4301,
+        "xg_home": 1.161,
+        "xg_away": 1.239,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -3736,11 +3792,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3269,
-          "p_draw": 0.3049,
-          "p_away": 0.3681,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3288,
+          "p_draw": 0.3046,
+          "p_away": 0.3665,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3753,21 +3809,21 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Orenburg",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.4282,
-      "p_draw": 0.3016,
-      "p_away": 0.2702,
+      "p_home": 0.3969,
+      "p_draw": 0.3074,
+      "p_away": 0.2957,
       "extra": {
-        "over25": 0.4239,
-        "xg_home": 1.351,
-        "xg_away": 1.025,
-        "team_games": 227,
+        "over25": 0.4139,
+        "xg_home": 1.272,
+        "xg_away": 1.065,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.43 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.40 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -3777,11 +3833,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4282,
-          "p_draw": 0.3016,
-          "p_away": 0.2702,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3969,
+          "p_draw": 0.3074,
+          "p_away": 0.2957,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3794,16 +3850,16 @@
       "away_id": "Zenit",
       "home_name": "Rodina Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.102,
-      "p_draw": 0.1881,
-      "p_away": 0.7099,
+      "p_home": 0.1029,
+      "p_draw": 0.1886,
+      "p_away": 0.7086,
       "extra": {
         "over25": 0.6102,
-        "xg_home": 0.804,
-        "xg_away": 2.349,
+        "xg_home": 0.808,
+        "xg_away": 2.345,
         "team_games": 16,
         "verdict_given": true,
         "verdict_reason": "",
@@ -3818,11 +3874,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.102,
-          "p_draw": 0.1881,
-          "p_away": 0.7099,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1029,
+          "p_draw": 0.1886,
+          "p_away": 0.7086,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3835,19 +3891,19 @@
       "away_id": "FK Rostov",
       "home_name": "Rubin Kazan",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.3647,
-      "p_draw": 0.3523,
-      "p_away": 0.283,
+      "p_home": 0.3665,
+      "p_draw": 0.3517,
+      "p_away": 0.2818,
       "extra": {
-        "over25": 0.2797,
-        "xg_home": 0.995,
-        "xg_away": 0.844,
+        "over25": 0.2808,
+        "xg_home": 1.0,
+        "xg_away": 0.843,
         "team_games": 404,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -3859,11 +3915,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3647,
-          "p_draw": 0.3523,
-          "p_away": 0.283,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3665,
+          "p_draw": 0.3517,
+          "p_away": 0.2818,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3876,16 +3932,16 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Akron Togliatti",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.4782,
-      "p_draw": 0.2681,
-      "p_away": 0.2537,
+      "p_home": 0.4841,
+      "p_draw": 0.2672,
+      "p_away": 0.2487,
       "extra": {
-        "over25": 0.5341,
-        "xg_home": 1.658,
-        "xg_away": 1.157,
+        "over25": 0.5335,
+        "xg_home": 1.669,
+        "xg_away": 1.143,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -3900,11 +3956,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4782,
-          "p_draw": 0.2681,
-          "p_away": 0.2537,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4841,
+          "p_draw": 0.2672,
+          "p_away": 0.2487,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3917,16 +3973,16 @@
       "away_id": "CSKA Moscow",
       "home_name": "Fakel Voronezh",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3015.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3008.87,
       "stage": "T-72h+",
-      "p_home": 0.1568,
-      "p_draw": 0.2811,
-      "p_away": 0.5622,
+      "p_home": 0.1578,
+      "p_draw": 0.2813,
+      "p_away": 0.5609,
       "extra": {
-        "over25": 0.3885,
-        "xg_home": 0.702,
-        "xg_away": 1.54,
+        "over25": 0.3888,
+        "xg_home": 0.705,
+        "xg_away": 1.538,
         "team_games": 106,
         "verdict_given": true,
         "verdict_reason": "",
@@ -3941,11 +3997,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1568,
-          "p_draw": 0.2811,
-          "p_away": 0.5622,
-          "hours_before": 3015.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1578,
+          "p_draw": 0.2813,
+          "p_away": 0.5609,
+          "hours_before": 3008.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3958,19 +4014,19 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Krylya Sovetov",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.4092,
-      "p_draw": 0.2919,
-      "p_away": 0.2989,
+      "p_home": 0.4246,
+      "p_draw": 0.2902,
+      "p_away": 0.2852,
       "extra": {
-        "over25": 0.4697,
-        "xg_home": 1.393,
-        "xg_away": 1.159,
-        "team_games": 349,
+        "over25": 0.4699,
+        "xg_home": 1.425,
+        "xg_away": 1.129,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.53 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -3982,11 +4038,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4092,
-          "p_draw": 0.2919,
-          "p_away": 0.2989,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4246,
+          "p_draw": 0.2902,
+          "p_away": 0.2852,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -3999,15 +4055,15 @@
       "away_id": "Baltika",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.2257,
-      "p_draw": 0.3137,
-      "p_away": 0.4606,
+      "p_home": 0.2266,
+      "p_draw": 0.3136,
+      "p_away": 0.4598,
       "extra": {
-        "over25": 0.3599,
-        "xg_home": 0.835,
+        "over25": 0.3606,
+        "xg_home": 0.838,
         "xg_away": 1.3,
         "team_games": 73,
         "verdict_given": false,
@@ -4023,11 +4079,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2257,
-          "p_draw": 0.3137,
-          "p_away": 0.4606,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2266,
+          "p_draw": 0.3136,
+          "p_away": 0.4598,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4040,15 +4096,15 @@
       "away_id": "Rodina Moscow",
       "home_name": "FK Rostov",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.5514,
-      "p_draw": 0.2658,
-      "p_away": 0.1829,
+      "p_home": 0.5522,
+      "p_draw": 0.2652,
+      "p_away": 0.1826,
       "extra": {
-        "over25": 0.4728,
-        "xg_home": 1.684,
+        "over25": 0.4738,
+        "xg_home": 1.688,
         "xg_away": 0.881,
         "team_games": 16,
         "verdict_given": true,
@@ -4064,11 +4120,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5514,
-          "p_draw": 0.2658,
-          "p_away": 0.1829,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5522,
+          "p_draw": 0.2652,
+          "p_away": 0.1826,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4081,21 +4137,21 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.6296,
-      "p_draw": 0.2446,
-      "p_away": 0.1259,
+      "p_home": 0.6308,
+      "p_draw": 0.2437,
+      "p_away": 0.1255,
       "extra": {
-        "over25": 0.4542,
-        "xg_home": 1.803,
-        "xg_away": 0.689,
+        "over25": 0.4558,
+        "xg_home": 1.809,
+        "xg_away": 0.69,
         "team_games": 106,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.55 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.54 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -4105,11 +4161,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6296,
-          "p_draw": 0.2446,
-          "p_away": 0.1259,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6308,
+          "p_draw": 0.2437,
+          "p_away": 0.1255,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4122,15 +4178,15 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Krasnodar",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.4757,
-      "p_draw": 0.2564,
-      "p_away": 0.2679,
+      "p_home": 0.4772,
+      "p_draw": 0.2558,
+      "p_away": 0.267,
       "extra": {
-        "over25": 0.5894,
-        "xg_home": 1.769,
+        "over25": 0.5905,
+        "xg_home": 1.774,
         "xg_away": 1.288,
         "team_games": 404,
         "verdict_given": false,
@@ -4146,11 +4202,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4757,
-          "p_draw": 0.2564,
-          "p_away": 0.2679,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4772,
+          "p_draw": 0.2558,
+          "p_away": 0.267,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4163,19 +4219,19 @@
       "away_id": "Orenburg",
       "home_name": "CSKA Moscow",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.5262,
-      "p_draw": 0.2863,
-      "p_away": 0.1875,
+      "p_home": 0.5435,
+      "p_draw": 0.2812,
+      "p_away": 0.1753,
       "extra": {
-        "over25": 0.4099,
-        "xg_home": 1.513,
-        "xg_away": 0.809,
-        "team_games": 227,
+        "over25": 0.4114,
+        "xg_home": 1.549,
+        "xg_away": 0.779,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.53 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.54 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4187,11 +4243,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5262,
-          "p_draw": 0.2863,
-          "p_away": 0.1875,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5435,
+          "p_draw": 0.2812,
+          "p_away": 0.1753,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4204,19 +4260,19 @@
       "away_id": "Spartak Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.2314,
-      "p_draw": 0.3077,
-      "p_away": 0.4609,
+      "p_home": 0.2361,
+      "p_draw": 0.3094,
+      "p_away": 0.4546,
       "extra": {
-        "over25": 0.3819,
-        "xg_home": 0.878,
-        "xg_away": 1.34,
+        "over25": 0.3793,
+        "xg_home": 0.885,
+        "xg_away": 1.323,
         "team_games": 404,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.46 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.45 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.62 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4228,11 +4284,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2314,
-          "p_draw": 0.3077,
-          "p_away": 0.4609,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2361,
+          "p_draw": 0.3094,
+          "p_away": 0.4546,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4245,17 +4301,17 @@
       "away_id": "Akron Togliatti",
       "home_name": "Zenit",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3183.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3176.87,
       "stage": "T-72h+",
-      "p_home": 0.7911,
-      "p_draw": 0.1436,
-      "p_away": 0.0653,
+      "p_home": 0.7874,
+      "p_draw": 0.1458,
+      "p_away": 0.0668,
       "extra": {
-        "over25": 0.6768,
-        "xg_home": 2.762,
-        "xg_away": 0.725,
-        "team_games": 75,
+        "over25": 0.6728,
+        "xg_home": 2.738,
+        "xg_away": 0.728,
+        "team_games": 76,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": true,
@@ -4269,11 +4325,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7911,
-          "p_draw": 0.1436,
-          "p_away": 0.0653,
-          "hours_before": 3183.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7874,
+          "p_draw": 0.1458,
+          "p_away": 0.0668,
+          "hours_before": 3176.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4286,15 +4342,15 @@
       "away_id": "Baltika",
       "home_name": "Dynamo Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.4674,
-      "p_draw": 0.2957,
-      "p_away": 0.2369,
+      "p_home": 0.4684,
+      "p_draw": 0.2952,
+      "p_away": 0.2364,
       "extra": {
-        "over25": 0.4238,
-        "xg_home": 1.426,
+        "over25": 0.4248,
+        "xg_home": 1.43,
         "xg_away": 0.949,
         "team_games": 73,
         "verdict_given": false,
@@ -4310,11 +4366,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4674,
-          "p_draw": 0.2957,
-          "p_away": 0.2369,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4684,
+          "p_draw": 0.2952,
+          "p_away": 0.2364,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4327,21 +4383,21 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Spartak Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.7295,
-      "p_draw": 0.1846,
-      "p_away": 0.0859,
+      "p_home": 0.7254,
+      "p_draw": 0.1869,
+      "p_away": 0.0877,
       "extra": {
-        "over25": 0.576,
-        "xg_home": 2.306,
-        "xg_away": 0.69,
+        "over25": 0.572,
+        "xg_home": 2.286,
+        "xg_away": 0.693,
         "team_games": 73,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -4351,11 +4407,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7295,
-          "p_draw": 0.1846,
-          "p_away": 0.0859,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7254,
+          "p_draw": 0.1869,
+          "p_away": 0.0877,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4368,15 +4424,15 @@
       "away_id": "Zenit",
       "home_name": "FK Rostov",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.1843,
-      "p_draw": 0.2878,
-      "p_away": 0.5279,
+      "p_home": 0.1851,
+      "p_draw": 0.2877,
+      "p_away": 0.5273,
       "extra": {
-        "over25": 0.4017,
-        "xg_home": 0.79,
+        "over25": 0.4025,
+        "xg_home": 0.793,
         "xg_away": 1.501,
         "team_games": 433,
         "verdict_given": false,
@@ -4392,11 +4448,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1843,
-          "p_draw": 0.2878,
-          "p_away": 0.5279,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1851,
+          "p_draw": 0.2877,
+          "p_away": 0.5273,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4409,19 +4465,19 @@
       "away_id": "Rubin Kazan",
       "home_name": "Orenburg",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.37,
-      "p_draw": 0.3538,
-      "p_away": 0.2762,
+      "p_home": 0.3554,
+      "p_draw": 0.3564,
+      "p_away": 0.2882,
       "extra": {
-        "over25": 0.2746,
-        "xg_home": 0.996,
-        "xg_away": 0.823,
-        "team_games": 227,
+        "over25": 0.2702,
+        "xg_home": 0.963,
+        "xg_away": 0.84,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -4433,11 +4489,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.37,
-          "p_draw": 0.3538,
-          "p_away": 0.2762,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3554,
+          "p_draw": 0.3564,
+          "p_away": 0.2882,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4450,15 +4506,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Akhmat Grozny",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.5462,
-      "p_draw": 0.2975,
-      "p_away": 0.1563,
+      "p_home": 0.5475,
+      "p_draw": 0.2967,
+      "p_away": 0.1559,
       "extra": {
-        "over25": 0.3411,
-        "xg_home": 1.421,
+        "over25": 0.3423,
+        "xg_home": 1.426,
         "xg_away": 0.645,
         "team_games": 106,
         "verdict_given": false,
@@ -4474,11 +4530,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5462,
-          "p_draw": 0.2975,
-          "p_away": 0.1563,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5475,
+          "p_draw": 0.2967,
+          "p_away": 0.1559,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4491,16 +4547,16 @@
       "away_id": "Krasnodar",
       "home_name": "CSKA Moscow",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.3606,
-      "p_draw": 0.2763,
-      "p_away": 0.3631,
+      "p_home": 0.3622,
+      "p_draw": 0.276,
+      "p_away": 0.3619,
       "extra": {
-        "over25": 0.5401,
-        "xg_home": 1.417,
-        "xg_away": 1.423,
+        "over25": 0.5411,
+        "xg_home": 1.423,
+        "xg_away": 1.422,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -4515,11 +4571,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3606,
-          "p_draw": 0.2763,
-          "p_away": 0.3631,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3622,
+          "p_draw": 0.276,
+          "p_away": 0.3619,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4532,19 +4588,19 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Rodina Moscow",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.3425,
-      "p_draw": 0.2666,
-      "p_away": 0.3909,
+      "p_home": 0.3295,
+      "p_draw": 0.2661,
+      "p_away": 0.4044,
       "extra": {
-        "over25": 0.5782,
-        "xg_home": 1.448,
-        "xg_away": 1.558,
+        "over25": 0.5773,
+        "xg_home": 1.416,
+        "xg_away": 1.586,
         "team_games": 16,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.40 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4556,11 +4612,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3425,
-          "p_draw": 0.2666,
-          "p_away": 0.3909,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3295,
+          "p_draw": 0.2661,
+          "p_away": 0.4044,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4573,19 +4629,19 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3519.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3512.87,
       "stage": "T-72h+",
-      "p_home": 0.3339,
-      "p_draw": 0.2598,
-      "p_away": 0.4063,
+      "p_home": 0.3403,
+      "p_draw": 0.2605,
+      "p_away": 0.3992,
       "extra": {
-        "over25": 0.6043,
-        "xg_home": 1.479,
-        "xg_away": 1.647,
-        "team_games": 75,
+        "over25": 0.6022,
+        "xg_home": 1.49,
+        "xg_away": 1.626,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.40 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТБ 0.60 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4597,11 +4653,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3339,
-          "p_draw": 0.2598,
-          "p_away": 0.4063,
-          "hours_before": 3519.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3403,
+          "p_draw": 0.2605,
+          "p_away": 0.3992,
+          "hours_before": 3512.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4614,19 +4670,19 @@
       "away_id": "FK Rostov",
       "home_name": "Krylya Sovetov",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.37,
-      "p_draw": 0.3058,
-      "p_away": 0.3242,
+      "p_home": 0.385,
+      "p_draw": 0.3051,
+      "p_away": 0.3099,
       "extra": {
-        "over25": 0.4257,
-        "xg_home": 1.238,
-        "xg_away": 1.144,
-        "team_games": 349,
+        "over25": 0.4254,
+        "xg_home": 1.268,
+        "xg_away": 1.113,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4638,11 +4694,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.37,
-          "p_draw": 0.3058,
-          "p_away": 0.3242,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.385,
+          "p_draw": 0.3051,
+          "p_away": 0.3099,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4655,16 +4711,16 @@
       "away_id": "Rubin Kazan",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.2986,
-      "p_draw": 0.3343,
-      "p_away": 0.3671,
+      "p_home": 0.3,
+      "p_draw": 0.334,
+      "p_away": 0.3661,
       "extra": {
-        "over25": 0.3308,
-        "xg_home": 0.948,
-        "xg_away": 1.08,
+        "over25": 0.3317,
+        "xg_home": 0.952,
+        "xg_away": 1.079,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -4679,11 +4735,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2986,
-          "p_draw": 0.3343,
-          "p_away": 0.3671,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3,
+          "p_draw": 0.334,
+          "p_away": 0.3661,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4696,16 +4752,16 @@
       "away_id": "CSKA Moscow",
       "home_name": "Baltika",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.382,
-      "p_draw": 0.3193,
-      "p_away": 0.2987,
+      "p_home": 0.3838,
+      "p_draw": 0.3188,
+      "p_away": 0.2974,
       "extra": {
-        "over25": 0.376,
-        "xg_home": 1.18,
-        "xg_away": 1.015,
+        "over25": 0.377,
+        "xg_home": 1.185,
+        "xg_away": 1.014,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.38 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -4720,11 +4776,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.382,
-          "p_draw": 0.3193,
-          "p_away": 0.2987,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3838,
+          "p_draw": 0.3188,
+          "p_away": 0.2974,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4737,21 +4793,21 @@
       "away_id": "Spartak Moscow",
       "home_name": "Orenburg",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.2261,
-      "p_draw": 0.2981,
-      "p_away": 0.4758,
+      "p_home": 0.2174,
+      "p_draw": 0.2971,
+      "p_away": 0.4855,
       "extra": {
-        "over25": 0.4082,
-        "xg_home": 0.901,
-        "xg_away": 1.414,
-        "team_games": 227,
+        "over25": 0.404,
+        "xg_home": 0.875,
+        "xg_away": 1.425,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.49 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.60 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -4761,11 +4817,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2261,
-          "p_draw": 0.2981,
-          "p_away": 0.4758,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2174,
+          "p_draw": 0.2971,
+          "p_away": 0.4855,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4778,15 +4834,15 @@
       "away_id": "Zenit",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.199,
+      "p_home": 0.2,
       "p_draw": 0.2538,
-      "p_away": 0.5472,
+      "p_away": 0.5461,
       "extra": {
-        "over25": 0.5359,
-        "xg_home": 1.016,
+        "over25": 0.5368,
+        "xg_home": 1.02,
         "xg_away": 1.806,
         "team_games": 433,
         "verdict_given": false,
@@ -4802,11 +4858,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.199,
+          "p_home": 0.2,
           "p_draw": 0.2538,
-          "p_away": 0.5472,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.5461,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4819,15 +4875,15 @@
       "away_id": "Rodina Moscow",
       "home_name": "Krasnodar",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.7728,
-      "p_draw": 0.1484,
-      "p_away": 0.0788,
+      "p_home": 0.7736,
+      "p_draw": 0.1478,
+      "p_away": 0.0786,
       "extra": {
-        "over25": 0.7078,
-        "xg_home": 2.812,
+        "over25": 0.7089,
+        "xg_home": 2.818,
         "xg_away": 0.849,
         "team_games": 16,
         "verdict_given": true,
@@ -4843,11 +4899,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7728,
-          "p_draw": 0.1484,
-          "p_away": 0.0788,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7736,
+          "p_draw": 0.1478,
+          "p_away": 0.0786,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4860,16 +4916,16 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.2575,
+      "p_home": 0.2588,
       "p_draw": 0.2846,
-      "p_away": 0.4579,
+      "p_away": 0.4566,
       "extra": {
-        "over25": 0.4758,
-        "xg_home": 1.074,
-        "xg_away": 1.503,
+        "over25": 0.4764,
+        "xg_home": 1.078,
+        "xg_away": 1.502,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.46 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -4884,11 +4940,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2575,
+          "p_home": 0.2588,
           "p_draw": 0.2846,
-          "p_away": 0.4579,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.4566,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4901,19 +4957,19 @@
       "away_id": "Akron Togliatti",
       "home_name": "Fakel Voronezh",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3687.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3680.87,
       "stage": "T-72h+",
-      "p_home": 0.2897,
+      "p_home": 0.2868,
       "p_draw": 0.3066,
-      "p_away": 0.4037,
+      "p_away": 0.4066,
       "extra": {
-        "over25": 0.4148,
-        "xg_home": 1.054,
-        "xg_away": 1.287,
-        "team_games": 75,
+        "over25": 0.4137,
+        "xg_home": 1.046,
+        "xg_away": 1.291,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.40 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -4925,11 +4981,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2897,
+          "p_home": 0.2868,
           "p_draw": 0.3066,
-          "p_away": 0.4037,
-          "hours_before": 3687.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.4066,
+          "hours_before": 3680.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4942,15 +4998,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Dynamo Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.7357,
-      "p_draw": 0.1902,
-      "p_away": 0.074,
+      "p_home": 0.7368,
+      "p_draw": 0.1895,
+      "p_away": 0.0738,
       "extra": {
-        "over25": 0.5133,
-        "xg_home": 2.165,
+        "over25": 0.5149,
+        "xg_home": 2.171,
         "xg_away": 0.564,
         "team_games": 106,
         "verdict_given": true,
@@ -4966,11 +5022,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7357,
-          "p_draw": 0.1902,
-          "p_away": 0.074,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7368,
+          "p_draw": 0.1895,
+          "p_away": 0.0738,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -4983,17 +5039,17 @@
       "away_id": "CSKA Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.511,
-      "p_draw": 0.2668,
-      "p_away": 0.2222,
+      "p_home": 0.5069,
+      "p_draw": 0.2681,
+      "p_away": 0.225,
       "extra": {
-        "over25": 0.5128,
-        "xg_home": 1.683,
-        "xg_away": 1.043,
-        "team_games": 433,
+        "over25": 0.5102,
+        "xg_home": 1.669,
+        "xg_away": 1.046,
+        "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.51 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
@@ -5007,11 +5063,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.511,
-          "p_draw": 0.2668,
-          "p_away": 0.2222,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5069,
+          "p_draw": 0.2681,
+          "p_away": 0.225,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5024,15 +5080,15 @@
       "away_id": "Akhmat Grozny",
       "home_name": "FK Rostov",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.4238,
-      "p_draw": 0.3235,
-      "p_away": 0.2528,
+      "p_home": 0.4248,
+      "p_draw": 0.3229,
+      "p_away": 0.2523,
       "extra": {
-        "over25": 0.3472,
-        "xg_home": 1.211,
+        "over25": 0.3482,
+        "xg_home": 1.215,
         "xg_away": 0.877,
         "team_games": 434,
         "verdict_given": false,
@@ -5048,11 +5104,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4238,
-          "p_draw": 0.3235,
-          "p_away": 0.2528,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4248,
+          "p_draw": 0.3229,
+          "p_away": 0.2523,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5065,19 +5121,19 @@
       "away_id": "Orenburg",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.4571,
-      "p_draw": 0.295,
-      "p_away": 0.2479,
+      "p_home": 0.4751,
+      "p_draw": 0.2919,
+      "p_away": 0.233,
       "extra": {
-        "over25": 0.4338,
-        "xg_home": 1.425,
-        "xg_away": 0.989,
-        "team_games": 227,
+        "over25": 0.4331,
+        "xg_home": 1.458,
+        "xg_away": 0.952,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.46 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -5089,11 +5145,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4571,
-          "p_draw": 0.295,
-          "p_away": 0.2479,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4751,
+          "p_draw": 0.2919,
+          "p_away": 0.233,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5106,16 +5162,16 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Rodina Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.4175,
-      "p_draw": 0.282,
-      "p_away": 0.3005,
+      "p_home": 0.4191,
+      "p_draw": 0.2815,
+      "p_away": 0.2994,
       "extra": {
-        "over25": 0.5068,
-        "xg_home": 1.478,
-        "xg_away": 1.224,
+        "over25": 0.5078,
+        "xg_home": 1.483,
+        "xg_away": 1.223,
         "team_games": 16,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -5130,11 +5186,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4175,
-          "p_draw": 0.282,
-          "p_away": 0.3005,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4191,
+          "p_draw": 0.2815,
+          "p_away": 0.2994,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5147,16 +5203,16 @@
       "away_id": "Baltika",
       "home_name": "Rubin Kazan",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.2976,
-      "p_draw": 0.3581,
-      "p_away": 0.3443,
+      "p_home": 0.2986,
+      "p_draw": 0.3577,
+      "p_away": 0.3437,
       "extra": {
-        "over25": 0.2676,
-        "xg_home": 0.854,
-        "xg_away": 0.939,
+        "over25": 0.2685,
+        "xg_home": 0.857,
+        "xg_away": 0.94,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -5171,11 +5227,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2976,
-          "p_draw": 0.3581,
-          "p_away": 0.3443,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2986,
+          "p_draw": 0.3577,
+          "p_away": 0.3437,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5188,21 +5244,21 @@
       "away_id": "Krasnodar",
       "home_name": "Akron Togliatti",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.1942,
-      "p_draw": 0.2242,
-      "p_away": 0.5816,
+      "p_home": 0.1994,
+      "p_draw": 0.2267,
+      "p_away": 0.5738,
       "extra": {
-        "over25": 0.645,
-        "xg_home": 1.185,
-        "xg_away": 2.138,
-        "team_games": 75,
+        "over25": 0.6413,
+        "xg_home": 1.194,
+        "xg_away": 2.11,
+        "team_games": 76,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.65 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.64 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -5212,11 +5268,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1942,
-          "p_draw": 0.2242,
-          "p_away": 0.5816,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1994,
+          "p_draw": 0.2267,
+          "p_away": 0.5738,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5229,21 +5285,21 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Zenit",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 3855.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 3848.87,
       "stage": "T-72h+",
-      "p_home": 0.7467,
-      "p_draw": 0.1711,
-      "p_away": 0.0822,
+      "p_home": 0.7343,
+      "p_draw": 0.1776,
+      "p_away": 0.088,
       "extra": {
-        "over25": 0.6198,
-        "xg_home": 2.468,
-        "xg_away": 0.731,
-        "team_games": 349,
+        "over25": 0.6111,
+        "xg_home": 2.412,
+        "xg_away": 0.745,
+        "team_games": 350,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.62 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.61 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -5253,11 +5309,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7467,
-          "p_draw": 0.1711,
-          "p_away": 0.0822,
-          "hours_before": 3855.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7343,
+          "p_draw": 0.1776,
+          "p_away": 0.088,
+          "hours_before": 3848.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5270,19 +5326,19 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Baltika",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.5328,
-      "p_draw": 0.2776,
-      "p_away": 0.1896,
+      "p_home": 0.5199,
+      "p_draw": 0.2818,
+      "p_away": 0.1983,
       "extra": {
-        "over25": 0.4405,
-        "xg_home": 1.584,
-        "xg_away": 0.855,
+        "over25": 0.4355,
+        "xg_home": 1.549,
+        "xg_away": 0.871,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.53 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -5294,11 +5350,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5328,
-          "p_draw": 0.2776,
-          "p_away": 0.1896,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5199,
+          "p_draw": 0.2818,
+          "p_away": 0.1983,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5311,19 +5367,19 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Orenburg",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.5366,
-      "p_draw": 0.3111,
-      "p_away": 0.1524,
+      "p_home": 0.5201,
+      "p_draw": 0.3185,
+      "p_away": 0.1614,
       "extra": {
-        "over25": 0.3019,
-        "xg_home": 1.331,
-        "xg_away": 0.59,
+        "over25": 0.2931,
+        "xg_home": 1.287,
+        "xg_away": 0.602,
         "team_games": 106,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.54 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -5335,11 +5391,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5366,
-          "p_draw": 0.3111,
-          "p_away": 0.1524,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5201,
+          "p_draw": 0.3185,
+          "p_away": 0.1614,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5352,15 +5408,15 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "Krasnodar",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.7345,
-      "p_draw": 0.177,
-      "p_away": 0.0885,
+      "p_home": 0.7355,
+      "p_draw": 0.1763,
+      "p_away": 0.0881,
       "extra": {
-        "over25": 0.6157,
-        "xg_home": 2.425,
+        "over25": 0.617,
+        "xg_home": 2.431,
         "xg_away": 0.754,
         "team_games": 73,
         "verdict_given": true,
@@ -5376,11 +5432,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7345,
-          "p_draw": 0.177,
-          "p_away": 0.0885,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.7355,
+          "p_draw": 0.1763,
+          "p_away": 0.0881,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5393,16 +5449,16 @@
       "away_id": "Zenit",
       "home_name": "Akhmat Grozny",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.1634,
-      "p_draw": 0.2636,
-      "p_away": 0.5731,
+      "p_home": 0.1643,
+      "p_draw": 0.2637,
+      "p_away": 0.5719,
       "extra": {
-        "over25": 0.4536,
-        "xg_home": 0.801,
-        "xg_away": 1.689,
+        "over25": 0.454,
+        "xg_home": 0.804,
+        "xg_away": 1.688,
         "team_games": 433,
         "verdict_given": true,
         "verdict_reason": "",
@@ -5417,11 +5473,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1634,
-          "p_draw": 0.2636,
-          "p_away": 0.5731,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1643,
+          "p_draw": 0.2637,
+          "p_away": 0.5719,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5434,16 +5490,16 @@
       "away_id": "Dynamo Moscow",
       "home_name": "CSKA Moscow",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.3899,
-      "p_draw": 0.2802,
-      "p_away": 0.3299,
+      "p_home": 0.3913,
+      "p_draw": 0.2798,
+      "p_away": 0.3289,
       "extra": {
-        "over25": 0.5217,
-        "xg_home": 1.447,
-        "xg_away": 1.316,
+        "over25": 0.5227,
+        "xg_home": 1.452,
+        "xg_away": 1.315,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -5458,11 +5514,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3899,
-          "p_draw": 0.2802,
-          "p_away": 0.3299,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3913,
+          "p_draw": 0.2798,
+          "p_away": 0.3289,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5475,16 +5531,16 @@
       "away_id": "Spartak Moscow",
       "home_name": "Rodina Moscow",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.1488,
-      "p_draw": 0.2168,
-      "p_away": 0.6344,
+      "p_home": 0.1532,
+      "p_draw": 0.2199,
+      "p_away": 0.6269,
       "extra": {
-        "over25": 0.6024,
-        "xg_home": 0.966,
-        "xg_away": 2.15,
+        "over25": 0.5979,
+        "xg_home": 0.974,
+        "xg_away": 2.122,
         "team_games": 16,
         "verdict_given": true,
         "verdict_reason": "",
@@ -5499,11 +5555,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1488,
-          "p_draw": 0.2168,
-          "p_away": 0.6344,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1532,
+          "p_draw": 0.2199,
+          "p_away": 0.6269,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5516,16 +5572,16 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.3713,
-      "p_draw": 0.3132,
-      "p_away": 0.3155,
+      "p_home": 0.3729,
+      "p_draw": 0.3127,
+      "p_away": 0.3145,
       "extra": {
-        "over25": 0.3992,
-        "xg_home": 1.197,
-        "xg_away": 1.085,
+        "over25": 0.4004,
+        "xg_home": 1.202,
+        "xg_away": 1.084,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -5540,11 +5596,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3713,
-          "p_draw": 0.3132,
-          "p_away": 0.3155,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3729,
+          "p_draw": 0.3127,
+          "p_away": 0.3145,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5557,17 +5613,17 @@
       "away_id": "FK Rostov",
       "home_name": "Akron Togliatti",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4023.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4016.87,
       "stage": "T-72h+",
-      "p_home": 0.3391,
-      "p_draw": 0.2971,
-      "p_away": 0.3638,
+      "p_home": 0.3451,
+      "p_draw": 0.2976,
+      "p_away": 0.3573,
       "extra": {
-        "over25": 0.4585,
-        "xg_home": 1.229,
-        "xg_away": 1.281,
-        "team_games": 75,
+        "over25": 0.4568,
+        "xg_home": 1.238,
+        "xg_away": 1.264,
+        "team_games": 76,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
@@ -5581,11 +5637,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3391,
-          "p_draw": 0.2971,
-          "p_away": 0.3638,
-          "hours_before": 4023.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3451,
+          "p_draw": 0.2976,
+          "p_away": 0.3573,
+          "hours_before": 4016.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5598,17 +5654,17 @@
       "away_id": "Akron Togliatti",
       "home_name": "Dynamo Moscow",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.691,
-      "p_draw": 0.1871,
-      "p_away": 0.1219,
+      "p_home": 0.6866,
+      "p_draw": 0.1892,
+      "p_away": 0.1243,
       "extra": {
-        "over25": 0.6662,
-        "xg_home": 2.458,
-        "xg_away": 0.973,
-        "team_games": 75,
+        "over25": 0.6626,
+        "xg_home": 2.437,
+        "xg_away": 0.976,
+        "team_games": 76,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": true,
@@ -5622,11 +5678,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.691,
-          "p_draw": 0.1871,
-          "p_away": 0.1219,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6866,
+          "p_draw": 0.1892,
+          "p_away": 0.1243,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5639,16 +5695,16 @@
       "away_id": "Baltika",
       "home_name": "Spartak Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.5032,
-      "p_draw": 0.2922,
-      "p_away": 0.2046,
+      "p_home": 0.4989,
+      "p_draw": 0.2937,
+      "p_away": 0.2074,
       "extra": {
-        "over25": 0.4086,
-        "xg_home": 1.467,
-        "xg_away": 0.85,
+        "over25": 0.406,
+        "xg_home": 1.454,
+        "xg_away": 0.854,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.50 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -5663,11 +5719,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5032,
-          "p_draw": 0.2922,
-          "p_away": 0.2046,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4989,
+          "p_draw": 0.2937,
+          "p_away": 0.2074,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5680,21 +5736,21 @@
       "away_id": "CSKA Moscow",
       "home_name": "Krylya Sovetov",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.2848,
-      "p_draw": 0.2751,
-      "p_away": 0.4401,
+      "p_home": 0.2993,
+      "p_draw": 0.2775,
+      "p_away": 0.4233,
       "extra": {
-        "over25": 0.5263,
-        "xg_home": 1.22,
-        "xg_away": 1.563,
-        "team_games": 349,
+        "over25": 0.5231,
+        "xg_home": 1.248,
+        "xg_away": 1.521,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.53 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.52 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -5704,11 +5760,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2848,
-          "p_draw": 0.2751,
-          "p_away": 0.4401,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2993,
+          "p_draw": 0.2775,
+          "p_away": 0.4233,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5721,19 +5777,19 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.3209,
-      "p_draw": 0.3138,
-      "p_away": 0.3653,
+      "p_home": 0.3224,
+      "p_draw": 0.3135,
+      "p_away": 0.3641,
       "extra": {
-        "over25": 0.3981,
-        "xg_home": 1.094,
-        "xg_away": 1.184,
+        "over25": 0.3989,
+        "xg_home": 1.098,
+        "xg_away": 1.183,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.37 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.36 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.60 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -5745,11 +5801,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3209,
-          "p_draw": 0.3138,
-          "p_away": 0.3653,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3224,
+          "p_draw": 0.3135,
+          "p_away": 0.3641,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5762,19 +5818,19 @@
       "away_id": "Orenburg",
       "home_name": "FK Rostov",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.4061,
-      "p_draw": 0.3394,
-      "p_away": 0.2545,
+      "p_home": 0.4217,
+      "p_draw": 0.3374,
+      "p_away": 0.2409,
       "extra": {
-        "over25": 0.3042,
-        "xg_home": 1.108,
-        "xg_away": 0.822,
-        "team_games": 227,
+        "over25": 0.3032,
+        "xg_home": 1.134,
+        "xg_away": 0.792,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -5786,11 +5842,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4061,
-          "p_draw": 0.3394,
-          "p_away": 0.2545,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4217,
+          "p_draw": 0.3374,
+          "p_away": 0.2409,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5803,15 +5859,15 @@
       "away_id": "Rodina Moscow",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.6157,
-      "p_draw": 0.2185,
-      "p_away": 0.1658,
+      "p_home": 0.6169,
+      "p_draw": 0.2179,
+      "p_away": 0.1652,
       "extra": {
-        "over25": 0.6254,
-        "xg_home": 2.166,
+        "over25": 0.6266,
+        "xg_home": 2.171,
         "xg_away": 1.06,
         "team_games": 16,
         "verdict_given": true,
@@ -5827,11 +5883,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6157,
-          "p_draw": 0.2185,
-          "p_away": 0.1658,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6169,
+          "p_draw": 0.2179,
+          "p_away": 0.1652,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5844,21 +5900,21 @@
       "away_id": "Krasnodar",
       "home_name": "Zenit",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.5349,
-      "p_draw": 0.2549,
-      "p_away": 0.2102,
+      "p_home": 0.5367,
+      "p_draw": 0.2541,
+      "p_away": 0.2092,
       "extra": {
-        "over25": 0.5449,
-        "xg_home": 1.8,
-        "xg_away": 1.061,
+        "over25": 0.5464,
+        "xg_home": 1.807,
+        "xg_away": 1.06,
         "team_games": 433,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.53 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.54 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.54 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.55 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -5868,11 +5924,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5349,
-          "p_draw": 0.2549,
-          "p_away": 0.2102,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5367,
+          "p_draw": 0.2541,
+          "p_away": 0.2092,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5885,15 +5941,15 @@
       "away_id": "Rubin Kazan",
       "home_name": "Fakel Voronezh",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4191.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4184.87,
       "stage": "T-72h+",
-      "p_home": 0.2261,
-      "p_draw": 0.3563,
-      "p_away": 0.4176,
+      "p_home": 0.2272,
+      "p_draw": 0.356,
+      "p_away": 0.4168,
       "extra": {
-        "over25": 0.2525,
-        "xg_home": 0.694,
+        "over25": 0.2532,
+        "xg_home": 0.698,
         "xg_away": 1.042,
         "team_games": 106,
         "verdict_given": false,
@@ -5909,11 +5965,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2261,
-          "p_draw": 0.3563,
-          "p_away": 0.4176,
-          "hours_before": 4191.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2272,
+          "p_draw": 0.356,
+          "p_away": 0.4168,
+          "hours_before": 4184.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5926,16 +5982,16 @@
       "away_id": "FK Rostov",
       "home_name": "Dynamo Moscow",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.553,
-      "p_draw": 0.2681,
-      "p_away": 0.1789,
+      "p_home": 0.5549,
+      "p_draw": 0.2671,
+      "p_away": 0.1779,
       "extra": {
-        "over25": 0.4596,
-        "xg_home": 1.661,
-        "xg_away": 0.852,
+        "over25": 0.4611,
+        "xg_home": 1.668,
+        "xg_away": 0.851,
         "team_games": 404,
         "verdict_given": true,
         "verdict_reason": "",
@@ -5950,11 +6006,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.553,
-          "p_draw": 0.2681,
-          "p_away": 0.1789,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5549,
+          "p_draw": 0.2671,
+          "p_away": 0.1779,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -5967,21 +6023,21 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Spartak Moscow",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.6114,
-      "p_draw": 0.2269,
-      "p_away": 0.1617,
+      "p_home": 0.6071,
+      "p_draw": 0.2287,
+      "p_away": 0.1642,
       "extra": {
-        "over25": 0.5854,
-        "xg_home": 2.057,
-        "xg_away": 0.982,
-        "team_games": 433,
+        "over25": 0.5824,
+        "xg_home": 2.04,
+        "xg_away": 0.985,
+        "team_games": 434,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -5991,11 +6047,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6114,
-          "p_draw": 0.2269,
-          "p_away": 0.1617,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6071,
+          "p_draw": 0.2287,
+          "p_away": 0.1642,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6008,19 +6064,19 @@
       "away_id": "Rubin Kazan",
       "home_name": "Krylya Sovetov",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.3802,
-      "p_draw": 0.3141,
-      "p_away": 0.3058,
+      "p_home": 0.3945,
+      "p_draw": 0.3129,
+      "p_away": 0.2926,
       "extra": {
         "over25": 0.3946,
-        "xg_home": 1.207,
-        "xg_away": 1.057,
-        "team_games": 349,
+        "xg_home": 1.235,
+        "xg_away": 1.03,
+        "team_games": 350,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.38 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.61 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -6032,11 +6088,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3802,
-          "p_draw": 0.3141,
-          "p_away": 0.3058,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3945,
+          "p_draw": 0.3129,
+          "p_away": 0.2926,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6049,16 +6105,16 @@
       "away_id": "Zenit",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.111,
-      "p_draw": 0.218,
-      "p_away": 0.6709,
+      "p_home": 0.1119,
+      "p_draw": 0.2184,
+      "p_away": 0.6697,
       "extra": {
-        "over25": 0.5161,
-        "xg_home": 0.714,
-        "xg_away": 2.026,
+        "over25": 0.5163,
+        "xg_home": 0.717,
+        "xg_away": 2.024,
         "team_games": 73,
         "verdict_given": true,
         "verdict_reason": "",
@@ -6073,11 +6129,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.111,
-          "p_draw": 0.218,
-          "p_away": 0.6709,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1119,
+          "p_draw": 0.2184,
+          "p_away": 0.6697,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6090,15 +6146,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Baltika",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.6278,
-      "p_draw": 0.2689,
-      "p_away": 0.1033,
+      "p_home": 0.6294,
+      "p_draw": 0.2678,
+      "p_away": 0.1028,
       "extra": {
-        "over25": 0.3377,
-        "xg_home": 1.561,
+        "over25": 0.3393,
+        "xg_home": 1.567,
         "xg_away": 0.492,
         "team_games": 73,
         "verdict_given": true,
@@ -6114,11 +6170,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6278,
-          "p_draw": 0.2689,
-          "p_away": 0.1033,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6294,
+          "p_draw": 0.2678,
+          "p_away": 0.1028,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6131,21 +6187,21 @@
       "away_id": "Orenburg",
       "home_name": "Krasnodar",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.6131,
-      "p_draw": 0.2433,
-      "p_away": 0.1436,
+      "p_home": 0.6302,
+      "p_draw": 0.2367,
+      "p_away": 0.1331,
       "extra": {
-        "over25": 0.492,
-        "xg_home": 1.85,
-        "xg_away": 0.792,
-        "team_games": 227,
+        "over25": 0.4955,
+        "xg_home": 1.893,
+        "xg_away": 0.763,
+        "team_games": 228,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.51 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.50 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6155,11 +6211,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6131,
-          "p_draw": 0.2433,
-          "p_away": 0.1436,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6302,
+          "p_draw": 0.2367,
+          "p_away": 0.1331,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6172,17 +6228,17 @@
       "away_id": "Akron Togliatti",
       "home_name": "CSKA Moscow",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.6379,
-      "p_draw": 0.2145,
-      "p_away": 0.1476,
+      "p_home": 0.6333,
+      "p_draw": 0.2165,
+      "p_away": 0.1502,
       "extra": {
-        "over25": 0.6092,
-        "xg_home": 2.175,
-        "xg_away": 0.973,
-        "team_games": 75,
+        "over25": 0.6058,
+        "xg_home": 2.156,
+        "xg_away": 0.976,
+        "team_games": 76,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
@@ -6196,11 +6252,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6379,
-          "p_draw": 0.2145,
-          "p_away": 0.1476,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6333,
+          "p_draw": 0.2165,
+          "p_away": 0.1502,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6213,16 +6269,16 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Rodina Moscow",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4359.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4352.87,
       "stage": "T-72h+",
-      "p_home": 0.3223,
-      "p_draw": 0.29,
-      "p_away": 0.3877,
+      "p_home": 0.3239,
+      "p_draw": 0.2898,
+      "p_away": 0.3864,
       "extra": {
-        "over25": 0.4828,
-        "xg_home": 1.233,
-        "xg_away": 1.373,
+        "over25": 0.4835,
+        "xg_home": 1.237,
+        "xg_away": 1.371,
         "team_games": 16,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.39 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -6237,11 +6293,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3223,
-          "p_draw": 0.29,
-          "p_away": 0.3877,
-          "hours_before": 4359.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3239,
+          "p_draw": 0.2898,
+          "p_away": 0.3864,
+          "hours_before": 4352.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6254,16 +6310,16 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "FK Rostov",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.5172,
-      "p_draw": 0.2942,
-      "p_away": 0.1886,
+      "p_home": 0.5181,
+      "p_draw": 0.2936,
+      "p_away": 0.1883,
       "extra": {
-        "over25": 0.3866,
-        "xg_home": 1.453,
-        "xg_away": 0.782,
+        "over25": 0.3877,
+        "xg_home": 1.456,
+        "xg_away": 0.783,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -6278,11 +6334,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5172,
-          "p_draw": 0.2942,
-          "p_away": 0.1886,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5181,
+          "p_draw": 0.2936,
+          "p_away": 0.1883,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6295,21 +6351,21 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Orenburg",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.2608,
-      "p_draw": 0.2998,
-      "p_away": 0.4395,
+      "p_home": 0.2474,
+      "p_draw": 0.2978,
+      "p_away": 0.4548,
       "extra": {
-        "over25": 0.4253,
-        "xg_home": 1.006,
-        "xg_away": 1.375,
-        "team_games": 227,
+        "over25": 0.4236,
+        "xg_home": 0.973,
+        "xg_away": 1.402,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.45 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.58 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6319,11 +6375,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2608,
-          "p_draw": 0.2998,
-          "p_away": 0.4395,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2474,
+          "p_draw": 0.2978,
+          "p_away": 0.4548,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6336,15 +6392,15 @@
       "away_id": "Baltika",
       "home_name": "Lokomotiv Moscow",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.3526,
-      "p_draw": 0.3088,
-      "p_away": 0.3386,
+      "p_home": 0.3535,
+      "p_draw": 0.3084,
+      "p_away": 0.3381,
       "extra": {
-        "over25": 0.4166,
-        "xg_home": 1.188,
+        "over25": 0.4177,
+        "xg_home": 1.192,
         "xg_away": 1.16,
         "team_games": 73,
         "verdict_given": false,
@@ -6360,11 +6416,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3526,
-          "p_draw": 0.3088,
-          "p_away": 0.3386,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3535,
+          "p_draw": 0.3084,
+          "p_away": 0.3381,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6377,16 +6433,16 @@
       "away_id": "Krasnodar",
       "home_name": "Akhmat Grozny",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.2327,
+      "p_home": 0.2341,
       "p_draw": 0.2727,
-      "p_away": 0.4946,
+      "p_away": 0.4932,
       "extra": {
-        "over25": 0.5008,
-        "xg_home": 1.052,
-        "xg_away": 1.626,
+        "over25": 0.5013,
+        "xg_home": 1.056,
+        "xg_away": 1.624,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.49 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -6401,11 +6457,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2327,
+          "p_home": 0.2341,
           "p_draw": 0.2727,
-          "p_away": 0.4946,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_away": 0.4932,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6418,15 +6474,15 @@
       "away_id": "CSKA Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.2938,
-      "p_draw": 0.3244,
-      "p_away": 0.3817,
+      "p_home": 0.2953,
+      "p_draw": 0.3241,
+      "p_away": 0.3806,
       "extra": {
-        "over25": 0.3591,
-        "xg_home": 0.98,
+        "over25": 0.3599,
+        "xg_home": 0.984,
         "xg_away": 1.152,
         "team_games": 404,
         "verdict_given": false,
@@ -6442,11 +6498,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2938,
-          "p_draw": 0.3244,
-          "p_away": 0.3817,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2953,
+          "p_draw": 0.3241,
+          "p_away": 0.3806,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6459,21 +6515,21 @@
       "away_id": "Rodina Moscow",
       "home_name": "Akron Togliatti",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.5082,
-      "p_draw": 0.2436,
-      "p_away": 0.2482,
+      "p_home": 0.5144,
+      "p_draw": 0.2426,
+      "p_away": 0.243,
       "extra": {
-        "over25": 0.6255,
-        "xg_home": 1.923,
-        "xg_away": 1.303,
+        "over25": 0.6247,
+        "xg_home": 1.935,
+        "xg_away": 1.287,
         "team_games": 16,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.51 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.63 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.62 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6483,11 +6539,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5082,
-          "p_draw": 0.2436,
-          "p_away": 0.2482,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5144,
+          "p_draw": 0.2426,
+          "p_away": 0.243,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6500,19 +6556,19 @@
       "away_id": "Spartak Moscow",
       "home_name": "Zenit",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.5102,
-      "p_draw": 0.2707,
-      "p_away": 0.2191,
+      "p_home": 0.5161,
+      "p_draw": 0.2693,
+      "p_away": 0.2145,
       "extra": {
-        "over25": 0.4956,
-        "xg_home": 1.647,
-        "xg_away": 1.009,
+        "over25": 0.4955,
+        "xg_home": 1.659,
+        "xg_away": 0.997,
         "team_games": 433,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.51 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.50 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -6524,11 +6580,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5102,
-          "p_draw": 0.2707,
-          "p_away": 0.2191,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5161,
+          "p_draw": 0.2693,
+          "p_away": 0.2145,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6541,19 +6597,19 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Fakel Voronezh",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4527.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4520.87,
       "stage": "T-72h+",
-      "p_home": 0.2564,
-      "p_draw": 0.3106,
-      "p_away": 0.433,
+      "p_home": 0.2466,
+      "p_draw": 0.3085,
+      "p_away": 0.4449,
       "extra": {
-        "over25": 0.3877,
-        "xg_home": 0.942,
-        "xg_away": 1.297,
+        "over25": 0.3887,
+        "xg_home": 0.921,
+        "xg_away": 1.321,
         "team_games": 106,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.43 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.61 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -6565,11 +6621,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2564,
-          "p_draw": 0.3106,
-          "p_away": 0.433,
-          "hours_before": 4527.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2466,
+          "p_draw": 0.3085,
+          "p_away": 0.4449,
+          "hours_before": 4520.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6582,16 +6638,16 @@
       "away_id": "Zenit",
       "home_name": "Dynamo Moscow",
       "away_name": "Zenit",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.2997,
-      "p_draw": 0.2822,
-      "p_away": 0.4181,
+      "p_home": 0.301,
+      "p_draw": 0.282,
+      "p_away": 0.417,
       "extra": {
-        "over25": 0.5058,
-        "xg_home": 1.22,
-        "xg_away": 1.478,
+        "over25": 0.5067,
+        "xg_home": 1.225,
+        "xg_away": 1.477,
         "team_games": 404,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.42 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -6606,11 +6662,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2997,
-          "p_draw": 0.2822,
-          "p_away": 0.4181,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.301,
+          "p_draw": 0.282,
+          "p_away": 0.417,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6623,21 +6679,21 @@
       "away_id": "Krylya Sovetov",
       "home_name": "Spartak Moscow",
       "away_name": "Krylya Sovetov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.6763,
-      "p_draw": 0.2016,
-      "p_away": 0.1221,
+      "p_home": 0.6568,
+      "p_draw": 0.2105,
+      "p_away": 0.1327,
       "extra": {
-        "over25": 0.6069,
-        "xg_home": 2.259,
-        "xg_away": 0.878,
-        "team_games": 349,
+        "over25": 0.5946,
+        "xg_home": 2.182,
+        "xg_away": 0.899,
+        "team_games": 350,
         "verdict_given": true,
         "verdict_reason": "",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.61 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.59 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6647,11 +6703,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6763,
-          "p_draw": 0.2016,
-          "p_away": 0.1221,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6568,
+          "p_draw": 0.2105,
+          "p_away": 0.1327,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6664,19 +6720,19 @@
       "away_id": "Akhmat Grozny",
       "home_name": "Orenburg",
       "away_name": "Akhmat Grozny",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.3991,
-      "p_draw": 0.3295,
-      "p_away": 0.2715,
+      "p_home": 0.3832,
+      "p_draw": 0.3326,
+      "p_away": 0.2841,
       "extra": {
-        "over25": 0.3375,
-        "xg_home": 1.15,
-        "xg_away": 0.903,
-        "team_games": 227,
+        "over25": 0.332,
+        "xg_home": 1.111,
+        "xg_away": 0.921,
+        "team_games": 228,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.40 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.38 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -6688,11 +6744,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3991,
-          "p_draw": 0.3295,
-          "p_away": 0.2715,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.3832,
+          "p_draw": 0.3326,
+          "p_away": 0.2841,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6705,19 +6761,19 @@
       "away_id": "FK Rostov",
       "home_name": "Lokomotiv Moscow",
       "away_name": "FK Rostov",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.4334,
-      "p_draw": 0.2976,
-      "p_away": 0.269,
+      "p_home": 0.4353,
+      "p_draw": 0.2969,
+      "p_away": 0.2678,
       "extra": {
-        "over25": 0.4369,
-        "xg_home": 1.384,
-        "xg_away": 1.042,
+        "over25": 0.4383,
+        "xg_home": 1.39,
+        "xg_away": 1.041,
         "team_games": 434,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.43 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
         "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
@@ -6729,11 +6785,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4334,
-          "p_draw": 0.2976,
-          "p_away": 0.269,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4353,
+          "p_draw": 0.2969,
+          "p_away": 0.2678,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6746,15 +6802,15 @@
       "away_id": "Dynamo Makhachkala",
       "home_name": "CSKA Moscow",
       "away_name": "Dynamo Makhachkala",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.6481,
-      "p_draw": 0.2261,
-      "p_away": 0.1258,
+      "p_home": 0.6492,
+      "p_draw": 0.2254,
+      "p_away": 0.1253,
       "extra": {
-        "over25": 0.5196,
-        "xg_home": 1.984,
+        "over25": 0.5209,
+        "xg_home": 1.99,
         "xg_away": 0.77,
         "team_games": 73,
         "verdict_given": true,
@@ -6770,11 +6826,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6481,
-          "p_draw": 0.2261,
-          "p_away": 0.1258,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6492,
+          "p_draw": 0.2254,
+          "p_away": 0.1253,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6787,21 +6843,21 @@
       "away_id": "Rodina Moscow",
       "home_name": "Rubin Kazan",
       "away_name": "Rodina Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.5248,
-      "p_draw": 0.281,
-      "p_away": 0.1942,
+      "p_home": 0.5261,
+      "p_draw": 0.2803,
+      "p_away": 0.1936,
       "extra": {
-        "over25": 0.4343,
-        "xg_home": 1.557,
-        "xg_away": 0.859,
+        "over25": 0.4355,
+        "xg_home": 1.562,
+        "xg_away": 0.858,
         "team_games": 16,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.52 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.53 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТМ 0.57 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТМ 0.56 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6811,11 +6867,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5248,
-          "p_draw": 0.281,
-          "p_away": 0.1942,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.5261,
+          "p_draw": 0.2803,
+          "p_away": 0.1936,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6828,16 +6884,16 @@
       "away_id": "Baltika",
       "home_name": "Akron Togliatti",
       "away_name": "Baltika",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.2654,
-      "p_draw": 0.2929,
-      "p_away": 0.4417,
+      "p_home": 0.2701,
+      "p_draw": 0.2942,
+      "p_away": 0.4356,
       "extra": {
-        "over25": 0.4512,
-        "xg_home": 1.055,
-        "xg_away": 1.426,
+        "over25": 0.4487,
+        "xg_home": 1.062,
+        "xg_away": 1.409,
         "team_games": 73,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.44 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -6852,11 +6908,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2654,
-          "p_draw": 0.2929,
-          "p_away": 0.4417,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2701,
+          "p_draw": 0.2942,
+          "p_away": 0.4356,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6869,16 +6925,16 @@
       "away_id": "Krasnodar",
       "home_name": "Fakel Voronezh",
       "away_name": "Krasnodar",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4695.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4688.87,
       "stage": "T-72h+",
-      "p_home": 0.118,
-      "p_draw": 0.2341,
-      "p_away": 0.6479,
+      "p_home": 0.1189,
+      "p_draw": 0.2345,
+      "p_away": 0.6465,
       "extra": {
-        "over25": 0.4738,
-        "xg_home": 0.687,
-        "xg_away": 1.882,
+        "over25": 0.474,
+        "xg_home": 0.69,
+        "xg_away": 1.88,
         "team_games": 106,
         "verdict_given": true,
         "verdict_reason": "",
@@ -6893,11 +6949,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.118,
-          "p_draw": 0.2341,
-          "p_away": 0.6479,
-          "hours_before": 4695.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1189,
+          "p_draw": 0.2345,
+          "p_away": 0.6465,
+          "hours_before": 4688.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6910,21 +6966,21 @@
       "away_id": "Akron Togliatti",
       "home_name": "Krylya Sovetov",
       "away_name": "Akron Togliatti",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.4868,
-      "p_draw": 0.2509,
-      "p_away": 0.2623,
+      "p_home": 0.498,
+      "p_draw": 0.2495,
+      "p_away": 0.2525,
       "extra": {
-        "over25": 0.607,
-        "xg_home": 1.832,
-        "xg_away": 1.306,
-        "team_games": 75,
+        "over25": 0.6049,
+        "xg_home": 1.852,
+        "xg_away": 1.276,
+        "team_games": 76,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.49 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.50 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
-        "total_verdict_reason": "вероятность ТБ 0.61 ниже порога 0.65: тотал около линии, модель его не различает"
+        "total_verdict_reason": "вероятность ТБ 0.60 ниже порога 0.65: тотал около линии, модель его не различает"
       },
       "source": "live",
       "odds_home": null,
@@ -6934,11 +6990,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4868,
-          "p_draw": 0.2509,
-          "p_away": 0.2623,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.498,
+          "p_draw": 0.2495,
+          "p_away": 0.2525,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6951,16 +7007,16 @@
       "away_id": "Dynamo Moscow",
       "home_name": "Dynamo Makhachkala",
       "away_name": "Dynamo Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.1859,
-      "p_draw": 0.2534,
-      "p_away": 0.5607,
+      "p_home": 0.1871,
+      "p_draw": 0.2536,
+      "p_away": 0.5593,
       "extra": {
-        "over25": 0.521,
-        "xg_home": 0.957,
-        "xg_away": 1.803,
+        "over25": 0.5214,
+        "xg_home": 0.961,
+        "xg_away": 1.801,
         "team_games": 73,
         "verdict_given": true,
         "verdict_reason": "",
@@ -6975,11 +7031,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.1859,
-          "p_draw": 0.2534,
-          "p_away": 0.5607,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.1871,
+          "p_draw": 0.2536,
+          "p_away": 0.5593,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -6992,17 +7048,17 @@
       "away_id": "Spartak Moscow",
       "home_name": "FK Rostov",
       "away_name": "Spartak Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.2457,
-      "p_draw": 0.3016,
-      "p_away": 0.4527,
+      "p_home": 0.2501,
+      "p_draw": 0.3031,
+      "p_away": 0.4468,
       "extra": {
-        "over25": 0.4103,
-        "xg_home": 0.95,
-        "xg_away": 1.374,
-        "team_games": 433,
+        "over25": 0.4078,
+        "xg_home": 0.956,
+        "xg_away": 1.358,
+        "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.45 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": false,
@@ -7016,11 +7072,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2457,
-          "p_draw": 0.3016,
-          "p_away": 0.4527,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2501,
+          "p_draw": 0.3031,
+          "p_away": 0.4468,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -7033,19 +7089,19 @@
       "away_id": "Orenburg",
       "home_name": "Baltika",
       "away_name": "Orenburg",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.4751,
-      "p_draw": 0.3262,
-      "p_away": 0.1987,
+      "p_home": 0.4914,
+      "p_draw": 0.3219,
+      "p_away": 0.1867,
       "extra": {
-        "over25": 0.3068,
-        "xg_home": 1.234,
-        "xg_away": 0.705,
+        "over25": 0.3078,
+        "xg_home": 1.264,
+        "xg_away": 0.679,
         "team_games": 73,
         "verdict_given": false,
-        "verdict_reason": "вероятность исхода 0.48 ниже порога 0.55: исходы почти равны, модель не различает их",
+        "verdict_reason": "вероятность исхода 0.49 ниже порога 0.55: исходы почти равны, модель не различает их",
         "total_verdict_given": true,
         "total_verdict_reason": ""
       },
@@ -7057,11 +7113,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4751,
-          "p_draw": 0.3262,
-          "p_away": 0.1987,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4914,
+          "p_draw": 0.3219,
+          "p_away": 0.1867,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -7074,15 +7130,15 @@
       "away_id": "Lokomotiv Moscow",
       "home_name": "Krasnodar",
       "away_name": "Lokomotiv Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.6121,
-      "p_draw": 0.2192,
-      "p_away": 0.1687,
+      "p_home": 0.6136,
+      "p_draw": 0.2184,
+      "p_away": 0.1679,
       "extra": {
-        "over25": 0.6274,
-        "xg_home": 2.162,
+        "over25": 0.6289,
+        "xg_home": 2.17,
         "xg_away": 1.073,
         "team_games": 434,
         "verdict_given": true,
@@ -7098,11 +7154,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6121,
-          "p_draw": 0.2192,
-          "p_away": 0.1687,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6136,
+          "p_draw": 0.2184,
+          "p_away": 0.1679,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -7115,15 +7171,15 @@
       "away_id": "Fakel Voronezh",
       "home_name": "Rodina Moscow",
       "away_name": "Fakel Voronezh",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.4805,
-      "p_draw": 0.2967,
-      "p_away": 0.2228,
+      "p_home": 0.4821,
+      "p_draw": 0.2959,
+      "p_away": 0.222,
       "extra": {
-        "over25": 0.4102,
-        "xg_home": 1.427,
+        "over25": 0.4114,
+        "xg_home": 1.432,
         "xg_away": 0.896,
         "team_games": 16,
         "verdict_given": false,
@@ -7139,11 +7195,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4805,
-          "p_draw": 0.2967,
-          "p_away": 0.2228,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.4821,
+          "p_draw": 0.2959,
+          "p_away": 0.222,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -7156,16 +7212,16 @@
       "away_id": "Rubin Kazan",
       "home_name": "Zenit",
       "away_name": "Rubin Kazan",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.6611,
-      "p_draw": 0.2362,
-      "p_away": 0.1027,
+      "p_home": 0.6624,
+      "p_draw": 0.2353,
+      "p_away": 0.1023,
       "extra": {
-        "over25": 0.4322,
-        "xg_home": 1.82,
-        "xg_away": 0.587,
+        "over25": 0.4339,
+        "xg_home": 1.826,
+        "xg_away": 0.588,
         "team_games": 404,
         "verdict_given": true,
         "verdict_reason": "",
@@ -7180,11 +7236,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6611,
-          "p_draw": 0.2362,
-          "p_away": 0.1027,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.6624,
+          "p_draw": 0.2353,
+          "p_away": 0.1023,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     },
@@ -7197,16 +7253,16 @@
       "away_id": "CSKA Moscow",
       "home_name": "Akhmat Grozny",
       "away_name": "CSKA Moscow",
-      "generated_at": "2026-11-08T08:03:12+00:00",
-      "hours_before": 4839.95,
+      "generated_at": "2026-11-08T15:07:54+00:00",
+      "hours_before": 4832.87,
       "stage": "T-72h+",
-      "p_home": 0.2874,
-      "p_draw": 0.3015,
-      "p_away": 0.4111,
+      "p_home": 0.2888,
+      "p_draw": 0.3013,
+      "p_away": 0.4099,
       "extra": {
-        "over25": 0.4315,
-        "xg_home": 1.074,
-        "xg_away": 1.33,
+        "over25": 0.4321,
+        "xg_home": 1.078,
+        "xg_away": 1.329,
         "team_games": 434,
         "verdict_given": false,
         "verdict_reason": "вероятность исхода 0.41 ниже порога 0.55: исходы почти равны, модель не различает их",
@@ -7221,40 +7277,40 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2874,
-          "p_draw": 0.3015,
-          "p_away": 0.4111,
-          "hours_before": 4839.95,
-          "generated_at": "2026-11-08T08:03:12+00:00"
+          "p_home": 0.2888,
+          "p_draw": 0.3013,
+          "p_away": 0.4099,
+          "hours_before": 4832.87,
+          "generated_at": "2026-11-08T15:07:54+00:00"
         }
       ]
     }
   ],
   "summary": {
-    "total": 25,
+    "total": 27,
     "overall": {
-      "n": 25,
-      "accuracy": 0.52,
-      "logloss": 0.99186,
-      "avg_p_actual": 0.4054,
+      "n": 27,
+      "accuracy": 0.5556,
+      "logloss": 0.96489,
+      "avg_p_actual": 0.4168,
       "roi": null,
       "total_staked": null,
       "total_profit": null
     },
     "outcome_market": {
-      "n": 8,
-      "hits": 6,
-      "withheld": 17,
-      "accuracy": 0.75,
+      "n": 9,
+      "hits": 7,
+      "withheld": 18,
+      "accuracy": 0.7778,
       "no_flag": 0
     },
     "total_market": {
-      "n": 4,
-      "hits": 3,
-      "withheld": 21,
+      "n": 5,
+      "hits": 4,
+      "withheld": 22,
       "no_flag": 0,
       "line": 2.5,
-      "accuracy": 0.75
+      "accuracy": 0.8
     },
     "by_stage": {
       "T-24h": {
@@ -7267,10 +7323,10 @@
         "total_profit": null
       },
       "T-6h": {
-        "n": 7,
-        "accuracy": 0.7143,
-        "logloss": 0.94046,
-        "avg_p_actual": 0.4405,
+        "n": 9,
+        "accuracy": 0.7778,
+        "logloss": 0.87096,
+        "avg_p_actual": 0.4669,
         "roi": null,
         "total_staked": null,
         "total_profit": null
@@ -7285,8 +7341,8 @@
         "total_profit": null
       }
     },
-    "multi_stage": 25,
+    "multi_stage": 27,
     "flipped": 2,
-    "avg_shift": 0.041
+    "avg_shift": 0.0388
   }
 }

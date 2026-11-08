@@ -1,23 +1,23 @@
 [
   {
     "team": "15",
-    "attack": 3.52,
-    "defence": 3.09,
-    "overall": 6.61,
+    "attack": 3.57,
+    "defence": 3.1,
+    "overall": 6.67,
     "name": "ЦСКА"
   },
   {
     "team": "697",
     "attack": 2.5,
-    "defence": 2.36,
-    "overall": 4.86,
+    "defence": 2.37,
+    "overall": 4.87,
     "name": "УНИКС"
   },
   {
     "team": "2994",
     "attack": 2.06,
-    "defence": 2.28,
-    "overall": 4.34,
+    "defence": 2.24,
+    "overall": 4.3,
     "name": "Зенит"
   },
   {
@@ -29,14 +29,14 @@
   },
   {
     "team": "1390",
-    "attack": 0.04,
-    "defence": 0.52,
+    "attack": 0.03,
+    "defence": 0.53,
     "overall": 0.56,
     "name": "Уралмаш"
   },
   {
     "team": "3059",
-    "attack": 0.65,
+    "attack": 0.64,
     "defence": -0.26,
     "overall": 0.38,
     "name": "ПАРМА"
@@ -44,13 +44,13 @@
   {
     "team": "563",
     "attack": 0.08,
-    "defence": 0.18,
+    "defence": 0.19,
     "overall": 0.26,
     "name": "Анадолу Эфес"
   },
   {
     "team": "54849",
-    "attack": 0.03,
+    "attack": 0.02,
     "defence": -0.07,
     "overall": -0.05,
     "name": "Игокеа"
@@ -64,14 +64,14 @@
   },
   {
     "team": "2747",
-    "attack": -0.94,
-    "defence": -0.43,
+    "attack": -0.95,
+    "defence": -0.42,
     "overall": -1.37,
     "name": "МБА-МАИ"
   },
   {
     "team": "688",
-    "attack": -0.75,
+    "attack": -0.76,
     "defence": -0.98,
     "overall": -1.74,
     "name": "Енисей"
@@ -92,16 +92,16 @@
   },
   {
     "team": "3206",
-    "attack": -2.11,
+    "attack": -2.12,
     "defence": -1.81,
-    "overall": -3.92,
+    "overall": -3.93,
     "name": "Астана"
   },
   {
     "team": "2792",
-    "attack": -4.02,
+    "attack": -4.03,
     "defence": -3.21,
-    "overall": -7.23,
+    "overall": -7.24,
     "name": "Самара"
   }
 ]
