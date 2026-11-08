@@ -3,15 +3,15 @@
     "team": "21",
     "name": "Avalanche",
     "attack": 0.129,
-    "defence": 0.088,
-    "overall": 0.217
+    "defence": 0.095,
+    "overall": 0.224
   },
   {
     "team": "12",
     "name": "Hurricanes",
-    "attack": 0.11,
-    "defence": 0.083,
-    "overall": 0.192
+    "attack": 0.121,
+    "defence": 0.084,
+    "overall": 0.204
   },
   {
     "team": "14",
@@ -24,176 +24,176 @@
     "team": "25",
     "name": "Stars",
     "attack": 0.043,
-    "defence": 0.112,
-    "overall": 0.155
+    "defence": 0.111,
+    "overall": 0.153
   },
   {
     "team": "54",
     "name": "Golden Knights",
-    "attack": 0.037,
+    "attack": 0.036,
     "defence": 0.065,
     "overall": 0.102
   },
   {
     "team": "22",
     "name": "Oilers",
-    "attack": 0.099,
-    "defence": 0.001,
-    "overall": 0.1
+    "attack": 0.098,
+    "defence": 0.003,
+    "overall": 0.101
   },
   {
     "team": "6",
     "name": "Bruins",
-    "attack": 0.034,
+    "attack": 0.033,
     "defence": 0.058,
-    "overall": 0.091
+    "overall": 0.092
   },
   {
     "team": "30",
     "name": "Wild",
     "attack": 0.009,
-    "defence": 0.08,
+    "defence": 0.081,
     "overall": 0.09
   },
   {
     "team": "15",
     "name": "Capitals",
-    "attack": 0.048,
-    "defence": 0.014,
-    "overall": 0.062
+    "attack": 0.049,
+    "defence": 0.015,
+    "overall": 0.064
   },
   {
     "team": "68",
     "name": "Mammoth",
-    "attack": 0.057,
-    "defence": -0.001,
-    "overall": 0.056
-  },
-  {
-    "team": "7",
-    "name": "Sabres",
-    "attack": 0.062,
-    "defence": -0.015,
-    "overall": 0.047
+    "attack": 0.053,
+    "defence": -0.003,
+    "overall": 0.05
   },
   {
     "team": "9",
     "name": "Senators",
-    "attack": 0.027,
-    "defence": 0.019,
-    "overall": 0.046
+    "attack": 0.028,
+    "defence": 0.022,
+    "overall": 0.05
+  },
+  {
+    "team": "7",
+    "name": "Sabres",
+    "attack": 0.061,
+    "defence": -0.015,
+    "overall": 0.047
   },
   {
     "team": "3",
     "name": "Rangers",
-    "attack": 0.006,
+    "attack": 0.008,
     "defence": 0.032,
-    "overall": 0.038
-  },
-  {
-    "team": "26",
-    "name": "Kings",
-    "attack": -0.059,
-    "defence": 0.084,
-    "overall": 0.026
+    "overall": 0.041
   },
   {
     "team": "13",
     "name": "Panthers",
     "attack": 0.021,
-    "defence": 0.0,
-    "overall": 0.022
+    "defence": -0.001,
+    "overall": 0.02
   },
   {
-    "team": "10",
-    "name": "Maple Leafs",
-    "attack": 0.061,
-    "defence": -0.049,
-    "overall": 0.013
+    "team": "26",
+    "name": "Kings",
+    "attack": -0.062,
+    "defence": 0.079,
+    "overall": 0.017
   },
   {
     "team": "52",
     "name": "Jets",
-    "attack": -0.04,
+    "attack": -0.041,
     "defence": 0.05,
     "overall": 0.01
   },
   {
+    "team": "10",
+    "name": "Maple Leafs",
+    "attack": 0.058,
+    "defence": -0.05,
+    "overall": 0.008
+  },
+  {
     "team": "8",
     "name": "Canadiens",
-    "attack": 0.024,
-    "defence": -0.022,
-    "overall": 0.002
+    "attack": 0.026,
+    "defence": -0.018,
+    "overall": 0.008
   },
   {
     "team": "5",
     "name": "Penguins",
-    "attack": 0.054,
-    "defence": -0.055,
-    "overall": -0.001
+    "attack": 0.059,
+    "defence": -0.052,
+    "overall": 0.007
   },
   {
     "team": "19",
     "name": "Blues",
-    "attack": -0.018,
+    "attack": -0.023,
     "defence": 0.016,
-    "overall": -0.002
+    "overall": -0.007
   },
   {
     "team": "59",
     "name": "Utah Hockey Club",
-    "attack": -0.021,
-    "defence": 0.011,
+    "attack": -0.022,
+    "defence": 0.012,
     "overall": -0.01
   },
   {
     "team": "1",
     "name": "Devils",
-    "attack": -0.026,
-    "defence": 0.007,
-    "overall": -0.019
+    "attack": -0.023,
+    "defence": 0.005,
+    "overall": -0.018
   },
   {
     "team": "2",
     "name": "Islanders",
-    "attack": -0.077,
-    "defence": 0.03,
-    "overall": -0.047
+    "attack": -0.074,
+    "defence": 0.028,
+    "overall": -0.046
   },
   {
     "team": "18",
     "name": "Predators",
     "attack": -0.037,
-    "defence": -0.016,
-    "overall": -0.053
+    "defence": -0.011,
+    "overall": -0.048
   },
   {
     "team": "29",
     "name": "Blue Jackets",
     "attack": -0.031,
-    "defence": -0.027,
+    "defence": -0.026,
     "overall": -0.057
   },
   {
     "team": "17",
     "name": "Red Wings",
-    "attack": -0.047,
+    "attack": -0.054,
     "defence": -0.016,
-    "overall": -0.063
+    "overall": -0.07
   },
   {
     "team": "4",
     "name": "Flyers",
     "attack": -0.072,
-    "defence": 0.001,
-    "overall": -0.071
+    "defence": 0.002,
+    "overall": -0.07
   },
   {
     "team": "55",
     "name": "Kraken",
     "attack": -0.041,
-    "defence": -0.037,
-    "overall": -0.078
+    "defence": -0.039,
+    "overall": -0.08
   },
   {
     "team": "53",
@@ -206,35 +206,35 @@
     "team": "20",
     "name": "Flames",
     "attack": -0.103,
-    "defence": -0.009,
+    "defence": -0.008,
     "overall": -0.111
   },
   {
     "team": "24",
     "name": "Ducks",
     "attack": -0.012,
-    "defence": -0.118,
+    "defence": -0.117,
     "overall": -0.13
   },
   {
     "team": "23",
     "name": "Canucks",
-    "attack": -0.075,
+    "attack": -0.077,
     "defence": -0.136,
-    "overall": -0.211
+    "overall": -0.213
+  },
+  {
+    "team": "28",
+    "name": "Sharks",
+    "attack": -0.104,
+    "defence": -0.149,
+    "overall": -0.253
   },
   {
     "team": "16",
     "name": "Blackhawks",
     "attack": -0.152,
-    "defence": -0.102,
-    "overall": -0.253
-  },
-  {
-    "team": "28",
-    "name": "Sharks",
-    "attack": -0.106,
-    "defence": -0.148,
-    "overall": -0.254
+    "defence": -0.113,
+    "overall": -0.265
   }
 ]
