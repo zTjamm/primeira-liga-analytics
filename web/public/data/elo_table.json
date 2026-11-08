@@ -1,11 +1,11 @@
 [
   {
     "team": "porto",
-    "rating": 1651.8
+    "rating": 1658.5
   },
   {
     "team": "benfica",
-    "rating": 1626.9
+    "rating": 1633.6
   },
   {
     "team": "sp Lisbon",
@@ -24,12 +24,12 @@
     "rating": 1527.8
   },
   {
-    "team": "gil_vicente",
-    "rating": 1520.6
+    "team": "braga",
+    "rating": 1525.7
   },
   {
-    "team": "braga",
-    "rating": 1516.6
+    "team": "gil_vicente",
+    "rating": 1520.6
   },
   {
     "team": "famalicao",
@@ -140,20 +140,20 @@
     "rating": 1476.9
   },
   {
-    "team": "guimaraes",
-    "rating": 1474.5
-  },
-  {
     "team": "avs",
     "rating": 1473.7
   },
   {
-    "team": "estrela",
-    "rating": 1448.1
+    "team": "guimaraes",
+    "rating": 1467.7
   },
   {
     "team": "nacional",
     "rating": 1441.9
+  },
+  {
+    "team": "estrela",
+    "rating": 1441.4
   },
   {
     "team": "maritimo",
@@ -165,7 +165,7 @@
   },
   {
     "team": "rio_ave",
-    "rating": 1424.5
+    "rating": 1415.4
   },
   {
     "team": "estoril",

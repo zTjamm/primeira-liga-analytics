@@ -1,33 +1,33 @@
 [
   {
     "team": "porto",
-    "attack": 0.517,
-    "defence": 0.537,
-    "overall": 1.054
+    "attack": 0.523,
+    "defence": 0.521,
+    "overall": 1.043
   },
   {
     "team": "benfica",
-    "attack": 0.682,
-    "defence": 0.323,
-    "overall": 1.005
+    "attack": 0.687,
+    "defence": 0.28,
+    "overall": 0.967
   },
   {
     "team": "sp Lisbon",
     "attack": 0.67,
-    "defence": 0.253,
-    "overall": 0.923
+    "defence": 0.252,
+    "overall": 0.922
   },
   {
     "team": "braga",
-    "attack": 0.299,
-    "defence": 0.1,
-    "overall": 0.398
+    "attack": 0.274,
+    "defence": 0.131,
+    "overall": 0.405
   },
   {
     "team": "academico",
-    "attack": 0.129,
-    "defence": 0.119,
-    "overall": 0.248
+    "attack": 0.128,
+    "defence": 0.121,
+    "overall": 0.249
   },
   {
     "team": "famalicao",
@@ -37,9 +37,9 @@
   },
   {
     "team": "santa_clara",
-    "attack": 0.014,
-    "defence": 0.18,
-    "overall": 0.194
+    "attack": 0.015,
+    "defence": 0.178,
+    "overall": 0.193
   },
   {
     "team": "gil_vicente",
@@ -49,103 +49,103 @@
   },
   {
     "team": "arouca",
-    "attack": 0.104,
-    "defence": -0.024,
+    "attack": 0.102,
+    "defence": -0.021,
     "overall": 0.08
   },
   {
     "team": "guimaraes",
-    "attack": 0.0,
-    "defence": 0.021,
-    "overall": 0.022
+    "attack": 0.01,
+    "defence": 0.012,
+    "overall": 0.021
   },
   {
     "team": "academica",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "beira_mar",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "campomaiorense",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "est_amadora",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "feirense",
     "attack": -0.055,
-    "defence": 0.055,
-    "overall": 0.0
+    "defence": 0.054,
+    "overall": -0.0
   },
   {
     "team": "leiria",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "leixoes",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "naval",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "olhanense",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "penafiel",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "salgueiros",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "setubal",
     "attack": -0.055,
-    "defence": 0.055,
+    "defence": 0.054,
     "overall": -0.0
   },
   {
     "team": "trofense",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "uniao_madeira",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
   {
     "team": "varzim",
-    "attack": -0.055,
+    "attack": -0.054,
     "defence": 0.055,
     "overall": 0.0
   },
@@ -157,7 +157,7 @@
   },
   {
     "team": "belenenses",
-    "attack": -0.059,
+    "attack": -0.058,
     "defence": 0.051,
     "overall": -0.007
   },
@@ -165,96 +165,96 @@
     "team": "pacos",
     "attack": -0.065,
     "defence": 0.03,
-    "overall": -0.036
+    "overall": -0.035
   },
   {
     "team": "alverca",
-    "attack": 0.007,
-    "defence": -0.061,
-    "overall": -0.053
+    "attack": 0.008,
+    "defence": -0.059,
+    "overall": -0.051
   },
   {
     "team": "vizela",
-    "attack": -0.056,
-    "defence": -0.05,
-    "overall": -0.105
+    "attack": -0.055,
+    "defence": -0.048,
+    "overall": -0.103
   },
   {
     "team": "portimonense",
-    "attack": -0.05,
-    "defence": -0.073,
-    "overall": -0.123
+    "attack": -0.049,
+    "defence": -0.072,
+    "overall": -0.121
   },
   {
     "team": "chaves",
     "attack": -0.081,
-    "defence": -0.048,
-    "overall": -0.129
+    "defence": -0.046,
+    "overall": -0.127
   },
   {
     "team": "farense",
-    "attack": -0.125,
-    "defence": -0.018,
-    "overall": -0.143
+    "attack": -0.124,
+    "defence": -0.016,
+    "overall": -0.141
   },
   {
     "team": "moreirense",
-    "attack": -0.03,
-    "defence": -0.121,
-    "overall": -0.151
+    "attack": -0.031,
+    "defence": -0.119,
+    "overall": -0.15
   },
   {
     "team": "nacional",
-    "attack": -0.09,
-    "defence": -0.147,
-    "overall": -0.237
-  },
-  {
-    "team": "estoril",
-    "attack": 0.021,
-    "defence": -0.281,
-    "overall": -0.26
+    "attack": -0.088,
+    "defence": -0.146,
+    "overall": -0.235
   },
   {
     "team": "estrela",
+    "attack": 0.056,
+    "defence": -0.3,
+    "overall": -0.243
+  },
+  {
+    "team": "estoril",
     "attack": 0.02,
-    "defence": -0.291,
-    "overall": -0.271
+    "defence": -0.28,
+    "overall": -0.259
   },
   {
     "team": "boavista",
-    "attack": -0.159,
-    "defence": -0.192,
-    "overall": -0.351
+    "attack": -0.158,
+    "defence": -0.189,
+    "overall": -0.348
   },
   {
     "team": "tondela",
-    "attack": -0.211,
-    "defence": -0.186,
-    "overall": -0.398
+    "attack": -0.212,
+    "defence": -0.183,
+    "overall": -0.395
   },
   {
     "team": "rio_ave",
-    "attack": -0.091,
-    "defence": -0.364,
-    "overall": -0.455
+    "attack": -0.124,
+    "defence": -0.341,
+    "overall": -0.465
   },
   {
     "team": "casa_pia",
-    "attack": -0.284,
-    "defence": -0.196,
-    "overall": -0.48
+    "attack": -0.285,
+    "defence": -0.193,
+    "overall": -0.478
   },
   {
     "team": "maritimo",
-    "attack": -0.11,
-    "defence": -0.423,
+    "attack": -0.113,
+    "defence": -0.419,
     "overall": -0.533
   },
   {
     "team": "avs",
-    "attack": -0.255,
-    "defence": -0.287,
-    "overall": -0.542
+    "attack": -0.256,
+    "defence": -0.284,
+    "overall": -0.54
   }
 ]
