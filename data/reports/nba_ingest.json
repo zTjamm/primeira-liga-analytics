@@ -1,7 +1,7 @@
 {
   "total_matches": 4076,
-  "played_matches": 3008,
-  "upcoming_matches": 1068,
+  "played_matches": 3015,
+  "upcoming_matches": 1061,
   "upcoming_without_kickoff": 0,
   "seasons": [
     "2024-25",
@@ -18,10 +18,10 @@
     "2024-10-04",
     "2027-04-11"
   ],
-  "last_played_date": "2026-11-07",
+  "last_played_date": "2026-11-08",
   "days_since_last_played": 1,
   "teams": 40,
-  "avg_points_per_game": 227.5,
-  "home_win_share": 0.5505,
-  "generated_at": "2026-11-08T12:15:18+00:00"
+  "avg_points_per_game": 227.6,
+  "home_win_share": 0.5502,
+  "generated_at": "2026-11-09T14:26:11+00:00"
 }
