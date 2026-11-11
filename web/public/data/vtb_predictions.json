@@ -1,7 +1,7 @@
 {
   "league": "Единая лига ВТБ",
   "season": "2026/27",
-  "generated_at": "2026-11-11T07:16:43+00:00",
+  "generated_at": "2026-11-11T15:32:36+00:00",
   "history_matches": 540,
   "model": "лига: 80.7 очков на команду, дома +2.22, σ_разница=18.99, σ_тотал=17.11, сошёлся=True",
   "draws_possible": false,
@@ -37,7 +37,7 @@
       "sigma_margin": 18.99,
       "strength_home": 6.64,
       "strength_away": -0.23,
-      "hours_before": 11.7
+      "hours_before": 3.5
     },
     {
       "match_id": "1081879",
@@ -63,33 +63,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": -7.21,
-      "hours_before": 12.2
-    },
-    {
-      "match_id": "1081880",
-      "date": "2026-11-11",
-      "weekday": "вт",
-      "day_month": "11 ноя",
-      "kickoff_msk": "2026-11-11 17:30",
-      "phase_name": "Регулярный чемпионат. Первый этап",
-      "match_number": "RS1-049",
-      "home_id": "3059",
-      "away_id": "697",
-      "home_name": "ПАРМА",
-      "away_name": "УНИКС",
-      "p_home": 0.552,
-      "p_draw": 0.0,
-      "p_away": 0.448,
-      "prediction": "H",
-      "confidence": 0.552,
-      "exp_home_score": 81.0,
-      "exp_away_score": 80.5,
-      "exp_total": 161.4,
-      "over_155": 0.6357,
-      "sigma_margin": 18.99,
-      "strength_home": 0.38,
-      "strength_away": 4.85,
-      "hours_before": 10.2
+      "hours_before": 4.0
     },
     {
       "match_id": "1081882",
@@ -115,7 +89,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": -0.23,
-      "hours_before": 78.7
+      "hours_before": 70.5
     },
     {
       "match_id": "1081881",
@@ -141,7 +115,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.73,
       "strength_away": 0.55,
-      "hours_before": 76.7
+      "hours_before": 68.5
     },
     {
       "match_id": "1081883",
@@ -167,7 +141,7 @@
       "sigma_margin": 18.99,
       "strength_home": -7.21,
       "strength_away": 6.64,
-      "hours_before": 80.7
+      "hours_before": 72.5
     },
     {
       "match_id": "1081884",
@@ -193,7 +167,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": 4.28,
-      "hours_before": 103.7
+      "hours_before": 95.5
     },
     {
       "match_id": "1081887",
@@ -219,7 +193,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.85,
       "strength_away": -1.73,
-      "hours_before": 179.7
+      "hours_before": 171.5
     },
     {
       "match_id": "1081886",
@@ -245,7 +219,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": -7.21,
-      "hours_before": 180.2
+      "hours_before": 172.0
     },
     {
       "match_id": "1081885",
@@ -271,7 +245,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": 3.14,
-      "hours_before": 178.2
+      "hours_before": 170.0
     },
     {
       "match_id": "1081889",
@@ -297,7 +271,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": 4.28,
-      "hours_before": 247.2
+      "hours_before": 239.0
     },
     {
       "match_id": "1081890",
@@ -323,7 +297,7 @@
       "sigma_margin": 18.99,
       "strength_home": -3.4,
       "strength_away": 0.38,
-      "hours_before": 249.2
+      "hours_before": 241.0
     },
     {
       "match_id": "1081888",
@@ -349,7 +323,7 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": 3.14,
-      "hours_before": 245.2
+      "hours_before": 237.0
     },
     {
       "match_id": "1081892",
@@ -375,7 +349,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": -1.73,
-      "hours_before": 270.7
+      "hours_before": 262.5
     },
     {
       "match_id": "1081891",
@@ -401,14 +375,14 @@
       "sigma_margin": 18.99,
       "strength_home": 6.64,
       "strength_away": 4.85,
-      "hours_before": 273.7
+      "hours_before": 265.5
     },
     {
       "match_id": "1081893",
-      "date": "2026-12-01",
-      "weekday": "пн",
-      "day_month": "1 дек",
-      "kickoff_msk": "2026-12-01 22:00",
+      "date": "2026-12-02",
+      "weekday": "вт",
+      "day_month": "2 дек",
+      "kickoff_msk": "2026-12-02 17:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-062",
       "home_id": "3059",
@@ -427,14 +401,14 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": -1.73,
-      "hours_before": 494.7
+      "hours_before": 505.5
     },
     {
       "match_id": "1081894",
-      "date": "2026-12-03",
-      "weekday": "ср",
-      "day_month": "3 дек",
-      "kickoff_msk": "2026-12-03 22:00",
+      "date": "2026-12-04",
+      "weekday": "чт",
+      "day_month": "4 дек",
+      "kickoff_msk": "2026-12-04 17:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-063",
       "home_id": "1390",
@@ -453,14 +427,14 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": 6.64,
-      "hours_before": 542.7
+      "hours_before": 554.0
     },
     {
       "match_id": "1081896",
-      "date": "2026-12-04",
-      "weekday": "чт",
-      "day_month": "4 дек",
-      "kickoff_msk": "2026-12-04 23:00",
+      "date": "2026-12-05",
+      "weekday": "пт",
+      "day_month": "5 дек",
+      "kickoff_msk": "2026-12-05 16:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-065",
       "home_id": "682",
@@ -479,14 +453,14 @@
       "sigma_margin": 18.99,
       "strength_home": -3.4,
       "strength_away": 4.28,
-      "hours_before": 567.7
+      "hours_before": 576.5
     },
     {
       "match_id": "1081895",
-      "date": "2026-12-04",
-      "weekday": "чт",
-      "day_month": "4 дек",
-      "kickoff_msk": "2026-12-04 17:00",
+      "date": "2026-12-05",
+      "weekday": "пт",
+      "day_month": "5 дек",
+      "kickoff_msk": "2026-12-05 12:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-064",
       "home_id": "23358",
@@ -505,14 +479,14 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": -7.21,
-      "hours_before": 561.7
+      "hours_before": 573.0
     },
     {
       "match_id": "1081897",
       "date": "2026-12-06",
       "weekday": "сб",
       "day_month": "6 дек",
-      "kickoff_msk": "2026-12-06 00:00",
+      "kickoff_msk": "2026-12-06 15:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-066",
       "home_id": "697",
@@ -531,14 +505,14 @@
       "sigma_margin": 18.99,
       "strength_home": 4.85,
       "strength_away": 3.14,
-      "hours_before": 592.7
+      "hours_before": 599.5
     },
     {
       "match_id": "1081899",
-      "date": "2026-12-08",
-      "weekday": "пн",
-      "day_month": "8 дек",
-      "kickoff_msk": "2026-12-08 23:00",
+      "date": "2026-12-09",
+      "weekday": "вт",
+      "day_month": "9 дек",
+      "kickoff_msk": "2026-12-09 18:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-068",
       "home_id": "2792",
@@ -557,14 +531,14 @@
       "sigma_margin": 18.99,
       "strength_home": -7.21,
       "strength_away": -3.4,
-      "hours_before": 663.7
+      "hours_before": 674.5
     },
     {
       "match_id": "1081900",
-      "date": "2026-12-08",
-      "weekday": "пн",
-      "day_month": "8 дек",
-      "kickoff_msk": "2026-12-08 20:00",
+      "date": "2026-12-09",
+      "weekday": "вт",
+      "day_month": "9 дек",
+      "kickoff_msk": "2026-12-09 15:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-069",
       "home_id": "688",
@@ -583,14 +557,14 @@
       "sigma_margin": 18.99,
       "strength_home": -1.73,
       "strength_away": 3.14,
-      "hours_before": 660.7
+      "hours_before": 672.0
     },
     {
       "match_id": "1081898",
-      "date": "2026-12-08",
-      "weekday": "пн",
-      "day_month": "8 дек",
-      "kickoff_msk": "2026-12-08 17:00",
+      "date": "2026-12-09",
+      "weekday": "вт",
+      "day_month": "9 дек",
+      "kickoff_msk": "2026-12-09 12:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-067",
       "home_id": "23358",
@@ -609,66 +583,14 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": -1.21,
-      "hours_before": 657.7
-    },
-    {
-      "match_id": "1081903",
-      "date": "2026-12-12",
-      "weekday": "пт",
-      "day_month": "12 дек",
-      "kickoff_msk": "2026-12-12 23:00",
-      "phase_name": "Регулярный чемпионат. Первый этап",
-      "match_number": "RS1-072",
-      "home_id": "2792",
-      "away_id": "688",
-      "home_name": "Самара",
-      "away_name": "Енисей",
-      "p_home": 0.409,
-      "p_draw": 0.0,
-      "p_away": 0.591,
-      "prediction": "A",
-      "confidence": 0.591,
-      "exp_home_score": 80.3,
-      "exp_away_score": 81.1,
-      "exp_total": 161.4,
-      "over_155": 0.6357,
-      "sigma_margin": 18.99,
-      "strength_home": -7.21,
-      "strength_away": -1.73,
-      "hours_before": 759.7
-    },
-    {
-      "match_id": "1081901",
-      "date": "2026-12-13",
-      "weekday": "сб",
-      "day_month": "13 дек",
-      "kickoff_msk": "2026-12-13 00:00",
-      "phase_name": "Регулярный чемпионат. Первый этап",
-      "match_number": "RS1-070",
-      "home_id": "697",
-      "away_id": "682",
-      "home_name": "УНИКС",
-      "away_name": "Автодор",
-      "p_home": 0.9485,
-      "p_draw": 0.0,
-      "p_away": 0.0515,
-      "prediction": "H",
-      "confidence": 0.9485,
-      "exp_home_score": 84.1,
-      "exp_away_score": 77.4,
-      "exp_total": 161.4,
-      "over_155": 0.6357,
-      "sigma_margin": 18.99,
-      "strength_home": 4.85,
-      "strength_away": -3.4,
-      "hours_before": 760.7
+      "hours_before": 669.0
     },
     {
       "match_id": "1081902",
       "date": "2026-12-13",
       "weekday": "сб",
       "day_month": "13 дек",
-      "kickoff_msk": "2026-12-13 00:00",
+      "kickoff_msk": "2026-12-13 14:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-071",
       "home_id": "2650",
@@ -687,40 +609,66 @@
       "sigma_margin": 18.99,
       "strength_home": 3.14,
       "strength_away": 0.55,
-      "hours_before": 760.7
+      "hours_before": 766.5
     },
     {
-      "match_id": "1081905",
-      "date": "2026-12-15",
-      "weekday": "пн",
-      "day_month": "15 дек",
-      "kickoff_msk": "2026-12-15 23:00",
+      "match_id": "1081903",
+      "date": "2026-12-13",
+      "weekday": "сб",
+      "day_month": "13 дек",
+      "kickoff_msk": "2026-12-13 16:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
-      "match_number": "RS1-074",
-      "home_id": "682",
+      "match_number": "RS1-072",
+      "home_id": "2792",
       "away_id": "688",
-      "home_name": "Автодор",
+      "home_name": "Самара",
       "away_name": "Енисей",
-      "p_home": 0.6828,
+      "p_home": 0.409,
       "p_draw": 0.0,
-      "p_away": 0.3172,
-      "prediction": "H",
-      "confidence": 0.6828,
-      "exp_home_score": 81.6,
-      "exp_away_score": 79.8,
+      "p_away": 0.591,
+      "prediction": "A",
+      "confidence": 0.591,
+      "exp_home_score": 80.3,
+      "exp_away_score": 81.1,
       "exp_total": 161.4,
       "over_155": 0.6357,
       "sigma_margin": 18.99,
-      "strength_home": -3.4,
+      "strength_home": -7.21,
       "strength_away": -1.73,
-      "hours_before": 831.7
+      "hours_before": 768.5
+    },
+    {
+      "match_id": "1081901",
+      "date": "2026-12-13",
+      "weekday": "сб",
+      "day_month": "13 дек",
+      "kickoff_msk": "2026-12-13 18:00",
+      "phase_name": "Регулярный чемпионат. Первый этап",
+      "match_number": "RS1-070",
+      "home_id": "697",
+      "away_id": "682",
+      "home_name": "УНИКС",
+      "away_name": "Автодор",
+      "p_home": 0.9485,
+      "p_draw": 0.0,
+      "p_away": 0.0515,
+      "prediction": "H",
+      "confidence": 0.9485,
+      "exp_home_score": 84.1,
+      "exp_away_score": 77.4,
+      "exp_total": 161.4,
+      "over_155": 0.6357,
+      "sigma_margin": 18.99,
+      "strength_home": 4.85,
+      "strength_away": -3.4,
+      "hours_before": 770.5
     },
     {
       "match_id": "1081904",
       "date": "2026-12-16",
       "weekday": "вт",
       "day_month": "16 дек",
-      "kickoff_msk": "2026-12-16 00:00",
+      "kickoff_msk": "2026-12-16 19:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-073",
       "home_id": "697",
@@ -739,14 +687,40 @@
       "sigma_margin": 18.99,
       "strength_home": 4.85,
       "strength_away": -7.21,
-      "hours_before": 832.7
+      "hours_before": 843.5
+    },
+    {
+      "match_id": "1081905",
+      "date": "2026-12-16",
+      "weekday": "вт",
+      "day_month": "16 дек",
+      "kickoff_msk": "2026-12-16 18:00",
+      "phase_name": "Регулярный чемпионат. Первый этап",
+      "match_number": "RS1-074",
+      "home_id": "682",
+      "away_id": "688",
+      "home_name": "Автодор",
+      "away_name": "Енисей",
+      "p_home": 0.6828,
+      "p_draw": 0.0,
+      "p_away": 0.3172,
+      "prediction": "H",
+      "confidence": 0.6828,
+      "exp_home_score": 81.6,
+      "exp_away_score": 79.8,
+      "exp_total": 161.4,
+      "over_155": 0.6357,
+      "sigma_margin": 18.99,
+      "strength_home": -3.4,
+      "strength_away": -1.73,
+      "hours_before": 842.5
     },
     {
       "match_id": "1081906",
       "date": "2026-12-16",
       "weekday": "вт",
       "day_month": "16 дек",
-      "kickoff_msk": "2026-12-16 00:00",
+      "kickoff_msk": "2026-12-16 19:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-075",
       "home_id": "2747",
@@ -765,14 +739,14 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": 0.55,
-      "hours_before": 832.7
+      "hours_before": 844.0
     },
     {
       "match_id": "1081907",
       "date": "2026-12-17",
       "weekday": "ср",
       "day_month": "17 дек",
-      "kickoff_msk": "2026-12-17 00:00",
+      "kickoff_msk": "2026-12-17 19:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-076",
       "home_id": "2994",
@@ -791,14 +765,14 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": 3.14,
-      "hours_before": 856.7
+      "hours_before": 868.0
     },
     {
       "match_id": "1081908",
-      "date": "2026-12-18",
-      "weekday": "чт",
-      "day_month": "18 дек",
-      "kickoff_msk": "2026-12-18 22:00",
+      "date": "2026-12-19",
+      "weekday": "пт",
+      "day_month": "19 дек",
+      "kickoff_msk": "2026-12-19 17:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-077",
       "home_id": "3059",
@@ -817,40 +791,40 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": 6.64,
-      "hours_before": 902.7
+      "hours_before": 913.5
     },
     {
-      "match_id": "1081910",
-      "date": "2026-12-19",
-      "weekday": "пт",
-      "day_month": "19 дек",
-      "kickoff_msk": "2026-12-19 23:00",
+      "match_id": "1081846",
+      "date": "2026-12-20",
+      "weekday": "сб",
+      "day_month": "20 дек",
+      "kickoff_msk": "2026-12-20 15:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
-      "match_number": "RS1-079",
-      "home_id": "682",
-      "away_id": "2650",
-      "home_name": "Автодор",
-      "away_name": "Локомотив-Кубань",
-      "p_home": 0.4291,
+      "match_number": "RS1-015",
+      "home_id": "2747",
+      "away_id": "688",
+      "home_name": "МБА-МАИ",
+      "away_name": "Енисей",
+      "p_home": 0.7386,
       "p_draw": 0.0,
-      "p_away": 0.5709,
-      "prediction": "A",
-      "confidence": 0.5709,
-      "exp_home_score": 80.4,
-      "exp_away_score": 81.0,
+      "p_away": 0.2614,
+      "prediction": "H",
+      "confidence": 0.7386,
+      "exp_home_score": 81.9,
+      "exp_away_score": 79.5,
       "exp_total": 161.4,
       "over_155": 0.6357,
       "sigma_margin": 18.99,
-      "strength_home": -3.4,
-      "strength_away": 3.14,
-      "hours_before": 927.7
+      "strength_home": -1.21,
+      "strength_away": -1.73,
+      "hours_before": 935.5
     },
     {
       "match_id": "1081909",
-      "date": "2026-12-19",
-      "weekday": "пт",
-      "day_month": "19 дек",
-      "kickoff_msk": "2026-12-19 22:00",
+      "date": "2026-12-20",
+      "weekday": "сб",
+      "day_month": "20 дек",
+      "kickoff_msk": "2026-12-20 14:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-078",
       "home_id": "1390",
@@ -869,14 +843,40 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": 4.85,
-      "hours_before": 926.7
+      "hours_before": 934.5
+    },
+    {
+      "match_id": "1081910",
+      "date": "2026-12-20",
+      "weekday": "сб",
+      "day_month": "20 дек",
+      "kickoff_msk": "2026-12-20 17:00",
+      "phase_name": "Регулярный чемпионат. Первый этап",
+      "match_number": "RS1-079",
+      "home_id": "682",
+      "away_id": "2650",
+      "home_name": "Автодор",
+      "away_name": "Локомотив-Кубань",
+      "p_home": 0.4291,
+      "p_draw": 0.0,
+      "p_away": 0.5709,
+      "prediction": "A",
+      "confidence": 0.5709,
+      "exp_home_score": 80.4,
+      "exp_away_score": 81.0,
+      "exp_total": 161.4,
+      "over_155": 0.6357,
+      "sigma_margin": 18.99,
+      "strength_home": -3.4,
+      "strength_away": 3.14,
+      "hours_before": 937.5
     },
     {
       "match_id": "1081911",
       "date": "2026-12-22",
       "weekday": "пн",
       "day_month": "22 дек",
-      "kickoff_msk": "2026-12-22 00:00",
+      "kickoff_msk": "2026-12-22 19:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-080",
       "home_id": "2994",
@@ -895,14 +895,14 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": -0.23,
-      "hours_before": 976.7
+      "hours_before": 988.0
     },
     {
       "match_id": "1081912",
       "date": "2026-12-22",
       "weekday": "пн",
       "day_month": "22 дек",
-      "kickoff_msk": "2026-12-22 00:00",
+      "kickoff_msk": "2026-12-22 20:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-081",
       "home_id": "15",
@@ -921,14 +921,14 @@
       "sigma_margin": 18.99,
       "strength_home": 6.64,
       "strength_away": -7.21,
-      "hours_before": 976.7
+      "hours_before": 988.5
     },
     {
       "match_id": "1081913",
-      "date": "2026-12-24",
-      "weekday": "ср",
-      "day_month": "24 дек",
-      "kickoff_msk": "2026-12-24 22:00",
+      "date": "2026-12-25",
+      "weekday": "чт",
+      "day_month": "25 дек",
+      "kickoff_msk": "2026-12-25 17:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-082",
       "home_id": "3059",
@@ -947,14 +947,14 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": -1.21,
-      "hours_before": 1046.7
+      "hours_before": 1058.0
     },
     {
       "match_id": "1081914",
-      "date": "2026-12-25",
-      "weekday": "чт",
-      "day_month": "25 дек",
-      "kickoff_msk": "2026-12-25 17:00",
+      "date": "2026-12-26",
+      "weekday": "пт",
+      "day_month": "26 дек",
+      "kickoff_msk": "2026-12-26 12:30",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-083",
       "home_id": "23358",
@@ -973,14 +973,14 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": -1.73,
-      "hours_before": 1065.7
+      "hours_before": 1077.0
     },
     {
       "match_id": "1081915",
       "date": "2026-12-27",
       "weekday": "сб",
       "day_month": "27 дек",
-      "kickoff_msk": "2026-12-27 00:00",
+      "kickoff_msk": "2026-12-27 18:00",
       "phase_name": "Регулярный чемпионат. Первый этап",
       "match_number": "RS1-084",
       "home_id": "697",
@@ -999,7 +999,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.85,
       "strength_away": 6.64,
-      "hours_before": 1096.7
+      "hours_before": 1106.5
     },
     {
       "match_id": "1081917",
@@ -1025,7 +1025,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": 4.28,
-      "hours_before": 1286.7
+      "hours_before": 1278.5
     },
     {
       "match_id": "1081918",
@@ -1051,7 +1051,7 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": 4.85,
-      "hours_before": 1281.7
+      "hours_before": 1273.5
     },
     {
       "match_id": "1081916",
@@ -1077,7 +1077,7 @@
       "sigma_margin": 18.99,
       "strength_home": 6.64,
       "strength_away": -1.21,
-      "hours_before": 1288.7
+      "hours_before": 1280.5
     },
     {
       "match_id": "1081919",
@@ -1103,7 +1103,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": -3.4,
-      "hours_before": 1310.7
+      "hours_before": 1302.5
     },
     {
       "match_id": "1081920",
@@ -1129,7 +1129,7 @@
       "sigma_margin": 18.99,
       "strength_home": 3.14,
       "strength_away": -7.21,
-      "hours_before": 1312.7
+      "hours_before": 1304.5
     },
     {
       "match_id": "1081921",
@@ -1155,7 +1155,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": -3.4,
-      "hours_before": 1382.7
+      "hours_before": 1374.5
     },
     {
       "match_id": "1081922",
@@ -1181,7 +1181,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.73,
       "strength_away": 4.28,
-      "hours_before": 1404.7
+      "hours_before": 1396.5
     },
     {
       "match_id": "1081923",
@@ -1207,7 +1207,7 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": 0.38,
-      "hours_before": 1401.7
+      "hours_before": 1393.5
     },
     {
       "match_id": "1081924",
@@ -1233,7 +1233,7 @@
       "sigma_margin": 18.99,
       "strength_home": 3.14,
       "strength_away": 6.64,
-      "hours_before": 1408.7
+      "hours_before": 1400.5
     },
     {
       "match_id": "1081925",
@@ -1259,7 +1259,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": 4.85,
-      "hours_before": 1432.7
+      "hours_before": 1424.5
     },
     {
       "match_id": "1081926",
@@ -1285,7 +1285,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.73,
       "strength_away": 0.38,
-      "hours_before": 1500.7
+      "hours_before": 1492.5
     },
     {
       "match_id": "1081927",
@@ -1311,7 +1311,7 @@
       "sigma_margin": 18.99,
       "strength_home": -7.21,
       "strength_away": -1.21,
-      "hours_before": 1527.7
+      "hours_before": 1519.5
     },
     {
       "match_id": "1081929",
@@ -1337,7 +1337,7 @@
       "sigma_margin": 18.99,
       "strength_home": -3.4,
       "strength_away": 6.64,
-      "hours_before": 1575.7
+      "hours_before": 1567.5
     },
     {
       "match_id": "1081928",
@@ -1363,7 +1363,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": 4.85,
-      "hours_before": 1576.7
+      "hours_before": 1568.5
     },
     {
       "match_id": "1081931",
@@ -1389,7 +1389,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": 0.55,
-      "hours_before": 1598.7
+      "hours_before": 1590.5
     },
     {
       "match_id": "1081930",
@@ -1415,7 +1415,7 @@
       "sigma_margin": 18.99,
       "strength_home": 3.14,
       "strength_away": -0.23,
-      "hours_before": 1600.7
+      "hours_before": 1592.5
     },
     {
       "match_id": "1081932",
@@ -1441,7 +1441,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": -1.21,
-      "hours_before": 1648.7
+      "hours_before": 1640.5
     },
     {
       "match_id": "1081933",
@@ -1467,7 +1467,7 @@
       "sigma_margin": 18.99,
       "strength_home": 6.64,
       "strength_away": -1.73,
-      "hours_before": 1672.7
+      "hours_before": 1664.5
     },
     {
       "match_id": "1081934",
@@ -1493,7 +1493,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.38,
       "strength_away": 3.14,
-      "hours_before": 1694.7
+      "hours_before": 1686.5
     },
     {
       "match_id": "1081935",
@@ -1519,7 +1519,7 @@
       "sigma_margin": 18.99,
       "strength_home": -3.4,
       "strength_away": -0.23,
-      "hours_before": 1719.7
+      "hours_before": 1711.5
     },
     {
       "match_id": "1081936",
@@ -1545,7 +1545,7 @@
       "sigma_margin": 18.99,
       "strength_home": 0.55,
       "strength_away": -7.21,
-      "hours_before": 1742.7
+      "hours_before": 1734.5
     },
     {
       "match_id": "1081939",
@@ -1571,7 +1571,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.73,
       "strength_away": 4.85,
-      "hours_before": 1764.7
+      "hours_before": 1756.5
     },
     {
       "match_id": "1081937",
@@ -1597,7 +1597,7 @@
       "sigma_margin": 18.99,
       "strength_home": -1.21,
       "strength_away": 3.14,
-      "hours_before": 1768.7
+      "hours_before": 1760.5
     },
     {
       "match_id": "1081938",
@@ -1623,7 +1623,7 @@
       "sigma_margin": 18.99,
       "strength_home": 4.28,
       "strength_away": 6.64,
-      "hours_before": 1768.7
+      "hours_before": 1760.5
     },
     {
       "match_id": "1081941",
@@ -1649,7 +1649,7 @@
       "sigma_margin": 18.99,
       "strength_home": -7.21,
       "strength_away": 0.38,
-      "hours_before": 1839.7
+      "hours_before": 1831.5
     },
     {
       "match_id": "1081940",
@@ -1675,7 +1675,7 @@
       "sigma_margin": 18.99,
       "strength_home": -0.23,
       "strength_away": 0.55,
-      "hours_before": 1833.7
+      "hours_before": 1825.5
     }
   ]
 }
