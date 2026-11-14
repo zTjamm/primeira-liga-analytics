@@ -1,7 +1,226 @@
 {
   "sport": "basketball",
-  "generated_at": "2026-11-14T08:57:04+00:00",
+  "generated_at": "2026-11-14T15:48:02+00:00",
   "resolved": [
+    {
+      "key": "1081883",
+      "date": "2026-11-14",
+      "kickoff": "2026-11-14T16:00:00+03:00",
+      "matchday": "RS1-052",
+      "home_id": "2792",
+      "away_id": "15",
+      "home_name": "Самара",
+      "away_name": "ЦСКА",
+      "generated_at": "2026-11-14T08:57:04+00:00",
+      "hours_before": 7.0,
+      "stage": "T-6h",
+      "p_home": 0.1092,
+      "p_draw": 0.0,
+      "p_away": 0.8908,
+      "extra": {
+        "exp_home_score": 78.3,
+        "exp_away_score": 83.1,
+        "exp_total": 161.4,
+        "over_155": 0.6358
+      },
+      "source": "live",
+      "odds_home": null,
+      "odds_draw": null,
+      "odds_away": null,
+      "stake": null,
+      "versions": [
+        {
+          "stage": "T-72h+",
+          "p_home": 0.1052,
+          "p_draw": 0.0,
+          "p_away": 0.8948,
+          "hours_before": 72.5,
+          "generated_at": "2026-11-11T15:32:36+00:00"
+        },
+        {
+          "stage": "T-24h",
+          "p_home": 0.1092,
+          "p_draw": 0.0,
+          "p_away": 0.8908,
+          "hours_before": 14.1,
+          "generated_at": "2026-11-14T01:54:35+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.1092,
+          "p_draw": 0.0,
+          "p_away": 0.8908,
+          "hours_before": 7.0,
+          "generated_at": "2026-11-14T08:57:04+00:00"
+        }
+      ],
+      "actual": "A",
+      "score": "68-97",
+      "hit": true,
+      "picked": "A",
+      "picked_p": 0.8908,
+      "verdict_given": null,
+      "verdict_reason": null,
+      "total_hit": true,
+      "total_label": "ТБ 155",
+      "total_line": 155.0,
+      "total_given": null,
+      "total_no_reason": null,
+      "total_p": 0.6358,
+      "p_actual": 0.8908,
+      "logloss": 0.1156,
+      "n_versions": 3,
+      "shift": 0.008,
+      "flipped": false,
+      "profit": null,
+      "roi": null
+    },
+    {
+      "key": "1081882",
+      "date": "2026-11-14",
+      "kickoff": "2026-11-14T14:00:00+03:00",
+      "matchday": "RS1-051",
+      "home_id": "2747",
+      "away_id": "23358",
+      "home_name": "МБА-МАИ",
+      "away_name": "Динамо",
+      "generated_at": "2026-11-14T08:57:04+00:00",
+      "hours_before": 5.0,
+      "stage": "T-6h",
+      "p_home": 0.6941,
+      "p_draw": 0.0,
+      "p_away": 0.3059,
+      "extra": {
+        "exp_home_score": 81.7,
+        "exp_away_score": 79.8,
+        "exp_total": 161.4,
+        "over_155": 0.6358
+      },
+      "source": "live",
+      "odds_home": null,
+      "odds_draw": null,
+      "odds_away": null,
+      "stake": null,
+      "versions": [
+        {
+          "stage": "T-72h+",
+          "p_home": 0.6694,
+          "p_draw": 0.0,
+          "p_away": 0.3306,
+          "hours_before": 78.7,
+          "generated_at": "2026-11-11T07:16:43+00:00"
+        },
+        {
+          "stage": "T-24h",
+          "p_home": 0.6941,
+          "p_draw": 0.0,
+          "p_away": 0.3059,
+          "hours_before": 12.1,
+          "generated_at": "2026-11-14T01:54:35+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.6941,
+          "p_draw": 0.0,
+          "p_away": 0.3059,
+          "hours_before": 5.0,
+          "generated_at": "2026-11-14T08:57:04+00:00"
+        }
+      ],
+      "actual": "H",
+      "score": "114-95",
+      "hit": true,
+      "picked": "H",
+      "picked_p": 0.6941,
+      "verdict_given": null,
+      "verdict_reason": null,
+      "total_hit": true,
+      "total_label": "ТБ 155",
+      "total_line": 155.0,
+      "total_given": null,
+      "total_no_reason": null,
+      "total_p": 0.6358,
+      "p_actual": 0.6941,
+      "logloss": 0.3651,
+      "n_versions": 3,
+      "shift": 0.0494,
+      "flipped": false,
+      "profit": null,
+      "roi": null
+    },
+    {
+      "key": "1081881",
+      "date": "2026-11-14",
+      "kickoff": "2026-11-14T12:00:00+03:00",
+      "matchday": "RS1-050",
+      "home_id": "688",
+      "away_id": "1390",
+      "home_name": "Енисей",
+      "away_name": "Уралмаш",
+      "generated_at": "2026-11-14T01:54:35+00:00",
+      "hours_before": 10.1,
+      "stage": "T-6h",
+      "p_home": 0.6063,
+      "p_draw": 0.0,
+      "p_away": 0.3937,
+      "extra": {
+        "exp_home_score": 81.2,
+        "exp_away_score": 80.2,
+        "exp_total": 161.4,
+        "over_155": 0.6358
+      },
+      "source": "live",
+      "odds_home": null,
+      "odds_draw": null,
+      "odds_away": null,
+      "stake": null,
+      "versions": [
+        {
+          "stage": "T-72h+",
+          "p_home": 0.5984,
+          "p_draw": 0.0,
+          "p_away": 0.4016,
+          "hours_before": 76.7,
+          "generated_at": "2026-11-11T07:16:43+00:00"
+        },
+        {
+          "stage": "T-24h",
+          "p_home": 0.6063,
+          "p_draw": 0.0,
+          "p_away": 0.3937,
+          "hours_before": 14.3,
+          "generated_at": "2026-11-13T21:43:06+00:00"
+        },
+        {
+          "stage": "T-6h",
+          "p_home": 0.6063,
+          "p_draw": 0.0,
+          "p_away": 0.3937,
+          "hours_before": 10.1,
+          "generated_at": "2026-11-14T01:54:35+00:00"
+        }
+      ],
+      "actual": "A",
+      "score": "81-88",
+      "hit": false,
+      "picked": "H",
+      "picked_p": 0.6063,
+      "verdict_given": null,
+      "verdict_reason": null,
+      "total_hit": true,
+      "total_label": "ТБ 155",
+      "total_line": 155.0,
+      "total_given": null,
+      "total_no_reason": null,
+      "total_p": 0.6358,
+      "p_actual": 0.3937,
+      "logloss": 0.9322,
+      "n_versions": 3,
+      "shift": 0.0158,
+      "flipped": false,
+      "profit": null,
+      "roi": null
+    },
     {
       "key": "1081879",
       "date": "2026-11-11",
@@ -2203,11 +2422,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7449,
+          "p_home": 0.7518,
           "p_draw": 0.0,
-          "p_away": 0.2551,
-          "hours_before": 870.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2482,
+          "hours_before": 863.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         },
         {
           "stage": "T-24h",
@@ -2220,165 +2439,6 @@
       ]
     },
     {
-      "key": "1081881",
-      "date": "2026-11-14",
-      "kickoff": "2026-11-14T12:00:00+03:00",
-      "matchday": "RS1-050",
-      "home_id": "688",
-      "away_id": "1390",
-      "home_name": "Енисей",
-      "away_name": "Уралмаш",
-      "generated_at": "2026-11-14T01:54:35+00:00",
-      "hours_before": 10.1,
-      "stage": "T-6h",
-      "p_home": 0.6063,
-      "p_draw": 0.0,
-      "p_away": 0.3937,
-      "extra": {
-        "exp_home_score": 81.2,
-        "exp_away_score": 80.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
-      },
-      "source": "live",
-      "odds_home": null,
-      "odds_draw": null,
-      "odds_away": null,
-      "stake": null,
-      "versions": [
-        {
-          "stage": "T-72h+",
-          "p_home": 0.5984,
-          "p_draw": 0.0,
-          "p_away": 0.4016,
-          "hours_before": 76.7,
-          "generated_at": "2026-11-11T07:16:43+00:00"
-        },
-        {
-          "stage": "T-24h",
-          "p_home": 0.6063,
-          "p_draw": 0.0,
-          "p_away": 0.3937,
-          "hours_before": 14.3,
-          "generated_at": "2026-11-13T21:43:06+00:00"
-        },
-        {
-          "stage": "T-6h",
-          "p_home": 0.6063,
-          "p_draw": 0.0,
-          "p_away": 0.3937,
-          "hours_before": 10.1,
-          "generated_at": "2026-11-14T01:54:35+00:00"
-        }
-      ]
-    },
-    {
-      "key": "1081882",
-      "date": "2026-11-14",
-      "kickoff": "2026-11-14T14:00:00+03:00",
-      "matchday": "RS1-051",
-      "home_id": "2747",
-      "away_id": "23358",
-      "home_name": "МБА-МАИ",
-      "away_name": "Динамо",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 5.0,
-      "stage": "T-6h",
-      "p_home": 0.6941,
-      "p_draw": 0.0,
-      "p_away": 0.3059,
-      "extra": {
-        "exp_home_score": 81.7,
-        "exp_away_score": 79.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
-      },
-      "source": "live",
-      "odds_home": null,
-      "odds_draw": null,
-      "odds_away": null,
-      "stake": null,
-      "versions": [
-        {
-          "stage": "T-72h+",
-          "p_home": 0.6694,
-          "p_draw": 0.0,
-          "p_away": 0.3306,
-          "hours_before": 78.7,
-          "generated_at": "2026-11-11T07:16:43+00:00"
-        },
-        {
-          "stage": "T-24h",
-          "p_home": 0.6941,
-          "p_draw": 0.0,
-          "p_away": 0.3059,
-          "hours_before": 12.1,
-          "generated_at": "2026-11-14T01:54:35+00:00"
-        },
-        {
-          "stage": "T-6h",
-          "p_home": 0.6941,
-          "p_draw": 0.0,
-          "p_away": 0.3059,
-          "hours_before": 5.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
-        }
-      ]
-    },
-    {
-      "key": "1081883",
-      "date": "2026-11-14",
-      "kickoff": "2026-11-14T16:00:00+03:00",
-      "matchday": "RS1-052",
-      "home_id": "2792",
-      "away_id": "15",
-      "home_name": "Самара",
-      "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 7.0,
-      "stage": "T-6h",
-      "p_home": 0.1092,
-      "p_draw": 0.0,
-      "p_away": 0.8908,
-      "extra": {
-        "exp_home_score": 78.3,
-        "exp_away_score": 83.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
-      },
-      "source": "live",
-      "odds_home": null,
-      "odds_draw": null,
-      "odds_away": null,
-      "stake": null,
-      "versions": [
-        {
-          "stage": "T-72h+",
-          "p_home": 0.1052,
-          "p_draw": 0.0,
-          "p_away": 0.8948,
-          "hours_before": 72.5,
-          "generated_at": "2026-11-11T15:32:36+00:00"
-        },
-        {
-          "stage": "T-24h",
-          "p_home": 0.1092,
-          "p_draw": 0.0,
-          "p_away": 0.8908,
-          "hours_before": 14.1,
-          "generated_at": "2026-11-14T01:54:35+00:00"
-        },
-        {
-          "stage": "T-6h",
-          "p_home": 0.1092,
-          "p_draw": 0.0,
-          "p_away": 0.8908,
-          "hours_before": 7.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
-        }
-      ]
-    },
-    {
       "key": "1081884",
       "date": "2026-11-15",
       "kickoff": "2026-11-15T15:00:00+03:00",
@@ -2387,17 +2447,17 @@
       "away_id": "2994",
       "home_name": "ПАРМА",
       "away_name": "Зенит",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 30.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 23.2,
       "stage": "T-24h",
-      "p_home": 0.5654,
+      "p_home": 0.5632,
       "p_draw": 0.0,
-      "p_away": 0.4346,
+      "p_away": 0.4368,
       "extra": {
-        "exp_home_score": 81.0,
-        "exp_away_score": 80.4,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.1,
+        "exp_away_score": 80.5,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2415,11 +2475,11 @@
         },
         {
           "stage": "T-24h",
-          "p_home": 0.5654,
+          "p_home": 0.5632,
           "p_draw": 0.0,
-          "p_away": 0.4346,
-          "hours_before": 30.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4368,
+          "hours_before": 23.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2432,17 +2492,17 @@
       "away_id": "2650",
       "home_name": "Уралмаш",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 104.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 97.7,
       "stage": "T-72h+",
-      "p_home": 0.5936,
+      "p_home": 0.5915,
       "p_draw": 0.0,
-      "p_away": 0.4064,
+      "p_away": 0.4085,
       "extra": {
         "exp_home_score": 81.2,
         "exp_away_score": 80.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2452,11 +2512,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5936,
+          "p_home": 0.5915,
           "p_draw": 0.0,
-          "p_away": 0.4064,
-          "hours_before": 104.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4085,
+          "hours_before": 97.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2469,17 +2529,17 @@
       "away_id": "688",
       "home_name": "УНИКС",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 106.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 99.2,
       "stage": "T-72h+",
-      "p_home": 0.9243,
+      "p_home": 0.9241,
       "p_draw": 0.0,
-      "p_away": 0.0757,
+      "p_away": 0.0759,
       "extra": {
         "exp_home_score": 83.6,
         "exp_away_score": 77.9,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2489,11 +2549,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.9243,
+          "p_home": 0.9241,
           "p_draw": 0.0,
-          "p_away": 0.0757,
-          "hours_before": 106.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.0759,
+          "hours_before": 99.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2506,17 +2566,17 @@
       "away_id": "2792",
       "home_name": "МБА-МАИ",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 106.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 99.7,
       "stage": "T-72h+",
-      "p_home": 0.8918,
+      "p_home": 0.8955,
       "p_draw": 0.0,
-      "p_away": 0.1082,
+      "p_away": 0.1045,
       "extra": {
-        "exp_home_score": 83.1,
+        "exp_home_score": 83.2,
         "exp_away_score": 78.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2526,11 +2586,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8918,
+          "p_home": 0.8955,
           "p_draw": 0.0,
-          "p_away": 0.1082,
-          "hours_before": 106.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1045,
+          "hours_before": 99.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2543,17 +2603,17 @@
       "away_id": "2650",
       "home_name": "Динамо",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 171.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 164.7,
       "stage": "T-72h+",
-      "p_home": 0.5903,
+      "p_home": 0.5877,
       "p_draw": 0.0,
-      "p_away": 0.4097,
+      "p_away": 0.4123,
       "extra": {
-        "exp_home_score": 81.1,
-        "exp_away_score": 80.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.2,
+        "exp_away_score": 80.4,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2563,11 +2623,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5903,
+          "p_home": 0.5877,
           "p_draw": 0.0,
-          "p_away": 0.4097,
-          "hours_before": 171.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4123,
+          "hours_before": 164.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2580,17 +2640,17 @@
       "away_id": "2994",
       "home_name": "МБА-МАИ",
       "away_name": "Зенит",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 173.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 166.7,
       "stage": "T-72h+",
-      "p_home": 0.4199,
+      "p_home": 0.4279,
       "p_draw": 0.0,
-      "p_away": 0.5801,
+      "p_away": 0.5721,
       "extra": {
-        "exp_home_score": 80.3,
+        "exp_home_score": 80.4,
         "exp_away_score": 81.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2600,11 +2660,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4199,
+          "p_home": 0.4279,
           "p_draw": 0.0,
-          "p_away": 0.5801,
-          "hours_before": 173.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5721,
+          "hours_before": 166.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2617,17 +2677,17 @@
       "away_id": "3059",
       "home_name": "Автодор",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 175.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 168.7,
       "stage": "T-72h+",
-      "p_home": 0.619,
+      "p_home": 0.6171,
       "p_draw": 0.0,
-      "p_away": 0.381,
+      "p_away": 0.3829,
       "extra": {
         "exp_home_score": 81.3,
         "exp_away_score": 80.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2637,11 +2697,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.619,
+          "p_home": 0.6171,
           "p_draw": 0.0,
-          "p_away": 0.381,
-          "hours_before": 175.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3829,
+          "hours_before": 168.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2654,17 +2714,17 @@
       "away_id": "688",
       "home_name": "Уралмаш",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 197.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 190.2,
       "stage": "T-72h+",
-      "p_home": 0.8069,
+      "p_home": 0.8059,
       "p_draw": 0.0,
-      "p_away": 0.1931,
+      "p_away": 0.1941,
       "extra": {
         "exp_home_score": 82.4,
         "exp_away_score": 79.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2674,11 +2734,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8069,
+          "p_home": 0.8059,
           "p_draw": 0.0,
-          "p_away": 0.1931,
-          "hours_before": 197.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1941,
+          "hours_before": 190.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2691,17 +2751,17 @@
       "away_id": "697",
       "home_name": "ЦСКА",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 200.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 193.2,
       "stage": "T-72h+",
-      "p_home": 0.8229,
+      "p_home": 0.8221,
       "p_draw": 0.0,
-      "p_away": 0.1771,
+      "p_away": 0.1779,
       "extra": {
         "exp_home_score": 82.5,
         "exp_away_score": 79.0,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2711,11 +2771,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8229,
+          "p_home": 0.8221,
           "p_draw": 0.0,
-          "p_away": 0.1771,
-          "hours_before": 200.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1779,
+          "hours_before": 193.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2728,17 +2788,17 @@
       "away_id": "688",
       "home_name": "ПАРМА",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 440.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 433.2,
       "stage": "T-72h+",
-      "p_home": 0.8401,
+      "p_home": 0.8394,
       "p_draw": 0.0,
-      "p_away": 0.1599,
+      "p_away": 0.1606,
       "extra": {
-        "exp_home_score": 82.6,
-        "exp_away_score": 78.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 82.7,
+        "exp_away_score": 78.9,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2748,11 +2808,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8401,
+          "p_home": 0.8394,
           "p_draw": 0.0,
-          "p_away": 0.1599,
-          "hours_before": 440.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1606,
+          "hours_before": 433.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2765,17 +2825,17 @@
       "away_id": "15",
       "home_name": "Уралмаш",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 488.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 481.7,
       "stage": "T-72h+",
-      "p_home": 0.4168,
+      "p_home": 0.3997,
       "p_draw": 0.0,
-      "p_away": 0.5832,
+      "p_away": 0.6003,
       "extra": {
         "exp_home_score": 80.3,
-        "exp_away_score": 81.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.2,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2785,11 +2845,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4168,
+          "p_home": 0.3997,
           "p_draw": 0.0,
-          "p_away": 0.5832,
-          "hours_before": 488.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.6003,
+          "hours_before": 481.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2802,17 +2862,17 @@
       "away_id": "2792",
       "home_name": "Динамо",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 507.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 500.7,
       "stage": "T-72h+",
-      "p_home": 0.9209,
+      "p_home": 0.9205,
       "p_draw": 0.0,
-      "p_away": 0.0791,
+      "p_away": 0.0795,
       "extra": {
-        "exp_home_score": 83.5,
-        "exp_away_score": 77.9,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 83.6,
+        "exp_away_score": 78.0,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2822,11 +2882,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.9209,
+          "p_home": 0.9205,
           "p_draw": 0.0,
-          "p_away": 0.0791,
-          "hours_before": 507.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.0795,
+          "hours_before": 500.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2839,17 +2899,17 @@
       "away_id": "2994",
       "home_name": "Автодор",
       "away_name": "Зенит",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 511.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 504.2,
       "stage": "T-72h+",
-      "p_home": 0.3556,
+      "p_home": 0.3531,
       "p_draw": 0.0,
-      "p_away": 0.6444,
+      "p_away": 0.6469,
       "extra": {
-        "exp_home_score": 80.0,
-        "exp_away_score": 81.4,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 80.1,
+        "exp_away_score": 81.5,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2859,11 +2919,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3556,
+          "p_home": 0.3531,
           "p_draw": 0.0,
-          "p_away": 0.6444,
-          "hours_before": 511.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.6469,
+          "hours_before": 504.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2876,17 +2936,17 @@
       "away_id": "2650",
       "home_name": "УНИКС",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 534.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 527.2,
       "stage": "T-72h+",
-      "p_home": 0.8097,
+      "p_home": 0.809,
       "p_draw": 0.0,
-      "p_away": 0.1903,
+      "p_away": 0.191,
       "extra": {
         "exp_home_score": 82.4,
         "exp_away_score": 79.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2896,11 +2956,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8097,
+          "p_home": 0.809,
           "p_draw": 0.0,
-          "p_away": 0.1903,
-          "hours_before": 534.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.191,
+          "hours_before": 527.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2913,17 +2973,17 @@
       "away_id": "2747",
       "home_name": "Динамо",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 603.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 596.7,
       "stage": "T-72h+",
-      "p_home": 0.764,
+      "p_home": 0.7626,
       "p_draw": 0.0,
-      "p_away": 0.236,
+      "p_away": 0.2374,
       "extra": {
         "exp_home_score": 82.1,
         "exp_away_score": 79.4,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2933,11 +2993,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.764,
+          "p_home": 0.7626,
           "p_draw": 0.0,
-          "p_away": 0.236,
-          "hours_before": 603.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2374,
+          "hours_before": 596.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2950,17 +3010,17 @@
       "away_id": "2650",
       "home_name": "Енисей",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 606.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 599.7,
       "stage": "T-72h+",
-      "p_home": 0.5087,
+      "p_home": 0.5016,
       "p_draw": 0.0,
-      "p_away": 0.4913,
+      "p_away": 0.4984,
       "extra": {
         "exp_home_score": 80.8,
-        "exp_away_score": 80.7,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 80.8,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -2970,11 +3030,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5087,
+          "p_home": 0.5016,
           "p_draw": 0.0,
-          "p_away": 0.4913,
-          "hours_before": 606.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4984,
+          "hours_before": 599.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -2987,17 +3047,17 @@
       "away_id": "682",
       "home_name": "Самара",
       "away_name": "Автодор",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 609.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 602.2,
       "stage": "T-72h+",
-      "p_home": 0.5264,
+      "p_home": 0.5095,
       "p_draw": 0.0,
-      "p_away": 0.4736,
+      "p_away": 0.4905,
       "extra": {
         "exp_home_score": 80.8,
-        "exp_away_score": 80.6,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 80.7,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3007,11 +3067,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5264,
+          "p_home": 0.5095,
           "p_draw": 0.0,
-          "p_away": 0.4736,
-          "hours_before": 609.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4905,
+          "hours_before": 602.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3024,17 +3084,17 @@
       "away_id": "1390",
       "home_name": "Локомотив-Кубань",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 701.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 694.2,
       "stage": "T-72h+",
-      "p_home": 0.8181,
+      "p_home": 0.8145,
       "p_draw": 0.0,
-      "p_away": 0.1819,
+      "p_away": 0.1855,
       "extra": {
-        "exp_home_score": 82.4,
-        "exp_away_score": 79.0,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 82.5,
+        "exp_away_score": 79.1,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3044,11 +3104,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8181,
+          "p_home": 0.8145,
           "p_draw": 0.0,
-          "p_away": 0.1819,
-          "hours_before": 701.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1855,
+          "hours_before": 694.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3061,17 +3121,17 @@
       "away_id": "688",
       "home_name": "Самара",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 703.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 696.2,
       "stage": "T-72h+",
-      "p_home": 0.418,
+      "p_home": 0.4012,
       "p_draw": 0.0,
-      "p_away": 0.582,
+      "p_away": 0.5988,
       "extra": {
         "exp_home_score": 80.3,
-        "exp_away_score": 81.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.2,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3081,11 +3141,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.418,
+          "p_home": 0.4012,
           "p_draw": 0.0,
-          "p_away": 0.582,
-          "hours_before": 703.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5988,
+          "hours_before": 696.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3098,8 +3158,8 @@
       "away_id": "682",
       "home_name": "УНИКС",
       "away_name": "Автодор",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 705.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 698.2,
       "stage": "T-72h+",
       "p_home": 0.9498,
       "p_draw": 0.0,
@@ -3107,8 +3167,8 @@
       "extra": {
         "exp_home_score": 84.1,
         "exp_away_score": 77.4,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3121,8 +3181,8 @@
           "p_home": 0.9498,
           "p_draw": 0.0,
           "p_away": 0.0502,
-          "hours_before": 705.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "hours_before": 698.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3135,17 +3195,17 @@
       "away_id": "688",
       "home_name": "Автодор",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 777.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 770.2,
       "stage": "T-72h+",
-      "p_home": 0.6901,
+      "p_home": 0.6885,
       "p_draw": 0.0,
-      "p_away": 0.3099,
+      "p_away": 0.3115,
       "extra": {
-        "exp_home_score": 81.6,
-        "exp_away_score": 79.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.7,
+        "exp_away_score": 79.9,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3155,11 +3215,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6901,
+          "p_home": 0.6885,
           "p_draw": 0.0,
-          "p_away": 0.3099,
-          "hours_before": 777.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3115,
+          "hours_before": 770.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3172,8 +3232,8 @@
       "away_id": "2792",
       "home_name": "УНИКС",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 778.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 771.2,
       "stage": "T-72h+",
       "p_home": 0.9719,
       "p_draw": 0.0,
@@ -3181,8 +3241,8 @@
       "extra": {
         "exp_home_score": 84.8,
         "exp_away_score": 76.7,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3195,8 +3255,8 @@
           "p_home": 0.9719,
           "p_draw": 0.0,
           "p_away": 0.0281,
-          "hours_before": 778.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "hours_before": 771.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3209,17 +3269,17 @@
       "away_id": "1390",
       "home_name": "МБА-МАИ",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 778.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 771.7,
       "stage": "T-72h+",
-      "p_home": 0.603,
+      "p_home": 0.6068,
       "p_draw": 0.0,
-      "p_away": 0.397,
+      "p_away": 0.3932,
       "extra": {
-        "exp_home_score": 81.2,
-        "exp_away_score": 80.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.3,
+        "exp_away_score": 80.3,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3229,11 +3289,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.603,
+          "p_home": 0.6068,
           "p_draw": 0.0,
-          "p_away": 0.397,
-          "hours_before": 778.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3932,
+          "hours_before": 771.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3246,17 +3306,17 @@
       "away_id": "2650",
       "home_name": "Зенит",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 802.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 795.2,
       "stage": "T-72h+",
-      "p_home": 0.7906,
+      "p_home": 0.7898,
       "p_draw": 0.0,
-      "p_away": 0.2094,
+      "p_away": 0.2102,
       "extra": {
-        "exp_home_score": 82.2,
-        "exp_away_score": 79.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 82.3,
+        "exp_away_score": 79.3,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3266,11 +3326,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7906,
+          "p_home": 0.7898,
           "p_draw": 0.0,
-          "p_away": 0.2094,
-          "hours_before": 802.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2102,
+          "hours_before": 795.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3283,17 +3343,17 @@
       "away_id": "15",
       "home_name": "ПАРМА",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 848.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 841.2,
       "stage": "T-72h+",
-      "p_home": 0.4732,
+      "p_home": 0.4558,
       "p_draw": 0.0,
-      "p_away": 0.5268,
+      "p_away": 0.5442,
       "extra": {
         "exp_home_score": 80.6,
-        "exp_away_score": 80.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.0,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3303,11 +3363,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4732,
+          "p_home": 0.4558,
           "p_draw": 0.0,
-          "p_away": 0.5268,
-          "hours_before": 848.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5442,
+          "hours_before": 841.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3320,17 +3380,17 @@
       "away_id": "697",
       "home_name": "Уралмаш",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 869.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 862.2,
       "stage": "T-72h+",
-      "p_home": 0.4857,
+      "p_home": 0.4833,
       "p_draw": 0.0,
-      "p_away": 0.5143,
+      "p_away": 0.5167,
       "extra": {
         "exp_home_score": 80.7,
         "exp_away_score": 80.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3340,11 +3400,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4857,
+          "p_home": 0.4833,
           "p_draw": 0.0,
-          "p_away": 0.5143,
-          "hours_before": 869.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5167,
+          "hours_before": 862.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3357,17 +3417,17 @@
       "away_id": "2650",
       "home_name": "Автодор",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 872.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 865.2,
       "stage": "T-72h+",
-      "p_home": 0.4378,
+      "p_home": 0.4354,
       "p_draw": 0.0,
-      "p_away": 0.5622,
+      "p_away": 0.5646,
       "extra": {
-        "exp_home_score": 80.4,
-        "exp_away_score": 81.0,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 80.5,
+        "exp_away_score": 81.1,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3377,11 +3437,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4378,
+          "p_home": 0.4354,
           "p_draw": 0.0,
-          "p_away": 0.5622,
-          "hours_before": 872.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5646,
+          "hours_before": 865.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3394,17 +3454,17 @@
       "away_id": "23358",
       "home_name": "Зенит",
       "away_name": "Динамо",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 922.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 915.7,
       "stage": "T-72h+",
-      "p_home": 0.8937,
+      "p_home": 0.8979,
       "p_draw": 0.0,
-      "p_away": 0.1063,
+      "p_away": 0.1021,
       "extra": {
-        "exp_home_score": 83.2,
+        "exp_home_score": 83.3,
         "exp_away_score": 78.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3414,11 +3474,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8937,
+          "p_home": 0.8979,
           "p_draw": 0.0,
-          "p_away": 0.1063,
-          "hours_before": 922.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1021,
+          "hours_before": 915.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3431,8 +3491,8 @@
       "away_id": "2792",
       "home_name": "ЦСКА",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 923.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 916.2,
       "stage": "T-72h+",
       "p_home": 0.9833,
       "p_draw": 0.0,
@@ -3440,8 +3500,8 @@
       "extra": {
         "exp_home_score": 85.4,
         "exp_away_score": 76.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3454,8 +3514,8 @@
           "p_home": 0.9833,
           "p_draw": 0.0,
           "p_away": 0.0167,
-          "hours_before": 923.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "hours_before": 916.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3468,17 +3528,17 @@
       "away_id": "2747",
       "home_name": "ПАРМА",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 992.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 985.7,
       "stage": "T-72h+",
-      "p_home": 0.8049,
+      "p_home": 0.8042,
       "p_draw": 0.0,
-      "p_away": 0.1951,
+      "p_away": 0.1958,
       "extra": {
-        "exp_home_score": 82.3,
-        "exp_away_score": 79.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 82.4,
+        "exp_away_score": 79.2,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3488,11 +3548,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8049,
+          "p_home": 0.8042,
           "p_draw": 0.0,
-          "p_away": 0.1951,
-          "hours_before": 992.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1958,
+          "hours_before": 985.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3505,17 +3565,17 @@
       "away_id": "688",
       "home_name": "Динамо",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1011.5,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1004.7,
       "stage": "T-72h+",
-      "p_home": 0.8047,
+      "p_home": 0.8034,
       "p_draw": 0.0,
-      "p_away": 0.1953,
+      "p_away": 0.1966,
       "extra": {
-        "exp_home_score": 82.3,
-        "exp_away_score": 79.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 82.4,
+        "exp_away_score": 79.2,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3525,11 +3585,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8047,
+          "p_home": 0.8034,
           "p_draw": 0.0,
-          "p_away": 0.1953,
-          "hours_before": 1011.5,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1966,
+          "hours_before": 1004.7,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3542,17 +3602,17 @@
       "away_id": "15",
       "home_name": "УНИКС",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1041.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1034.2,
       "stage": "T-72h+",
-      "p_home": 0.6754,
+      "p_home": 0.6605,
       "p_draw": 0.0,
-      "p_away": 0.3246,
+      "p_away": 0.3395,
       "extra": {
-        "exp_home_score": 81.6,
-        "exp_away_score": 79.9,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.5,
+        "exp_away_score": 80.0,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3562,11 +3622,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6754,
+          "p_home": 0.6605,
           "p_draw": 0.0,
-          "p_away": 0.3246,
-          "hours_before": 1041.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3395,
+          "hours_before": 1034.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3579,17 +3639,17 @@
       "away_id": "697",
       "home_name": "Динамо",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1208.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1201.2,
       "stage": "T-72h+",
-      "p_home": 0.4823,
+      "p_home": 0.4793,
       "p_draw": 0.0,
-      "p_away": 0.5177,
+      "p_away": 0.5207,
       "extra": {
-        "exp_home_score": 80.6,
-        "exp_away_score": 80.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 80.7,
+        "exp_away_score": 80.9,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3599,11 +3659,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4823,
+          "p_home": 0.4793,
           "p_draw": 0.0,
-          "p_away": 0.5177,
-          "hours_before": 1208.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5207,
+          "hours_before": 1201.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3616,17 +3676,17 @@
       "away_id": "2994",
       "home_name": "Уралмаш",
       "away_name": "Зенит",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1213.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1206.2,
       "stage": "T-72h+",
-      "p_home": 0.5086,
+      "p_home": 0.5062,
       "p_draw": 0.0,
-      "p_away": 0.4914,
+      "p_away": 0.4938,
       "extra": {
         "exp_home_score": 80.8,
         "exp_away_score": 80.7,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3636,11 +3696,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5086,
+          "p_home": 0.5062,
           "p_draw": 0.0,
-          "p_away": 0.4914,
-          "hours_before": 1213.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4938,
+          "hours_before": 1206.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3653,17 +3713,17 @@
       "away_id": "2747",
       "home_name": "ЦСКА",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1215.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1208.2,
       "stage": "T-72h+",
-      "p_home": 0.9419,
+      "p_home": 0.9418,
       "p_draw": 0.0,
-      "p_away": 0.0581,
+      "p_away": 0.0582,
       "extra": {
-        "exp_home_score": 83.9,
-        "exp_away_score": 77.5,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 84.0,
+        "exp_away_score": 77.6,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3673,11 +3733,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.9419,
+          "p_home": 0.9418,
           "p_draw": 0.0,
-          "p_away": 0.0581,
-          "hours_before": 1215.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.0582,
+          "hours_before": 1208.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3690,17 +3750,17 @@
       "away_id": "682",
       "home_name": "ПАРМА",
       "away_name": "Автодор",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1237.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1230.2,
       "stage": "T-72h+",
-      "p_home": 0.8906,
+      "p_home": 0.8903,
       "p_draw": 0.0,
-      "p_away": 0.1094,
+      "p_away": 0.1097,
       "extra": {
-        "exp_home_score": 83.1,
-        "exp_away_score": 78.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 83.2,
+        "exp_away_score": 78.4,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3710,11 +3770,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8906,
+          "p_home": 0.8903,
           "p_draw": 0.0,
-          "p_away": 0.1094,
-          "hours_before": 1237.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1097,
+          "hours_before": 1230.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3727,8 +3787,8 @@
       "away_id": "2792",
       "home_name": "Локомотив-Кубань",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1239.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1232.2,
       "stage": "T-72h+",
       "p_home": 0.9608,
       "p_draw": 0.0,
@@ -3736,8 +3796,8 @@
       "extra": {
         "exp_home_score": 84.4,
         "exp_away_score": 77.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3750,8 +3810,8 @@
           "p_home": 0.9608,
           "p_draw": 0.0,
           "p_away": 0.0392,
-          "hours_before": 1239.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "hours_before": 1232.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3764,17 +3824,17 @@
       "away_id": "682",
       "home_name": "Уралмаш",
       "away_name": "Автодор",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1309.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1302.2,
       "stage": "T-72h+",
-      "p_home": 0.8662,
+      "p_home": 0.8657,
       "p_draw": 0.0,
-      "p_away": 0.1338,
+      "p_away": 0.1343,
       "extra": {
         "exp_home_score": 82.9,
         "exp_away_score": 78.6,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3784,11 +3844,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8662,
+          "p_home": 0.8657,
           "p_draw": 0.0,
-          "p_away": 0.1338,
-          "hours_before": 1309.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1343,
+          "hours_before": 1302.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3801,17 +3861,17 @@
       "away_id": "3059",
       "home_name": "Динамо",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1328.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1321.2,
       "stage": "T-72h+",
-      "p_home": 0.7504,
+      "p_home": 0.7487,
       "p_draw": 0.0,
-      "p_away": 0.2496,
+      "p_away": 0.2513,
       "extra": {
         "exp_home_score": 82.0,
         "exp_away_score": 79.5,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3821,11 +3881,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7504,
+          "p_home": 0.7487,
           "p_draw": 0.0,
-          "p_away": 0.2496,
-          "hours_before": 1328.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2513,
+          "hours_before": 1321.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3838,17 +3898,17 @@
       "away_id": "2994",
       "home_name": "Енисей",
       "away_name": "Зенит",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1331.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1324.2,
       "stage": "T-72h+",
-      "p_home": 0.4232,
+      "p_home": 0.416,
       "p_draw": 0.0,
-      "p_away": 0.5768,
+      "p_away": 0.584,
       "extra": {
         "exp_home_score": 80.4,
-        "exp_away_score": 81.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.2,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3858,11 +3918,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.4232,
+          "p_home": 0.416,
           "p_draw": 0.0,
-          "p_away": 0.5768,
-          "hours_before": 1331.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.584,
+          "hours_before": 1324.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3875,17 +3935,17 @@
       "away_id": "15",
       "home_name": "Локомотив-Кубань",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1335.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1328.2,
       "stage": "T-72h+",
-      "p_home": 0.5964,
+      "p_home": 0.58,
       "p_draw": 0.0,
-      "p_away": 0.4036,
+      "p_away": 0.42,
       "extra": {
-        "exp_home_score": 81.2,
-        "exp_away_score": 80.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.1,
+        "exp_away_score": 80.4,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3895,11 +3955,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5964,
+          "p_home": 0.58,
           "p_draw": 0.0,
-          "p_away": 0.4036,
-          "hours_before": 1335.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.42,
+          "hours_before": 1328.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3912,17 +3972,17 @@
       "away_id": "697",
       "home_name": "МБА-МАИ",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1359.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1352.2,
       "stage": "T-72h+",
-      "p_home": 0.3978,
+      "p_home": 0.4056,
       "p_draw": 0.0,
-      "p_away": 0.6022,
+      "p_away": 0.5944,
       "extra": {
-        "exp_home_score": 80.2,
+        "exp_home_score": 80.3,
         "exp_away_score": 81.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3932,11 +3992,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3978,
+          "p_home": 0.4056,
           "p_draw": 0.0,
-          "p_away": 0.6022,
-          "hours_before": 1359.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.5944,
+          "hours_before": 1352.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3949,17 +4009,17 @@
       "away_id": "3059",
       "home_name": "Енисей",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1427.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1420.2,
       "stage": "T-72h+",
-      "p_home": 0.6836,
+      "p_home": 0.6778,
       "p_draw": 0.0,
-      "p_away": 0.3164,
+      "p_away": 0.3222,
       "extra": {
         "exp_home_score": 81.6,
-        "exp_away_score": 79.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 79.9,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -3969,11 +4029,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6836,
+          "p_home": 0.6778,
           "p_draw": 0.0,
-          "p_away": 0.3164,
-          "hours_before": 1427.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3222,
+          "hours_before": 1420.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -3986,17 +4046,17 @@
       "away_id": "2747",
       "home_name": "Самара",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1454.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1447.2,
       "stage": "T-72h+",
-      "p_home": 0.3608,
+      "p_home": 0.345,
       "p_draw": 0.0,
-      "p_away": 0.6392,
+      "p_away": 0.655,
       "extra": {
-        "exp_home_score": 80.1,
-        "exp_away_score": 81.4,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 80.0,
+        "exp_away_score": 81.5,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4006,11 +4066,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3608,
+          "p_home": 0.345,
           "p_draw": 0.0,
-          "p_away": 0.6392,
-          "hours_before": 1454.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.655,
+          "hours_before": 1447.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4023,17 +4083,17 @@
       "away_id": "15",
       "home_name": "Автодор",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1502.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1495.2,
       "stage": "T-72h+",
-      "p_home": 0.2758,
+      "p_home": 0.2617,
       "p_draw": 0.0,
-      "p_away": 0.7242,
+      "p_away": 0.7383,
       "extra": {
         "exp_home_score": 79.6,
-        "exp_away_score": 81.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 82.0,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4043,11 +4103,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.2758,
+          "p_home": 0.2617,
           "p_draw": 0.0,
-          "p_away": 0.7242,
-          "hours_before": 1502.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.7383,
+          "hours_before": 1495.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4060,17 +4120,17 @@
       "away_id": "697",
       "home_name": "Зенит",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1503.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1496.2,
       "stage": "T-72h+",
-      "p_home": 0.7094,
+      "p_home": 0.7081,
       "p_draw": 0.0,
-      "p_away": 0.2906,
+      "p_away": 0.2919,
       "extra": {
-        "exp_home_score": 81.7,
-        "exp_away_score": 79.7,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.8,
+        "exp_away_score": 79.8,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4080,11 +4140,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.7094,
+          "p_home": 0.7081,
           "p_draw": 0.0,
-          "p_away": 0.2906,
-          "hours_before": 1503.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2919,
+          "hours_before": 1496.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4097,17 +4157,17 @@
       "away_id": "1390",
       "home_name": "ПАРМА",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1525.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1518.2,
       "stage": "T-72h+",
-      "p_home": 0.732,
+      "p_home": 0.7268,
       "p_draw": 0.0,
-      "p_away": 0.268,
+      "p_away": 0.2732,
       "extra": {
         "exp_home_score": 81.9,
-        "exp_away_score": 79.6,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 79.7,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4117,11 +4177,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.732,
+          "p_home": 0.7268,
           "p_draw": 0.0,
-          "p_away": 0.268,
-          "hours_before": 1525.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.2732,
+          "hours_before": 1518.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4134,17 +4194,17 @@
       "away_id": "23358",
       "home_name": "Локомотив-Кубань",
       "away_name": "Динамо",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1527.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1520.2,
       "stage": "T-72h+",
-      "p_home": 0.8705,
+      "p_home": 0.8754,
       "p_draw": 0.0,
-      "p_away": 0.1295,
+      "p_away": 0.1246,
       "extra": {
-        "exp_home_score": 82.9,
+        "exp_home_score": 83.0,
         "exp_away_score": 78.5,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4154,11 +4214,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8705,
+          "p_home": 0.8754,
           "p_draw": 0.0,
-          "p_away": 0.1295,
-          "hours_before": 1527.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1246,
+          "hours_before": 1520.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4171,17 +4231,17 @@
       "away_id": "2747",
       "home_name": "Зенит",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1575.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1568.2,
       "stage": "T-72h+",
-      "p_home": 0.8947,
+      "p_home": 0.8945,
       "p_draw": 0.0,
-      "p_away": 0.1053,
+      "p_away": 0.1055,
       "extra": {
         "exp_home_score": 83.2,
         "exp_away_score": 78.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4191,11 +4251,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.8947,
+          "p_home": 0.8945,
           "p_draw": 0.0,
-          "p_away": 0.1053,
-          "hours_before": 1575.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.1055,
+          "hours_before": 1568.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4208,8 +4268,8 @@
       "away_id": "688",
       "home_name": "ЦСКА",
       "away_name": "Енисей",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1599.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1592.2,
       "stage": "T-72h+",
       "p_home": 0.9538,
       "p_draw": 0.0,
@@ -4217,8 +4277,8 @@
       "extra": {
         "exp_home_score": 84.2,
         "exp_away_score": 77.3,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4231,8 +4291,8 @@
           "p_home": 0.9538,
           "p_draw": 0.0,
           "p_away": 0.0462,
-          "hours_before": 1599.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "hours_before": 1592.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4245,17 +4305,17 @@
       "away_id": "2650",
       "home_name": "ПАРМА",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1621.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1614.2,
       "stage": "T-72h+",
-      "p_home": 0.6474,
+      "p_home": 0.6456,
       "p_draw": 0.0,
-      "p_away": 0.3526,
+      "p_away": 0.3544,
       "extra": {
-        "exp_home_score": 81.4,
-        "exp_away_score": 80.0,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 81.5,
+        "exp_away_score": 80.1,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4265,11 +4325,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6474,
+          "p_home": 0.6456,
           "p_draw": 0.0,
-          "p_away": 0.3526,
-          "hours_before": 1621.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3544,
+          "hours_before": 1614.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4282,17 +4342,17 @@
       "away_id": "23358",
       "home_name": "Автодор",
       "away_name": "Динамо",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1646.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1639.2,
       "stage": "T-72h+",
-      "p_home": 0.6337,
+      "p_home": 0.6429,
       "p_draw": 0.0,
-      "p_away": 0.3663,
+      "p_away": 0.3571,
       "extra": {
-        "exp_home_score": 81.3,
+        "exp_home_score": 81.4,
         "exp_away_score": 80.1,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4302,11 +4362,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6337,
+          "p_home": 0.6429,
           "p_draw": 0.0,
-          "p_away": 0.3663,
-          "hours_before": 1646.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3571,
+          "hours_before": 1639.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4319,17 +4379,17 @@
       "away_id": "2792",
       "home_name": "Уралмаш",
       "away_name": "Самара",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1669.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1662.2,
       "stage": "T-72h+",
-      "p_home": 0.9219,
+      "p_home": 0.9216,
       "p_draw": 0.0,
-      "p_away": 0.0781,
+      "p_away": 0.0784,
       "extra": {
-        "exp_home_score": 83.5,
-        "exp_away_score": 77.9,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_home_score": 83.6,
+        "exp_away_score": 78.0,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4339,11 +4399,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.9219,
+          "p_home": 0.9216,
           "p_draw": 0.0,
-          "p_away": 0.0781,
-          "hours_before": 1669.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.0784,
+          "hours_before": 1662.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4356,17 +4416,17 @@
       "away_id": "697",
       "home_name": "Енисей",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1691.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1684.2,
       "stage": "T-72h+",
-      "p_home": 0.401,
+      "p_home": 0.3939,
       "p_draw": 0.0,
-      "p_away": 0.599,
+      "p_away": 0.6061,
       "extra": {
         "exp_home_score": 80.3,
-        "exp_away_score": 81.2,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.3,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4376,11 +4436,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.401,
+          "p_home": 0.3939,
           "p_draw": 0.0,
-          "p_away": 0.599,
-          "hours_before": 1691.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.6061,
+          "hours_before": 1684.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4393,17 +4453,17 @@
       "away_id": "2650",
       "home_name": "МБА-МАИ",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1695.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1688.2,
       "stage": "T-72h+",
-      "p_home": 0.5053,
+      "p_home": 0.5138,
       "p_draw": 0.0,
-      "p_away": 0.4947,
+      "p_away": 0.4862,
       "extra": {
-        "exp_home_score": 80.7,
+        "exp_home_score": 80.8,
         "exp_away_score": 80.7,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4413,11 +4473,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.5053,
+          "p_home": 0.5138,
           "p_draw": 0.0,
-          "p_away": 0.4947,
-          "hours_before": 1695.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.4862,
+          "hours_before": 1688.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4430,17 +4490,17 @@
       "away_id": "15",
       "home_name": "Зенит",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1695.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1688.2,
       "stage": "T-72h+",
-      "p_home": 0.6487,
+      "p_home": 0.6333,
       "p_draw": 0.0,
-      "p_away": 0.3513,
+      "p_away": 0.3667,
       "extra": {
         "exp_home_score": 81.4,
-        "exp_away_score": 80.0,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 80.1,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4450,11 +4510,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6487,
+          "p_home": 0.6333,
           "p_draw": 0.0,
-          "p_away": 0.3513,
-          "hours_before": 1695.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3667,
+          "hours_before": 1688.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4467,17 +4527,17 @@
       "away_id": "1390",
       "home_name": "Динамо",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1760.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1753.2,
       "stage": "T-72h+",
-      "p_home": 0.6818,
+      "p_home": 0.6755,
       "p_draw": 0.0,
-      "p_away": 0.3182,
+      "p_away": 0.3245,
       "extra": {
         "exp_home_score": 81.6,
-        "exp_away_score": 79.8,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 79.9,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4487,11 +4547,11 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.6818,
+          "p_home": 0.6755,
           "p_draw": 0.0,
-          "p_away": 0.3182,
-          "hours_before": 1760.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.3245,
+          "hours_before": 1753.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     },
@@ -4504,17 +4564,17 @@
       "away_id": "3059",
       "home_name": "Самара",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-14T08:57:04+00:00",
-      "hours_before": 1766.0,
+      "generated_at": "2026-11-14T15:48:02+00:00",
+      "hours_before": 1759.2,
       "stage": "T-72h+",
-      "p_home": 0.3439,
+      "p_home": 0.3282,
       "p_draw": 0.0,
-      "p_away": 0.6561,
+      "p_away": 0.6718,
       "extra": {
         "exp_home_score": 80.0,
-        "exp_away_score": 81.5,
-        "exp_total": 161.4,
-        "over_155": 0.6358
+        "exp_away_score": 81.6,
+        "exp_total": 161.5,
+        "over_155": 0.6373
       },
       "source": "live",
       "odds_home": null,
@@ -4524,40 +4584,40 @@
       "versions": [
         {
           "stage": "T-72h+",
-          "p_home": 0.3439,
+          "p_home": 0.3282,
           "p_draw": 0.0,
-          "p_away": 0.6561,
-          "hours_before": 1766.0,
-          "generated_at": "2026-11-14T08:57:04+00:00"
+          "p_away": 0.6718,
+          "hours_before": 1759.2,
+          "generated_at": "2026-11-14T15:48:02+00:00"
         }
       ]
     }
   ],
   "summary": {
-    "total": 34,
+    "total": 37,
     "overall": {
-      "n": 34,
-      "accuracy": 0.8824,
-      "logloss": 0.54623,
-      "avg_p_actual": 0.5976,
+      "n": 37,
+      "accuracy": 0.8649,
+      "logloss": 0.54013,
+      "avg_p_actual": 0.6026,
       "roi": null,
       "total_staked": null,
       "total_profit": null
     },
     "outcome_market": {
-      "n": 34,
-      "hits": 30,
+      "n": 37,
+      "hits": 32,
       "withheld": 0,
-      "accuracy": 0.8824,
-      "no_flag": 34
+      "accuracy": 0.8649,
+      "no_flag": 37
     },
     "total_market": {
-      "n": 34,
-      "hits": 24,
+      "n": 37,
+      "hits": 27,
       "withheld": 0,
-      "no_flag": 34,
+      "no_flag": 37,
       "line": 155.0,
-      "accuracy": 0.7059
+      "accuracy": 0.7297
     },
     "by_stage": {
       "T-72h+": {
@@ -4579,10 +4639,10 @@
         "total_profit": null
       },
       "T-6h": {
-        "n": 9,
+        "n": 12,
         "accuracy": 0.6667,
-        "logloss": 0.51759,
-        "avg_p_actual": 0.6245,
+        "logloss": 0.50593,
+        "avg_p_actual": 0.6333,
         "roi": null,
         "total_staked": null,
         "total_profit": null
@@ -4597,8 +4657,8 @@
         "total_profit": null
       }
     },
-    "multi_stage": 16,
+    "multi_stage": 19,
     "flipped": 0,
-    "avg_shift": 0.0417
+    "avg_shift": 0.039
   }
 }

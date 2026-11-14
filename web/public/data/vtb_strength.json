@@ -1,42 +1,42 @@
 [
   {
     "team": "15",
-    "attack": 3.65,
-    "defence": 3.11,
-    "overall": 6.76,
+    "attack": 3.66,
+    "defence": 3.24,
+    "overall": 6.9,
     "name": "ЦСКА"
   },
   {
     "team": "697",
-    "attack": 2.45,
-    "defence": 2.47,
+    "attack": 2.46,
+    "defence": 2.46,
     "overall": 4.92,
     "name": "УНИКС"
   },
   {
     "team": "2994",
-    "attack": 2.18,
-    "defence": 2.26,
+    "attack": 2.19,
+    "defence": 2.25,
     "overall": 4.44,
     "name": "Зенит"
   },
   {
     "team": "2650",
-    "attack": 1.67,
-    "defence": 1.47,
+    "attack": 1.68,
+    "defence": 1.46,
     "overall": 3.14,
     "name": "Локомотив-Кубань"
   },
   {
     "team": "1390",
-    "attack": -0.0,
-    "defence": 0.56,
-    "overall": 0.56,
+    "attack": 0.01,
+    "defence": 0.6,
+    "overall": 0.6,
     "name": "Уралмаш"
   },
   {
     "team": "3059",
-    "attack": 0.52,
+    "attack": 0.53,
     "defence": -0.22,
     "overall": 0.31,
     "name": "ПАРМА"
@@ -58,22 +58,22 @@
   {
     "team": "23358",
     "attack": -0.03,
-    "defence": -0.36,
-    "overall": -0.39,
+    "defence": -0.48,
+    "overall": -0.51,
     "name": "Динамо"
   },
   {
     "team": "2747",
-    "attack": -0.82,
-    "defence": -0.39,
-    "overall": -1.21,
+    "attack": -0.72,
+    "defence": -0.4,
+    "overall": -1.11,
     "name": "МБА-МАИ"
   },
   {
     "team": "688",
-    "attack": -0.79,
-    "defence": -0.94,
-    "overall": -1.73,
+    "attack": -0.83,
+    "defence": -0.95,
+    "overall": -1.77,
     "name": "Енисей"
   },
   {
@@ -86,22 +86,22 @@
   {
     "team": "682",
     "attack": -1.44,
-    "defence": -1.94,
+    "defence": -1.95,
     "overall": -3.39,
     "name": "Автодор"
   },
   {
     "team": "3206",
-    "attack": -2.12,
+    "attack": -2.11,
     "defence": -1.78,
     "overall": -3.9,
     "name": "Астана"
   },
   {
     "team": "2792",
-    "attack": -4.04,
+    "attack": -4.17,
     "defence": -3.32,
-    "overall": -7.35,
+    "overall": -7.49,
     "name": "Самара"
   }
 ]
