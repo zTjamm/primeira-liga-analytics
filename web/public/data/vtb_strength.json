@@ -1,45 +1,38 @@
 [
   {
     "team": "15",
-    "attack": 3.66,
-    "defence": 3.24,
-    "overall": 6.9,
+    "attack": 3.67,
+    "defence": 3.23,
+    "overall": 6.89,
     "name": "ЦСКА"
   },
   {
     "team": "697",
-    "attack": 2.46,
-    "defence": 2.46,
+    "attack": 2.47,
+    "defence": 2.45,
     "overall": 4.92,
     "name": "УНИКС"
   },
   {
     "team": "2994",
     "attack": 2.19,
-    "defence": 2.25,
-    "overall": 4.44,
+    "defence": 2.36,
+    "overall": 4.56,
     "name": "Зенит"
   },
   {
     "team": "2650",
-    "attack": 1.68,
-    "defence": 1.46,
+    "attack": 1.69,
+    "defence": 1.45,
     "overall": 3.14,
     "name": "Локомотив-Кубань"
   },
   {
     "team": "1390",
-    "attack": 0.01,
-    "defence": 0.6,
+    "attack": 0.02,
+    "defence": 0.58,
     "overall": 0.6,
     "name": "Уралмаш"
-  },
-  {
-    "team": "3059",
-    "attack": 0.53,
-    "defence": -0.22,
-    "overall": 0.31,
-    "name": "ПАРМА"
   },
   {
     "team": "563",
@@ -47,6 +40,13 @@
     "defence": 0.19,
     "overall": 0.26,
     "name": "Анадолу Эфес"
+  },
+  {
+    "team": "3059",
+    "attack": 0.41,
+    "defence": -0.23,
+    "overall": 0.18,
+    "name": "ПАРМА"
   },
   {
     "team": "54849",
@@ -64,44 +64,44 @@
   },
   {
     "team": "2747",
-    "attack": -0.72,
-    "defence": -0.4,
+    "attack": -0.7,
+    "defence": -0.41,
     "overall": -1.11,
     "name": "МБА-МАИ"
   },
   {
     "team": "688",
-    "attack": -0.83,
-    "defence": -0.95,
+    "attack": -0.82,
+    "defence": -0.96,
     "overall": -1.77,
     "name": "Енисей"
   },
   {
     "team": "468",
-    "attack": -1.33,
-    "defence": -1.03,
+    "attack": -1.32,
+    "defence": -1.04,
     "overall": -2.36,
     "name": "Пари Нижний Новгород"
   },
   {
     "team": "682",
-    "attack": -1.44,
-    "defence": -1.95,
-    "overall": -3.39,
+    "attack": -1.42,
+    "defence": -1.96,
+    "overall": -3.38,
     "name": "Автодор"
   },
   {
     "team": "3206",
     "attack": -2.11,
-    "defence": -1.78,
-    "overall": -3.9,
+    "defence": -1.79,
+    "overall": -3.89,
     "name": "Астана"
   },
   {
     "team": "2792",
-    "attack": -4.17,
-    "defence": -3.32,
-    "overall": -7.49,
+    "attack": -4.15,
+    "defence": -3.33,
+    "overall": -7.48,
     "name": "Самара"
   }
 ]
