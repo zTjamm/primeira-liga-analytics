@@ -2,9 +2,9 @@
   {
     "team": "1610612760",
     "name": "Oklahoma City Thunder",
-    "attack": 4.93,
+    "attack": 4.92,
     "defence": 3.72,
-    "overall": 8.65
+    "overall": 8.64
   },
   {
     "team": "1610612738",
@@ -18,90 +18,90 @@
     "name": "San Antonio Spurs",
     "attack": 2.08,
     "defence": 2.74,
-    "overall": 4.82
+    "overall": 4.81
   },
   {
     "team": "1610612752",
     "name": "New York Knicks",
-    "attack": 2.82,
-    "defence": 1.97,
+    "attack": 2.81,
+    "defence": 1.98,
     "overall": 4.79
   },
   {
     "team": "1610612765",
     "name": "Detroit Pistons",
-    "attack": 1.79,
-    "defence": 2.71,
-    "overall": 4.49
+    "attack": 1.78,
+    "defence": 2.59,
+    "overall": 4.37
   },
   {
     "team": "1610612745",
     "name": "Houston Rockets",
-    "attack": 2.27,
+    "attack": 2.26,
     "defence": 2.0,
-    "overall": 4.27
+    "overall": 4.26
   },
   {
     "team": "1610612739",
     "name": "Cleveland Cavaliers",
-    "attack": 1.65,
-    "defence": 2.29,
-    "overall": 3.94
+    "attack": 1.67,
+    "defence": 2.3,
+    "overall": 3.97
   },
   {
     "team": "1610612750",
     "name": "Minnesota Timberwolves",
-    "attack": 1.98,
+    "attack": 1.88,
     "defence": 1.72,
-    "overall": 3.7
+    "overall": 3.6
   },
   {
     "team": "1610612743",
     "name": "Denver Nuggets",
-    "attack": 1.17,
-    "defence": 1.68,
-    "overall": 2.85
+    "attack": 1.16,
+    "defence": 1.72,
+    "overall": 2.88
   },
   {
     "team": "1610612746",
     "name": "LA Clippers",
     "attack": 1.82,
     "defence": 0.1,
-    "overall": 1.92
+    "overall": 1.91
   },
   {
     "team": "1610612744",
     "name": "Golden State Warriors",
     "attack": 0.86,
     "defence": 0.75,
-    "overall": 1.62
+    "overall": 1.61
   },
   {
     "team": "1610612747",
     "name": "Los Angeles Lakers",
     "attack": 0.42,
     "defence": 0.4,
-    "overall": 0.82
+    "overall": 0.81
   },
   {
     "team": "1610612748",
     "name": "Miami Heat",
-    "attack": 0.05,
+    "attack": 0.17,
     "defence": 0.39,
-    "overall": 0.44
+    "overall": 0.56
   },
   {
     "team": "1610612761",
     "name": "Toronto Raptors",
-    "attack": 0.58,
+    "attack": 0.57,
     "defence": -0.2,
     "overall": 0.38
   },
   {
     "team": "1610612753",
     "name": "Orlando Magic",
-    "attack": 0.19,
-    "defence": 0.05,
+    "attack": 0.18,
+    "defence": 0.06,
     "overall": 0.24
   },
   {
@@ -115,7 +115,7 @@
     "team": "1610612737",
     "name": "Atlanta Hawks",
     "attack": -0.76,
-    "defence": 0.96,
+    "defence": 0.97,
     "overall": 0.2
   },
   {
@@ -128,8 +128,8 @@
   {
     "team": "1610612757",
     "name": "Portland Trail Blazers",
-    "attack": 0.49,
-    "defence": -0.37,
+    "attack": 0.48,
+    "defence": -0.36,
     "overall": 0.12
   },
   {
@@ -144,7 +144,7 @@
     "name": "Team Vince",
     "attack": -0.0,
     "defence": 0.08,
-    "overall": 0.07
+    "overall": 0.08
   },
   {
     "team": "1610616839",
@@ -158,7 +158,21 @@
     "name": "Team Melo",
     "attack": 0.01,
     "defence": 0.0,
-    "overall": 0.01
+    "overall": 0.02
+  },
+  {
+    "team": "1610616857",
+    "name": "Team M",
+    "attack": -0.02,
+    "defence": 0.0,
+    "overall": -0.01
+  },
+  {
+    "team": "1610616861",
+    "name": "World",
+    "attack": -0.0,
+    "defence": -0.01,
+    "overall": -0.01
   },
   {
     "team": "1610616856",
@@ -168,18 +182,11 @@
     "overall": -0.02
   },
   {
-    "team": "1610616857",
-    "name": "Team M",
-    "attack": -0.02,
+    "team": "1610616840",
+    "name": "Team Anthony",
+    "attack": -0.04,
     "defence": 0.0,
-    "overall": -0.02
-  },
-  {
-    "team": "1610616861",
-    "name": "World",
-    "attack": -0.0,
-    "defence": -0.01,
-    "overall": -0.02
+    "overall": -0.03
   },
   {
     "team": "1610616854",
@@ -189,17 +196,17 @@
     "overall": -0.03
   },
   {
+    "team": "1610616865",
+    "name": "Team Austin",
+    "attack": -0.0,
+    "defence": -0.03,
+    "overall": -0.03
+  },
+  {
     "team": "15025",
     "name": "Ratiopharm Ulm",
     "attack": -0.0,
     "defence": -0.04,
-    "overall": -0.04
-  },
-  {
-    "team": "1610616840",
-    "name": "Team Rice",
-    "attack": -0.04,
-    "defence": 0.0,
     "overall": -0.04
   },
   {
@@ -214,13 +221,6 @@
     "name": "Team G League",
     "attack": -0.0,
     "defence": -0.04,
-    "overall": -0.04
-  },
-  {
-    "team": "1610616865",
-    "name": "Team Austin",
-    "attack": -0.0,
-    "defence": -0.03,
     "overall": -0.04
   },
   {
@@ -276,22 +276,22 @@
     "team": "15020",
     "name": "New Zealand Breakers",
     "attack": -0.0,
-    "defence": -0.53,
+    "defence": -0.54,
     "overall": -0.54
   },
   {
     "team": "1610612756",
     "name": "Phoenix Suns",
     "attack": -0.17,
-    "defence": -0.54,
+    "defence": -0.53,
     "overall": -0.7
   },
   {
     "team": "1610612763",
     "name": "Memphis Grizzlies",
-    "attack": -0.57,
-    "defence": -0.28,
-    "overall": -0.85
+    "attack": -0.49,
+    "defence": -0.27,
+    "overall": -0.76
   },
   {
     "team": "15018",
@@ -310,30 +310,30 @@
   {
     "team": "1610612755",
     "name": "Philadelphia 76ers",
-    "attack": -1.68,
-    "defence": -0.41,
+    "attack": -1.69,
+    "defence": -0.4,
     "overall": -2.09
   },
   {
     "team": "1610612754",
     "name": "Indiana Pacers",
-    "attack": -1.1,
-    "defence": -1.15,
+    "attack": -1.11,
+    "defence": -1.14,
     "overall": -2.25
   },
   {
     "team": "1610612742",
     "name": "Dallas Mavericks",
     "attack": -0.96,
-    "defence": -1.4,
-    "overall": -2.35
+    "defence": -1.42,
+    "overall": -2.38
   },
   {
     "team": "1610612741",
     "name": "Chicago Bulls",
     "attack": -1.77,
-    "defence": -1.36,
-    "overall": -3.13
+    "defence": -1.25,
+    "overall": -3.03
   },
   {
     "team": "1610612749",
@@ -345,36 +345,36 @@
   {
     "team": "1610612740",
     "name": "New Orleans Pelicans",
-    "attack": -1.85,
-    "defence": -3.03,
-    "overall": -4.88
+    "attack": -1.89,
+    "defence": -3.02,
+    "overall": -4.91
   },
   {
     "team": "1610612758",
     "name": "Sacramento Kings",
     "attack": -2.86,
-    "defence": -2.49,
-    "overall": -5.35
+    "defence": -2.48,
+    "overall": -5.34
   },
   {
     "team": "1610612751",
     "name": "Brooklyn Nets",
     "attack": -3.29,
-    "defence": -2.63,
-    "overall": -5.92
+    "defence": -2.71,
+    "overall": -6.01
   },
   {
     "team": "1610612762",
     "name": "Utah Jazz",
     "attack": -3.25,
-    "defence": -3.35,
-    "overall": -6.6
+    "defence": -3.34,
+    "overall": -6.59
   },
   {
     "team": "1610612764",
     "name": "Washington Wizards",
     "attack": -4.64,
-    "defence": -4.02,
-    "overall": -8.66
+    "defence": -4.01,
+    "overall": -8.65
   }
 ]
