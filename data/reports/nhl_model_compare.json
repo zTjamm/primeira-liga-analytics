@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T13:09:41+00:00",
+  "generated_at": "2026-11-17T13:52:00+00:00",
   "apply_rule": {
     "selection_folds": [
       "20182019→20192020",
@@ -605,41 +605,41 @@
     {
       "name": "20252026→20262027",
       "n_train": 9781,
-      "n_test": 322,
+      "n_test": 324,
       "models": {
         "basketball": {
-          "n": 322,
-          "logloss": 0.67765,
-          "accuracy": 0.559,
-          "brier": 0.24233,
-          "coverage": 0.3851,
-          "accuracy_given": 0.6532,
-          "n_given": 124,
-          "avg_confidence": 0.5425,
+          "n": 324,
+          "logloss": 0.67784,
+          "accuracy": 0.5586,
+          "brier": 0.24243,
+          "coverage": 0.3858,
+          "accuracy_given": 0.648,
+          "n_given": 125,
+          "avg_confidence": 0.5426,
           "avg_p_home": 0.538,
           "summary": "лига: 3.1 шайб на команду, дома +0.22, σ_разница=2.57, σ_тотал=2.31, сошёлся=True"
         },
         "always_home": {
-          "n": 322,
-          "logloss": 0.69127,
-          "accuracy": 0.5311,
-          "brier": 0.24906,
+          "n": 324,
+          "logloss": 0.6913,
+          "accuracy": 0.5309,
+          "brier": 0.24908,
           "coverage": 1.0,
-          "accuracy_given": 0.5311,
-          "n_given": 322,
+          "accuracy_given": 0.5309,
+          "n_given": 324,
           "avg_confidence": 0.5363,
           "avg_p_home": 0.5363
         },
         "hockey_ot": {
-          "n": 322,
-          "logloss": 0.66797,
-          "accuracy": 0.5714,
-          "brier": 0.23773,
-          "coverage": 0.5745,
-          "accuracy_given": 0.6541,
-          "n_given": 185,
-          "avg_confidence": 0.5685,
-          "avg_p_home": 0.5325,
+          "n": 324,
+          "logloss": 0.66892,
+          "accuracy": 0.571,
+          "brier": 0.23819,
+          "coverage": 0.5772,
+          "accuracy_given": 0.6524,
+          "n_given": 187,
+          "avg_confidence": 0.5687,
+          "avg_p_home": 0.533,
           "strength_scale": 0.08,
           "half_life_days": 365.0,
           "summary": "λ_дома 3.11 шайбы, λ_в_гостях 2.89, дома ++7.6%, овертайм ×2.17, ρ=-0.0285, κ=+0.396, сошёлся=True",
@@ -647,15 +647,15 @@
           "model_tie_share": 0.2287
         },
         "hockey_ot_plain": {
-          "n": 322,
-          "logloss": 0.66746,
-          "accuracy": 0.5776,
-          "brier": 0.23751,
-          "coverage": 0.5901,
-          "accuracy_given": 0.6579,
-          "n_given": 190,
-          "avg_confidence": 0.5713,
-          "avg_p_home": 0.532,
+          "n": 324,
+          "logloss": 0.66846,
+          "accuracy": 0.5772,
+          "brier": 0.23798,
+          "coverage": 0.5926,
+          "accuracy_given": 0.6562,
+          "n_given": 192,
+          "avg_confidence": 0.5715,
+          "avg_p_home": 0.5324,
           "strength_scale": 0.08,
           "half_life_days": 365.0,
           "summary": "λ_дома 3.08 шайбы, λ_в_гостях 2.88, дома ++7.2%, овертайм ×2.19, ρ=-0.1105, κ=+0.000, сошёлся=True",
@@ -663,101 +663,101 @@
           "model_tie_share": 0.1684
         },
         "hockey_flat": {
-          "n": 322,
-          "logloss": 0.66673,
-          "accuracy": 0.5839,
-          "brier": 0.23713,
-          "coverage": 0.5528,
-          "accuracy_given": 0.6573,
-          "n_given": 178,
-          "avg_confidence": 0.5665,
-          "avg_p_home": 0.5354,
+          "n": 324,
+          "logloss": 0.66764,
+          "accuracy": 0.5833,
+          "brier": 0.23757,
+          "coverage": 0.5556,
+          "accuracy_given": 0.6556,
+          "n_given": 180,
+          "avg_confidence": 0.5668,
+          "avg_p_home": 0.5358,
           "strength_scale": 0.05,
           "half_life_days": 365.0,
           "summary": "λ_дома 3.20 шайбы, λ_в_гостях 3.00, дома ++6.9%, овертайм ×6.00, ρ=+0.1500, κ=+0.000, сошёлся=True",
           "tie_boost": 0.0,
-          "model_tie_share": 0.1554
+          "model_tie_share": 0.1553
         }
       },
-      "observed_tie_share": 0.2236,
+      "observed_tie_share": 0.2222,
       "kappa_paired": {
-        "n": 322,
-        "mean_logloss_diff_plain_minus_boost": -0.000506
+        "n": 324,
+        "mean_logloss_diff_plain_minus_boost": -0.000461
       }
     }
   ],
   "pooled_all": {
     "basketball": {
-      "n": 8832,
-      "logloss": 0.68213,
+      "n": 8834,
+      "logloss": 0.68214,
       "accuracy": 0.5532,
-      "accuracy_given": 0.6102,
+      "accuracy_given": 0.61,
       "coverage": 0.4537
     },
     "always_home": {
-      "n": 8832,
+      "n": 8834,
       "logloss": 0.6906,
       "accuracy": 0.5361,
       "accuracy_given": 0.5361,
       "coverage": 1.0
     },
     "hockey_ot": {
-      "n": 8832,
-      "logloss": 0.67478,
+      "n": 8834,
+      "logloss": 0.67481,
       "accuracy": 0.5759,
-      "accuracy_given": 0.6085,
-      "coverage": 0.6287
+      "accuracy_given": 0.6084,
+      "coverage": 0.6288
     },
     "hockey_ot_plain": {
-      "n": 8832,
-      "logloss": 0.67481,
+      "n": 8834,
+      "logloss": 0.67485,
       "accuracy": 0.5762,
-      "accuracy_given": 0.6092,
-      "coverage": 0.6385
+      "accuracy_given": 0.6091,
+      "coverage": 0.6386
     },
     "hockey_flat": {
-      "n": 8832,
-      "logloss": 0.67494,
+      "n": 8834,
+      "logloss": 0.67498,
       "accuracy": 0.5768,
       "accuracy_given": 0.6055,
-      "coverage": 0.618
+      "coverage": 0.6181
     }
   },
   "pooled_verification": {
     "basketball": {
-      "n": 1634,
-      "logloss": 0.69021,
-      "accuracy": 0.5319,
-      "accuracy_given": 0.5537,
-      "coverage": 0.4388
+      "n": 1636,
+      "logloss": 0.69023,
+      "accuracy": 0.5318,
+      "accuracy_given": 0.5529,
+      "coverage": 0.4389
     },
     "always_home": {
-      "n": 1634,
+      "n": 1636,
       "logloss": 0.69243,
-      "accuracy": 0.5239,
-      "accuracy_given": 0.5239,
+      "accuracy": 0.5238,
+      "accuracy_given": 0.5238,
       "coverage": 1.0
     },
     "hockey_ot": {
-      "n": 1634,
-      "logloss": 0.69553,
+      "n": 1636,
+      "logloss": 0.69569,
       "accuracy": 0.5257,
-      "accuracy_given": 0.5606,
-      "coverage": 0.6004
+      "accuracy_given": 0.5605,
+      "coverage": 0.6009
     },
     "hockey_ot_plain": {
-      "n": 1634,
-      "logloss": 0.69613,
+      "n": 1636,
+      "logloss": 0.6963,
       "accuracy": 0.5275,
-      "accuracy_given": 0.5602,
-      "coverage": 0.6095
+      "accuracy_given": 0.5601,
+      "coverage": 0.61
     },
     "hockey_flat": {
-      "n": 1634,
-      "logloss": 0.69486,
-      "accuracy": 0.5319,
-      "accuracy_given": 0.5567,
-      "coverage": 0.5881
+      "n": 1636,
+      "logloss": 0.69501,
+      "accuracy": 0.5318,
+      "accuracy_given": 0.5566,
+      "coverage": 0.5886
     }
   },
   "selection": {
@@ -800,8 +800,8 @@
       "worst_fold_delta": 0.00901,
       "strict_verification_folds": {
         "adopt": false,
-        "logloss_new": 0.69553,
-        "logloss_baseline": 0.69021,
+        "logloss_new": 0.69569,
+        "logloss_baseline": 0.69023,
         "note": "правило по двум последним fold'ам: маломощно, решение принимается по всей истории walk-forward"
       }
     },
@@ -815,8 +815,8 @@
       "worst_fold_delta": 0.00848,
       "strict_verification_folds": {
         "adopt": false,
-        "logloss_new": 0.69486,
-        "logloss_baseline": 0.69021,
+        "logloss_new": 0.69501,
+        "logloss_baseline": 0.69023,
         "note": "правило по двум последним fold'ам: маломощно, решение принимается по всей истории walk-forward"
       }
     }
@@ -827,17 +827,17 @@
       "модельная доля ничьих после основного времени ближе к наблюдаемой, чем без поправки"
     ],
     "adopt_kappa": true,
-    "n": 8832,
-    "mean_logloss_diff_plain_minus_boost": 3.2e-05,
+    "n": 8834,
+    "mean_logloss_diff_plain_minus_boost": 3.4e-05,
     "stderr": 8.8e-05,
-    "t_statistic": 0.368,
+    "t_statistic": 0.385,
     "ci95": [
-      -0.000139,
-      0.000204
+      -0.000138,
+      0.000205
     ],
-    "matches_better_with_kappa": 3768,
-    "matches_worse_with_kappa": 5064,
-    "observed_tie_share": 0.2238,
+    "matches_better_with_kappa": 3769,
+    "matches_worse_with_kappa": 5065,
+    "observed_tie_share": 0.2237,
     "model_tie_share": {
       "hockey_ot": 0.2196,
       "hockey_ot_plain": 0.1684
