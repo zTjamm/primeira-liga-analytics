@@ -2,7 +2,7 @@
   {
     "team": "15",
     "attack": 3.67,
-    "defence": 3.23,
+    "defence": 3.22,
     "overall": 6.89,
     "name": "ЦСКА"
   },
@@ -15,7 +15,7 @@
   },
   {
     "team": "2994",
-    "attack": 2.19,
+    "attack": 2.2,
     "defence": 2.36,
     "overall": 4.56,
     "name": "Зенит"
@@ -23,15 +23,15 @@
   {
     "team": "2650",
     "attack": 1.69,
-    "defence": 1.45,
-    "overall": 3.14,
+    "defence": 1.48,
+    "overall": 3.17,
     "name": "Локомотив-Кубань"
   },
   {
     "team": "1390",
-    "attack": 0.02,
+    "attack": -0.01,
     "defence": 0.58,
-    "overall": 0.6,
+    "overall": 0.57,
     "name": "Уралмаш"
   },
   {
@@ -43,8 +43,8 @@
   },
   {
     "team": "3059",
-    "attack": 0.41,
-    "defence": -0.23,
+    "attack": 0.42,
+    "defence": -0.24,
     "overall": 0.18,
     "name": "ПАРМА"
   },
@@ -71,14 +71,14 @@
   },
   {
     "team": "688",
-    "attack": -0.82,
+    "attack": -0.81,
     "defence": -0.96,
     "overall": -1.77,
     "name": "Енисей"
   },
   {
     "team": "468",
-    "attack": -1.32,
+    "attack": -1.31,
     "defence": -1.04,
     "overall": -2.36,
     "name": "Пари Нижний Новгород"
@@ -92,7 +92,7 @@
   },
   {
     "team": "3206",
-    "attack": -2.11,
+    "attack": -2.1,
     "defence": -1.79,
     "overall": -3.89,
     "name": "Астана"
