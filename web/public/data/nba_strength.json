@@ -25,7 +25,7 @@
     "name": "New York Knicks",
     "attack": 2.82,
     "defence": 2.0,
-    "overall": 4.83
+    "overall": 4.82
   },
   {
     "team": "1610612745",
@@ -39,7 +39,7 @@
     "name": "Detroit Pistons",
     "attack": 1.79,
     "defence": 2.58,
-    "overall": 4.38
+    "overall": 4.37
   },
   {
     "team": "1610612739",
@@ -65,7 +65,7 @@
   {
     "team": "1610612746",
     "name": "LA Clippers",
-    "attack": 1.85,
+    "attack": 1.84,
     "defence": 0.09,
     "overall": 1.94
   },
@@ -79,7 +79,7 @@
   {
     "team": "1610612747",
     "name": "Los Angeles Lakers",
-    "attack": 0.42,
+    "attack": 0.43,
     "defence": 0.45,
     "overall": 0.87
   },
@@ -161,17 +161,17 @@
     "overall": 0.01
   },
   {
-    "team": "1610616857",
-    "name": "Team M",
-    "attack": -0.02,
-    "defence": 0.0,
-    "overall": -0.01
-  },
-  {
     "team": "1610616856",
     "name": "Team T",
     "attack": -0.0,
     "defence": -0.02,
+    "overall": -0.02
+  },
+  {
+    "team": "1610616857",
+    "name": "Team M",
+    "attack": -0.02,
+    "defence": 0.0,
     "overall": -0.02
   },
   {
@@ -226,7 +226,7 @@
   {
     "team": "1610616864",
     "name": "Team T-Mac",
-    "attack": -0.06,
+    "attack": -0.05,
     "defence": 0.0,
     "overall": -0.05
   },
@@ -270,7 +270,7 @@
     "name": "London Lions",
     "attack": -0.0,
     "defence": -0.51,
-    "overall": -0.52
+    "overall": -0.51
   },
   {
     "team": "15020",
@@ -303,8 +303,8 @@
   {
     "team": "1610612766",
     "name": "Charlotte Hornets",
-    "attack": -1.4,
-    "defence": -0.48,
+    "attack": -1.39,
+    "defence": -0.47,
     "overall": -1.87
   },
   {
@@ -354,7 +354,7 @@
     "name": "Sacramento Kings",
     "attack": -2.97,
     "defence": -2.49,
-    "overall": -5.45
+    "overall": -5.46
   },
   {
     "team": "1610612751",
