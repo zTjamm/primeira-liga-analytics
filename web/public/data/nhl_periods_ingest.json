@@ -1,13 +1,13 @@
 {
-  "matches": 10116,
+  "matches": 10119,
   "reg_tie_share": 0.2222,
-  "shootout_share": 0.073,
+  "shootout_share": 0.0729,
   "ot_played_share": 0.2222,
-  "ot_decided_share": 0.1493,
+  "ot_decided_share": 0.1492,
   "shootout_of_ties": 0.3283,
   "ot_home_win_share": 0.5076,
   "ot_home_wins": 1141,
   "consistency_ot_without_tie": 0,
   "consistency_winner_delta_not_1": 0,
-  "generated_at": "2026-11-18T13:26:40+00:00"
+  "generated_at": "2026-11-19T13:53:46+00:00"
 }
