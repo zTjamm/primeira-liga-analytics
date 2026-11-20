@@ -1,13 +1,13 @@
 {
-  "matches": 10119,
-  "reg_tie_share": 0.2222,
-  "shootout_share": 0.0729,
-  "ot_played_share": 0.2222,
-  "ot_decided_share": 0.1492,
-  "shootout_of_ties": 0.3283,
-  "ot_home_win_share": 0.5076,
-  "ot_home_wins": 1141,
+  "matches": 10131,
+  "reg_tie_share": 0.2224,
+  "shootout_share": 0.073,
+  "ot_played_share": 0.2224,
+  "ot_decided_share": 0.1493,
+  "shootout_of_ties": 0.3285,
+  "ot_home_win_share": 0.5069,
+  "ot_home_wins": 1142,
   "consistency_ot_without_tie": 0,
   "consistency_winner_delta_not_1": 0,
-  "generated_at": "2026-11-19T13:53:46+00:00"
+  "generated_at": "2026-11-20T13:36:25+00:00"
 }
