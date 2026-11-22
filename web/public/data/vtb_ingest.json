@@ -10,25 +10,25 @@
   ],
   "include_playoffs": false,
   "total_rows": 711,
-  "trainable": 553,
+  "trainable": 555,
   "by_season": {
     "2024/25": 267,
     "2025/26": 220,
-    "2026/27": 66
+    "2026/27": 68
   },
   "dropped_allstars": 2,
   "dropped_playoffs": 99,
-  "dropped_not_played": 158,
-  "upcoming_current": 52,
+  "dropped_not_played": 156,
+  "upcoming_current": 50,
   "teams_in_registry": 15,
   "teams_thin_history": 2,
   "date_range": [
     "2024-09-21",
-    "2026-11-21"
+    "2026-11-22"
   ],
-  "avg_points_per_team": 80.81,
-  "avg_total_points": 161.62,
-  "home_win_share": 0.5407,
-  "overtime_share": 0.0325,
+  "avg_points_per_team": 80.83,
+  "avg_total_points": 161.66,
+  "home_win_share": 0.5423,
+  "overtime_share": 0.0342,
   "attendance_median": 2166
 }

@@ -1,43 +1,43 @@
 [
   {
     "team": "15",
-    "attack": 3.72,
-    "defence": 3.23,
-    "overall": 6.95,
+    "attack": 3.74,
+    "defence": 3.25,
+    "overall": 6.99,
     "name": "ЦСКА"
   },
   {
     "team": "697",
-    "attack": 2.55,
+    "attack": 2.56,
     "defence": 2.45,
-    "overall": 5.0,
+    "overall": 5.01,
     "name": "УНИКС"
   },
   {
     "team": "2994",
     "attack": 2.23,
-    "defence": 2.38,
-    "overall": 4.61,
+    "defence": 2.4,
+    "overall": 4.63,
     "name": "Зенит"
   },
   {
     "team": "2650",
-    "attack": 1.71,
-    "defence": 1.52,
-    "overall": 3.24,
+    "attack": 1.72,
+    "defence": 1.53,
+    "overall": 3.25,
     "name": "Локомотив-Кубань"
   },
   {
     "team": "1390",
-    "attack": 0.0,
-    "defence": 0.57,
-    "overall": 0.57,
+    "attack": 0.04,
+    "defence": 0.58,
+    "overall": 0.62,
     "name": "Уралмаш"
   },
   {
     "team": "3059",
     "attack": 0.43,
-    "defence": -0.17,
+    "defence": -0.16,
     "overall": 0.27,
     "name": "ПАРМА"
   },
@@ -45,7 +45,7 @@
     "team": "563",
     "attack": 0.08,
     "defence": 0.19,
-    "overall": 0.26,
+    "overall": 0.27,
     "name": "Анадолу Эфес"
   },
   {
@@ -71,37 +71,37 @@
   },
   {
     "team": "688",
-    "attack": -0.8,
-    "defence": -1.03,
-    "overall": -1.83,
+    "attack": -0.81,
+    "defence": -1.07,
+    "overall": -1.88,
     "name": "Енисей"
   },
   {
     "team": "468",
-    "attack": -1.31,
+    "attack": -1.32,
     "defence": -1.06,
-    "overall": -2.37,
+    "overall": -2.38,
     "name": "Пари Нижний Новгород"
   },
   {
     "team": "682",
-    "attack": -1.5,
+    "attack": -1.52,
     "defence": -1.99,
-    "overall": -3.49,
+    "overall": -3.51,
     "name": "Автодор"
   },
   {
     "team": "3206",
-    "attack": -2.12,
+    "attack": -2.13,
     "defence": -1.81,
-    "overall": -3.93,
+    "overall": -3.94,
     "name": "Астана"
   },
   {
     "team": "2792",
-    "attack": -4.17,
-    "defence": -3.31,
-    "overall": -7.48,
+    "attack": -4.19,
+    "defence": -3.32,
+    "overall": -7.51,
     "name": "Самара"
   }
 ]
