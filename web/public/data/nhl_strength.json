@@ -11,7 +11,7 @@
     "name": "Hurricanes",
     "attack": 0.129,
     "defence": 0.096,
-    "overall": 0.225
+    "overall": 0.224
   },
   {
     "team": "14",
@@ -31,22 +31,22 @@
     "team": "30",
     "name": "Wild",
     "attack": 0.029,
-    "defence": 0.093,
+    "defence": 0.094,
     "overall": 0.123
+  },
+  {
+    "team": "54",
+    "name": "Golden Knights",
+    "attack": 0.045,
+    "defence": 0.059,
+    "overall": 0.104
   },
   {
     "team": "22",
     "name": "Oilers",
     "attack": 0.095,
-    "defence": 0.013,
-    "overall": 0.108
-  },
-  {
-    "team": "54",
-    "name": "Golden Knights",
-    "attack": 0.04,
-    "defence": 0.059,
-    "overall": 0.099
+    "defence": 0.008,
+    "overall": 0.103
   },
   {
     "team": "6",
@@ -59,7 +59,7 @@
     "team": "9",
     "name": "Senators",
     "attack": 0.028,
-    "defence": 0.034,
+    "defence": 0.035,
     "overall": 0.063
   },
   {
@@ -80,7 +80,7 @@
     "team": "7",
     "name": "Sabres",
     "attack": 0.059,
-    "defence": -0.024,
+    "defence": -0.023,
     "overall": 0.036
   },
   {
@@ -115,7 +115,7 @@
     "team": "26",
     "name": "Kings",
     "attack": -0.076,
-    "defence": 0.08,
+    "defence": 0.081,
     "overall": 0.004
   },
   {
@@ -206,7 +206,7 @@
     "team": "20",
     "name": "Flames",
     "attack": -0.113,
-    "defence": -0.012,
+    "defence": -0.011,
     "overall": -0.125
   },
   {
@@ -234,7 +234,7 @@
     "team": "28",
     "name": "Sharks",
     "attack": -0.1,
-    "defence": -0.15,
+    "defence": -0.149,
     "overall": -0.249
   }
 ]
