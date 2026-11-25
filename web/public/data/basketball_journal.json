@@ -1,6 +1,6 @@
 {
   "sport": "basketball",
-  "generated_at": "2026-11-24T20:47:33+00:00",
+  "generated_at": "2026-11-25T03:51:29+00:00",
   "resolved": [
     {
       "key": "1081891",
@@ -3074,8 +3074,8 @@
           "p_home": 0.7496,
           "p_draw": 0.0,
           "p_away": 0.2504,
-          "hours_before": 618.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 611.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         },
         {
           "stage": "T-24h",
@@ -3096,8 +3096,8 @@
       "away_id": "688",
       "home_name": "ПАРМА",
       "away_name": "Енисей",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 188.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 181.1,
       "stage": "T-72h+",
       "p_home": 0.8361,
       "p_draw": 0.0,
@@ -3119,8 +3119,8 @@
           "p_home": 0.8361,
           "p_draw": 0.0,
           "p_away": 0.1639,
-          "hours_before": 188.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 181.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3133,8 +3133,8 @@
       "away_id": "15",
       "home_name": "Уралмаш",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 236.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 229.6,
       "stage": "T-72h+",
       "p_home": 0.3875,
       "p_draw": 0.0,
@@ -3156,8 +3156,8 @@
           "p_home": 0.3875,
           "p_draw": 0.0,
           "p_away": 0.6125,
-          "hours_before": 236.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 229.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3170,8 +3170,8 @@
       "away_id": "2792",
       "home_name": "Динамо",
       "away_name": "Самара",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 255.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 248.6,
       "stage": "T-72h+",
       "p_home": 0.9172,
       "p_draw": 0.0,
@@ -3193,8 +3193,8 @@
           "p_home": 0.9172,
           "p_draw": 0.0,
           "p_away": 0.0828,
-          "hours_before": 255.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 248.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3207,8 +3207,8 @@
       "away_id": "2994",
       "home_name": "Автодор",
       "away_name": "Зенит",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 259.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 252.1,
       "stage": "T-72h+",
       "p_home": 0.317,
       "p_draw": 0.0,
@@ -3230,8 +3230,8 @@
           "p_home": 0.317,
           "p_draw": 0.0,
           "p_away": 0.683,
-          "hours_before": 259.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 252.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3244,8 +3244,8 @@
       "away_id": "2650",
       "home_name": "УНИКС",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 282.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 275.1,
       "stage": "T-72h+",
       "p_home": 0.8052,
       "p_draw": 0.0,
@@ -3267,8 +3267,8 @@
           "p_home": 0.8052,
           "p_draw": 0.0,
           "p_away": 0.1948,
-          "hours_before": 282.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 275.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3281,8 +3281,8 @@
       "away_id": "2747",
       "home_name": "Динамо",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 351.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 344.6,
       "stage": "T-72h+",
       "p_home": 0.7533,
       "p_draw": 0.0,
@@ -3304,8 +3304,8 @@
           "p_home": 0.7533,
           "p_draw": 0.0,
           "p_away": 0.2467,
-          "hours_before": 351.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 344.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3318,8 +3318,8 @@
       "away_id": "2650",
       "home_name": "Енисей",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 354.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 347.6,
       "stage": "T-72h+",
       "p_home": 0.4816,
       "p_draw": 0.0,
@@ -3341,8 +3341,8 @@
           "p_home": 0.4816,
           "p_draw": 0.0,
           "p_away": 0.5184,
-          "hours_before": 354.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 347.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3355,8 +3355,8 @@
       "away_id": "682",
       "home_name": "Самара",
       "away_name": "Автодор",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 357.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 350.1,
       "stage": "T-72h+",
       "p_home": 0.4982,
       "p_draw": 0.0,
@@ -3378,8 +3378,8 @@
           "p_home": 0.4982,
           "p_draw": 0.0,
           "p_away": 0.5018,
-          "hours_before": 357.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 350.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3392,8 +3392,8 @@
       "away_id": "1390",
       "home_name": "Локомотив-Кубань",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 449.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 442.1,
       "stage": "T-72h+",
       "p_home": 0.8129,
       "p_draw": 0.0,
@@ -3415,8 +3415,8 @@
           "p_home": 0.8129,
           "p_draw": 0.0,
           "p_away": 0.1871,
-          "hours_before": 449.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 442.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3429,8 +3429,8 @@
       "away_id": "688",
       "home_name": "Самара",
       "away_name": "Енисей",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 451.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 444.1,
       "stage": "T-72h+",
       "p_home": 0.3976,
       "p_draw": 0.0,
@@ -3452,8 +3452,8 @@
           "p_home": 0.3976,
           "p_draw": 0.0,
           "p_away": 0.6024,
-          "hours_before": 451.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 444.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3466,8 +3466,8 @@
       "away_id": "682",
       "home_name": "УНИКС",
       "away_name": "Автодор",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 453.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 446.1,
       "stage": "T-72h+",
       "p_home": 0.952,
       "p_draw": 0.0,
@@ -3489,8 +3489,8 @@
           "p_home": 0.952,
           "p_draw": 0.0,
           "p_away": 0.048,
-          "hours_before": 453.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 446.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3503,8 +3503,8 @@
       "away_id": "688",
       "home_name": "Автодор",
       "away_name": "Енисей",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 525.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 518.1,
       "stage": "T-72h+",
       "p_home": 0.683,
       "p_draw": 0.0,
@@ -3526,8 +3526,8 @@
           "p_home": 0.683,
           "p_draw": 0.0,
           "p_away": 0.317,
-          "hours_before": 525.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 518.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3540,8 +3540,8 @@
       "away_id": "2792",
       "home_name": "УНИКС",
       "away_name": "Самара",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 526.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 519.1,
       "stage": "T-72h+",
       "p_home": 0.9729,
       "p_draw": 0.0,
@@ -3563,8 +3563,8 @@
           "p_home": 0.9729,
           "p_draw": 0.0,
           "p_away": 0.0271,
-          "hours_before": 526.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 519.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3577,8 +3577,8 @@
       "away_id": "1390",
       "home_name": "МБА-МАИ",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 526.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 519.6,
       "stage": "T-72h+",
       "p_home": 0.5904,
       "p_draw": 0.0,
@@ -3600,8 +3600,8 @@
           "p_home": 0.5904,
           "p_draw": 0.0,
           "p_away": 0.4096,
-          "hours_before": 526.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 519.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3614,8 +3614,8 @@
       "away_id": "2650",
       "home_name": "Зенит",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 550.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 543.1,
       "stage": "T-72h+",
       "p_home": 0.7813,
       "p_draw": 0.0,
@@ -3637,8 +3637,8 @@
           "p_home": 0.7813,
           "p_draw": 0.0,
           "p_away": 0.2187,
-          "hours_before": 550.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 543.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3651,8 +3651,8 @@
       "away_id": "15",
       "home_name": "ПАРМА",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 596.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 589.1,
       "stage": "T-72h+",
       "p_home": 0.4291,
       "p_draw": 0.0,
@@ -3674,8 +3674,8 @@
           "p_home": 0.4291,
           "p_draw": 0.0,
           "p_away": 0.5709,
-          "hours_before": 596.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 589.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3688,8 +3688,8 @@
       "away_id": "697",
       "home_name": "Уралмаш",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 617.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 610.1,
       "stage": "T-72h+",
       "p_home": 0.4744,
       "p_draw": 0.0,
@@ -3711,8 +3711,8 @@
           "p_home": 0.4744,
           "p_draw": 0.0,
           "p_away": 0.5256,
-          "hours_before": 617.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 610.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3725,8 +3725,8 @@
       "away_id": "2650",
       "home_name": "Автодор",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 620.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 613.1,
       "stage": "T-72h+",
       "p_home": 0.4047,
       "p_draw": 0.0,
@@ -3748,8 +3748,8 @@
           "p_home": 0.4047,
           "p_draw": 0.0,
           "p_away": 0.5953,
-          "hours_before": 620.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 613.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3762,8 +3762,8 @@
       "away_id": "2792",
       "home_name": "ЦСКА",
       "away_name": "Самара",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 670.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 663.1,
       "stage": "T-72h+",
       "p_home": 0.9839,
       "p_draw": 0.0,
@@ -3785,8 +3785,8 @@
           "p_home": 0.9839,
           "p_draw": 0.0,
           "p_away": 0.0161,
-          "hours_before": 670.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 663.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3799,8 +3799,8 @@
       "away_id": "23358",
       "home_name": "Зенит",
       "away_name": "Динамо",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 670.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 663.6,
       "stage": "T-72h+",
       "p_home": 0.8977,
       "p_draw": 0.0,
@@ -3822,8 +3822,8 @@
           "p_home": 0.8977,
           "p_draw": 0.0,
           "p_away": 0.1023,
-          "hours_before": 670.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 663.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3836,8 +3836,8 @@
       "away_id": "2747",
       "home_name": "ПАРМА",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 740.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 733.6,
       "stage": "T-72h+",
       "p_home": 0.7928,
       "p_draw": 0.0,
@@ -3859,8 +3859,8 @@
           "p_home": 0.7928,
           "p_draw": 0.0,
           "p_away": 0.2072,
-          "hours_before": 740.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 733.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3873,8 +3873,8 @@
       "away_id": "688",
       "home_name": "Динамо",
       "away_name": "Енисей",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 759.7,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 752.6,
       "stage": "T-72h+",
       "p_home": 0.8028,
       "p_draw": 0.0,
@@ -3896,8 +3896,8 @@
           "p_home": 0.8028,
           "p_draw": 0.0,
           "p_away": 0.1972,
-          "hours_before": 759.7,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 752.6,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3910,8 +3910,8 @@
       "away_id": "15",
       "home_name": "УНИКС",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 789.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 782.1,
       "stage": "T-72h+",
       "p_home": 0.6587,
       "p_draw": 0.0,
@@ -3933,8 +3933,8 @@
           "p_home": 0.6587,
           "p_draw": 0.0,
           "p_away": 0.3413,
-          "hours_before": 789.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 782.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3947,8 +3947,8 @@
       "away_id": "697",
       "home_name": "Динамо",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 956.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 949.1,
       "stage": "T-72h+",
       "p_home": 0.4612,
       "p_draw": 0.0,
@@ -3970,8 +3970,8 @@
           "p_home": 0.4612,
           "p_draw": 0.0,
           "p_away": 0.5388,
-          "hours_before": 956.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 949.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -3984,8 +3984,8 @@
       "away_id": "2994",
       "home_name": "Уралмаш",
       "away_name": "Зенит",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 961.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 954.1,
       "stage": "T-72h+",
       "p_home": 0.4804,
       "p_draw": 0.0,
@@ -4007,8 +4007,8 @@
           "p_home": 0.4804,
           "p_draw": 0.0,
           "p_away": 0.5196,
-          "hours_before": 961.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 954.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4021,8 +4021,8 @@
       "away_id": "2747",
       "home_name": "ЦСКА",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 963.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 956.1,
       "stage": "T-72h+",
       "p_home": 0.9434,
       "p_draw": 0.0,
@@ -4044,8 +4044,8 @@
           "p_home": 0.9434,
           "p_draw": 0.0,
           "p_away": 0.0566,
-          "hours_before": 963.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 956.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4058,8 +4058,8 @@
       "away_id": "682",
       "home_name": "ПАРМА",
       "away_name": "Автодор",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 985.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 978.1,
       "stage": "T-72h+",
       "p_home": 0.8849,
       "p_draw": 0.0,
@@ -4081,8 +4081,8 @@
           "p_home": 0.8849,
           "p_draw": 0.0,
           "p_away": 0.1151,
-          "hours_before": 985.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 978.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4095,8 +4095,8 @@
       "away_id": "2792",
       "home_name": "Локомотив-Кубань",
       "away_name": "Самара",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 987.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 980.1,
       "stage": "T-72h+",
       "p_home": 0.961,
       "p_draw": 0.0,
@@ -4118,8 +4118,8 @@
           "p_home": 0.961,
           "p_draw": 0.0,
           "p_away": 0.039,
-          "hours_before": 987.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 980.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4132,8 +4132,8 @@
       "away_id": "682",
       "home_name": "Уралмаш",
       "away_name": "Автодор",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1057.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1050.1,
       "stage": "T-72h+",
       "p_home": 0.866,
       "p_draw": 0.0,
@@ -4155,8 +4155,8 @@
           "p_home": 0.866,
           "p_draw": 0.0,
           "p_away": 0.134,
-          "hours_before": 1057.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1050.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4169,8 +4169,8 @@
       "away_id": "3059",
       "home_name": "Динамо",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1076.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1069.1,
       "stage": "T-72h+",
       "p_home": 0.7313,
       "p_draw": 0.0,
@@ -4192,8 +4192,8 @@
           "p_home": 0.7313,
           "p_draw": 0.0,
           "p_away": 0.2687,
-          "hours_before": 1076.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1069.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4206,8 +4206,8 @@
       "away_id": "2994",
       "home_name": "Енисей",
       "away_name": "Зенит",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1079.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1072.1,
       "stage": "T-72h+",
       "p_home": 0.3881,
       "p_draw": 0.0,
@@ -4229,8 +4229,8 @@
           "p_home": 0.3881,
           "p_draw": 0.0,
           "p_away": 0.6119,
-          "hours_before": 1079.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1072.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4243,8 +4243,8 @@
       "away_id": "15",
       "home_name": "Локомотив-Кубань",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1083.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1076.1,
       "stage": "T-72h+",
       "p_home": 0.5707,
       "p_draw": 0.0,
@@ -4266,8 +4266,8 @@
           "p_home": 0.5707,
           "p_draw": 0.0,
           "p_away": 0.4293,
-          "hours_before": 1083.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1076.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4280,8 +4280,8 @@
       "away_id": "697",
       "home_name": "МБА-МАИ",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1107.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1100.1,
       "stage": "T-72h+",
       "p_home": 0.3863,
       "p_draw": 0.0,
@@ -4303,8 +4303,8 @@
           "p_home": 0.3863,
           "p_draw": 0.0,
           "p_away": 0.6137,
-          "hours_before": 1107.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1100.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4317,8 +4317,8 @@
       "away_id": "3059",
       "home_name": "Енисей",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1175.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1168.1,
       "stage": "T-72h+",
       "p_home": 0.6632,
       "p_draw": 0.0,
@@ -4340,8 +4340,8 @@
           "p_home": 0.6632,
           "p_draw": 0.0,
           "p_away": 0.3368,
-          "hours_before": 1175.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1168.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4354,8 +4354,8 @@
       "away_id": "2747",
       "home_name": "Самара",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1202.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1195.1,
       "stage": "T-72h+",
       "p_home": 0.3312,
       "p_draw": 0.0,
@@ -4377,8 +4377,8 @@
           "p_home": 0.3312,
           "p_draw": 0.0,
           "p_away": 0.6688,
-          "hours_before": 1202.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1195.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4391,8 +4391,8 @@
       "away_id": "15",
       "home_name": "Автодор",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1250.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1243.1,
       "stage": "T-72h+",
       "p_home": 0.2411,
       "p_draw": 0.0,
@@ -4414,8 +4414,8 @@
           "p_home": 0.2411,
           "p_draw": 0.0,
           "p_away": 0.7589,
-          "hours_before": 1250.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1243.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4428,8 +4428,8 @@
       "away_id": "697",
       "home_name": "Зенит",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1251.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1244.1,
       "stage": "T-72h+",
       "p_home": 0.7042,
       "p_draw": 0.0,
@@ -4451,8 +4451,8 @@
           "p_home": 0.7042,
           "p_draw": 0.0,
           "p_away": 0.2958,
-          "hours_before": 1251.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1244.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4465,8 +4465,8 @@
       "away_id": "1390",
       "home_name": "ПАРМА",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1273.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1266.1,
       "stage": "T-72h+",
       "p_home": 0.7106,
       "p_draw": 0.0,
@@ -4488,8 +4488,8 @@
           "p_home": 0.7106,
           "p_draw": 0.0,
           "p_away": 0.2894,
-          "hours_before": 1273.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1266.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4502,8 +4502,8 @@
       "away_id": "23358",
       "home_name": "Локомотив-Кубань",
       "away_name": "Динамо",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1275.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1268.1,
       "stage": "T-72h+",
       "p_home": 0.8747,
       "p_draw": 0.0,
@@ -4525,8 +4525,8 @@
           "p_home": 0.8747,
           "p_draw": 0.0,
           "p_away": 0.1253,
-          "hours_before": 1275.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1268.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4539,8 +4539,8 @@
       "away_id": "2747",
       "home_name": "Зенит",
       "away_name": "МБА-МАИ",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1323.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1316.1,
       "stage": "T-72h+",
       "p_home": 0.8949,
       "p_draw": 0.0,
@@ -4562,8 +4562,8 @@
           "p_home": 0.8949,
           "p_draw": 0.0,
           "p_away": 0.1051,
-          "hours_before": 1323.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1316.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4576,8 +4576,8 @@
       "away_id": "688",
       "home_name": "ЦСКА",
       "away_name": "Енисей",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1347.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1340.1,
       "stage": "T-72h+",
       "p_home": 0.957,
       "p_draw": 0.0,
@@ -4599,8 +4599,8 @@
           "p_home": 0.957,
           "p_draw": 0.0,
           "p_away": 0.043,
-          "hours_before": 1347.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1340.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4613,8 +4613,8 @@
       "away_id": "2650",
       "home_name": "ПАРМА",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1369.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1362.1,
       "stage": "T-72h+",
       "p_home": 0.6166,
       "p_draw": 0.0,
@@ -4636,8 +4636,8 @@
           "p_home": 0.6166,
           "p_draw": 0.0,
           "p_away": 0.3834,
-          "hours_before": 1369.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1362.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4650,8 +4650,8 @@
       "away_id": "23358",
       "home_name": "Автодор",
       "away_name": "Динамо",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1394.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1387.1,
       "stage": "T-72h+",
       "p_home": 0.6249,
       "p_draw": 0.0,
@@ -4673,8 +4673,8 @@
           "p_home": 0.6249,
           "p_draw": 0.0,
           "p_away": 0.3751,
-          "hours_before": 1394.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1387.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4687,8 +4687,8 @@
       "away_id": "2792",
       "home_name": "Уралмаш",
       "away_name": "Самара",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1417.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1410.1,
       "stage": "T-72h+",
       "p_home": 0.9211,
       "p_draw": 0.0,
@@ -4710,8 +4710,8 @@
           "p_home": 0.9211,
           "p_draw": 0.0,
           "p_away": 0.0789,
-          "hours_before": 1417.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1410.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4724,8 +4724,8 @@
       "away_id": "697",
       "home_name": "Енисей",
       "away_name": "УНИКС",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1439.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1432.1,
       "stage": "T-72h+",
       "p_home": 0.3824,
       "p_draw": 0.0,
@@ -4747,8 +4747,8 @@
           "p_home": 0.3824,
           "p_draw": 0.0,
           "p_away": 0.6176,
-          "hours_before": 1439.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1432.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4761,8 +4761,8 @@
       "away_id": "2650",
       "home_name": "МБА-МАИ",
       "away_name": "Локомотив-Кубань",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1443.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1436.1,
       "stage": "T-72h+",
       "p_home": 0.4857,
       "p_draw": 0.0,
@@ -4784,8 +4784,8 @@
           "p_home": 0.4857,
           "p_draw": 0.0,
           "p_away": 0.5143,
-          "hours_before": 1443.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1436.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4798,8 +4798,8 @@
       "away_id": "15",
       "home_name": "Зенит",
       "away_name": "ЦСКА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1443.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1436.1,
       "stage": "T-72h+",
       "p_home": 0.6253,
       "p_draw": 0.0,
@@ -4821,8 +4821,8 @@
           "p_home": 0.6253,
           "p_draw": 0.0,
           "p_away": 0.3747,
-          "hours_before": 1443.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1436.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4835,8 +4835,8 @@
       "away_id": "1390",
       "home_name": "Динамо",
       "away_name": "Уралмаш",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1508.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1501.1,
       "stage": "T-72h+",
       "p_home": 0.6621,
       "p_draw": 0.0,
@@ -4858,8 +4858,8 @@
           "p_home": 0.6621,
           "p_draw": 0.0,
           "p_away": 0.3379,
-          "hours_before": 1508.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1501.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     },
@@ -4872,8 +4872,8 @@
       "away_id": "3059",
       "home_name": "Самара",
       "away_name": "ПАРМА",
-      "generated_at": "2026-11-24T20:47:33+00:00",
-      "hours_before": 1514.2,
+      "generated_at": "2026-11-25T03:51:29+00:00",
+      "hours_before": 1507.1,
       "stage": "T-72h+",
       "p_home": 0.3062,
       "p_draw": 0.0,
@@ -4895,8 +4895,8 @@
           "p_home": 0.3062,
           "p_draw": 0.0,
           "p_away": 0.6938,
-          "hours_before": 1514.2,
-          "generated_at": "2026-11-24T20:47:33+00:00"
+          "hours_before": 1507.1,
+          "generated_at": "2026-11-25T03:51:29+00:00"
         }
       ]
     }
