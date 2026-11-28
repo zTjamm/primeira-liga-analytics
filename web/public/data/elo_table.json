@@ -149,19 +149,19 @@
   },
   {
     "team": "nacional",
-    "rating": 1441.9
+    "rating": 1453.6
   },
   {
     "team": "estrela",
     "rating": 1441.4
   },
   {
-    "team": "maritimo",
-    "rating": 1440.6
-  },
-  {
     "team": "casa_pia",
     "rating": 1433.6
+  },
+  {
+    "team": "maritimo",
+    "rating": 1428.9
   },
   {
     "team": "rio_ave",
